@@ -1,0 +1,15 @@
+{#def target, open=False, tag="button" #}
+{#js tab.js #}
+
+{%- if tag == "button" -%}
+    {% do attrs.setdefault(type="button") %}
+{%- endif -%}
+
+<{{ tag }} {{ attrs.render(
+    class="UITab",
+    role="tab",
+    aria_selected="true" if open else "false",
+    aria_controls=target,
+    tabindex="0" if open else "-1",
+    open=open,
+) }}>{{ content }}</{{ tag }}>

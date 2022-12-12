@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "jinjax-ui"
+version = "0.1"
+description = "Headless JinjaX UI components"
+authors = ["Juan-Pablo Scaletti <juanpablo@jpscaletti.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://jinjax-ui.scaletti.dev/"
+repository = "https://github.com/jpsca/jinjax-ui"
+documentation = "https://jinjax-ui.scaletti.dev/docs/"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Other Audience",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Typing :: Typed",
+]
+include = ["jinjax_ui/components/*"]
+
+[tool.poetry.dependencies]
+jinjax = ">=0.17"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
