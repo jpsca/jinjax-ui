@@ -1,0 +1,20 @@
+{#def target, selected=false, disabled=false, tag="button" #}
+{#js jxui.js, jxui-tab.js #}
+
+{%- if tag == "button" -%}
+  {% do attrs.setdefault(type="button") %}
+{%- endif -%}
+
+{% if disabled %}
+  {% do attrs.set(class="ui-disabled") %}
+{% elif selected %}
+  {% do attrs.set(class="ui-selected") %}
+{% endif %}
+
+<{{ tag }} {{ attrs.render(
+  class="ui-tab",
+  role="tab",
+  aria_selected="true" if selected and not disabled else "false",
+  aria_controls=target,
+  tabindex="0" if selected else "-1",
+) }}>{{ content }}</{{ tag }}>

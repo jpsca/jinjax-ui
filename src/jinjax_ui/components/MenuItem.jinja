@@ -1,0 +1,11 @@
+{#def disabled=false, tag="div" #}
+
+{% if disabled -%}
+  {% do attrs.set(class="ui-disabled") %}
+{%- endif %}
+
+<{{ tag }} {{ attrs.render(
+  class="ui-menuitem",
+  role="menuitem",
+  tabindex="-1",
+) }}>{{ content }}</{{ tag }}>

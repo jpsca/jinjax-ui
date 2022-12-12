@@ -1,0 +1,11 @@
+{#def hidden=False, tag="div" #}
+
+{% do attrs.setdefault(tabindex="0") %}
+{% if hidden %}
+  {% do attrs.set(class="ui-hidden") %}
+{% endif %}
+
+<{{ tag }} {{ attrs.render(
+  class="ui-tabpanel",
+  role="tabpanel",
+) }}>{{ content }}</{{ tag }}>

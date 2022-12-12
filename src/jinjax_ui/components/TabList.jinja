@@ -1,0 +1,10 @@
+{#def vertical=False, manual=False, tag="nav" #}
+{#js jxui.js, jxui-tab.js #}
+
+<{{ tag }} {{ attrs.render(
+    class="ui-tablist",
+    role="tablist",
+    aria_orientation="vertical" if vertical else "horizontal",
+    data_manual=manual,
+    tabindex="-1",
+) }}>{{ content }}</{{ tag }}>
