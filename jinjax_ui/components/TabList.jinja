@@ -1,0 +1,9 @@
+{#def vertical=False, manual=False, tag="nav" #}
+
+<{{ tag }} {{ attrs.render(
+    class="UITabList",
+    role="tablist",
+    aria_orientation="vertical" if vertical else "horizontal",
+    manual=manual,
+    tabindex=False,
+) }}>{{ content }}</{{ tag }}>
