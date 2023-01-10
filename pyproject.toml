@@ -5,9 +5,9 @@ description = "Headless JinjaX UI components"
 authors = ["Juan-Pablo Scaletti <juanpablo@jpscaletti.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://jinjax-ui.scaletti.dev/"
+# homepage = "https://jinjax-ui.scaletti.dev/"
 repository = "https://github.com/jpsca/jinjax-ui"
-documentation = "https://jinjax-ui.scaletti.dev/docs/"
+# documentation = "https://jinjax-ui.scaletti.dev/docs/"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Web Environment",
