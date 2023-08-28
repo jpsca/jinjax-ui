@@ -1,16 +1,17 @@
 (function(){
 
-const SEL_TAB = '.UITab';
-const SEL_TABLIST = '.UITabList';
-const SEL_TABGROUP = '.UITabGroup';
-const SEL_TABPANEL = '.UITabPanel';
+const SEL_TAB = '[data-tab]';
+const SEL_TABLIST = '[data-tablist]';
+const SEL_TABGROUP = '[data-tabgroup]';
+const SEL_TABPANEL = '[data-tabpanel]';
 
-const OPEN = "open";
-const ARIA_SELECTED = "aria-selected";
-const HIDDEN = "hidden";
-const DISABLED = "disabled";
+const SELECTED_CLASS = "selected";
+const ARIA_SELECTED_ATTR = "aria-selected";
+const HIDDEN_ATTR = "hidden";
+const DISABLED_ATTR = "disabled";
+const TABINDEX_ATTR = "tabindex";
 
-const ACTIVATED_EVENT = OPEN;
+const EVENT_SELECTED = "jxui:tab:selected";
 
 const SPACE_KEY = " ";
 const ENTER_KEY = "Enter";
@@ -35,29 +36,20 @@ const HANDLED_KEYS = [
   PAGE_DOWN_KEY,
 ];
 
-addEvents(document)
+jxui.on("click", SEL_TAB, handleSelection);
+jxui.on("keydown", SEL_TAB, handleKeyDown);
 
-function addEvents (root) {
-  root.querySelectorAll(SEL_TAB)
-    .forEach( (node) => {
-      node.addEventListener("click", handleSelection);
-      node.addEventListener("keydown", handleKeyDown);
-    });
-}
-
-function handleSelection(event) {
-  const tab = event.currentTarget;
-  if (tab.getAttribute(DISABLED)) return;
+function handleSelection(event, tab) {
+  if (tab.getAttribute(DISABLED_ATTR)) return;
   select(tab);
 }
 
-function handleKeyDown(event) {
+function handleKeyDown(event, tab) {
   if (!HANDLED_KEYS.includes(event.key)) return;
 
-  const tab = event.currentTarget;
   const tabList = tab.closest(SEL_TABLIST);
   const manual = tabList.hasAttribute("manual");
-  const tabs = tabList.querySelectorAll(`${SEL_TAB}:not([${DISABLED}]`);
+  const tabs = tabList.querySelectorAll(`${SEL_TAB}:not([${DISABLED_ATTR}]`);
   const lastIndex = tabs.length;
   let newTab;
 
@@ -114,22 +106,22 @@ function handleKeyDown(event) {
 }
 
 function select(tab) {
-  tab.dispatchEvent(new CustomEvent(ACTIVATED_EVENT));
+  tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
 
   tab
     .closest(SEL_TABLIST)
-    .querySelectorAll(`${SEL_TAB}[${OPEN}]`)
+    .querySelectorAll(`${SEL_TAB}.${SELECTED_CLASS}`)
     .forEach(el => {
       if (el === tab) return;
-      el.removeAttribute(OPEN);
-      el.removeAttribute(ARIA_SELECTED);
-      el.setAttribute("tabindex", "-1");
+      el.classList.remove(SELECTED_CLASS);
+      el.removeAttribute(ARIA_SELECTED_ATTR);
+      el.setAttribute(TABINDEX_ATTR, "-1");
     });
 
   tab.focus();
-  tab.setAttribute(OPEN, true);
-  tab.setAttribute(ARIA_SELECTED, "true");
-  tab.setAttribute("tabindex", "0");
+  tab.classList.add(SELECTED_CLASS);
+  tab.setAttribute(ARIA_SELECTED_ATTR, "true");
+  tab.setAttribute(TABINDEX_ATTR, "0");
 
   const panelId = tab.getAttribute("aria-controls");
   const panel = document.getElementById(panelId);
@@ -137,10 +129,10 @@ function select(tab) {
   querySameLevel(panel.closest(SEL_TABGROUP), SEL_TABPANEL)
     .forEach(el => {
       if (el === panel) return;
-      el.classList.add(HIDDEN);
+      el.classList.add(HIDDEN_ATTR);
     });
 
-  panel.classList.remove(HIDDEN);
+  panel.classList.remove(HIDDEN_ATTR);
 }
 
 function querySameLevel(parent, sel) {
@@ -154,24 +146,5 @@ function querySameLevel(parent, sel) {
   });
   return nodes;
 }
-
-/* ----------------------------- */
-
-new MutationObserver( (mutationList) => {
-  mutationList.forEach( (mutation) => {
-    if (mutation.type !== "childList") return;
-    mutation.addedNodes.forEach( (node) => {
-      if (node.nodeType === 1) {  // Element node
-        addEvents(node);
-      }
-    });
-  })
-})
-.observe(document.body, {
-    subtree: true,
-    childList: true,
-    attributes: false,
-    characterData: false
-});
 
 })()

@@ -1,4 +1,6 @@
 {#def tag="div" #}
-{#js accordion.js #}
+{#js "jxui.js", "jxui-accordion.js" #}
 
-<{{ tag }} {{ attrs.render(class="UIAccordion") }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(
+  data_accordion=true,
+) }}>{{ content }}</{{ tag }}>

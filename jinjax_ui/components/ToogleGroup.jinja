@@ -1,4 +1,6 @@
 {#def tag="div" #}
-{#js toogleGroup.js #}
+{#js "jxui-toogleGroup.js" #}
 
-<{{ tag }} {{ attrs.render(class="UIToggleGroup") }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(
+  data_togglegroup=true,
+) }}>{{ content }}</{{ tag }}>

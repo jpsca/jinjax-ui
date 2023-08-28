@@ -21,7 +21,8 @@ classifiers = [
 include = ["jinjax_ui/components/*"]
 
 [tool.poetry.dependencies]
-jinjax = ">=0.17"
+python = "^3.9"
+jinjax = "*"
 
 [tool.poetry.group.dev]
 optional = true

@@ -1,3 +1,5 @@
 {#def tag="div" #}
 
-<{{ tag }} {{ attrs.render(class="UITabGroup") }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(
+  data_tabgroup=true,
+) }}>{{ content }}</{{ tag }}>
