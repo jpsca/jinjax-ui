@@ -1,4 +1,4 @@
-{#def preview, code #}
+{#def prefix, tabs, examples #}
 
 <div {{ attrs.render(
   class="not-prose relative mt-8 mb-12 flex flex-col items-center justify-center overflow-hidden rounded-xl"
@@ -33,8 +33,9 @@
             md:rounded-lg
           "
         >
+          {%- for text in tabs %}
           <Tab
-            target="ex1-wrapper-preview"
+            target={"%s-%s" % (prefix, loop.index)}
             class="
               bg-white
               bg-opacity-0
@@ -54,49 +55,20 @@
             focus-visible:ring-white
               focus-visible:ring-opacity-50
             "
-          >Preview</Tab>
-          <Tab
-            target="ex1-wrapper-code"
-            class="
-              bg-white
-              bg-opacity-0
-              hover:[&:not(.selected)]:bg-opacity-[0.05]
-              [&.selected]:bg-opacity-20
-              pointer-events-auto
-              mr-1
-              flex
-              rounded-md
-              px-3
-              py-2
-              text-xs
-              font-medium
-              text-white
-              focus-visible:outline-none
-              focus-visible:ring-2
-            focus-visible:ring-white
-              focus-visible:ring-opacity-50
-            "
-          >Code</Tab>
+            selected={loop.index == 1}
+          >{{ text }}</Tab>
+          {%- endfor %}
         </div>
       </TabList>
+      {%- for name in examples %}
       <TabPanel
-        id="ex1-wrapper-preview"
+        id={"%s-%s" % (prefix, loop.index)}
         class="flex w-full flex-col items-center justify-center"
+        hidden={loop.index != 1}
       >
-        {{ catalog.render(preview) }}
+        {{ catalog.render(name) }}
       </TabPanel>
-      <TabPanel
-        id="ex1-wrapper-code"
-        class="
-          [&:not(.hidden)]:flex
-          w-full
-          flex-col
-          items-center
-          justify-center
-        "
-      >
-        {{ catalog.render(code) }}
-      </TabPanel>
+      {%- endfor %}
     </TabGroup>
   </div>
 </div>

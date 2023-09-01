@@ -4,7 +4,6 @@
       <Tab
         target="ex1-recent"
         class="
-          selected
           w-full
           rounded-lg
           py-2.5
@@ -24,6 +23,7 @@
           [&.selected]:bg-white
           [&.selected]:shadow
         "
+        selected
       >Recent</Tab>
       <Tab
         target="ex1-popular"
@@ -60,7 +60,7 @@
           ring-white
           ring-opacity-60
           ring-offset-2
-        ring-offset-blue-400
+          ring-offset-blue-400
           focus:outline-none
           [&:not(.selected)]:text-blue-100
           [&:not(.selected)]:hover:bg-white/[0.12]
@@ -75,7 +75,18 @@
 
     <TabPanel
       id="ex1-recent"
-      class="rounded-xl bg-white p-3 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+      class="
+        [&[hidden]]:hidden
+        rounded-xl
+        bg-white
+        p-3
+        ring-white
+        ring-opacity-60
+        ring-offset-2
+        ring-offset-blue-400
+        focus:outline-none
+        focus:ring-2
+      "
     >
       <ul><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">Does drinking coffee make you smarter?</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>5h ago</li><li>·</li>
       <li>5 comments</li><li>·</li><li>2 shares</li></ul></li><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">So you've bought coffee... now what?</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>2h ago</li><li>·</li><li>3 comments</li><li>·</li><li>2 shares</li></ul></li></ul>
@@ -83,14 +94,38 @@
 
     <TabPanel
       id="ex1-popular"
-      class="hidden rounded-xl bg-white p-3 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+      class="
+        [&[hidden]]:hidden
+        rounded-xl
+        bg-white
+        p-3
+        ring-white
+        ring-opacity-60
+        ring-offset-2
+        ring-offset-blue-400
+        focus:outline-none
+        focus:ring-2
+      "
+      hidden
     >
       <ul><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">Is tech making coffee better or worse?</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>Jan 7</li><li>·</li><li>29 comments</li><li>·</li><li>16 shares</li></ul></li><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">The most innovative things happening in coffee</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>Mar 19</li><li>·</li><li>24 comments</li><li>·</li><li>12 shares</li></ul></li></ul>
     </TabPanel>
 
     <TabPanel
       id="ex1-trending"
-      class="hidden rounded-xl bg-white p-3 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+      class="
+        [&[hidden]]:hidden
+        rounded-xl
+        bg-white
+        p-3
+        ring-white
+        ring-opacity-60
+        ring-offset-2
+        ring-offset-blue-400
+        focus:outline-none
+        focus:ring-2
+      "
+      hidden
     >
       <ul><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">Ask Me Anything: 10 answers to your questions about coffee</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>2d ago</li><li>·</li><li>9 comments</li><li>·</li><li>5 shares</li></ul></li><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">The worst advice we've ever heard about coffee</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>4d ago</li><li>·</li><li>1 comments</li><li>·</li><li>2 shares</li></ul></li></ul>
     </TabPanel>

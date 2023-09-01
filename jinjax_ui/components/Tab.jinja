@@ -1,4 +1,4 @@
-{#def target, open=False, tag="button" #}
+{#def target, selected=False, tag="button" #}
 {#js "jxui.js", "jxui-tab.js" #}
 
 {%- if tag == "button" -%}
@@ -7,9 +7,9 @@
 
 <{{ tag }} {{ attrs.render(
     data_tab=true,
+    class="selected" if selected else "",
     role="tab",
-    aria_selected="true" if open else "false",
+    aria_selected="true" if selected else "false",
     aria_controls=target,
-    tabindex="0" if open else "-1",
-    open=open,
+    tabindex="0" if selected else "-1",
 ) }}>{{ content }}</{{ tag }}>

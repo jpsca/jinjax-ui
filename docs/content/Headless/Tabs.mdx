@@ -8,11 +8,27 @@ Easily create accessible, fully customizable tab interfaces, with robust focus m
 
 <Example
   class="bg-gradient-to-r from-sky-400 to-blue-600"
-  preview="TabsEx1Preview"
-  code="TabsEx1Code"
+  prefix="demo"
+  tabs={["Default", "Vertical", "Manual"]}
+  examples={["TabsDemoDefault", "TabsDemoVertical", "TabsDemoManual"]}
 />
 
 Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel. A `hidden` class will be added to the rest of the panels so you must add a style to hide them.
 
 By default the first tab is selected with the `selected` class. You can change the initially selected tab by adding the `selected` class to the tab you want to select.
 
+<Example
+  class="bg-gradient-to-r from-sky-400 to-blue-600"
+  prefix="ex1"
+  tabs={["Preview", "Code"]}
+  examples={["TabsEx1Preview", "TabsEx1Code"]}
+/>
+
+
+
+## Arguments
+
+| Argument               | Description |
+| ---------------------- | ----------- |
+| Header                 | Title       |
+| Paragraph              | Text        |
