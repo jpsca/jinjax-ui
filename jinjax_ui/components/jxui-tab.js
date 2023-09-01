@@ -1,13 +1,13 @@
 (function(){
 
-const SEL_TAB = '[data-tab]';
-const SEL_TABLIST = '[data-tablist]';
 const SEL_TABGROUP = '[data-tabgroup]';
+const SEL_TABLIST = '[data-tablist]';
+const SEL_TAB = '[data-tab]';
 const SEL_TABPANEL = '[data-tabpanel]';
 
 const SELECTED_CLASS = "selected";
+const HIDDEN_CLASS = "hidden";
 const ARIA_SELECTED_ATTR = "aria-selected";
-const HIDDEN_ATTR = "hidden";
 const DISABLED_ATTR = "disabled";
 const TABINDEX_ATTR = "tabindex";
 
@@ -128,11 +128,11 @@ function select(tab) {
 
   querySameLevel(panel.closest(SEL_TABGROUP), SEL_TABPANEL)
     .forEach(el => {
+      el.classList.add(HIDDEN_CLASS);
       if (el === panel) return;
-      el.classList.add(HIDDEN_ATTR);
     });
+    panel.classList.remove(HIDDEN_CLASS);
 
-  panel.classList.remove(HIDDEN_ATTR);
 }
 
 function querySameLevel(parent, sel) {
@@ -146,5 +146,24 @@ function querySameLevel(parent, sel) {
   });
   return nodes;
 }
+
+function selectDefault(tabGroup) {
+  let tab = tabGroup.querySelector(`${SEL_TAB}.${SELECTED_CLASS}`);
+  if (!tab) {
+    tab = tabGroup.querySelector(SEL_TAB);
+  }
+  if (tab) {
+    tabGroup.querySelectorAll(SEL_TABPANEL).forEach(el => {
+      el.classList.add(HIDDEN_CLASS);
+    });
+    select(tab);
+  }
+}
+
+function selectAllDefaults() {
+  document.querySelectorAll(SEL_TABGROUP).forEach(selectDefault);
+}
+
+document.addEventListener("DOMContentLoaded", selectAllDefaults);
 
 })()

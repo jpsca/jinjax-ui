@@ -1,0 +1,102 @@
+{#def preview, code #}
+
+<div {{ attrs.render(
+  class="not-prose relative mt-8 mb-12 flex flex-col items-center justify-center overflow-hidden rounded-xl"
+) }}>
+  <div class="flex w-full flex-col items-center justify-center relative">
+    <TabGroup class="w-full">
+      <TabList
+        class="
+          absolute
+          pointer-events-none
+          left-1
+          top-1
+          right-1
+          z-10
+          md:left-auto
+        "
+      >
+        <div
+          class="
+          bg-black
+            bg-opacity-10
+            backdrop-blur
+            backdrop-filter
+            md:bg-opacity-0
+            flex
+            items-stretch
+            justify-end
+            rounded-t-[10px]
+            px-3
+            py-2
+            md:m-1
+            md:rounded-lg
+          "
+        >
+          <Tab
+            target="ex1-wrapper-preview"
+            class="
+              bg-white
+              bg-opacity-0
+              hover:[&:not(.selected)]:bg-opacity-[0.05]
+              [&.selected]:bg-opacity-20
+              pointer-events-auto
+              mr-1
+              flex
+              rounded-md
+              px-3
+              py-2
+              text-xs
+              font-medium
+              text-white
+              focus-visible:outline-none
+              focus-visible:ring-2
+            focus-visible:ring-white
+              focus-visible:ring-opacity-50
+            "
+          >Preview</Tab>
+          <Tab
+            target="ex1-wrapper-code"
+            class="
+              bg-white
+              bg-opacity-0
+              hover:[&:not(.selected)]:bg-opacity-[0.05]
+              [&.selected]:bg-opacity-20
+              pointer-events-auto
+              mr-1
+              flex
+              rounded-md
+              px-3
+              py-2
+              text-xs
+              font-medium
+              text-white
+              focus-visible:outline-none
+              focus-visible:ring-2
+            focus-visible:ring-white
+              focus-visible:ring-opacity-50
+            "
+          >Code</Tab>
+        </div>
+      </TabList>
+      <TabPanel
+        id="ex1-wrapper-preview"
+        class="flex w-full flex-col items-center justify-center"
+      >
+        {{ catalog.render(preview) }}
+      </TabPanel>
+      <TabPanel
+        id="ex1-wrapper-code"
+        class="
+          [&:not(.hidden)]:flex
+          w-full
+          flex-col
+          items-center
+          justify-center
+        "
+      >
+        {{ catalog.render(code) }}
+      </TabPanel>
+    </TabGroup>
+  </div>
+</div>

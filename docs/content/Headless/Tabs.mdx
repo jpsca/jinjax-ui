@@ -6,70 +6,13 @@ title: Tabs
 
 Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support.
 
-<div class="not-prose relative mt-8 mb-12 flex flex-col items-center justify-center overflow-hidden rounded-xl bg-gradient-to-r from-sky-400 to-blue-600">
-  <div class="flex w-full flex-col items-center justify-center relative">
-    <TabGroup class="w-full">
-      <TabList class="absolute pointer-events-none left-1 top-1 right-1 z-10 md:left-auto">
-        <div class="bg-black bg-opacity-10 backdrop-blur backdrop-filter md:bg-opacity-0 flex items-stretch justify-end rounded-t-[10px] px-3 py-2 md:m-1 md:rounded-lg">
-          <Tab
-            target="ex1-wrapper-preview"
-            class="
-              selected
-              bg-white
-              bg-opacity-0
-              hover:[&:not(.selected)]:bg-opacity-[0.05]
-              [&.selected]:bg-opacity-20
-              pointer-events-auto
-              mr-1
-              flex
-              rounded-md
-              px-3
-              py-2
-              text-xs
-              font-medium
-              text-white
-              focus-visible:outline-none
-              focus-visible:ring-2
-            focus-visible:ring-white
-              focus-visible:ring-opacity-50
-            "
-          >Preview</Tab>
-          <Tab
-            target="ex1-wrapper-code"
-            class="
-              bg-white
-              bg-opacity-0
-              hover:[&:not(.selected)]:bg-opacity-[0.05]
-              [&.selected]:bg-opacity-20
-              pointer-events-auto
-              mr-1
-              flex
-              rounded-md
-              px-3
-              py-2
-              text-xs
-              font-medium
-              text-white
-              focus-visible:outline-none
-              focus-visible:ring-2
-            focus-visible:ring-white
-              focus-visible:ring-opacity-50
-            "
-          >Code</Tab>
-        </div>
-      </TabList>
-      <TabPanel
-        id="ex1-wrapper-preview"
-        class="flex w-full flex-col items-center justify-center"
-      >
-        <TabsEx1Preview />
-      </TabPanel>
-      <TabPanel
-        id="ex1-wrapper-code"
-        class="hidden [&:not(.hidden)]:flex w-full flex-col items-center justify-center"
-      >
-        <TabsEx1Code />
-      </TabPanel>
-    </TabGroup>
-  </div>
-</div>
+<Example
+  class="bg-gradient-to-r from-sky-400 to-blue-600"
+  preview="TabsEx1Preview"
+  code="TabsEx1Code"
+/>
+
+Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel. A `hidden` class will be added to the rest of the panels so you must add a style to hide them.
+
+By default the first tab is selected with the `selected` class. You can change the initially selected tab by adding the `selected` class to the tab you want to select.
+
