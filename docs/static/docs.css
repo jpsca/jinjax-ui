@@ -434,10 +434,43 @@ video {
   display: none;
 }
 
+@font-face {
+  font-family: silka;
+
+  src: url("./silka.woff2") format("woff2");
+
+  font-display: swap;
+
+  font-style: normal;
+
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: silka;
+
+  src: url("./silka-medium.woff2") format("woff2");
+
+  font-display: swap;
+
+  font-style: normal;
+
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: silka;
+
+  src: url("./silka-semibold.woff2") format("woff2");
+
+  font-display: swap;
+
+  font-style: normal;
+
+  font-weight: 600;
+}
+
 :root {
-  --accent: #00c100;
-  --accent-darker: #84cc16;
-  /* https://github.com/argyleink/open-props/blob/main/src/props.easing.css */
   --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
   --ease-out-5: cubic-bezier(0, 0, 0, 1);
   --ease-elastic-3: cubic-bezier(0.5, 1.25, 0.75, 1.25);
@@ -1129,6 +1162,11 @@ video {
   background-color: rgb(231 229 228 / var(--tw-bg-opacity));
 }
 
+.bg-stone-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 162 158 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1153,11 +1191,6 @@ video {
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
 
-.bg-stone-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(168 162 158 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-0 {
   --tw-bg-opacity: 0;
 }
@@ -1178,54 +1211,14 @@ video {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.bg-gradient-to-t {
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
 .from-sky-400 {
   --tw-gradient-from: #38bdf8 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(56 189 248 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-stone-400 {
-  --tw-gradient-from: #a8a29e var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(168 162 158 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-stone-200 {
-  --tw-gradient-from: #e7e5e4 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(231 229 228 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-stone-300 {
-  --tw-gradient-from: #d6d3d1 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(214 211 209 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-stone-500 {
-  --tw-gradient-from: #78716c var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(120 113 108 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .to-blue-600 {
   --tw-gradient-to: #2563eb var(--tw-gradient-to-position);
-}
-
-.to-stone-600 {
-  --tw-gradient-to: #57534e var(--tw-gradient-to-position);
-}
-
-.to-stone-400 {
-  --tw-gradient-to: #a8a29e var(--tw-gradient-to-position);
 }
 
 .fill-zinc-600 {
