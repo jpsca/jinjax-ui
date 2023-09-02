@@ -2,33 +2,108 @@
 title: Tabs
 ---
 
-# Tabs
-
-Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support.
+<Header title="Tabs" section=" ">
+  Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support.
+</Header>
 
 <Example
   class="bg-gradient-to-r from-sky-400 to-blue-600"
   prefix="demo"
-  tabs={["Default", "Vertical", "Manual"]}
-  examples={["TabsDemoDefault", "TabsDemoVertical", "TabsDemoManual"]}
+  tabs={{
+    "Preview": "TabsDemoPreview",
+    "Code": "TabsDemoCode"
+  }}
 />
 
-Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel. A `hidden` class will be added to the rest of the panels so you must add a style to hide them.
+Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
+A `hidden` class is added to all panels except the one that is active, so you must add a style to use that class to hide them (if one not exists).
 
-By default the first tab is selected with the `selected` class. You can change the initially selected tab by adding the `selected` class to the tab you want to select.
+
+## Disabling a tab
+
+To disable a tab, use the disabled attribute on the Tab component. Disabled tabs cannot be selected with the mouse,
+and are also skipped when navigating the tab list using the keyboard.
 
 <Example
-  class="bg-gradient-to-r from-sky-400 to-blue-600"
-  prefix="ex1"
-  tabs={["Preview", "Code"]}
-  examples={["TabsEx1Preview", "TabsEx1Code"]}
+  class="bg-stone-400"
+  prefix="disabled"
+  tabs={{
+    "Code": "TabsDisabledCode",
+    "Preview": "TabsDisabledPreview",
+  }}
 />
 
+## Manually activating tabs
+
+By default, tabs are automatically selected as the user navigates through them using the arrow keys.
+
+If you'd rather not change the current tab until the user presses <Key>Enter</Key> or <Key>Space</Key>, use the `manual` attribute on the `TabGroup` component.
+
+<Example
+  class="bg-stone-400"
+  prefix="manual"
+  tabs={{
+    "Code": "TabsManualCode",
+    "Preview": "TabsManualPreview",
+  }}
+/>
+
+The manual prop has no impact on mouse interactions — tabs will still be selected as soon as they are clicked.
+
+
+## Vertical tabs
+
+If you've styled your `TabList` to appear vertically, use the `vertical` attribute to enable navigating with the <Key title="arrow up">↑</Key> and <Key title="arrow down">↓</Key> arrow keys instead of <Key title="arrow left">←</Key> and <Key title="arrow right">→</Key>, and to update the `aria-orientation` attribute for assistive technologies.
+
+Example
+
+
+## Accessibility notes
+
+### Mouse interaction
+
+Clicking a Tab will select that tab and display the corresponding Tab.Panel.
+
+### Keyboard interaction
+
+All interactions apply when a `Tab` component is focused.
+
+| Command                                                                               | Description
+| ------------------------------------------------------------------------------------- | -----------
+| <Key title="arrow left">←</Key> / <Key title="arrow right">→</Key> arrow keys                     | Selects the previous/next non-disabled tab.
+| <Key title="arrow up">↑</Key> / <Key title="arrow down">↓</Key> arrow keys when `vertical` is set | Selects the previous/next non-disabled tab.
+| <Key>Enter</Key> or <Key>Space</Key> when `manual` is set                             | Activates the selected tab
 
 
 ## Arguments
 
-| Argument               | Description |
-| ---------------------- | ----------- |
-| Header                 | Title       |
-| Paragraph              | Text        |
+### TabGroup
+
+| Argument                | Description
+| ----------------------- | -----------
+| tag (`"div"`)           | HTML tag used for rendering the wrapper.
+
+### TabList
+
+| Argument                | Description
+| ----------------------- | -----------
+| vertical (`false`)      | Use the <Key title="arrow up">↑</Key> and <Key title="arrow down">↓</Key> arrow keys to move between tabs instead of the defaults <Key title="arrow left">←</Key> and <Key title="arrow right">→</Key> arrow keys.
+| manual (`false`)        | If `true`, selecting a tab with the keyboard won't activate it, you must press <Key>Enter</Key> os <Key>Space</Key> keys to do it.
+| tag (`"nav"`)           | HTML tag used for rendering the wrapper.
+
+
+### Tab
+
+| Argument            | Description
+| ------------------- | -----------
+| target              | HTML id of the panel associated with this tab.
+| selected (`false`)  | Initially selected tab. Only one tab in the `TabList` can be selected at the time.
+| tag (`"button"`)    | HTML tag used for rendering the tag.
+
+
+### TabPanel
+
+| Argument                | Description
+| ----------------------- | -----------
+| hidden (`false`)        | Initially hidden panel.
+| tag (`"div"`)           | HTML tag used for rendering the panel.

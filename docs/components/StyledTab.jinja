@@ -1,0 +1,24 @@
+{% do attrs.set(
+  class="
+    w-full
+    rounded-lg
+    py-2.5
+    text-sm
+    font-medium
+    leading-5
+    ring-white
+    ring-opacity-60
+    ring-offset-2
+    ring-offset-blue-400
+    focus:outline-none
+    [&:not(.selected,[disabled])]:text-blue-100
+    [&:not(.selected,[disabled])]:hover:bg-white/[0.12]
+    [&:not(.selected,[disabled])]:hover:text-white
+    [&.selected]:text-blue-700
+    [&.selected]:focus:ring-2
+    [&.selected]:bg-white
+    [&.selected]:shadow
+  "
+) %}
+
+<Tab __attrs={attrs}>{{ content }}</Tab>

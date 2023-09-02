@@ -1,4 +1,4 @@
-{#def prefix, tabs, examples #}
+{#def prefix, tabs #}
 
 <div {{ attrs.render(
   class="not-prose relative mt-8 mb-12 flex flex-col items-center justify-center overflow-hidden rounded-xl"
@@ -33,9 +33,9 @@
             md:rounded-lg
           "
         >
-          {%- for text in tabs %}
+          {%- for text in tabs.keys() %}
           <Tab
-            target={"%s-%s" % (prefix, loop.index)}
+            target={"ex-%s-%s" % (prefix, loop.index)}
             class="
               bg-white
               bg-opacity-0
@@ -60,9 +60,9 @@
           {%- endfor %}
         </div>
       </TabList>
-      {%- for name in examples %}
+      {%- for name in tabs.values() %}
       <TabPanel
-        id={"%s-%s" % (prefix, loop.index)}
+        id={"ex-%s-%s" % (prefix, loop.index)}
         class="flex w-full flex-col items-center justify-center"
         hidden={loop.index != 1}
       >

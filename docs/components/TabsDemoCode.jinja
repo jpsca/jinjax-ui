@@ -1,0 +1,27 @@
+<div class="
+  w-full
+  bg-gray-900
+  text-[0.95rem]
+  px-4
+  pt-12
+  pb-12
+  md:pt-4
+  overflow-x-auto
+">
+{% markdown %}{% raw %}
+```html+jinja
+{# Style classes and content removed for clarity #}
+<TabGroup>
+  <TabList>
+    <Tab target="recent" selected>Recent</Tab>
+    <Tab target="popular">Popular</Tab>
+    <Tab target="trending">Trending</Tab>
+  </TabList>
+
+  <TabPanel id="recent"> ... </TabPanel>
+  <TabPanel id="popular" hidden> ... </TabPanel>
+  <TabPanel id="trending" hidden> ... </TabPanel>
+</TabGroup>
+```
+{% endraw %}{% endmarkdown %}
+</div>
