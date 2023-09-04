@@ -2,6 +2,8 @@
 
 const SEL_TABGROUP = '[data-tabgroup]';
 const SEL_TABLIST = '[data-tablist]';
+const SEL_TABSELECT = '[data-tabselect]';
+const SEL_TABOPTION = '[data-taboption]';
 const SEL_TAB = '[data-tab]';
 const SEL_TABPANEL = '[data-tabpanel]';
 
@@ -10,6 +12,7 @@ const HIDDEN_CLASS = "hidden";
 const ARIA_SELECTED_ATTR = "aria-selected";
 const ARIA_ORIENTATION_ATTR = "aria-orientation";
 const ARAIA_CONTROLS_ATTR = "aria-controls";
+const CHECKED_ATTR = "checked";
 const MANUAL_ATTR = "data-manual";
 const DISABLED_ATTR = "disabled";
 const TABINDEX_ATTR = "tabindex";
@@ -42,10 +45,16 @@ const HANDLED_KEYS = [
 
 jxui.on("click", SEL_TAB, handleSelection);
 jxui.on("keydown", SEL_TAB, handleKeyDown);
+jxui.on("change", SEL_TABSELECT, handleChangeSelect);
+
 
 function handleSelection(event, tab) {
   if (tab.getAttribute(DISABLED_ATTR)) return;
   select(tab);
+}
+
+function handleChangeSelect(event) {
+  console.debug(event);
 }
 
 function handleKeyDown(event, tab) {
@@ -118,8 +127,9 @@ function handleKeyDown(event, tab) {
 function select(tab) {
   tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
 
-  tab
-    .closest(SEL_TABLIST)
+  const tablist = tab.closest(SEL_TABLIST)
+  if (tablist) {
+    tablist
     .querySelectorAll(`${SEL_TAB}.${SELECTED_CLASS}`)
     .forEach(el => {
       if (el === tab) return;
@@ -127,6 +137,19 @@ function select(tab) {
       el.removeAttribute(ARIA_SELECTED_ATTR);
       el.setAttribute(TABINDEX_ATTR, "-1");
     });
+  }
+
+  const tabselect = tab.closest(SEL_TABSELECT)
+  if (tabselect) {
+    tabselect
+    .querySelectorAll(`${SEL_TABOPTION[ARIA_SELECTED_ATTR]}`)
+    .forEach(el => {
+      if (el === tab) return;
+      el.removeAttribute(ARIA_SELECTED_ATTR);
+      el.removeAttribute(CHECKED_ATTR);
+      el.setAttribute(CHECKED_ATTR, "true")
+    });
+  }
 
   tab.focus();
   tab.classList.add(SELECTED_CLASS);

@@ -1,4 +1,3 @@
-{% if nav.page.url == "/" -%}
 <a
   class="
     text-sm p-1
@@ -7,9 +6,20 @@
   "
   href="{{ nav.next_page.url }}"
 >
-  Documentation
+  Components
 </a>
-{%- endif %}
+
+<a
+  class="
+    text-sm p-1
+    text-zinc-600 dark:text-zinc-300
+    hover:text-zinc-900 dark:hover:text-white
+  "
+  href="https://jinjax.scaletti.dev"
+>
+  JinjaX
+</a>
+
 <LinkButton
   title="Source code"
   href="https://github.com/jpsca/jinjax-ui"
