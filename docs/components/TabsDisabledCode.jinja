@@ -10,7 +10,7 @@
 ">
 {% markdown %}{% raw %}
 ```html+jinja
-{# Style classes and content removed for clarity #}
+{# Style classes removed for clarity #}
 <TabGroup>
   <TabList>
     <Tab target="recent" selected>Recent</Tab>
@@ -18,8 +18,12 @@
     <Tab target="trending">Trending</Tab>
   </TabList>
 
-  <TabPanel id="recent"> ... </TabPanel>
-  <TabPanel id="trending" hidden> ... </TabPanel>
+  <TabPanel id="recent">
+    <p>This is the tab panel for "Recent".</p>
+  </TabPanel>
+  <TabPanel id="trending" hidden>
+    <p>This is the tab panel for "Trending".</p>
+  </TabPanel>
 </TabGroup>
 ```
 {% endraw %}{% endmarkdown %}

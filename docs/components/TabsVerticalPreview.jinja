@@ -1,0 +1,21 @@
+<div class="w-full max-w-xl px-2 py-16 sm:px-0">
+  <TabGroup class="flex w-full space-x-2">
+    <TabList class="flex flex-col space-y-1 rounded-xl bg-blue-900/20 p-1" vertical>
+      <CardTab target="vertical-recent" selected>Recent</CardTab>
+      <CardTab target="vertical-popular">Popular</CardTab>
+      <CardTab target="vertical-trending">Trending</CardTab>
+    </TabList>
+
+    <StyledPanel id="vertical-recent" class="w-full">
+      <p>This is the tab panel for "Recent".</p>
+    </StyledPanel>
+
+    <StyledPanel id="vertical-popular" class="w-full" hidden>
+      <p>This is the tab panel for "Popular".</p>
+    </StyledPanel>
+
+    <StyledPanel id="vertical-trending" class="w-full" hidden>
+      <p>This is the tab panel for "Trending".</p>
+    </StyledPanel>
+  </TabGroup>
+</div>

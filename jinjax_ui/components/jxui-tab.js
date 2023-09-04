@@ -8,8 +8,12 @@ const SEL_TABPANEL = '[data-tabpanel]';
 const SELECTED_CLASS = "selected";
 const HIDDEN_CLASS = "hidden";
 const ARIA_SELECTED_ATTR = "aria-selected";
+const ARIA_ORIENTATION_ATTR = "aria-orientation";
+const ARAIA_CONTROLS_ATTR = "aria-controls";
+const MANUAL_ATTR = "data-manual";
 const DISABLED_ATTR = "disabled";
 const TABINDEX_ATTR = "tabindex";
+const VERTICAL_VALUE = "vertical";
 
 const EVENT_SELECTED = "jxui:tab:selected";
 
@@ -48,9 +52,9 @@ function handleKeyDown(event, tab) {
   if (!HANDLED_KEYS.includes(event.key)) return;
 
   const tabList = tab.closest(SEL_TABLIST);
-  const manual = tabList.hasAttribute("manual");
+  const manual = tabList.hasAttribute(MANUAL_ATTR);
   const tabs = tabList.querySelectorAll(`${SEL_TAB}:not([${DISABLED_ATTR}]`);
-  const lastIndex = tabs.length;
+  const lastIndex = tabs.length - 1;
   let newTab;
 
   switch (event.key) {
@@ -78,7 +82,7 @@ function handleKeyDown(event, tab) {
       return;
   }
 
-  const vertical = tab.getAttribute("aria-orientation") === "vertical";
+  const vertical = tabList.getAttribute(ARIA_ORIENTATION_ATTR) === VERTICAL_VALUE;
   const prevKey = vertical ? ARROW_UP_KEY : ARROW_LEFT_KEY;
   const nextKey = vertical ? ARROW_DOWN_KEY : ARROW_RIGHT_KEY;
   const currIndex = Array.prototype.indexOf.call(tabs, tab) || 0;
@@ -86,20 +90,26 @@ function handleKeyDown(event, tab) {
 
   switch (event.key) {
     case prevKey:
+      event.preventDefault();
+      event.stopPropagation();
       newIndex = currIndex - 1;
       if (newIndex < 0) {
         newIndex = lastIndex;
       }
       newTab = tabs[newIndex];
+      console.debug(newIndex, newTab)
       manual ? newTab.focus() : select(newTab);
       return;
 
     case nextKey:
+      event.preventDefault();
+      event.stopPropagation();
       newIndex = currIndex + 1;
       if (newIndex > lastIndex) {
         newIndex = 0;
       }
       newTab = tabs[newIndex];
+      console.debug(newIndex, newTab)
       manual ? newTab.focus() : select(newTab);
       return;
   }
@@ -123,7 +133,7 @@ function select(tab) {
   tab.setAttribute(ARIA_SELECTED_ATTR, "true");
   tab.setAttribute(TABINDEX_ATTR, "0");
 
-  const panelId = tab.getAttribute("aria-controls");
+  const panelId = tab.getAttribute(ARAIA_CONTROLS_ATTR);
   const panel = document.getElementById(panelId);
 
   querySameLevel(panel.closest(SEL_TABGROUP), SEL_TABPANEL)

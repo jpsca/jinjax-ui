@@ -1,22 +1,21 @@
 <div class="w-full max-w-xl px-2 py-16 sm:px-0">
   <TabGroup>
     <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1" manual>
-      <StyledTab target="manual-recent" selected>Recent</StyledTab>
-      <StyledTab target="manual-popular">Popular</StyledTab>
-      <StyledTab target="manual-trending">Trending</StyledTab>
+      <CardTab target="manual-recent" selected>Recent</CardTab>
+      <CardTab target="manual-popular">Popular</CardTab>
+      <CardTab target="manual-trending">Trending</CardTab>
     </TabList>
 
-    <StyledTabPanel id="manual-recent">
-      <ul><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">Does drinking coffee make you smarter?</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>5h ago</li><li>·</li>
-      <li>5 comments</li><li>·</li><li>2 shares</li></ul></li><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">So you've bought coffee... now what?</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>2h ago</li><li>·</li><li>3 comments</li><li>·</li><li>2 shares</li></ul></li></ul>
-    </StyledTabPanel>
+    <StyledPanel id="manual-recent">
+      <p>This is the tab panel for "Recent".</p>
+    </StyledPanel>
 
-    <StyledTabPanel id="manual-popular" hidden>
-      <ul><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">Is tech making coffee better or worse?</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>Jan 7</li><li>·</li><li>29 comments</li><li>·</li><li>16 shares</li></ul></li><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">The most innovative things happening in coffee</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>Mar 19</li><li>·</li><li>24 comments</li><li>·</li><li>12 shares</li></ul></li></ul>
-    </StyledTabPanel>
+    <StyledPanel id="manual-popular" hidden>
+      <p>This is the tab panel for "Popular".</p>
+    </StyledPanel>
 
-    <StyledTabPanel id="manual-trending" hidden>
-      <ul><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">Ask Me Anything: 10 answers to your questions about coffee</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>2d ago</li><li>·</li><li>9 comments</li><li>·</li><li>5 shares</li></ul></li><li class="relative rounded-md p-3 hover:bg-gray-100"><h3 class="text-sm font-medium leading-5">The worst advice we've ever heard about coffee</h3><ul class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"><li>4d ago</li><li>·</li><li>1 comments</li><li>·</li><li>2 shares</li></ul></li></ul>
-    </StyledTabPanel>
+    <StyledPanel id="manual-trending" hidden>
+      <p>This is the tab panel for "Trending".</p>
+    </StyledPanel>
   </TabGroup>
 </div>

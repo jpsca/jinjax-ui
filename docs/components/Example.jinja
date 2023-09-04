@@ -19,11 +19,11 @@
         <div
           class="
           bg-black
-            bg-opacity-10
+            bg-opacity-50
             backdrop-blur
             backdrop-filter
-            md:bg-opacity-0
             flex
+            space-x-2
             items-stretch
             justify-end
             rounded-t-[10px]
@@ -34,29 +34,26 @@
           "
         >
           {%- for text in tabs.keys() %}
-          <Tab
+          <PillTab
             target={"ex-%s-%s" % (prefix, loop.index)}
             class="
               bg-white
-              bg-opacity-0
-              hover:[&:not(.selected)]:bg-opacity-[0.05]
-              [&.selected]:bg-opacity-20
+              bg-opacity-30
+              hover:bg-opacity-40
+              focus-visible:bg-opacity-40
+              focus-visible:outline-none
+              [&.selected]:bg-opacity-60
               pointer-events-auto
-              mr-1
               flex
               rounded-md
               px-3
               py-2
               text-xs
               font-medium
-              text-white
-              focus-visible:outline-none
-              focus-visible:ring-2
-            focus-visible:ring-white
-              focus-visible:ring-opacity-50
+              text-black
             "
             selected={loop.index == 1}
-          >{{ text }}</Tab>
+          >{{ text }}</PillTab>
           {%- endfor %}
         </div>
       </TabList>
