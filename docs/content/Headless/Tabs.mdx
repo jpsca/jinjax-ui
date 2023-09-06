@@ -19,6 +19,23 @@ Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components
 A `hidden` class is added to all panels except the one that is active, so you must add a style to use that class to hide them (if one not exists).
 
 
+## Controlling the tabs with a `<select>`
+
+Sometimes, you want to display a `<select>` element instead of tabs. To do so, use the `TabSelect` and `TabOption` components.
+A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `TabOption` components as children.
+
+Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibility the `TabList` must be in your code, even if it's hidden.
+
+<Example
+  class="bg-blue-200"
+  prefix="select"
+  tabs={{
+    "Code": "TabsSelectCode",
+    "Preview": "TabsSelectPreview",
+  }}
+/>
+
+
 ## Disabling a tab
 
 To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse,
@@ -109,6 +126,7 @@ All interactions apply when a `Tab` component is focused.
 | ------------------- | -----------
 | target              | HTML id of the panel associated with this tab.
 | selected (`false`)  | Initially selected tab. Only one tab in the `TabList` can be selected at the time.
+| disabled (`false`)  | If the tab can be selected.
 | tag (`"button"`)    | HTML tag used for rendering the tag.
 
 
@@ -118,3 +136,18 @@ All interactions apply when a `Tab` component is focused.
 | ----------------------- | -----------
 | hidden (`false`)        | Initially hidden panel.
 | tag (`"div"`)           | HTML tag used for rendering the panel.
+
+
+### TabSelect
+
+No arguments.
+
+
+### TabOption
+
+| Argument                | Description
+| ----------------------- | -----------
+| target                  | HTML id of the panel associated with this tab.
+| selected (`false`)      | Initially selected tab. Only one tab in the `TabList` can be selected at the time.
+| disabled (`false`)      | If the tab can be selected.
+

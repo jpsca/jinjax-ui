@@ -11,8 +11,7 @@ const SELECTED_CLASS = "selected";
 const HIDDEN_CLASS = "hidden";
 const ARIA_SELECTED_ATTR = "aria-selected";
 const ARIA_ORIENTATION_ATTR = "aria-orientation";
-const ARAIA_CONTROLS_ATTR = "aria-controls";
-const CHECKED_ATTR = "checked";
+const ARIA_CONTROLS_ATTR = "aria-controls";
 const MANUAL_ATTR = "data-manual";
 const DISABLED_ATTR = "disabled";
 const TABINDEX_ATTR = "tabindex";
@@ -50,7 +49,7 @@ jxui.on("change", SEL_TABSELECT, handleChangeSelect);
 
 function handleSelection(event, tab) {
   if (tab.getAttribute(DISABLED_ATTR)) return;
-  select(tab);
+  selectTab(tab);
 }
 
 function handleChangeSelect(event) {
@@ -71,7 +70,7 @@ function handleKeyDown(event, tab) {
     case ENTER_KEY:
       event.preventDefault()
       event.stopPropagation()
-      select(tab);
+      selectTab(tab);
       return;
 
     case HOME_KEY:
@@ -79,7 +78,7 @@ function handleKeyDown(event, tab) {
       event.preventDefault();
       event.stopPropagation();
       newTab = tabs[0];
-      manual ? newTab.focus() : select(newTab);
+      manual ? newTab.focus() : selectTab(newTab);
       return;
 
     case END_KEY:
@@ -87,7 +86,7 @@ function handleKeyDown(event, tab) {
       event.preventDefault();
       event.stopPropagation();
       newTab = tabs[lastIndex];
-      manual ? newTab.focus() : select(newTab);
+      manual ? newTab.focus() : selectTab(newTab);
       return;
   }
 
@@ -107,7 +106,7 @@ function handleKeyDown(event, tab) {
       }
       newTab = tabs[newIndex];
       console.debug(newIndex, newTab)
-      manual ? newTab.focus() : select(newTab);
+      manual ? newTab.focus() : selectTab(newTab);
       return;
 
     case nextKey:
@@ -119,17 +118,23 @@ function handleKeyDown(event, tab) {
       }
       newTab = tabs[newIndex];
       console.debug(newIndex, newTab)
-      manual ? newTab.focus() : select(newTab);
+      manual ? newTab.focus() : selectTab(newTab);
       return;
   }
 }
 
-function select(tab) {
+function selectTarget(target) {
+  const tab = document.querySelector(`[aria-controls="${target}"]`);
+  if (tab) {
+    selectTab(tab);
+  }
+}
+
+function selectTab(tab) {
+  const target = tab.getAttribute(ARIA_CONTROLS_ATTR);
   tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
 
-  const tablist = tab.closest(SEL_TABLIST)
-  if (tablist) {
-    tablist
+  tab.closest(SEL_TABLIST)
     .querySelectorAll(`${SEL_TAB}.${SELECTED_CLASS}`)
     .forEach(el => {
       if (el === tab) return;
@@ -137,26 +142,20 @@ function select(tab) {
       el.removeAttribute(ARIA_SELECTED_ATTR);
       el.setAttribute(TABINDEX_ATTR, "-1");
     });
-  }
 
   const tabselect = tab.closest(SEL_TABSELECT)
   if (tabselect) {
-    tabselect
-    .querySelectorAll(`${SEL_TABOPTION[ARIA_SELECTED_ATTR]}`)
-    .forEach(el => {
-      if (el === tab) return;
-      el.removeAttribute(ARIA_SELECTED_ATTR);
-      el.removeAttribute(CHECKED_ATTR);
-      el.setAttribute(CHECKED_ATTR, "true")
-    });
+    tabselect.value = target;
   }
 
   tab.focus();
   tab.classList.add(SELECTED_CLASS);
   tab.setAttribute(ARIA_SELECTED_ATTR, "true");
   tab.setAttribute(TABINDEX_ATTR, "0");
+  selectPanel(target)
+}
 
-  const panelId = tab.getAttribute(ARAIA_CONTROLS_ATTR);
+function selectPanel(panelId) {
   const panel = document.getElementById(panelId);
 
   querySameLevel(panel.closest(SEL_TABGROUP), SEL_TABPANEL)
@@ -165,7 +164,6 @@ function select(tab) {
       if (el === panel) return;
     });
     panel.classList.remove(HIDDEN_CLASS);
-
 }
 
 function querySameLevel(parent, sel) {
@@ -189,7 +187,7 @@ function selectDefault(tabGroup) {
     tabGroup.querySelectorAll(SEL_TABPANEL).forEach(el => {
       el.classList.add(HIDDEN_CLASS);
     });
-    select(tab);
+    selectTab(tab);
   }
 }
 

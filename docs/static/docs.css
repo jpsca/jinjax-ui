@@ -613,10 +613,6 @@ video {
   bottom: 0px;
 }
 
-.left-1 {
-  left: 0.25rem;
-}
-
 .left-1\/2 {
   left: 50%;
 }
@@ -625,16 +621,8 @@ video {
   right: 0px;
 }
 
-.right-1 {
-  right: 0.25rem;
-}
-
 .top-0 {
   top: 0px;
-}
-
-.top-1 {
-  top: 0.25rem;
 }
 
 .top-full {
@@ -737,8 +725,8 @@ video {
   margin-left: auto;
 }
 
-.mr-1 {
-  margin-right: 0.25rem;
+.mr-10 {
+  margin-right: 2.5rem;
 }
 
 .mr-4 {
@@ -771,14 +759,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.-mr-1 {
-  margin-right: -0.25rem;
-}
-
-.mr-10 {
-  margin-right: 2.5rem;
 }
 
 .block {
@@ -1010,10 +990,6 @@ video {
   overflow: hidden;
 }
 
-.overflow-x-auto {
-  overflow-x: auto;
-}
-
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -1167,11 +1143,6 @@ video {
   background-color: rgb(30 58 138 / 0.2);
 }
 
-.bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
 .bg-orange-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 237 213 / var(--tw-bg-opacity));
@@ -1209,14 +1180,6 @@ video {
 .bg-zinc-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
-}
-
-.bg-opacity-0 {
-  --tw-bg-opacity: 0;
-}
-
-.bg-opacity-10 {
-  --tw-bg-opacity: 0.1;
 }
 
 .bg-opacity-30 {
@@ -1415,18 +1378,6 @@ video {
   padding-top: 2.5rem;
 }
 
-.pt-12 {
-  padding-top: 3rem;
-}
-
-.pr-5 {
-  padding-right: 1.25rem;
-}
-
-.pr-10 {
-  padding-right: 2.5rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -1442,10 +1393,6 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-\[0\.95rem\] {
-  font-size: 0.95rem;
 }
 
 .text-base {
@@ -1493,10 +1440,6 @@ video {
   font-weight: 600;
 }
 
-.leading-4 {
-  line-height: 1rem;
-}
-
 .leading-5 {
   line-height: 1.25rem;
 }
@@ -1522,11 +1465,6 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
 .text-neutral-900 {
   --tw-text-opacity: 1;
   color: rgb(23 23 23 / var(--tw-text-opacity));
@@ -1550,11 +1488,6 @@ video {
 .text-stone-900 {
   --tw-text-opacity: 1;
   color: rgb(28 25 23 / var(--tw-text-opacity));
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-yellow-800 {
@@ -2014,69 +1947,6 @@ h6:hover a.headerlink {
   color: inherit;
 }
 
-.prose :where(pre):not(:where([class~="not-prose"] *)) {
-  color: var(--tw-prose-pre-code);
-  background-color: var(--tw-prose-pre-bg);
-  border: 1px solid rgb(var(--tw-prose-pre-border));
-  overflow-x: auto;
-  font-weight: 400;
-  font-size: 0.98em;
-  font-feature-settings: "kern";
-  line-height: 1.7142857;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 1.7142857em;
-  margin-bottom: 1.7142857em;
-  border-radius: 0.375rem;
-  padding-top: 0.8571429em;
-  padding-right: 1.1428571em;
-  padding-bottom: 0.8571429em;
-  padding-left: 1.1428571em;
-  white-space: pre;
-}
-
-@media (max-width: 640px) {
-  .prose :where(pre):not(:where([class~="not-prose"] *)) {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-  }
-}
-
-.prose :where(pre .filename):not(:where([class~="not-prose"] *)) {
-  display: block;
-  padding: 0.4em 1em;
-  font-weight: 500;
-  font-size: 0.9rem;
-  border-bottom: 1px solid rgb(var(--border-color));
-}
-
-.prose :where(pre a):not(:where([class~="not-prose"] *)) {
-  text-decoration: none;
-}
-
-.prose :where(pre code):not(:where([class~="not-prose"] *)) {
-  background-color: transparent;
-  border-width: 0;
-  border-radius: 0;
-  padding: 0;
-  font-weight: inherit;
-  color: inherit;
-  font-size: inherit;
-  font-family: inherit;
-  line-height: inherit;
-  overflow: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-}
-
-.prose :where(pre code::-webkit-scrollbar) {
-  width: 2px;
-  background-color: ButtonFace;
-}
-
 .prose :where(table):not(:where([class~="not-prose"] *)) {
   width: 100%;
   table-layout: auto;
@@ -2236,418 +2106,430 @@ h6:hover a.headerlink {
   padding-left: 1em;
 }
 
-.prose pre code .hll {
-  background-color: #49483e
+pre {
+  border: 1px solid rgb(var(--tw-prose-pre-border));
+  overflow-x: auto;
+  font-weight: 400;
+  font-size: 0.98em;
+  font-feature-settings: "kern";
+  line-height: 1.7142857;
+  border-radius: 0.375rem;
+  white-space: pre;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding: 1.25em 1.5em;
 }
 
-.prose pre code .c {
+pre::-webkit-scrollbar {
+  width: 2px;
+  background-color: ButtonFace;
+}
+
+pre code {
+  background-color: transparent;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+  font-weight: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+pre .filename {
+  display: block;
+  padding: 0.4em 1em;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgb(var(--border-color));
+}
+
+pre a {
+  text-decoration: none;
+}
+
+/* Monokai */
+
+.highlight pre {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.highlight .hll {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.highlight .c {
   color: #75715e
 }
 
 /* Comment */
 
-.prose pre code .err {
+.highlight .err {
   color: #960050;
   background-color: #1e0010
 }
 
 /* Error */
 
-.prose pre code .k {
+.highlight .k {
   color: #66d9ef
 }
 
 /* Keyword */
 
-.prose pre code .l {
+.highlight .l {
   color: #ae81ff
 }
 
 /* Literal */
 
-.prose pre code .n {
+.highlight .n {
   color: #f8f8f2
 }
 
 /* Name */
 
-.prose pre code .o {
+.highlight .o {
   color: #f92672
 }
 
 /* Operator */
 
-.prose pre code .p {
+.highlight .p {
   color: #f8f8f2
 }
 
 /* Punctuation */
 
-.prose pre code .ch {
-  color: #75715e
-}
-
-/* Comment.Hashbang */
-
-.prose pre code .cm {
+.highlight .cm {
   color: #75715e
 }
 
 /* Comment.Multiline */
 
-.prose pre code .cp {
+.highlight .cp {
   color: #75715e
 }
 
 /* Comment.Preproc */
 
-.prose pre code .cpf {
-  color: #75715e
-}
-
-/* Comment.PreprocFile */
-
-.prose pre code .c1 {
+.highlight .c1 {
   color: #75715e
 }
 
 /* Comment.Single */
 
-.prose pre code .cs {
+.highlight .cs {
   color: #75715e
 }
 
 /* Comment.Special */
 
-.prose pre code .gd {
-  color: #f92672
-}
-
-/* Generic.Deleted */
-
-.prose pre code .ge {
+.highlight .ge {
   font-style: italic
 }
 
 /* Generic.Emph */
 
-.prose pre code .gi {
-  color: #a6e22e
-}
-
-/* Generic.Inserted */
-
-.prose pre code .gs {
+.highlight .gs {
   font-weight: bold
 }
 
 /* Generic.Strong */
 
-.prose pre code .gu {
-  color: #75715e
-}
-
-/* Generic.Subheading */
-
-.prose pre code .kc {
+.highlight .kc {
   color: #66d9ef
 }
 
 /* Keyword.Constant */
 
-.prose pre code .kd {
+.highlight .kd {
   color: #66d9ef
 }
 
 /* Keyword.Declaration */
 
-.prose pre code .kn {
+.highlight .kn {
   color: #f92672
 }
 
 /* Keyword.Namespace */
 
-.prose pre code .kp {
+.highlight .kp {
   color: #66d9ef
 }
 
 /* Keyword.Pseudo */
 
-.prose pre code .kr {
+.highlight .kr {
   color: #66d9ef
 }
 
 /* Keyword.Reserved */
 
-.prose pre code .kt {
+.highlight .kt {
   color: #66d9ef
 }
 
 /* Keyword.Type */
 
-.prose pre code .ld {
+.highlight .ld {
   color: #e6db74
 }
 
 /* Literal.Date */
 
-.prose pre code .m {
+.highlight .m {
   color: #ae81ff
 }
 
 /* Literal.Number */
 
-.prose pre code .s {
+.highlight .s {
   color: #e6db74
 }
 
 /* Literal.String */
 
-.prose pre code .na {
+.highlight .na {
   color: #a6e22e
 }
 
 /* Name.Attribute */
 
-.prose pre code .nb {
+.highlight .nb {
   color: #f8f8f2
 }
 
 /* Name.Builtin */
 
-.prose pre code .nc {
+.highlight .nc {
   color: #a6e22e
 }
 
 /* Name.Class */
 
-.prose pre code .no {
+.highlight .no {
   color: #66d9ef
 }
 
 /* Name.Constant */
 
-.prose pre code .nd {
+.highlight .nd {
   color: #a6e22e
 }
 
 /* Name.Decorator */
 
-.prose pre code .ni {
+.highlight .ni {
   color: #f8f8f2
 }
 
 /* Name.Entity */
 
-.prose pre code .ne {
+.highlight .ne {
   color: #a6e22e
 }
 
 /* Name.Exception */
 
-.prose pre code .nf {
+.highlight .nf {
   color: #a6e22e
 }
 
 /* Name.Function */
 
-.prose pre code .nl {
+.highlight .nl {
   color: #f8f8f2
 }
 
 /* Name.Label */
 
-.prose pre code .nn {
+.highlight .nn {
   color: #f8f8f2
 }
 
 /* Name.Namespace */
 
-.prose pre code .nx {
+.highlight .nx {
   color: #a6e22e
 }
 
 /* Name.Other */
 
-.prose pre code .py {
+.highlight .py {
   color: #f8f8f2
 }
 
 /* Name.Property */
 
-.prose pre code .nt {
+.highlight .nt {
   color: #f92672
 }
 
 /* Name.Tag */
 
-.prose pre code .nv {
+.highlight .nv {
   color: #f8f8f2
 }
 
 /* Name.Variable */
 
-.prose pre code .ow {
+.highlight .ow {
   color: #f92672
 }
 
 /* Operator.Word */
 
-.prose pre code .w {
+.highlight .w {
   color: #f8f8f2
 }
 
 /* Text.Whitespace */
 
-.prose pre code .mb {
-  color: #ae81ff
-}
-
-/* Literal.Number.Bin */
-
-.prose pre code .mf {
+.highlight .mf {
   color: #ae81ff
 }
 
 /* Literal.Number.Float */
 
-.prose pre code .mh {
+.highlight .mh {
   color: #ae81ff
 }
 
 /* Literal.Number.Hex */
 
-.prose pre code .mi {
+.highlight .mi {
   color: #ae81ff
 }
 
 /* Literal.Number.Integer */
 
-.prose pre code .mo {
+.highlight .mo {
   color: #ae81ff
 }
 
 /* Literal.Number.Oct */
 
-.prose pre code .sa {
-  color: #e6db74
-}
-
-/* Literal.String.Affix */
-
-.prose pre code .sb {
+.highlight .sb {
   color: #e6db74
 }
 
 /* Literal.String.Backtick */
 
-.prose pre code .sc {
+.highlight .sc {
   color: #e6db74
 }
 
 /* Literal.String.Char */
 
-.prose pre code .dl {
-  color: #e6db74
-}
-
-/* Literal.String.Delimiter */
-
-.prose pre code .sd {
+.highlight .sd {
   color: #e6db74
 }
 
 /* Literal.String.Doc */
 
-.prose pre code .s2 {
+.highlight .s2 {
   color: #e6db74
 }
 
 /* Literal.String.Double */
 
-.prose pre code .se {
+.highlight .se {
   color: #ae81ff
 }
 
 /* Literal.String.Escape */
 
-.prose pre code .sh {
+.highlight .sh {
   color: #e6db74
 }
 
 /* Literal.String.Heredoc */
 
-.prose pre code .si {
+.highlight .si {
   color: #e6db74
 }
 
 /* Literal.String.Interpol */
 
-.prose pre code .sx {
+.highlight .sx {
   color: #e6db74
 }
 
 /* Literal.String.Other */
 
-.prose pre code .sr {
+.highlight .sr {
   color: #e6db74
 }
 
 /* Literal.String.Regex */
 
-.prose pre code .s1 {
+.highlight .s1 {
   color: #e6db74
 }
 
 /* Literal.String.Single */
 
-.prose pre code .ss {
+.highlight .ss {
   color: #e6db74
 }
 
 /* Literal.String.Symbol */
 
-.prose pre code .bp {
+.highlight .bp {
   color: #f8f8f2
 }
 
 /* Name.Builtin.Pseudo */
 
-.prose pre code .fm {
-  color: #a6e22e
-}
-
-/* Name.Function.Magic */
-
-.prose pre code .vc {
+.highlight .vc {
   color: #f8f8f2
 }
 
 /* Name.Variable.Class */
 
-.prose pre code .vg {
+.highlight .vg {
   color: #f8f8f2
 }
 
 /* Name.Variable.Global */
 
-.prose pre code .vi {
+.highlight .vi {
   color: #f8f8f2
 }
 
 /* Name.Variable.Instance */
 
-.prose pre code .vm {
-  color: #f8f8f2
-}
-
-/* Name.Variable.Magic */
-
-.prose pre code .il {
+.highlight .il {
   color: #ae81ff
 }
 
 /* Literal.Number.Integer.Long */
+
+.highlight .gh {
+}
+
+/* Generic Heading & Diff Header */
+
+.highlight .gu {
+  color: #75715e;
+}
+
+/* Generic.Subheading & Diff Unified/Comment? */
+
+.highlight .gd {
+  color: #f92672;
+}
+
+/* Generic.Deleted & Diff Deleted */
+
+.highlight .gi {
+  color: #a6e22e;
+}
+
+/* Generic.Inserted & Diff Inserted */
 
 .open\:block[open] {
   display: block;
@@ -2656,11 +2538,6 @@ h6:hover a.headerlink {
 .hover\:border-zinc-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(212 212 216 / var(--tw-border-opacity));
-}
-
-.hover\:bg-gray-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-zinc-100:hover {
@@ -2731,21 +2608,6 @@ h6:hover a.headerlink {
 .focus-visible\:outline-none:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.focus-visible\:ring-2:focus-visible {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
-.focus-visible\:ring-white:focus-visible {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
-}
-
-.focus-visible\:ring-opacity-50:focus-visible {
-  --tw-ring-opacity: 0.5;
 }
 
 .active\:border-zinc-400:active {
@@ -3143,32 +3005,12 @@ h6:hover a.headerlink {
 }
 
 @media (min-width: 768px) {
-  .md\:left-auto {
-    left: auto;
-  }
-
-  .md\:m-1 {
-    margin: 0.25rem;
-  }
-
   .md\:flex {
     display: flex;
   }
 
-  .md\:rounded-lg {
-    border-radius: 0.5rem;
-  }
-
   .md\:rounded-md {
     border-radius: 0.375rem;
-  }
-
-  .md\:bg-opacity-0 {
-    --tw-bg-opacity: 0;
-  }
-
-  .md\:pt-4 {
-    padding-top: 1rem;
   }
 }
 
@@ -3254,10 +3096,6 @@ h6:hover a.headerlink {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.\[\&\.selected\]\:bg-opacity-20.selected {
-  --tw-bg-opacity: 0.2;
-}
-
 .\[\&\.selected\]\:bg-opacity-60.selected {
   --tw-bg-opacity: 0.6;
 }
@@ -3271,34 +3109,6 @@ h6:hover a.headerlink {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.\[\&\.selected\]\:focus\:ring-2:focus.selected {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
-.\[\&\:not\(\.hidden\)\]\:flex:not(.hidden) {
-  display: flex;
-}
-
-.\[\&\:not\(\.selected\)\]\:text-blue-100:not(.selected) {
-  --tw-text-opacity: 1;
-  color: rgb(219 234 254 / var(--tw-text-opacity));
-}
-
-.\[\&\:not\(\.selected\)\]\:hover\:bg-white\/\[0\.12\]:hover:not(.selected) {
-  background-color: rgb(255 255 255 / 0.12);
-}
-
-.hover\:\[\&\:not\(\.selected\)\]\:bg-opacity-\[0\.05\]:not(.selected):hover {
-  --tw-bg-opacity: 0.05;
-}
-
-.\[\&\:not\(\.selected\)\]\:hover\:text-white:hover:not(.selected) {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .\[\&\:not\(\.selected\2c \[disabled\]\)\]\:text-blue-100:not(.selected,[disabled]) {
