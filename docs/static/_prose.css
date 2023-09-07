@@ -514,10 +514,10 @@ pre a {
 }
 
 
-.highlight pre { background-color: hsl(30, 20%, 25%) }
-.highlight .hll { background-color: hsl(30, 20%, 25%) }
+.highlight pre { background-color: rgba(0, 0, 0, 0.9); color: white; }
+.highlight .hll { background-color: rgba(0, 0, 0, 0.9) }
 
-.highlight .c { color: hsl(30, 20%, 50%) } /* Comment */
+.highlight .c { color: hsl(31, 76%, 64%) } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
 .highlight .k { color: #66d9ef } /* Keyword */
 .highlight .l { color: #ae81ff } /* Literal */

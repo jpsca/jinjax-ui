@@ -2,9 +2,13 @@
 
 const SEL_TABGROUP = '[data-tabgroup]';
 const SEL_TABLIST = '[data-tablist]';
-const SEL_TABSELECT = '[data-tabselect]';
 const SEL_TAB = '[data-tab]';
 const SEL_TABPANEL = '[data-tabpanel]';
+const SEL_TABSELECT = '[data-tabselect]';
+
+const SEL_TAB_SCOPED = `${SEL_TAB}:not(:scope ${SEL_TABGROUP} ${SEL_TAB})`;
+const SEL_TABPANEL_SCOPED = `${SEL_TABPANEL}:not(:scope ${SEL_TABGROUP} ${SEL_TABPANEL})`;
+const SEL_TABSELECT_SCOPED = `${SEL_TABSELECT}:not(:scope ${SEL_TABGROUP} ${SEL_TABSELECT})`;
 
 const SELECTED_CLASS = "selected";
 const HIDDEN_CLASS = "hidden";
@@ -45,15 +49,20 @@ jxui.on("click", SEL_TAB, handleSelection);
 jxui.on("keydown", SEL_TAB, handleKeyDown);
 jxui.on("change", SEL_TABSELECT, handleChangeSelect);
 
-
 function handleSelection(event, tab) {
   if (tab.getAttribute(DISABLED_ATTR)) return;
   selectTab(tab);
 }
 
 function handleChangeSelect(event, select) {
-  if (select.value) {
-    selectTarget(select.value)
+  if (!select.value) {
+    return;
+  }
+  const tab = select
+    .closest(SEL_TABGROUP)
+    .querySelector(`${SEL_TAB_SCOPED}[${ARIA_CONTROLS_ATTR}="${select.value}"]`)
+  if (tab) {
+    selectTab(tab);
   }
 }
 
@@ -62,7 +71,7 @@ function handleKeyDown(event, tab) {
 
   const tabList = tab.closest(SEL_TABLIST);
   const manual = tabList.hasAttribute(MANUAL_ATTR);
-  const tabs = tabList.querySelectorAll(`${SEL_TAB}:not([${DISABLED_ATTR}]`);
+  const tabs = tabList.querySelectorAll(`${SEL_TAB_SCOPED}:not([${DISABLED_ATTR}]`);
   const lastIndex = tabs.length - 1;
   let newTab;
 
@@ -106,7 +115,6 @@ function handleKeyDown(event, tab) {
         newIndex = lastIndex;
       }
       newTab = tabs[newIndex];
-      console.debug(newIndex, newTab)
       manual ? newTab.focus() : selectTab(newTab);
       return;
 
@@ -118,16 +126,8 @@ function handleKeyDown(event, tab) {
         newIndex = 0;
       }
       newTab = tabs[newIndex];
-      console.debug(newIndex, newTab)
       manual ? newTab.focus() : selectTab(newTab);
       return;
-  }
-}
-
-function selectTarget(target) {
-  const tab = document.querySelector(`[${ARIA_CONTROLS_ATTR}="${target}"]`);
-  if (tab) {
-    selectTab(tab);
   }
 }
 
@@ -138,7 +138,7 @@ function selectTab(tab) {
   const tablist = tab.closest(SEL_TABLIST);
 
   tablist
-    .querySelectorAll(`${SEL_TAB}.${SELECTED_CLASS}`)
+    .querySelectorAll(`${SEL_TAB_SCOPED}.${SELECTED_CLASS}`)
     .forEach(el => {
       if (el === tab) return;
       el.classList.remove(SELECTED_CLASS);
@@ -146,7 +146,7 @@ function selectTab(tab) {
       el.setAttribute(TABINDEX_ATTR, "-1");
     });
 
-  const tabselect = tablist.closest(SEL_TABGROUP).querySelector(SEL_TABSELECT)
+  const tabselect = tablist.closest(SEL_TABGROUP).querySelector(SEL_TABSELECT_SCOPED)
   if (tabselect) {
     tabselect.value = target;
   }
@@ -160,33 +160,24 @@ function selectTab(tab) {
 
 function selectPanel(panelId) {
   const panel = document.getElementById(panelId);
-  querySameLevel(panel.closest(SEL_TABGROUP), SEL_TABPANEL)
-    .forEach(el => {
-      el.classList.add(HIDDEN_CLASS);
-      if (el === panel) return;
-    });
-    panel.classList.remove(HIDDEN_CLASS);
+  panel
+  .closest(SEL_TABGROUP)
+  .querySelectorAll(SEL_TABPANEL_SCOPED)
+  .forEach(el => {
+    el.classList.add(HIDDEN_CLASS);
+  });
+
+  panel.classList.remove(HIDDEN_CLASS);
 }
 
-function querySameLevel(parent, sel) {
-  const nodes = [];
-  const nested = new Set(Array.from(
-    parent.querySelectorAll(`:scope ${sel} ${sel}`))
-  );
-  parent.querySelectorAll(sel).forEach(function(node) {
-    if (nested.has(node)) return;
-    nodes.push(node);
-  });
-  return nodes;
-}
 
 function selectDefault(tabGroup) {
-  let tab = tabGroup.querySelector(`${SEL_TAB}.${SELECTED_CLASS}`);
+  let tab = tabGroup.querySelector(`${SEL_TAB_SCOPED}.${SELECTED_CLASS}`);
   if (!tab) {
-    tab = tabGroup.querySelector(SEL_TAB);
+    tab = tabGroup.querySelector(SEL_TAB_SCOPED);
   }
   if (tab) {
-    tabGroup.querySelectorAll(SEL_TABPANEL).forEach(el => {
+    tabGroup.querySelectorAll(SEL_TABPANEL_SCOPED).forEach(el => {
       el.classList.add(HIDDEN_CLASS);
     });
     selectTab(tab);
