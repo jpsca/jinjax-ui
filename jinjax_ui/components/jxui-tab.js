@@ -3,7 +3,6 @@
 const SEL_TABGROUP = '[data-tabgroup]';
 const SEL_TABLIST = '[data-tablist]';
 const SEL_TABSELECT = '[data-tabselect]';
-const SEL_TABOPTION = '[data-taboption]';
 const SEL_TAB = '[data-tab]';
 const SEL_TABPANEL = '[data-tabpanel]';
 
@@ -11,7 +10,11 @@ const SELECTED_CLASS = "selected";
 const HIDDEN_CLASS = "hidden";
 const ARIA_SELECTED_ATTR = "aria-selected";
 const ARIA_ORIENTATION_ATTR = "aria-orientation";
+<<<<<<< HEAD
 const ARIA_CONTROLS_ATTR = "aria-controls";
+=======
+const ARAIA_CONTROLS_ATTR = "aria-controls";
+>>>>>>> 60921e6 (...)
 const MANUAL_ATTR = "data-manual";
 const DISABLED_ATTR = "disabled";
 const TABINDEX_ATTR = "tabindex";
@@ -52,8 +55,10 @@ function handleSelection(event, tab) {
   selectTab(tab);
 }
 
-function handleChangeSelect(event) {
-  console.debug(event);
+function handleChangeSelect(event, select) {
+  if (select.value) {
+    selectTarget(select.value)
+  }
 }
 
 function handleKeyDown(event, tab) {
@@ -124,17 +129,30 @@ function handleKeyDown(event, tab) {
 }
 
 function selectTarget(target) {
+<<<<<<< HEAD
   const tab = document.querySelector(`[aria-controls="${target}"]`);
+=======
+  const tab = document.querySelector(`[${ARAIA_CONTROLS_ATTR}="${target}"]`);
+>>>>>>> 60921e6 (...)
   if (tab) {
     selectTab(tab);
   }
 }
 
 function selectTab(tab) {
+<<<<<<< HEAD
   const target = tab.getAttribute(ARIA_CONTROLS_ATTR);
   tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
 
   tab.closest(SEL_TABLIST)
+=======
+  tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
+
+  const target = tab.getAttribute(ARAIA_CONTROLS_ATTR);
+  const tablist = tab.closest(SEL_TABLIST)
+  if (tablist) {
+    tablist
+>>>>>>> 60921e6 (...)
     .querySelectorAll(`${SEL_TAB}.${SELECTED_CLASS}`)
     .forEach(el => {
       if (el === tab) return;
@@ -145,19 +163,26 @@ function selectTab(tab) {
 
   const tabselect = tab.closest(SEL_TABSELECT)
   if (tabselect) {
+<<<<<<< HEAD
     tabselect.value = target;
+=======
+    tabselect.value = target
+>>>>>>> 60921e6 (...)
   }
 
   tab.focus();
   tab.classList.add(SELECTED_CLASS);
   tab.setAttribute(ARIA_SELECTED_ATTR, "true");
   tab.setAttribute(TABINDEX_ATTR, "0");
+<<<<<<< HEAD
   selectPanel(target)
+=======
+  selectPanel(target);
+>>>>>>> 60921e6 (...)
 }
 
 function selectPanel(panelId) {
   const panel = document.getElementById(panelId);
-
   querySameLevel(panel.closest(SEL_TABGROUP), SEL_TABPANEL)
     .forEach(el => {
       el.classList.add(HIDDEN_CLASS);

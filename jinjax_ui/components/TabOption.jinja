@@ -2,8 +2,5 @@
 
 <option {{ attrs.render(
     data_taboption=true,
-    role="tab",
-    aria_selected="true" if selected else "false",
-    aria_controls=target,
     value=target,
 ) }}>{{ content }}</option>
