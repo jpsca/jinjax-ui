@@ -10,11 +10,7 @@ const SELECTED_CLASS = "selected";
 const HIDDEN_CLASS = "hidden";
 const ARIA_SELECTED_ATTR = "aria-selected";
 const ARIA_ORIENTATION_ATTR = "aria-orientation";
-<<<<<<< HEAD
 const ARIA_CONTROLS_ATTR = "aria-controls";
-=======
-const ARAIA_CONTROLS_ATTR = "aria-controls";
->>>>>>> 60921e6 (...)
 const MANUAL_ATTR = "data-manual";
 const DISABLED_ATTR = "disabled";
 const TABINDEX_ATTR = "tabindex";
@@ -129,30 +125,19 @@ function handleKeyDown(event, tab) {
 }
 
 function selectTarget(target) {
-<<<<<<< HEAD
-  const tab = document.querySelector(`[aria-controls="${target}"]`);
-=======
-  const tab = document.querySelector(`[${ARAIA_CONTROLS_ATTR}="${target}"]`);
->>>>>>> 60921e6 (...)
+  const tab = document.querySelector(`[${ARIA_CONTROLS_ATTR}="${target}"]`);
   if (tab) {
     selectTab(tab);
   }
 }
 
 function selectTab(tab) {
-<<<<<<< HEAD
+  tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
+
   const target = tab.getAttribute(ARIA_CONTROLS_ATTR);
-  tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
+  const tablist = tab.closest(SEL_TABLIST);
 
-  tab.closest(SEL_TABLIST)
-=======
-  tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
-
-  const target = tab.getAttribute(ARAIA_CONTROLS_ATTR);
-  const tablist = tab.closest(SEL_TABLIST)
-  if (tablist) {
-    tablist
->>>>>>> 60921e6 (...)
+  tablist
     .querySelectorAll(`${SEL_TAB}.${SELECTED_CLASS}`)
     .forEach(el => {
       if (el === tab) return;
@@ -161,24 +146,16 @@ function selectTab(tab) {
       el.setAttribute(TABINDEX_ATTR, "-1");
     });
 
-  const tabselect = tab.closest(SEL_TABSELECT)
+  const tabselect = tablist.closest(SEL_TABGROUP).querySelector(SEL_TABSELECT)
   if (tabselect) {
-<<<<<<< HEAD
     tabselect.value = target;
-=======
-    tabselect.value = target
->>>>>>> 60921e6 (...)
   }
 
   tab.focus();
   tab.classList.add(SELECTED_CLASS);
   tab.setAttribute(ARIA_SELECTED_ATTR, "true");
   tab.setAttribute(TABINDEX_ATTR, "0");
-<<<<<<< HEAD
-  selectPanel(target)
-=======
   selectPanel(target);
->>>>>>> 60921e6 (...)
 }
 
 function selectPanel(panelId) {

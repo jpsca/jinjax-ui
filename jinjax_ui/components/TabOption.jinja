@@ -1,6 +1,7 @@
-{#def target, selected=False #}
+{#def target, disabled=False #}
 
 <option {{ attrs.render(
     data_taboption=true,
     value=target,
+    disabled=disabled,
 ) }}>{{ content }}</option>

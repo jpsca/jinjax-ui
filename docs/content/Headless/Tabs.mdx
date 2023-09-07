@@ -10,30 +10,13 @@ title: Tabs
   class="bg-gradient-to-r from-sky-400 to-blue-600"
   prefix="demo"
   tabs={{
-    "Preview": "TabsDemoPreview",
-    "Code": "TabsDemoCode"
+    "Preview": "Tabs.DemoPreview",
+    "Code": "Tabs.DemoCode"
   }}
 />
 
 Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
 A `hidden` class is added to all panels except the one that is active, so you must add a style to use that class to hide them (if one not exists).
-
-
-## Controlling the tabs with a `<select>`
-
-Sometimes, you want to display a `<select>` element instead of tabs. To do so, use the `TabSelect` and `TabOption` components.
-A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `TabOption` components as children.
-
-Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibility the `TabList` must be in your code, even if it's hidden.
-
-<Example
-  class="bg-blue-200"
-  prefix="select"
-  tabs={{
-    "Code": "TabsSelectCode",
-    "Preview": "TabsSelectPreview",
-  }}
-/>
 
 
 ## Disabling a tab
@@ -45,8 +28,8 @@ and are also skipped when navigating the tab list using the keyboard.
   class="bg-blue-200"
   prefix="disabled"
   tabs={{
-    "Code": "TabsDisabledCode",
-    "Preview": "TabsDisabledPreview",
+    "Code": "Tabs.DisabledCode",
+    "Preview": "Tabs.DisabledPreview",
   }}
 />
 
@@ -62,8 +45,8 @@ Remember to add styles to the `:active` state of the tab so is clear to the user
   class="bg-blue-200"
   prefix="manual"
   tabs={{
-    "Code": "TabsManualCode",
-    "Preview": "TabsManualPreview",
+    "Code": "Tabs.ManualCode",
+    "Preview": "Tabs.ManualPreview",
   }}
 />
 
@@ -78,8 +61,25 @@ If you've styled your `TabList` to appear vertically, use the `vertical` attribu
   class="bg-blue-200"
   prefix="vertical"
   tabs={{
-    "Code": "TabsVerticalCode",
-    "Preview": "TabsVerticalPreview",
+    "Code": "Tabs.VerticalCode",
+    "Preview": "Tabs.VerticalPreview",
+  }}
+/>
+
+
+## Controlling the tabs with a `<select>`
+
+Sometimes, you want to display a `<select>` element in addition to tabs. To do so, use the `TabSelect` and `TabOption` components.
+A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `TabOption` components as children.
+
+Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibility the `TabList` must be remain in your code, even if it's visually hidden.
+
+<Example
+  class="bg-blue-200"
+  prefix="select"
+  tabs={{
+    "Code": "Tabs.SelectCode",
+    "Preview": "Tabs.SelectPreview",
   }}
 />
 
@@ -148,6 +148,4 @@ No arguments.
 | Argument                | Description
 | ----------------------- | -----------
 | target                  | HTML id of the panel associated with this tab.
-| selected (`false`)      | Initially selected tab. Only one tab in the `TabList` can be selected at the time.
-| disabled (`false`)      | If the tab can be selected.
-
+| disabled (`false`)      | Display the option but not allow to select it.
