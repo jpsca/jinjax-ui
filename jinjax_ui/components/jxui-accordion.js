@@ -1,60 +1,27 @@
 (function(){
-const SEL_ACCORDION = '[data-accordion]'
-const SEL_DETAILS = 'details'
-const SEL_SUMMARY = `${SEL_ACCORDION} summary`
+const SEL_ACCORDION = "[data-accordion]"
+const SEL_DETAILS = "details"
+const SEL_DETAILS_IN_ACCORDION = `${SEL_ACCORDION} ${SEL_DETAILS}`
+const SEL_DETAILS_SCOPED = `${SEL_DETAILS}:not(:scope ${SEL_DETAILS} ${SEL_DETAILS})`
 
-const KEY_SPACE = " "
-const KEY_ENTER = "Enter"
+jxui.on("toggle", SEL_DETAILS_IN_ACCORDION, handleToggle)
 
-const HANDLED_KEYS = [
-  KEY_SPACE,
-  KEY_ENTER,
-]
 
-jxui.on("click", SEL_SUMMARY, handleClick)
-jxui.on("keydown", SEL_SUMMARY, handleKeyDown)
-
-function handleClick(event, summary) {
-  event.preventDefault()
-  const details = summary.closest(SEL_DETAILS)
-  handleOpen(details)
-}
-
-function handleKeyDown(event, summary) {
-  if (!HANDLED_KEYS.includes(event.key)) { return }
-  event.preventDefault()
-  const details = summary.closest(SEL_DETAILS)
-
-  if ([KEY_SPACE, KEY_ENTER].includes(event.key)) {
-    handleOpen(details)
-    return
-  }
-}
-
-function handleOpen(details) {
+function handleToggle(event, details) {
   if (details.open) {
-    details.open = false
-    return
+    closeOthers(details)
   }
-  details.open = true
-
-  querySameLevel(details.closest(SEL_ACCORDION), SEL_DETAILS)
-    .forEach(el => {
-      if (el === details) { return }
-      el.open = false
-    })
 }
 
-function querySameLevel(parent, sel) {
-  const nodes = [];
-  const nested = new Set(Array.from(
-    parent.querySelectorAll(`:scope ${sel} ${sel}`))
-  )
-  parent.querySelectorAll(sel).forEach(function(node) {
-    if (nested.has(node)) { return }
-    nodes.push(node)
+function closeOthers(details) {
+  details
+    .closest(SEL_ACCORDION)
+    .querySelectorAll(SEL_DETAILS_SCOPED)
+    .forEach((det) => {
+    if (det !== details) {
+      det.removeAttribute("open")
+    }
   })
-  return nodes;
 }
 
 })()

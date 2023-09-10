@@ -84,6 +84,16 @@ Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibil
 />
 
 
+## Events
+
+A tab emits a `jxui:tab:selected` event every time is selected. The event contains the `target` property with the tag node.
+
+```js
+document.addEventListener("jxui:tab:selected", (event) => {
+  console.log(`'${event.target.textContent}' tab selected`);
+});
+```
+
 ## Accessibility notes
 
 ### Mouse interaction
