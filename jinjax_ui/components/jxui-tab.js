@@ -1,4 +1,9 @@
 (function(){
+/**
+ * @typedef {HTMLElement} Tab
+ * @typedef {HTMLSelectElement} TabSelect
+ * @typedef {HTMLElement} TabGroup
+ */
 
 const SEL_TABGROUP = '[data-tabgroup]';
 const SEL_TABLIST = '[data-tablist]';
@@ -45,15 +50,23 @@ const HANDLED_KEYS = [
   PAGE_DOWN_KEY,
 ];
 
-jxui.on("click", SEL_TAB, handleSelection);
+jxui.on("click", SEL_TAB, handleClickOnTab);
 jxui.on("keydown", SEL_TAB, handleKeyDown);
 jxui.on("change", SEL_TABSELECT, handleChangeSelect);
 
-function handleSelection(event, tab) {
+/**
+ * @param {MouseEvent} event
+ * @param {Tab} tab
+ */
+function handleClickOnTab(event, tab) {
   if (tab.getAttribute(DISABLED_ATTR)) return;
   selectTab(tab);
 }
 
+/**
+ * @param {ChangeEvent} event
+ * @param {TabSelect} select
+ */
 function handleChangeSelect(event, select) {
   if (!select.value) {
     return;
@@ -66,6 +79,10 @@ function handleChangeSelect(event, select) {
   }
 }
 
+/**
+ * @param {KeyboardEvent} event
+ * @param {Tab} tab
+ */
 function handleKeyDown(event, tab) {
   if (!HANDLED_KEYS.includes(event.key)) return;
 
@@ -131,6 +148,9 @@ function handleKeyDown(event, tab) {
   }
 }
 
+/**
+ * @param {Tab} tab
+ */
 function selectTab(tab) {
   tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
 
@@ -158,6 +178,9 @@ function selectTab(tab) {
   selectPanel(target);
 }
 
+/**
+ * @param {string} panelId
+ */
 function selectPanel(panelId) {
   const panel = document.getElementById(panelId);
   panel
@@ -170,7 +193,10 @@ function selectPanel(panelId) {
   panel.classList.remove(HIDDEN_CLASS);
 }
 
-
+/**
+ * Select the default Tab for this TabGroup.
+ * @param {TabGroup} tabGroup
+ */
 function selectDefault(tabGroup) {
   let tab = tabGroup.querySelector(`${SEL_TAB_SCOPED}.${SELECTED_CLASS}`);
   if (!tab) {
@@ -184,6 +210,9 @@ function selectDefault(tabGroup) {
   }
 }
 
+/**
+ * Select the default Tab for each TabGroup on the page.
+ */
 function selectAllDefaults() {
   document.querySelectorAll(SEL_TABGROUP).forEach(selectDefault);
 }

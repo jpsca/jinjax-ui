@@ -6,13 +6,23 @@ const SEL_DETAILS_SCOPED = `${SEL_DETAILS}:not(:scope ${SEL_DETAILS} ${SEL_DETAI
 
 jxui.on("toggle", SEL_DETAILS_IN_ACCORDION, handleToggle)
 
-
+/**
+ * Handles the "toggle" event for a details element inside the Accordion.
+ *
+ * @param {CustomEvent} event - The "toggle" event object.
+ * @param {HTMLDetailsElement} details - The details element.
+ */
 function handleToggle(event, details) {
   if (details.open) {
     closeOthers(details)
   }
 }
 
+/**
+ * Closes all other accordion details within the same accordion group.
+ *
+ * @param {HTMLDetailsElement} details - The currently open details element.
+ */
 function closeOthers(details) {
   details
     .closest(SEL_ACCORDION)
