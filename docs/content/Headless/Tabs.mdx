@@ -16,22 +16,11 @@ title: Tabs
 />
 
 Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
+
+## Styling states
+
 A `hidden` class is added to all panels except the one that is active, so you must add a style to use that class to hide them (if one not exists).
 
-
-## Disabling a tab
-
-To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse,
-and are also skipped when navigating the tab list using the keyboard.
-
-<Example
-  class="bg-blue-200"
-  prefix="disabled"
-  tabs={{
-    "Code": "Tabs.DisabledCode",
-    "Preview": "Tabs.DisabledPreview",
-  }}
-/>
 
 ## Manually activating tabs
 
@@ -39,7 +28,7 @@ By default, tabs are automatically selected as the user navigates through them u
 
 If you'd rather not change the current tab until the user presses <Key>Enter</Key> or <Key>Space</Key>, use the `manual` attribute on the `TabGroup` component.
 
-Remember to add styles to the `:active` state of the tab so is clear to the user that the tab is focused.
+Remember to add styles to the `:focus-visible` state of the tab so is clear to the user that the tab is focused.
 
 <Example
   class="bg-blue-200"
@@ -66,6 +55,19 @@ If you've styled your `TabList` to appear vertically, use the `vertical` attribu
   }}
 />
 
+## Disabling a tab
+
+To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse,
+and are also skipped when navigating the tab list using the keyboard.
+
+<Example
+  class="bg-blue-200"
+  prefix="disabled"
+  tabs={{
+    "Code": "Tabs.DisabledCode",
+    "Preview": "Tabs.DisabledPreview",
+  }}
+/>
 
 ## Controlling the tabs with a `<select>`
 

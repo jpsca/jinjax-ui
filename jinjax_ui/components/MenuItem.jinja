@@ -1,0 +1,10 @@
+{#def selected=false, disabled=false, tag="a" #}`
+
+{%- if tag == "a" -%}
+  {% do attrs.setdefault(href="") %}
+{%- endif -%}
+
+<{{ tag }} {{ attrs.render(
+  role="menuitem",
+  data_state="disabled" if disabled else ("selected" if selected else None),
+) }}>{{ content }}</{{ tag }}>

@@ -1,5 +1,5 @@
 (function(){
-const SEL_ACCORDION = "[data-accordion]"
+const SEL_ACCORDION = '[data-type="accordion"]'
 const SEL_DETAILS = "details"
 const SEL_DETAILS_IN_ACCORDION = `${SEL_ACCORDION} ${SEL_DETAILS}`
 const SEL_DETAILS_SCOPED = `${SEL_DETAILS}:not(:scope ${SEL_DETAILS} ${SEL_DETAILS})`

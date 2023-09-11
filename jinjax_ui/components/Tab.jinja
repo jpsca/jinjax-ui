@@ -1,14 +1,15 @@
-{#def target, selected=False, tag="button" #}
+{#def target, selected=false, disable=false, tag="button" #}
 
 {%- if tag == "button" -%}
-    {% do attrs.setdefault(type="button") %}
+  {% do attrs.setdefault(type="button") %}
 {%- endif -%}
 
 <{{ tag }} {{ attrs.render(
-    data_tab=true,
-    class="selected" if selected else "",
-    role="tab",
-    aria_selected="true" if selected else "false",
-    aria_controls=target,
-    tabindex="0" if selected else "-1",
+  data_type="tab",
+  role="tab",
+  data_selected=selected,
+  aria_selected="true" if selected and not disabled else "false",
+  aria_controls=target,
+  tabindex="0" if selected else "-1",
+  data_disabled=disabled,
 ) }}>{{ content }}</{{ tag }}>

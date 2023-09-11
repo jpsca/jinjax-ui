@@ -3,7 +3,8 @@
 {% do attrs.setdefault(tabindex="0") %}
 
 <{{ tag }} {{ attrs.render(
-  data_tabpanel=true,
-  class="hidden" if hidden else "",
+  data_type="tabpanel",
+  data_hidden=hidden,
+  data_selected=not hidden,
   role="tabpanel",
 ) }}>{{ content }}</{{ tag }}>

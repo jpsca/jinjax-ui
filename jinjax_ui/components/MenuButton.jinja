@@ -1,0 +1,10 @@
+{#def tag="button" #}`
+
+{%- if tag == "button" -%}
+  {% do attrs.setdefault(type="button") %}
+{%- endif -%}
+
+<{{ tag }} {{ attrs.render(
+  data_type="menubutton",
+  aria_haspopup="true",
+) }}>{{ content }}</{{ tag }}>

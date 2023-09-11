@@ -1,7 +1,7 @@
 {#def vertical=False, manual=False, tag="nav" #}
 
 <{{ tag }} {{ attrs.render(
-    data_tablist=true,
+    data_type="tablist",
     role="tablist",
     aria_orientation="vertical" if vertical else "horizontal",
     data_manual=manual,

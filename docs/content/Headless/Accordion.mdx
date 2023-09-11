@@ -6,6 +6,10 @@ title: Accordion
   Component for grouping &lt;details&gt; HTML elements where only one of them can be open at the same time.
 </Header>
 
+An accordion is a vertically stacked group of collapsible sections. HTML has already a native element for this, the `<details>` element, but it doesn't support the "only one open at a time" behavior, so we need to add some JS to make it work, and that's what this component does.
+
+If you don't need to ensure only one section is open at a time, you don't need this component at all, just use the `<details>` element directly.
+
 <Example
   class="bg-gradient-to-r from-amber-300 to-orange-400"
   prefix="demo"
