@@ -17,9 +17,14 @@ title: Tabs
 
 Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
 
+
 ## Styling states
 
-A `hidden` class is added to all panels except the one that is active, so you must add a style to use that class to hide them (if one not exists).
+| CSS class      | Tailwind class     | Description
+| -------------  |------------------- | --------------
+| `.ui-hidden`   | `[&.ui-hidden]`    | Added to all `TabPanel`s except the one that is active.
+| `.ui-disabled` | `[&.ui-disabled]`  | Added to the selected `Tab`.
+| `.ui-hidden`   | `[&.ui-hidden]`    | Added to disabled `Tab`s.
 
 
 ## Manually activating tabs
@@ -55,19 +60,6 @@ If you've styled your `TabList` to appear vertically, use the `vertical` attribu
   }}
 />
 
-## Disabling a tab
-
-To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse,
-and are also skipped when navigating the tab list using the keyboard.
-
-<Example
-  class="bg-blue-200"
-  prefix="disabled"
-  tabs={{
-    "Code": "Tabs.DisabledCode",
-    "Preview": "Tabs.DisabledPreview",
-  }}
-/>
 
 ## Controlling the tabs with a `<select>`
 
@@ -82,6 +74,27 @@ Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibil
   tabs={{
     "Code": "Tabs.SelectCode",
     "Preview": "Tabs.SelectPreview",
+  }}
+/>
+
+
+## Disabling a tab
+
+To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse,
+and are also skipped when navigating the tab list using the keyboard.
+
+<Callout type="warning">
+Disabling tabs is normally confusing for users. If there is no content for a tab,
+either remove it or, if that would be confusing for your users, explain why there
+is no content when the tab is selected.
+</Callout>
+
+<Example
+  class="bg-blue-200"
+  prefix="disabled"
+  tabs={{
+    "Code": "Tabs.DisabledCode",
+    "Preview": "Tabs.DisabledPreview",
   }}
 />
 

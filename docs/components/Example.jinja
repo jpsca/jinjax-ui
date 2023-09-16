@@ -38,7 +38,7 @@
               hover:bg-opacity-40
               focus-visible:bg-opacity-40
               focus-visible:outline-none
-              [&.selected]:bg-opacity-60
+              [&.ui-selected]:bg-opacity-60
               pointer-events-auto
               flex
               rounded-md
@@ -56,7 +56,7 @@
       {%- for name in tabs.values() %}
       <TabPanel
         id={"ex-%s-%s" % (prefix, loop.index)}
-        class="flex w-full flex-col items-center justify-center"
+        class="flex w-full flex-col items-center justify-center [&.ui-hidden]:hidden"
         hidden={loop.index != 1}
       >
         {{ catalog.render(name) }}

@@ -5,11 +5,11 @@
  * @typedef {HTMLElement} TabGroup
  */
 
-const SEL_TABGROUP = '[data-type="tabgroup"]';
-const SEL_TABLIST = '[data-type="tablist"]';
-const SEL_TAB = '[data-type="tab"]';
-const SEL_TABPANEL = '[data-type="tabpanel"]';
-const SEL_TABSELECT = '[data-type="tabselect"]';
+const SEL_TABGROUP = '[data-ui="tabgroup"]';
+const SEL_TABLIST = '[data-ui="tablist"]';
+const SEL_TAB = '[data-ui="tab"]';
+const SEL_TABPANEL = '[data-ui="tabpanel"]';
+const SEL_TABSELECT = '[data-ui="tabselect"]';
 
 const SEL_TAB_SCOPED = `${SEL_TAB}:not(:scope ${SEL_TABGROUP} ${SEL_TAB})`;
 const SEL_TABPANEL_SCOPED = `${SEL_TABPANEL}:not(:scope ${SEL_TABGROUP} ${SEL_TABPANEL})`;
@@ -21,10 +21,13 @@ const VERTICAL_VALUE = "vertical";
 const ARIA_CONTROLS_ATTR = "aria-controls";
 const TABINDEX_ATTR = "tabindex";
 
-const SELECTED_ATTR = "data-selected";
-const DISABLED_ATTR = "data-disabled";
-const HIDDEN_ATTR = "data-hidden";
-const MANUAL_ATTR = "data-manual";
+const SELECTED_CLASS = "ui-selected";
+const HIDDEN_CLASS = "ui-hidden";
+
+const SELECTED_ATTR = "data-ui-selected";
+const DISABLED_ATTR = "data-ui-disabled";
+const HIDDEN_ATTR = "data-ui-hidden";
+const MANUAL_ATTR = "data-ui-manual";
 
 const EVENT_SELECTED = "jxui:tab:selected";
 
@@ -164,6 +167,7 @@ function selectTab(tab) {
       if (el === tab) return;
       el.removeAttribute(SELECTED_ATTR);
       el.removeAttribute(ARIA_SELECTED_ATTR);
+      el.classList.remove(SELECTED_CLASS);
       el.setAttribute(TABINDEX_ATTR, "-1");
     });
 
@@ -173,9 +177,10 @@ function selectTab(tab) {
   }
 
   tab.focus();
-  el.setAttribute(SELECTED_ATTR, "true");
+  tab.setAttribute(SELECTED_ATTR, "true");
   tab.setAttribute(ARIA_SELECTED_ATTR, "true");
   tab.setAttribute(TABINDEX_ATTR, "0");
+  tab.classList.add(SELECTED_CLASS);
   selectPanel(target);
 }
 
@@ -189,9 +194,11 @@ function selectPanel(panelId) {
   .querySelectorAll(`${SEL_TABPANEL_SCOPED}:not([${HIDDEN_ATTR}])`)
   .forEach(el => {
     el.setAttribute(HIDDEN_ATTR, "true");
+    el.classList.add(HIDDEN_CLASS);
   });
 
-  panel.setAttribute(SELECTED_ATTR, "true");
+  panel.removeAttribute(HIDDEN_ATTR);
+  panel.classList.remove(HIDDEN_CLASS);
 }
 
 /**
@@ -206,6 +213,7 @@ function selectDefault(tabGroup) {
   if (tab) {
     tabGroup.querySelectorAll(SEL_TABPANEL_SCOPED).forEach(el => {
       el.setAttribute(HIDDEN_ATTR, "true");
+      el.classList.add(HIDDEN_CLASS);
     });
     selectTab(tab);
   }

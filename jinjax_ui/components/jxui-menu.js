@@ -1,4 +1,4 @@
 (function(){
-const SEL_ACCORDION = '[data-type="menu"]'
+const SEL_ACCORDION = '[data-ui="menu"]'
 
 })()
