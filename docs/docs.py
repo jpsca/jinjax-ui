@@ -16,6 +16,8 @@ pages = [
     [
         "Headless", [
             "Headless/Tabs.mdx",
+            "Headless/Popover.mdx",
+            "Headless/Menu.mdx",
             "Headless/Accordion.mdx",
         ],
     ],

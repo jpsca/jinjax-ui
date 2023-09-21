@@ -1,4 +1,4 @@
-(function(){
+import { on } from "./jxui.js";
 
 const ATTR_TOGGLE_CLASS = "data-toggle";
 const SEL_TOGGLE = `[${ATTR_TOGGLE_CLASS}]`;
@@ -6,10 +6,10 @@ const SEL_TOGGLE = `[${ATTR_TOGGLE_CLASS}]`;
 const ATTR_TOGGLE_MODAL = "data-toggle-modal";
 const SEL_SHOW_MODAL = `[${ATTR_TOGGLE_MODAL}]`;
 
-jxui.on("click", SEL_TOGGLE, onToggleClick);
-jxui.on("click", SEL_SHOW_MODAL, onShowModalClick);
+on("click", SEL_TOGGLE, onToggleClick);
+on("click", SEL_SHOW_MODAL, onShowModalClick);
 
-function onToggleClick (event, target) {
+function onToggleClick (_, target) {
   const [ sel, value ] = (target.getAttribute(ATTR_TOGGLE_CLASS) || "").split("|");
   if (!!sel && !!value) {
     toggle(sel, value)
@@ -30,7 +30,7 @@ function toggleAttribute (node, value) {
   }
 }
 
-function onShowModalClick (event, target) {
+function onShowModalClick (_, target) {
   const sel = target.getAttribute(ATTR_TOGGLE_MODAL) || "";
   for (const dialog of document.querySelectorAll(sel)) {
     if (dialog.open) {
@@ -40,5 +40,3 @@ function onShowModalClick (event, target) {
      }
   }
 }
-
-})()

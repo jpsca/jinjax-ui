@@ -1,0 +1,44 @@
+<div class="h-80 w-full max-w-xl px-2 py-16 sm:mr-10">
+  <div class="relative w-fit mx-auto">
+    <button
+      class="
+        rounded py-1 px-4 border shadow-lg bg-black/10
+      text-white font-semibold hover:bg-black/20
+      "
+      data-pop-target="demo-popover-1"
+    >Edit dimensions</button>
+    <Popover
+      id="demo-popover-1"
+      class="
+        group
+        absolute
+        top-full left-1/2 -ml-32
+        hidden
+        [&[data-open]]:block
+        z-50
+      "
+      delay="200"
+    >
+      <div class="
+        relative mt-3 w-60 p-5 rounded shadow bg-white
+        opacity-0 group-[[data-opened]]:opacity-100
+        transition-opacity duration-200 ease-in-out
+      ">
+        <h1 class="font-bold mb-3">Dimensions</h1>
+        <fieldset class="space-y-2">
+          <label class="flex items-center justify-between text-xs">
+            <span>Width</span>
+            <input class="text-xs p-1 rounded ml-auto w-2/3 border" type="text" name="width" value="340px">
+          </label>
+          <label class="flex items-center justify-between text-xs">
+            <span>Height</span>
+            <input class="text-xs p-1 rounded ml-auto w-2/3 border" type="text" name="height" value="25px">
+          </label>
+        </fieldset>
+        <svg class="block absolute -top-[4px] left-1/2 -mr-1 fill-white rotate-180 z-10"
+          width="10" height="5" viewBox="0 0 30 10"
+        ><polygon points="0,0 30,0 15,10"></polygon></svg>
+      </div>
+    </Popover>
+  </div>
+</div>
