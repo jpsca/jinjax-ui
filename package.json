@@ -5,6 +5,6 @@
     "jest-environment-jsdom": "^29.7.0"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules ./node_modules/.bin/jest jinjax_ui/components"
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest --verbose jinjax_ui/components"
   }
 }
