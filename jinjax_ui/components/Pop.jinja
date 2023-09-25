@@ -1,0 +1,14 @@
+{#def id, open=false, close_mode="auto", close_delay=0, tag="div" #}
+{#js "jxui.js", "jxui-pop.js" #}
+
+{% do attrs.setdefault(tabindex="1") %}
+{% set close_mode = close_mode if close_mode in ["auto", "manual"] else "auto" %}
+
+<{{ tag }} {{ attrs.render(
+  id=id,
+  data_pop=close_mode,
+  data_ui_open=open,
+  data_ui_opened=open,
+  data_ui_close_delay=close_delay,
+  role="dialog",
+) }}>{{ content }}</{{ tag }}>

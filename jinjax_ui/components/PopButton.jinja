@@ -1,0 +1,13 @@
+{#def target, open=False, action=None #}
+{#js "jxui.js", "jxui-pop.js" #}
+
+{%- if open -%}
+  {% do attrs.set(aria_expanded="true") %}
+{%- endif -%}
+
+<button {{ attrs.render(
+  type="button",
+  data_pop_target=target,
+  data_pop_action=action,
+  aria_controls=target,
+) }}>{{ content }}</button>

@@ -20,11 +20,11 @@ Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components
 
 ## Styling states
 
-| CSS class      | Tailwind class     | Description
-| -------------  |------------------- | --------------
-| `.ui-hidden`   | `[&.ui-hidden]`    | Added to all `TabPanel`s except the one that is active.
-| `.ui-disabled` | `[&.ui-disabled]`  | Added to the selected `Tab`.
-| `.ui-hidden`   | `[&.ui-hidden]`    | Added to disabled `Tab`s.
+| CSS selector         | Tailwind selector        | Description
+| -------------------  |------------------------- | --------------
+| `[data-ui-hidden]`   | `[&[data-ui-hidden]]:`   | Added to all `TabPanel` except the one that is active.
+| `[data-ui-disabled]` | `[&[data-ui-disabled]]:` | Added to the selected `Tab`.
+| `[data-ui-hidden]`   | `[&[data-ui-hidden]]:`   | Added to disabled `Tab`s.
 
 
 ## Manually activating tabs
@@ -98,6 +98,52 @@ is no content when the tab is selected.
   }}
 />
 
+## Component arguments
+
+### TabGroup
+
+| Argument    | Type     | Default    | Description
+| ----------- | -------- | ---------- | --------------
+| tag         | `str`    | `"div"`    | HTML tag used for rendering the wrapper.
+
+### TabList
+
+| Argument    | Type     | Default    | Description
+| ----------- | -------- | ---------- | --------------
+| vertical    | `bool`   | `false`    | Use the <Key title="arrow up">↑</Key> and <Key title="arrow down">↓</Key> arrow keys to move between tabs instead of the defaults <Key title="arrow left">←</Key> and <Key title="arrow right">→</Key> arrow keys.
+| manual      | `bool`   | `false`    | If `true`, selecting a tab with the keyboard won't activate it, you must press <Key>Enter</Key> os <Key>Space</Key> keys to do it.
+| tag         | `str`    | `"nav"`    | HTML tag used for rendering the wrapper.
+
+
+### Tab
+
+| Argument    | Type     | Default    | Description
+| ----------- | -------- | ---------- | --------------
+| target      | `str`    |            | Required. HTML id of the panel associated with this tab.
+| selected    | `bool`   | `false`    | Initially selected tab. Only one tab in the `TabList` can be selected at the time.
+| disabled    | `bool`   | `false`    | If the tab can be selected.
+| tag         | `str`    | `"button"` | HTML tag used for rendering the tab.
+
+### TabPanel
+
+| Argument    | Type     | Default    | Description
+| ----------- | -------- | ---------- | --------------
+| hidden      | `bool`   | `false`    | Initially hidden panel.
+| tag         | `bool`   | `"div"`    | HTML tag used for rendering the panel.
+
+
+### TabSelect
+
+No arguments.
+
+
+### TabOption
+
+| Argument    | Type     | Default    | Description
+| ----------- | -------- | ---------- | --------------
+| target      | `str`    |            | Required. HTML id of the panel associated with this tab.
+| disabled    | `bool`   | `false`    | Display the option but not allow to select it.
+
 
 ## Events
 
@@ -108,6 +154,7 @@ document.addEventListener("jxui:tab:selected", (event) => {
   console.log(`'${event.target.textContent}' tab selected`);
 });
 ```
+
 
 ## Accessibility notes
 
@@ -126,51 +173,3 @@ All interactions apply when a `Tab` component is focused.
 | <Key>Enter</Key> or <Key>Space</Key> when `manual` is set                                         | Activates the selected tab
 | <Key>Home</Key> or <Key>PageUp</Key>                                                              | Activates the **first** tab
 | <Key>End</Key> or <Key>PageDown</Key>                                                             | Activates the **last** tab
-
-
-## Component arguments
-
-### TabGroup
-
-| Argument                | Description
-| ----------------------- | -----------
-| tag (`"div"`)           | HTML tag used for rendering the wrapper.
-
-### TabList
-
-| Argument                | Description
-| ----------------------- | -----------
-| vertical (`false`)      | Use the <Key title="arrow up">↑</Key> and <Key title="arrow down">↓</Key> arrow keys to move between tabs instead of the defaults <Key title="arrow left">←</Key> and <Key title="arrow right">→</Key> arrow keys.
-| manual (`false`)        | If `true`, selecting a tab with the keyboard won't activate it, you must press <Key>Enter</Key> os <Key>Space</Key> keys to do it.
-| tag (`"nav"`)           | HTML tag used for rendering the wrapper.
-
-
-### Tab
-
-| Argument            | Description
-| ------------------- | -----------
-| target              | HTML id of the panel associated with this tab.
-| selected (`false`)  | Initially selected tab. Only one tab in the `TabList` can be selected at the time.
-| disabled (`false`)  | If the tab can be selected.
-| tag (`"button"`)    | HTML tag used for rendering the tag.
-
-
-### TabPanel
-
-| Argument                | Description
-| ----------------------- | -----------
-| hidden (`false`)        | Initially hidden panel.
-| tag (`"div"`)           | HTML tag used for rendering the panel.
-
-
-### TabSelect
-
-No arguments.
-
-
-### TabOption
-
-| Argument                | Description
-| ----------------------- | -----------
-| target                  | HTML id of the panel associated with this tab.
-| disabled (`false`)      | Display the option but not allow to select it.
