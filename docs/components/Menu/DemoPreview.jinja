@@ -1,11 +1,11 @@
-<div class="w-full max-w-xl px-2 py-16 sm:mr-10">
+<div class="h-96 w-full max-w-xl px-2 py-16 sm:mr-10">
   <div class="relative w-fit mx-auto">
     <MenuButton
       target="demo-menu-1"
       class="
         rounded py-1 px-4 border shadow-lg bg-black/10
       text-white font-semibold hover:bg-black/20"
-    >Options ⌄</MenuButton>
+    >Format </MenuButton>
 
     <Menu
       id="demo-menu-1"
@@ -16,6 +16,35 @@
       "
       close_delay="200"
     >
-      Meh
+      <div class="
+        relative mt-3 w-60 rounded shadow bg-white
+        opacity-0 group-[[data-ui-opened]]:opacity-100
+        transition-opacity duration-200 ease-in-out
+
+        [&_[data-menu-item]]:flex
+        [&_[data-menu-item]]:items-center
+        [&_[data-menu-item]]:px-4
+        [&_[data-menu-item]]:py-2
+        [&_[data-menu-item]]:h-12
+        [&_[data-menu-item]]:rounded
+        [&_[data-menu-item]]:text-black
+        [&_[data-menu-item]]:text-sm
+        [&_[data-menu-item]]:bg-white
+        [&_[data-menu-item]:hover]:bg-black/10
+        [&_[data-menu-item]_.check]:w-6
+      ">
+        <MenuItem>
+          <div class="check"></div>
+          <div class="label">Normal</div>
+        </MenuItem>
+        <MenuItem>
+          <div class="check"></div>
+          <div class="font-bold text-xl">Heading 1</div>
+        </MenuItem>
+        <MenuItem>
+          <div class="check"></div>
+          <div class="font-bold text-lg">Heading 2</div>
+        </MenuItem>
+      </div>
     </Menu>
 </div>

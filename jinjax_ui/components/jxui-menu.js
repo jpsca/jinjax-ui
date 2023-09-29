@@ -24,7 +24,7 @@ function handleClickOnButton(event, button) {
   toggleMenu(menu);
 }
 
-export function openPop(menu) {
+export function openMenu(menu) {
   menu.setAttribute(ATTR_OPEN, "true");
   setTimeout(function(){
     menu.setAttribute(ATTR_OPENED, "true");

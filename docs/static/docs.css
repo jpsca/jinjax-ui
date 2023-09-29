@@ -847,6 +847,10 @@ video {
   height: 100vh;
 }
 
+.h-96 {
+  height: 24rem;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -3309,26 +3313,6 @@ pre a {
   border-color: var(--accent-darker);
 }
 
-.\[\&\.selected\]\:bg-white.selected {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.\[\&\.selected\]\:bg-opacity-60.selected {
-  --tw-bg-opacity: 0.6;
-}
-
-.\[\&\.selected\]\:text-blue-700.selected {
-  --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
-}
-
-.\[\&\.selected\]\:shadow.selected {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .\[\&\.ui-hidden\]\:hidden.ui-hidden {
   display: none;
 }
@@ -3351,29 +3335,6 @@ pre a {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.\[\&\:not\(\.selected\2c \[disabled\]\)\]\:text-blue-100:not(.selected,[disabled]) {
-  --tw-text-opacity: 1;
-  color: rgb(219 234 254 / var(--tw-text-opacity));
-}
-
-.\[\&\:not\(\.selected\2c \[disabled\]\)\]\:hover\:bg-white\/10:hover:not(.selected,[disabled]) {
-  background-color: rgb(255 255 255 / 0.1);
-}
-
-.\[\&\:not\(\.selected\2c \[disabled\]\)\]\:hover\:text-white:hover:not(.selected,[disabled]) {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.\[\&\:not\(\.selected\2c \[disabled\]\)\]\:focus-visible\:bg-white\/10:focus-visible:not(.selected,[disabled]) {
-  background-color: rgb(255 255 255 / 0.1);
-}
-
-.\[\&\:not\(\.selected\2c \[disabled\]\)\]\:focus-visible\:text-white:focus-visible:not(.selected,[disabled]) {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .\[\&\:not\(\.ui-selected\2c \.ui-disabled\)\]\:text-blue-100:not(.ui-selected,.ui-disabled) {
@@ -3405,6 +3366,79 @@ pre a {
 
 .\[\&\[data-ui-opened\]\]\:opacity-100[data-ui-opened] {
   opacity: 1;
+}
+
+.\[\&_\[data-menu-item\]\:hover\]\:bg-black\/10 [data-menu-item]:hover {
+  background-color: rgb(0 0 0 / 0.1);
+}
+
+.\[\&_\[data-menu-item\]\]\:flex [data-menu-item] {
+  display: flex;
+}
+
+.\[\&_\[data-menu-item\]\]\:h-5 [data-menu-item] {
+  height: 1.25rem;
+}
+
+.\[\&_\[data-menu-item\]\]\:h-8 [data-menu-item] {
+  height: 2rem;
+}
+
+.\[\&_\[data-menu-item\]\]\:h-12 [data-menu-item] {
+  height: 3rem;
+}
+
+.\[\&_\[data-menu-item\]\]\:items-center [data-menu-item] {
+  align-items: center;
+}
+
+.\[\&_\[data-menu-item\]\]\:rounded [data-menu-item] {
+  border-radius: 0.25rem;
+}
+
+.\[\&_\[data-menu-item\]\]\:bg-white [data-menu-item] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.\[\&_\[data-menu-item\]\]\:px-4 [data-menu-item] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.\[\&_\[data-menu-item\]\]\:py-2 [data-menu-item] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.\[\&_\[data-menu-item\]\]\:text-sm [data-menu-item] {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.\[\&_\[data-menu-item\]\]\:text-black [data-menu-item] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.\[\&_\[data-menu-item\]\]\:hover\:bg-black\/10:hover [data-menu-item] {
+  background-color: rgb(0 0 0 / 0.1);
+}
+
+.\[\&_\[data-menu-item\]_\.check\]\:w-4 [data-menu-item] .check {
+  width: 1rem;
+}
+
+.\[\&_\[data-menu-item\]_\.check\]\:w-6 [data-menu-item] .check {
+  width: 1.5rem;
+}
+
+.\[\&_\[data-menu-item\]_\.label\]\:w-10 [data-menu-item] .label {
+  width: 2.5rem;
+}
+
+.\[\&_\[data-menu-item\]_\.label\]\:w-20 [data-menu-item] .label {
+  width: 5rem;
 }
 
 .\[\&_a\.active\:before\]\:pr-1 a.active:before {
@@ -3529,4 +3563,45 @@ pre a {
 :is(.dark .\[\&_a\]\:dark\:text-zinc-500) a {
   --tw-text-opacity: 1;
   color: rgb(113 113 122 / var(--tw-text-opacity));
+}
+
+.\[\&_data-menu-item\]\:flex data-menu-item {
+  display: flex;
+}
+
+.\[\&_data-menu-item\]\:items-center data-menu-item {
+  align-items: center;
+}
+
+.\[\&_data-menu-item\]\:bg-white data-menu-item {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.\[\&_data-menu-item\]\:px-4 data-menu-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.\[\&_data-menu-item\]\:py-2 data-menu-item {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.\[\&_data-menu-item\]\:text-sm data-menu-item {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.\[\&_data-menu-item\]\:text-black data-menu-item {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.\[\&_data-menu-item\]\:hover\:bg-black\/10:hover data-menu-item {
+  background-color: rgb(0 0 0 / 0.1);
+}
+
+.\[\&_data-menu-item_\.check\]\:w-4 data-menu-item .check {
+  width: 1rem;
 }
