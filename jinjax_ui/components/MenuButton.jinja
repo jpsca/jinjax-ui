@@ -1,9 +1,8 @@
-{#def tag="button" #}`
+{#def target #}
+{#js "jxui.js", "jxui-menu.js" #}
 
-{%- if tag == "button" -%}
-  {% do attrs.setdefault(type="button") %}
-{%- endif -%}
-
-<{{ tag }} {{ attrs.render(
-  data_ui="menubutton",
-) }}>{{ content }}</{{ tag }}>
+<button {{ attrs.render(
+  type="button",
+  data_menu_target=target,
+  aria_controls=target,
+) }}>{{ content }}</button>

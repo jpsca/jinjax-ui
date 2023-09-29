@@ -1,6 +1,12 @@
-{#def tag="div" #}
+{#def id, close_delay=0, tag="div" #}
 {#js "jxui.js", "jxui-menu.js" #}
 
 <{{ tag }} {{ attrs.render(
-  data_ui="menu",
+  data_menu=true,
+  role="menu",
+  id=id,
+  data_ui_open=open,
+  data_ui_opened=open,
+  data_ui_close_delay=close_delay,
+  tabindex="-1"
 ) }}>{{ content }}</{{ tag }}>
