@@ -7,3 +7,7 @@ install:
 	poetry install --with dev,test
 	pip install -e ../claydocs/
 	pip install -e ../jinjax/
+
+.PHONY: docs
+docs:
+	cd docs && python docs.py

@@ -59,7 +59,7 @@
         class="flex w-full flex-col items-center justify-center [&.ui-hidden]:hidden"
         hidden={loop.index != 1}
       >
-        {{ catalog.render(name) }}
+        {{ catalog.irender(name) }}
       </TabPanel>
       {%- endfor %}
     </TabGroup>

@@ -10,41 +10,73 @@
     <Menu
       id="demo-menu-1"
       class="
-        group
-        absolute top-full left-1/2 -ml-32
-        hidden [&[data-ui-open]]:block z-50
-      "
-      close_delay="200"
-    >
-      <div class="
-        relative mt-3 w-60 rounded shadow bg-white
-        opacity-0 group-[[data-ui-opened]]:opacity-100
-        transition-opacity duration-200 ease-in-out
+        absolute top-full left-1/2
+        w-48 -ml-24
+        hidden [&.ui-open]:block z-50
 
-        [&_[data-menu-item]]:flex
-        [&_[data-menu-item]]:items-center
-        [&_[data-menu-item]]:px-4
-        [&_[data-menu-item]]:py-2
-        [&_[data-menu-item]]:h-12
-        [&_[data-menu-item]]:rounded
-        [&_[data-menu-item]]:text-black
-        [&_[data-menu-item]]:text-sm
-        [&_[data-menu-item]]:bg-white
-        [&_[data-menu-item]:hover]:bg-black/10
-        [&_[data-menu-item]_.check]:w-6
+        mt-3 rounded-md p-1 shadow bg-white
+        opacity-0 [&.ui-opened]:opacity-100
+        transition-opacity duration-200 ease-in-out
       ">
-        <MenuItem>
-          <div class="check"></div>
-          <div class="label">Normal</div>
-        </MenuItem>
-        <MenuItem>
-          <div class="check"></div>
-          <div class="font-bold text-xl">Heading 1</div>
-        </MenuItem>
-        <MenuItem>
-          <div class="check"></div>
-          <div class="font-bold text-lg">Heading 2</div>
-        </MenuItem>
-      </div>
+        <div class="
+          divide-y divide-gray-200
+
+          [&_.ui-menu-item]:flex
+          [&_.ui-menu-item]:items-center
+          [&_.ui-menu-item]:cursor-default
+          [&_.ui-menu-item]:px-3
+          [&_.ui-menu-item]:rounded
+          [&_.ui-menu-item]:text-black
+          [&_.ui-menu-item]:text-sm
+          [&_.ui-menu-item]:bg-white
+          [&_.ui-menu-item:hover]:bg-black/10
+          [&_.ui-menu-item_.check]:w-7
+          [&_.ui-menu-item_.check]:font-bold
+        ">
+          <div class="pb-1 [&_.ui-menu-item]:h-10">
+            <MenuItem>
+              <div class="check">✓</div>
+              <div class="">Normal</div>
+            </MenuItem>
+            <MenuItem>
+              <div class="check"></div>
+              <div class="font-bold text-xl">Heading 1</div>
+            </MenuItem>
+            <MenuItem>
+              <div class="check"></div>
+              <div class="font-bold text-lg">Heading 2</div>
+            </MenuItem>
+          </div>
+
+          <div class="pt-1 [&_.ui-menu-item]:h-8">
+            <MenuItem>
+              <div class="check"></div>
+              <div class="flex items-center">
+                <img width="16" height="16" src="/static/align-left.svg" aria-hidden>
+                <span class="ml-1">Left</span>
+              </div>
+            </MenuItem>
+            <MenuItem>
+              <div class="check">✓</div>
+              <div class="flex items-center">
+                <img width="16" height="16" src="/static/align-center.svg" aria-hidden>
+                <span class="ml-1">Center</span>
+              </div>
+            </MenuItem>
+            <MenuItem>
+              <div class="check"></div>
+              <div class="flex items-center">
+                <img width="16" height="16" src="/static/align-right.svg" aria-hidden>
+                <span class="ml-1">Right</span>
+              </div>
+            </MenuItem>
+          </div>
+        </div>
+
+        <svg
+          class="block absolute -top-[4px] left-1/2 fill-white border-white rotate-180 z-10"
+          width="10" height="5" viewBox="0 0 30 10"
+          aria-hidden="true"
+        ><polygon points="0,0 30,0 15,10"></polygon></svg>
     </Menu>
 </div>

@@ -1,8 +1,13 @@
 {#def selected=false, disabled=false, tag="a" #}
 
+{% do attrs.add_class("ui-menu-item") %}
+{% if disabled -%}
+  {% do attrs.add_class("ui-disabled") %}
+{%- endif %}
+{% if selected and not disabled -%}
+  {% do attrs.add_class("ui-selected") %}
+{%- endif %}
+
 <{{ tag }} {{ attrs.render(
-  data_menu_item=true,
   role="menuitem",
-  data_ui_disabled=disabled,
-  data_ui_selected=selected and not disabled,
 ) }}>{{ content }}</{{ tag }}>

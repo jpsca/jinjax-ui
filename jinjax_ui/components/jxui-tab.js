@@ -1,3 +1,8 @@
+/**
+ * JinjaX-UI - Tab component
+ * @author Juan-Pablo Scaletti https://github.com/jpsca
+ * MIT license
+ */
 import { on } from "./jxui.js";
 
 /**
@@ -156,7 +161,7 @@ function handleKeyDown(event, tab) {
 /**
  * @param {Tab} tab
  */
-function selectTab(tab) {
+function selectTab(tab, focus = true) {
   tab.dispatchEvent(new CustomEvent(EVENT_SELECTED));
 
   const target = tab.getAttribute(ATTR_ARIA_CONTROLS);
@@ -177,7 +182,7 @@ function selectTab(tab) {
     tabselect.value = target;
   }
 
-  tab.focus();
+  if (focus) { tab.focus(); }
   tab.setAttribute(ATTR_SELECTED, "true");
   tab.setAttribute(ATTR_ARIA_SELECTED, "true");
   tab.setAttribute(ATTR_TABINDEX, "0");
@@ -216,7 +221,7 @@ function selectDefault(tabGroup) {
       el.setAttribute(ATTR_HIDDEN, "true");
       el.classList.add(CLASS_HIDDEN);
     });
-    selectTab(tab);
+    selectTab(tab, false);
   }
 }
 

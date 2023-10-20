@@ -1,14 +1,19 @@
+/**
+ * JinjaX-UI - Menu component
+ * @author Juan-Pablo Scaletti https://github.com/jpsca
+ * MIT license
+ */
 import { on } from "./jxui.js";
 
 const ATTR_TARGET = "data-menu-target";
-const ATTR_CLOSE_DELAY = "data-ui-close-delay";
-const ATTR_OPEN = "data-ui-open";
-const ATTR_OPENED = "data-ui-opened";
+const ATTR_CLOSE_DELAY = "data-close-delay";
 const ATTR_ARIA_EXPANDED = "aria-expanded";
+const CLASS_OPEN = "ui-open";
+const CLASS_OPENED = "ui-opened";
 const SEL_BODY= "body";
 const SEL_BUTTON = `[${ATTR_TARGET}]`;
-const SEL_MENU = '[data-menu]'
-const SEL_MENU_OPEN = `${SEL_MENU}[${ATTR_OPEN}]`;
+const SEL_MENU = '.ui-menu'
+const SEL_MENU_OPEN = `${SEL_MENU}.${CLASS_OPEN}`;
 
 const ESC_KEY = "Escape";
 
@@ -25,9 +30,9 @@ function handleClickOnButton(event, button) {
 }
 
 export function openMenu(menu) {
-  menu.setAttribute(ATTR_OPEN, "true");
+  menu.classList.add(CLASS_OPEN);
   setTimeout(function(){
-    menu.setAttribute(ATTR_OPENED, "true");
+    menu.classList.add(CLASS_OPENED);
   }, 0)
 
   document
@@ -43,9 +48,9 @@ export function closeMenu(menu) {
     console.error("Invalid delay", delay);
     return;
   }
-  menu.removeAttribute(ATTR_OPENED);
+  menu.classList.remove(CLASS_OPENED);
   setTimeout(function(){
-    menu.removeAttribute(ATTR_OPEN);
+    menu.classList.remove(CLASS_OPEN);
   }, delay)
 
   document
@@ -56,7 +61,7 @@ export function closeMenu(menu) {
 }
 
 export function toggleMenu(menu) {
-  if (menu.hasAttribute(ATTR_OPEN)) {
+  if (menu.classList.contains(CLASS_OPEN)) {
     closeMenu(menu);
   } else {
     openMenu(menu);

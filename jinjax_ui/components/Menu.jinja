@@ -1,10 +1,11 @@
 {#def id, close_delay=0, tag="div" #}
-{#js "jxui.js", "jxui-menu.js" #}
+{#js jxui.js, jxui-menu.js #}
+
+{% do attrs.add_class("ui-menu") %}
 
 <{{ tag }} {{ attrs.render(
-  data_menu=true,
   role="menu",
   id=id,
-  data_ui_close_delay=close_delay,
+  data_close_delay=close_delay,
   tabindex="-1"
 ) }}>{{ content }}</{{ tag }}>

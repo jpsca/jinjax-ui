@@ -1,3 +1,9 @@
+/**
+ * JinjaX-UI: Base UI components for JinjaX
+ * @author Juan-Pablo Scaletti https://github.com/jpsca
+ * MIT license
+ */
+
 const originalStopPropagation = Event.prototype.stopPropagation;
 /**
  * Extends the Event prototype to track whether propagation has been stopped.

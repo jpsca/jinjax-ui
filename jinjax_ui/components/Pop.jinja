@@ -1,5 +1,5 @@
 {#def id, open=false, close_mode="auto", close_delay=0, tag="div" #}
-{#js "jxui.js", "jxui-pop.js" #}
+{#js jxui.js, jxui-pop.js #}
 
 {% do attrs.setdefault(tabindex="1") %}
 {% set close_mode = close_mode if close_mode in ["auto", "manual"] else "auto" %}

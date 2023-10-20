@@ -1,3 +1,8 @@
+/**
+ * JinjaX-UI - Accordion component
+ * @author Juan-Pablo Scaletti https://github.com/jpsca
+ * MIT license
+ */
 import { on } from "./jxui.js";
 
 const SEL_ACCORDION = '[data-ui="accordion"]'

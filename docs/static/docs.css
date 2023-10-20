@@ -682,12 +682,12 @@ video {
   margin-left: -0.25rem;
 }
 
-.-ml-32 {
-  margin-left: -8rem;
+.-ml-24 {
+  margin-left: -6rem;
 }
 
-.-mr-1 {
-  margin-right: -0.25rem;
+.-ml-32 {
+  margin-left: -8rem;
 }
 
 .-mt-1 {
@@ -778,6 +778,10 @@ video {
   margin-top: 2rem;
 }
 
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -834,6 +838,10 @@ video {
   height: 20rem;
 }
 
+.h-96 {
+  height: 24rem;
+}
+
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -845,10 +853,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-96 {
-  height: 24rem;
 }
 
 .max-h-0 {
@@ -877,6 +881,10 @@ video {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-48 {
+  width: 12rem;
 }
 
 .w-5 {
@@ -1044,6 +1052,17 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-divide-opacity));
 }
 
 .overflow-hidden {
@@ -1452,6 +1471,10 @@ video {
   padding-bottom: 0.2rem;
 }
 
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -1494,6 +1517,10 @@ video {
 
 .pr-\[max\(1rem\2c env\(safe-area-inset-right\)\)\] {
   padding-right: max(1rem,env(safe-area-inset-right));
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
 }
 
 .pt-10 {
@@ -2915,10 +2942,6 @@ pre a {
   color: rgb(39 39 42 / var(--tw-text-opacity));
 }
 
-.group[data-ui-opened] .group-\[\[data-ui-opened\]\]\:opacity-100 {
-  opacity: 1;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .motion-safe\:transition-\[transform\2c opacity\] {
     transition-property: transform,opacity;
@@ -3317,6 +3340,14 @@ pre a {
   display: none;
 }
 
+.\[\&\.ui-open\]\:block.ui-open {
+  display: block;
+}
+
+.\[\&\.ui-opened\]\:opacity-100.ui-opened {
+  opacity: 1;
+}
+
 .\[\&\.ui-selected\]\:bg-white.ui-selected {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -3368,77 +3399,60 @@ pre a {
   opacity: 1;
 }
 
-.\[\&_\[data-menu-item\]\:hover\]\:bg-black\/10 [data-menu-item]:hover {
+.\[\&_\.ui-menu-item\:hover\]\:bg-black\/10 .ui-menu-item:hover {
   background-color: rgb(0 0 0 / 0.1);
 }
 
-.\[\&_\[data-menu-item\]\]\:flex [data-menu-item] {
+.\[\&_\.ui-menu-item\]\:flex .ui-menu-item {
   display: flex;
 }
 
-.\[\&_\[data-menu-item\]\]\:h-5 [data-menu-item] {
-  height: 1.25rem;
+.\[\&_\.ui-menu-item\]\:h-10 .ui-menu-item {
+  height: 2.5rem;
 }
 
-.\[\&_\[data-menu-item\]\]\:h-8 [data-menu-item] {
+.\[\&_\.ui-menu-item\]\:h-8 .ui-menu-item {
   height: 2rem;
 }
 
-.\[\&_\[data-menu-item\]\]\:h-12 [data-menu-item] {
-  height: 3rem;
+.\[\&_\.ui-menu-item\]\:cursor-default .ui-menu-item {
+  cursor: default;
 }
 
-.\[\&_\[data-menu-item\]\]\:items-center [data-menu-item] {
+.\[\&_\.ui-menu-item\]\:items-center .ui-menu-item {
   align-items: center;
 }
 
-.\[\&_\[data-menu-item\]\]\:rounded [data-menu-item] {
+.\[\&_\.ui-menu-item\]\:rounded .ui-menu-item {
   border-radius: 0.25rem;
 }
 
-.\[\&_\[data-menu-item\]\]\:bg-white [data-menu-item] {
+.\[\&_\.ui-menu-item\]\:bg-white .ui-menu-item {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.\[\&_\[data-menu-item\]\]\:px-4 [data-menu-item] {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.\[\&_\.ui-menu-item\]\:px-3 .ui-menu-item {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
-.\[\&_\[data-menu-item\]\]\:py-2 [data-menu-item] {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.\[\&_\[data-menu-item\]\]\:text-sm [data-menu-item] {
+.\[\&_\.ui-menu-item\]\:text-sm .ui-menu-item {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.\[\&_\[data-menu-item\]\]\:text-black [data-menu-item] {
+.\[\&_\.ui-menu-item\]\:text-black .ui-menu-item {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.\[\&_\[data-menu-item\]\]\:hover\:bg-black\/10:hover [data-menu-item] {
-  background-color: rgb(0 0 0 / 0.1);
+.\[\&_\.ui-menu-item_\.check\]\:w-7 .ui-menu-item .check {
+  width: 1.75rem;
 }
 
-.\[\&_\[data-menu-item\]_\.check\]\:w-4 [data-menu-item] .check {
-  width: 1rem;
-}
-
-.\[\&_\[data-menu-item\]_\.check\]\:w-6 [data-menu-item] .check {
-  width: 1.5rem;
-}
-
-.\[\&_\[data-menu-item\]_\.label\]\:w-10 [data-menu-item] .label {
-  width: 2.5rem;
-}
-
-.\[\&_\[data-menu-item\]_\.label\]\:w-20 [data-menu-item] .label {
-  width: 5rem;
+.\[\&_\.ui-menu-item_\.check\]\:font-bold .ui-menu-item .check {
+  font-weight: 700;
 }
 
 .\[\&_a\.active\:before\]\:pr-1 a.active:before {
@@ -3563,45 +3577,4 @@ pre a {
 :is(.dark .\[\&_a\]\:dark\:text-zinc-500) a {
   --tw-text-opacity: 1;
   color: rgb(113 113 122 / var(--tw-text-opacity));
-}
-
-.\[\&_data-menu-item\]\:flex data-menu-item {
-  display: flex;
-}
-
-.\[\&_data-menu-item\]\:items-center data-menu-item {
-  align-items: center;
-}
-
-.\[\&_data-menu-item\]\:bg-white data-menu-item {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.\[\&_data-menu-item\]\:px-4 data-menu-item {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.\[\&_data-menu-item\]\:py-2 data-menu-item {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.\[\&_data-menu-item\]\:text-sm data-menu-item {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.\[\&_data-menu-item\]\:text-black data-menu-item {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.\[\&_data-menu-item\]\:hover\:bg-black\/10:hover data-menu-item {
-  background-color: rgb(0 0 0 / 0.1);
-}
-
-.\[\&_data-menu-item_\.check\]\:w-4 data-menu-item .check {
-  width: 1rem;
 }
