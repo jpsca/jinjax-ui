@@ -722,6 +722,10 @@ video {
   margin-left: 0px;
 }
 
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -776,10 +780,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.ml-1 {
-  margin-left: 0.25rem;
 }
 
 .block {
@@ -3399,7 +3399,7 @@ pre a {
   opacity: 1;
 }
 
-.\[\&_\.ui-menu-item\:hover\]\:bg-black\/10 .ui-menu-item:hover {
+.\[\&_\.ui-menu-item\.ui-selected\]\:bg-black\/10 .ui-menu-item.ui-selected {
   background-color: rgb(0 0 0 / 0.1);
 }
 

@@ -4,6 +4,9 @@
  * MIT license
  */
 
+/** @type {number} */
+const DEFAULT_DEBOUNCE_DELAY = 30;
+
 const originalStopPropagation = Event.prototype.stopPropagation;
 /**
  * Extends the Event prototype to track whether propagation has been stopped.
@@ -61,6 +64,17 @@ Event.prototype.stopImmediatePropagation = function() {
  */
 
 /**
+ * Stop an event from propagating and executing other handlers,
+ * including the default action.
+ *
+ * @param {Event} event
+ */
+function stopEvent(event) {
+  event.preventDefault();
+  event.stopPropagation();
+}
+
+/**
  * Dispatches an event to matching elements along with their associated callbacks.
  *
  * This function walks up the DOM tree from the event target, checking each element
@@ -102,9 +116,7 @@ function dispatchEvent(event, route) {
 
 /**************************************************************/
 
-/**
- * @type {EventRoutes}
-*/
+/** @type {EventRoutes} */
 const routes = {};
 
 /**
@@ -113,8 +125,9 @@ const routes = {};
  * @param {string} type - The type of the event.
  * @param {string} selector - The CSS selector to match elements.
  * @param {EventCallback} callback - The callback function to execute when the event is triggered.
+ * @param {number} debouncedBy - Number of miliseconds to debounce the callback.
  */
-export function on(type, selector, callback) {
+export function on(type, selector, callback, debouncedBy=DEFAULT_DEBOUNCE_DELAY) {
   if (!routes[type]) {
     routes[type] = {};
     document.addEventListener(type, handleEvent, true);
@@ -122,7 +135,9 @@ export function on(type, selector, callback) {
   if (!routes[type][selector]) {
     routes[type][selector] = [];
   }
-  routes[type][selector].push(callback);
+  routes[type][selector].push(
+    debouncedBy ? debounce(callback, stopEvent, debouncedBy) : callback
+  );
 }
 
 /**
@@ -138,9 +153,32 @@ export function off(type, selector) {
   delete routes[type][selector];
 
   if (Object.keys(routes[type]).length === 0) {
-    delete routes[type]
+    delete routes[type];
     document.removeEventListener(type, handleEvent);
   }
+}
+
+/**
+ * Allow a function to be called immediately and then
+ * prevents subsequent multiple calls from firing until
+ * `delay` miliseconds. If `elseFunc` is provided, it will
+ * be called instead of the original function if the
+ * delay has not passed.
+ * @public
+ * @param {function} func - The function.
+ * @param {function} elseFunc - The function to call when the original function was not
+ * @param {number} delay - Group calls to the function during this time in miliseconds.
+ */
+export function debounce(func, elseFunc, delay = DEFAULT_DEBOUNCE_DELAY) {
+  var timer = 0;
+  return function debouncedFn() {
+    if (Date.now() - timer > delay) {
+      func(...arguments);
+    } else if (elseFunc) {
+      elseFunc(...arguments);
+    }
+    timer = Date.now();
+  };
 }
 
 /**
@@ -155,11 +193,10 @@ function handleEvent(event) {
 
 /**************************************************************/
 
-/**
- * @type {KeydownRoutes}
-*/
+/** @type {KeydownRoutes} */
 const keydownRoutes = {};
 
+/** @type {string} */
 const KEYDOWN = "keydown";
 
 /**

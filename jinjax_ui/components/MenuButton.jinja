@@ -1,6 +1,8 @@
 {#def target #}
 {#js jxui.js, jxui-menu.js #}
 
+{% do attrs.setdefault(tabindex="0") %}
+
 <button {{ attrs.render(
   type="button",
   data_menu_target=target,
