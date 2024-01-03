@@ -1,14 +1,10 @@
-{#def selected=false, disabled=false, tag="a" #}
+{#def disabled=false, tag="a" #}
 
-{% do attrs.add_class("ui-menu-item") %}
+{% do attrs.set(class="ui-menu-item") %}
+{% do attrs.setdefault(tabindex="0") %}
+
 {% if disabled -%}
-  {% do attrs.add_class("ui-disabled") %}
-{%- endif %}
-{% if selected and not disabled -%}
-  {% do attrs.add_class("ui-selected") %}
+  {% do attrs.set(class="ui-disabled") %}
 {%- endif %}
 
-<{{ tag }} {{ attrs.render(
-  role="menuitem",
-  tabindex="-1",
-) }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(role="menuitem") }}>{{ content }}</{{ tag }}>

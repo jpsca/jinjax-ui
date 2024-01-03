@@ -19,6 +19,7 @@ pages = [
             "Headless/Popover.mdx",
             "Headless/Menu.mdx",
             "Headless/Accordion.mdx",
+            "Headless/LinkedList.mdx",
         ],
     ],
 ]
