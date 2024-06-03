@@ -1,5 +1,5 @@
 /**
- * JinjaX-UI - Tab component
+ * JinjaX-UI - Tabs
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */

@@ -1,5 +1,5 @@
 /**
- * JinjaX-UI - Relative date component
+ * JinjaX-UI - Relative dates
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */

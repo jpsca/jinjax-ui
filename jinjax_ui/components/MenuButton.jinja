@@ -1,10 +1,13 @@
-{#def target #}
-{#js jxui.js, jxui-menu.js #}
+{#def target, action=None, tag="button" #}
 
-{% do attrs.setdefault(tabindex="0") %}
+{%- if tag == "button" -%}
+  {% do attrs.setdefault(type="button") %}
+{%- endif -%}
 
-<button {{ attrs.render(
-  type="button",
-  data_menu_target=target,
-  aria_controls=target,
-) }}>{{ content }}</button>
+{%- if action and action in ["hide", "show", "toggle"] -%}
+  {% do attrs.set(popovertargetaction=action) %}
+{%- endif -%}
+
+{% do attrs.set(class="ui-menubutton") %}
+
+<{{ tag }} {{ attrs.render(popovertarget=target) }}>{{ content }}</{{ tag }}>

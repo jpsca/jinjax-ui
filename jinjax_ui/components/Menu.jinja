@@ -1,11 +1,7 @@
-{#def id, close_delay=0, tag="div" #}
-{#js jxui.js, jxui-menu.js #}
+{#def id, mode="auto", tag="div" #}
+{#js "jxui.js", "jxui-menu.js" #}
 
-{% do attrs.add_class("ui-menu") %}
+{% set mode = mode if mode in ["auto", "manual"] else "auto" %}
+{% do attrs.set(class="ui-menu") %}
 
-<{{ tag }} {{ attrs.render(
-  role="menu",
-  id=id,
-  data_close_delay=close_delay,
-  tabindex="-1"
-) }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(id=id, popover=mode, tabindex="-1") }}>{{ content }}</{{ tag }}>

@@ -1,13 +1,11 @@
-{#def target, open=False, action=None #}
-{#js jxui.js, jxui-pop.js #}
+{#def target, action=None, tag="button" #}
 
-{%- if open -%}
-  {% do attrs.set(aria_expanded="true") %}
+{%- if tag == "button" -%}
+  {% do attrs.setdefault(type="button") %}
 {%- endif -%}
 
-<button {{ attrs.render(
-  type="button",
-  data_pop_target=target,
-  data_pop_action=action,
-  aria_controls=target,
-) }}>{{ content }}</button>
+{%- if action and action in ["hide", "show", "toggle"] -%}
+{% do attrs.set(popovertargetaction=action) %}
+{%- endif -%}
+
+<{{ tag }} {{ attrs.render(popovertarget=target) }}>{{ content }}</{{ tag }}>

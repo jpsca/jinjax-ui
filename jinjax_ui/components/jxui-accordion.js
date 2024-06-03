@@ -1,5 +1,5 @@
 /**
- * JinjaX-UI - Accordion component
+ * JinjaX-UI - Accordion
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */
