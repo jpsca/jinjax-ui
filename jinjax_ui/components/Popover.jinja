@@ -1,5 +1,0 @@
-{#def id, mode="auto", tag="div" #}
-
-{% set mode = mode if mode in ["auto", "manual"] else "auto" %}
-
-<{{ tag }} {{ attrs.render(id=id, popover=mode) }}>{{ content }}</{{ tag }}>

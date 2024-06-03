@@ -1,5 +1,5 @@
 /**
- * JinjaX-UI - Menu component
+ * JinjaX-UI - Menus
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */

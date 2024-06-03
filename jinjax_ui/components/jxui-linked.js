@@ -1,5 +1,5 @@
 /**
- * JinjaX-UI - Linked List component
+ * JinjaX-UI - Linked lists
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */
@@ -11,7 +11,7 @@ const ATTR_SORTED = "data-linked-sorted";
 
 const SEL_ITEM = "li";
 const SEL_LIST = `[${ATTR_LINKED}]`;
-const SEL_ITEMS = `${SEL_LIST} > ${SEL_ITEM}`;
+const SEL_ITcomponentEMS = `${SEL_LIST} > ${SEL_ITEM}`;
 const SEL_CHECKBOX = `${SEL_ITEMS} input[type=checkbox]`;
 
 const EVENT_SEND_ALL = "jxui:linked:sendall"
