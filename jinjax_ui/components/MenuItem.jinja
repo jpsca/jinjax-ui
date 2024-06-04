@@ -8,6 +8,6 @@
 {%- endif %}
 
 {% do attrs.set(class="ui-menuitem") %}
-{% do attrs.set(class="ui-disabled" if disabled else ("ui-selected" if selected else "")) %}
+{% do attrs.set(class="ui-disabled" if disabled else "") %}
 
 <{{ tag }} {{ attrs.render(role="menuitem", tabindex="-1") }}>{{ content }}</{{ tag }}>

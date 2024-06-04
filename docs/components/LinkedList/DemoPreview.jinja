@@ -1,57 +1,56 @@
 <div class="w-full max-w-xl px-2 py-16 sm:mr-10 md:flex md:space-x-4">
-
   <div class="w-full">
-    <label>Off</label>
+    <label>Have</label>
     <div class="border border-gray-300 rounded">
       <LinkedList
         id="demo1-list1"
         linked_to="demo1-list2"
         class="p-0 m-0 list-none bg-white overflow-y-scroll overscroll-contain h-64"
       >
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_argentina.svg" alt="Argentina flag" width="18" height="18" class="inline-block">
-          ARGENTINA
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_brazil.svg" alt="Brazil flag" width="18" height="18" class="inline-block">
-          BRAZIL
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_chile.svg" alt="Chile flag" width="18" height="18" class="inline-block">
-          CHILE
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_colombia.svg" alt="Colombia flag" width="18" height="18" class="inline-block">
-          COLOMBIA
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_costa-rica.svg" alt="Costa Rica flag" width="18" height="18" class="inline-block">
-          COSTA RICA
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_ecuador.svg" alt="Ecuador flag" width="18" height="18" class="inline-block">
-          ECUADOR
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_mexico.svg" alt="Mexico flag" width="18" height="18" class="inline-block">
-          MEXICO
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
-          <img src="/static/img/flag_panama.svg" alt="Panama flag" width="18" height="18" class="inline-block">
-          PANAMA
-        </li>
-        <li class="cursor-pointer block m-1 p-1 hover:bg-gray-100">
-          <input type="checkbox" name="countries" value="argentina" class="mr-2">
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="arequipa" class="mr-2">
           <img src="/static/img/flag_peru.svg" alt="Peru flag" width="18" height="18" class="inline-block">
-          PERU
+          Arequipa
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="buenos-aires" class="mr-2">
+          <img src="/static/img/flag_argentina.svg" alt="Argentina flag" width="18" height="18" class="inline-block">
+          Buenos Aires
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="cusco" class="mr-2">
+          <img src="/static/img/flag_peru.svg" alt="Peru flag" width="18" height="18" class="inline-block">
+          Cusco
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="lima" class="mr-2">
+          <img src="/static/img/flag_peru.svg" alt="Peru flag" width="18" height="18" class="inline-block">
+          Lima
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="medellin" class="mr-2">
+          <img src="/static/img/flag_colombia.svg" alt="Colombia flag" width="18" height="18" class="inline-block">
+          Medellín
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="mexico-city" class="mr-2">
+          <img src="/static/img/flag_mexico.svg" alt="Mexico flag" width="18" height="18" class="inline-block">
+          Mexico City
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="rio" class="mr-2">
+          <img src="/static/img/flag_brazil.svg" alt="Brazil flag" width="18" height="18" class="inline-block">
+          Rio
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="san-jose" class="mr-2">
+          <img src="/static/img/flag_costa-rica.svg" alt="Costa Rica flag" width="18" height="18" class="inline-block">
+          San José
+        </li>
+        <li class="cursor-pointer block p-1 hover:bg-gray-100">
+          <input type="checkbox" name="cities" value="santiago" class="mr-2">
+          <img src="/static/img/flag_chile.svg" alt="Chile flag" width="18" height="18" class="inline-block">
+          Santiago
         </li>
       </LinkedList>
     </div>
@@ -63,9 +62,8 @@
       Select all &raquo;
     </button>
   </div>
-
   <div class="w-full">
-    <label>On</label>
+    <label>Haven't</label>
     <div class="border border-gray-300 rounded">
       <LinkedList
         id="demo1-list2"
@@ -83,5 +81,4 @@
       &laquo;  Remove all
     </button>
   </div>
-
 </div>

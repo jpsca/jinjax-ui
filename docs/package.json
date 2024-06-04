@@ -4,6 +4,6 @@
     "build": "tailwindcss -i ./static/_docs.css  -o ./static/docs.css --minify"
   },
   "devDependencies": {
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.4.3"
   }
 }

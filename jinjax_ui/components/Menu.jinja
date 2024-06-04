@@ -1,7 +1,26 @@
-{#def id, mode="auto", tag="div" #}
-{#js "jxui.js", "jxui-menu.js" #}
+{#def id, mode="auto", anchor=None, anchor_left=None, anchor_right=None, anchor_top=None, anchor_bottom=None, tag="div" #}
+{#js "jxui.js", "jxui-pop.js", "jxui-menu.js" #}
 
 {% set mode = mode if mode in ["auto", "manual"] else "auto" %}
+
+{% if anchor %}
+  {% set anchor_left = anchor_left if anchor_left in ["left", "center", "right"] else None %}
+  {% set anchor_right = anchor_right if anchor_right in ["left", "center", "right"] else "right" %}
+  {% set anchor_top = anchor_top if anchor_top in ["bottom", "center", "top"] else "bottom" %}
+  {% set anchor_bottom = anchor_bottom if anchor_bottom in ["bottom", "center", "top"] else None %}
+  {% do attrs.set(
+    data_anchor=anchor,
+    data_anchor_left=anchor_left,
+    data_anchor_right=anchor_right,
+    data_anchor_top=anchor_top,
+    data_anchor_bottom=anchor_bottom,
+  ) %}
+{% endif %}
+
 {% do attrs.set(class="ui-menu") %}
 
-<{{ tag }} {{ attrs.render(id=id, popover=mode, tabindex="-1") }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(
+  id=id,
+  popover=mode,
+  tabindex="-1",
+) }}>{{ content }}</{{ tag }}>

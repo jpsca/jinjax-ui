@@ -16,17 +16,23 @@ pages = [
     [
         "Headless", [
             "Headless/Tabs.mdx",
-            "Headless/Popover.mdx",
             "Headless/Menu.mdx",
             "Headless/Accordion.mdx",
             "Headless/LinkedList.mdx",
+            "Headless/RelDate.mdx",
+            "Headless/Popover.mdx",
         ],
     ],
 ]
 
 def get_docs() -> Docs:
     root_path = here / "content"
-    docs = Docs(pages, content_folder=root_path, add_ons=[jinjax_ui])
+    docs = Docs(
+        pages,
+        content_folder=root_path,
+        add_ons=[jinjax_ui],
+        search=False,
+    )
     docs.add_folder(here / "components")
     docs.add_folder(here / "theme")
     return docs

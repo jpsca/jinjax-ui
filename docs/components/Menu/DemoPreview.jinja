@@ -1,82 +1,59 @@
 <div class="h-96 w-full max-w-xl px-2 py-16 sm:mr-10">
   <div class="relative w-fit mx-auto">
     <MenuButton
+      id="demo-menu-1-btn"
       target="demo-menu-1"
       class="
         rounded py-1 px-4 border shadow-lg bg-black/10
       text-white font-semibold hover:bg-black/20"
     >Format </MenuButton>
 
-    <Menu
-      id="demo-menu-1"
-      class="
-        absolute top-full left-1/2
-        w-48 -ml-24
-        hidden [&.ui-open]:block z-50
-
-        mt-3 rounded-md p-1 shadow bg-white
-        opacity-0 [&.ui-opened]:opacity-100
-        transition-opacity duration-200 ease-in-out
-      ">
-        <div class="
-          divide-y divide-gray-200
-
-          [&_.ui-menu-item]:flex
-          [&_.ui-menu-item]:items-center
-          [&_.ui-menu-item]:cursor-default
-          [&_.ui-menu-item]:px-3
-          [&_.ui-menu-item]:rounded
-          [&_.ui-menu-item]:text-black
-          [&_.ui-menu-item]:text-sm
-          [&_.ui-menu-item]:bg-white
-          [&_.ui-menu-item.ui-selected]:bg-black/10
-          [&_.ui-menu-item_.check]:w-7
-          [&_.ui-menu-item_.check]:font-bold
-        ">
-          <div class="pb-1 [&_.ui-menu-item]:h-10">
-            <MenuItem>
-              <div class="check">✓</div>
-              <div class="">Normal</div>
-            </MenuItem>
-            <MenuItem>
-              <div class="check"></div>
-              <div class="font-bold text-xl">Heading 1</div>
-            </MenuItem>
-            <MenuItem>
-              <div class="check"></div>
-              <div class="font-bold text-lg">Heading 2</div>
-            </MenuItem>
-          </div>
-
-          <div class="pt-1 [&_.ui-menu-item]:h-8">
-            <MenuItem>
-              <div class="check"></div>
-              <div class="flex items-center">
-                <img width="16" height="16" src="/static/align-left.svg" aria-hidden>
-                <span class="ml-1">Left</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div class="check">✓</div>
-              <div class="flex items-center">
-                <img width="16" height="16" src="/static/align-center.svg" aria-hidden>
-                <span class="ml-1">Center</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div class="check"></div>
-              <div class="flex items-center">
-                <img width="16" height="16" src="/static/align-right.svg" aria-hidden>
-                <span class="ml-1">Right</span>
-              </div>
-            </MenuItem>
-          </div>
+    <Menu id="demo-menu-1" anchor="demo-menu-1-btn">
+      <div class="divide-y divide-gray-200">
+        <div class="pb-1 [&_.ui-menu-item]:h-10">
+          <MenuItem>
+            <div class="check">✓</div>
+            <div class="">Normal</div>
+          </MenuItem>
+          <MenuItem>
+            <div class="check"></div>
+            <div class="font-bold text-xl">Heading 1</div>
+          </MenuItem>
+          <MenuItem>
+            <div class="check"></div>
+            <div class="font-bold text-lg">Heading 2</div>
+          </MenuItem>
         </div>
 
-        <svg
-          class="block absolute -top-[4px] left-1/2 fill-white border-white rotate-180 z-10"
-          width="10" height="5" viewBox="0 0 30 10"
-          aria-hidden="true"
-        ><polygon points="0,0 30,0 15,10"></polygon></svg>
+        <div class="pt-1 [&_.ui-menu-item]:h-8">
+          <MenuItem>
+            <div class="check"></div>
+            <div class="flex items-center">
+              <img width="16" height="16" src="/static/align-left.svg" aria-hidden>
+              <span class="ml-1">Left</span>
+            </div>
+          </MenuItem>
+          <MenuItem>
+            <div class="check">✓</div>
+            <div class="flex items-center">
+              <img width="16" height="16" src="/static/align-center.svg" aria-hidden>
+              <span class="ml-1">Center</span>
+            </div>
+          </MenuItem>
+          <MenuItem>
+            <div class="check"></div>
+            <div class="flex items-center">
+              <img width="16" height="16" src="/static/align-right.svg" aria-hidden>
+              <span class="ml-1">Right</span>
+            </div>
+          </MenuItem>
+        </div>
+      </div>
+
+      <svg
+        class="block absolute -top-[4px] left-1/2 fill-white border-white rotate-180 z-10"
+        width="10" height="5" viewBox="0 0 30 10"
+        aria-hidden="true"
+      ><polygon points="0,0 30,0 15,10"></polygon></svg>
     </Menu>
 </div>

@@ -88,7 +88,12 @@ function dispatchEvent(event, route) {
   const selectors = Object.keys(route);
   let target = event.target;
 
-  while (target && !event.propagationStopped && !event.immediatePropagationStopped) {
+  while (
+    target
+    && target !== document
+    && !event.propagationStopped
+    && !event.immediatePropagationStopped
+  ) {
     // More than one selector could match the element, so we
     // need to check all of them everytime.
     for (let selector of selectors) {
