@@ -1,13 +1,13 @@
 {#def disabled=false, tag="a" #}
 
-{% do attrs.set(class="ui-menu-item") %}
 {% do attrs.setdefault(tabindex="0") %}
 
 {% if disabled -%}
   {% do attrs.set(class="ui-disabled") %}
 {%- endif %}
 
-{% do attrs.set(class="ui-menuitem") %}
-{% do attrs.set(class="ui-disabled" if disabled else "") %}
-
-<{{ tag }} {{ attrs.render(role="menuitem", tabindex="-1") }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(
+  class="ui-menuitem",
+  role="menuitem",
+  tabindex="-1",
+) }}>{{ content }}</{{ tag }}>

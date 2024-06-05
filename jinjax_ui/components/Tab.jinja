@@ -12,11 +12,9 @@
 {% endif %}
 
 <{{ tag }} {{ attrs.render(
-  data_ui="tab",
+  class="ui-tab",
   role="tab",
   aria_selected="true" if selected and not disabled else "false",
   aria_controls=target,
-  data_ui_selected=true if selected and not disabled else false,
-  data_ui_disabled=true if disabled else false,
   tabindex="0" if selected else "-1",
 ) }}>{{ content }}</{{ tag }}>

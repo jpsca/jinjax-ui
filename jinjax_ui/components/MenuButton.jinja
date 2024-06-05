@@ -8,6 +8,7 @@
   {% do attrs.set(popovertargetaction=action) %}
 {%- endif -%}
 
-{% do attrs.set(class="ui-menubutton") %}
-
-<{{ tag }} {{ attrs.render(popovertarget=target) }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(
+  class="ui-menubutton",
+  popovertarget=target,
+) }}>{{ content }}</{{ tag }}>

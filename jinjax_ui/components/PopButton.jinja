@@ -5,7 +5,10 @@
 {%- endif -%}
 
 {%- if action and action in ["hide", "show", "toggle"] -%}
-{% do attrs.set(popovertargetaction=action) %}
+  {% do attrs.set(popovertargetaction=action) %}
 {%- endif -%}
 
-<{{ tag }} {{ attrs.render(popovertarget=target) }}>{{ content }}</{{ tag }}>
+<{{ tag }} {{ attrs.render(
+  class="ui-popbutton"
+  popovertarget=target,
+) }}>{{ content }}</{{ tag }}>
