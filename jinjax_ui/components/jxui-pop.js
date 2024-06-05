@@ -6,115 +6,69 @@
 import { on } from "./jxui.js";
 
 const ATTR_ANCHOR = "data-anchor";
-const ATTR_ANCHOR_LEFT = "data-anchor-left";
-const ATTR_ANCHOR_RIGHT = "data-anchor-right";
-const ATTR_ANCHOR_TOP = "data-anchor-top";
-const ATTR_ANCHOR_BOTTOM = "data-anchor-bottom";
-
-const SEL_ANCHORED = `.ui-pop[${ATTR_ANCHOR}]`;
+const ATTR_ANCHOR_TO = "data-anchor-to";
+const SEL_ANCHORED = `[${ATTR_ANCHOR}]`;
 
 on("beforetoggle", SEL_ANCHORED, handleTogglePopover);
 
 function handleTogglePopover(event, popover) {
   if (event.newState === "open") {
-    return handleShowPopover(event, popover);
+    handleShowPopover(event, popover);
   }
 }
 
 function handleShowPopover(event, popover) {
   const anchorId = popover.getAttribute(ATTR_ANCHOR);
+  if (!anchorId) { return; }
   const anchor = document.getElementById(anchorId);
-  const anchorLeft = popover.getAttribute(ATTR_ANCHOR_LEFT);
-  const anchorRight = popover.getAttribute(ATTR_ANCHOR_RIGHT);
-  const anchorTop = popover.getAttribute(ATTR_ANCHOR_TOP);
-  const anchorBottom = popover.getAttribute(ATTR_ANCHOR_BOTTOM);
 
   const rect = anchor.getBoundingClientRect();
-  let left = null, right = null, top = null, bottom = null;
+  const anchorTo = popover.getAttribute(ATTR_ANCHOR_TO);
+  let [anchorEdge, anchorPos] = (anchorTo || "bottom center").split(/\s+/);
+  if (!["top", "right", "bottom", "left"].includes(anchorEdge)) {
+    anchorEdge = "bottom";
+  }
+  if (!["start", "end", "center"].includes(anchorPos)) {
+    anchorPos = "center";
+  }
+  let top, left, translateX = 0, translateY = 0;
 
-  if (anchorLeft) {
-    switch (anchorLeft) {
-      case "left":
-        left = rect.left;
-        break;
-      case "right":
-        left = rect.right;
-        break;
-      case "center":
-        left = rect.left + rect.width / 2;
-        break;
-    }
+  switch (anchorEdge) {
+    case "top":
+      top = rect.top;
+      translateY = "-100%";
+      break;
+    case "bottom":
+      top = rect.bottom;
+      break;
+    case "right":
+    case "left":
+      top = rect.top + rect.height / 2;
+      translateY = "-50%";
+      break;
   }
 
-  if (anchorRight) {
-    switch (anchorRight) {
-      case "left":
-        right = rect.left;
-        break;
-      case "right":
-        right = rect.right;
-        break;
-      case "center":
-        right = rect.right - rect.width / 2;
-        break;
-    }
+  switch (anchorPos) {
+    case "start":
+      left = rect.left;
+      break;
+    case "end":
+      left = rect.right;
+      translateX = "-100%";
+      break;
+    case "center":
+      left = rect.left + rect.width / 2;
+      translateX = "-50%";
+      break;
   }
 
-  if (anchorTop) {
-    switch (anchorTop) {
-      case "top":
-        top = rect.top;
-        break;
-      case "bottom":
-        top = rect.bottom
-        break;
-      case "center":
-        top = rect.top + rect.height / 2;
-        break;
-    }
-  }
+  popover.style.position = "absolute"
+  popover.style.top = Math.ceil(top + window.scrollY) + "px";
+  popover.style.left = Math.ceil(left + window.scrollX) + "px";
+  popover.style.right = "auto"
+  popover.style.bottom = "auto"
 
-  if (anchorBottom) {
-    switch (anchorBottom) {
-      case "top":
-        bottom = rect.top;
-        break;
-      case "bottom":
-        bottom = rect.bottom
-        break;
-      case "center":
-        bottom = rect.bottom - rect.height / 2;
-        break;
-    }
-  }
-
-  popover.style.position = "absolute";
-
-  if (top !== null) {
-    top = Math.ceil(top + window.scrollY);
-    popover.style.top = `${top}px`;
-  } else {
-    delete popover.style.top;
-  }
-
-  if (bottom != null) {
-    bottom = Math.ceil(bottom + window.scrollY);
-    popover.style.bottom = `${bottom}px`;
-  } else {
-    delete popover.style.bottom;
-  }
-
-  if (left != null) {
-    left = Math.ceil(left + window.scrollX);
-    popover.style.left = `${left}px`;
-  } else {
-    delete popover.style.left;
-  }
-
-  if (right != null) {
-    right = Math.ceil(right + window.scrollX);
-    popover.style.right = `${right}px`;
-  } else {
-    delete popover.style.right;
+  if (translateX || translateY) {
+    popover.style.translate = `${translateX} ${translateY}`;
   }
 }

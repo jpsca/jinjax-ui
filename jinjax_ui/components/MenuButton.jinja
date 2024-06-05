@@ -1,7 +1,7 @@
 {#def target, action=None, tag="button" #}
 
 {%- if tag == "button" -%}
-  {% do attrs.setdefault(type="button") %}
+  {% do attrs.setdefault(type="button", tabindex="0") %}
 {%- endif -%}
 
 {%- if action and action in ["hide", "show", "toggle"] -%}

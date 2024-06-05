@@ -5,24 +5,35 @@
  */
 import { on } from "./jxui.js";
 
-const SEL_BUTTON = "ui-menubutton";
+const CLASS_SELECTED = "ui-selected";
+const CLASS_DISABLED = "ui-disabled";
+
+const SEL_BUTTON = ".ui-menubutton";
 const SEL_MENU = ".ui-menu";
-const SEL_ITEM = ".ui-menu-item"
-const SEL_ITEM_ENABLED = `${SEL_ITEM}:not(.ui-disabled)`;
+const SEL_ITEM = ".ui-menuitem"
+const SEL_ITEM_ENABLED = `${SEL_ITEM}:not(.${CLASS_DISABLED})`;
 
 const KEY_ARROW_DOWN = "ArrowDown";
 const KEY_ARROW_UP = "ArrowUp";
 const KEYS = [KEY_ARROW_UP, KEY_ARROW_DOWN];
 
-on("keydown", SEL_BUTTON, handleMenuButtonKeyDown);
+on("toggle", SEL_MENU, handleToggle);
+on("keydown", SEL_BUTTON, handleButtonKeyDown);
 on("keydown", SEL_MENU, handleMenuKeyDown);
-on("beforetoggle", SEL_MENU, handleToggleMenu);
-on("click", SEL_ITEM, handleItemClick);
 on("mouseover", SEL_ITEM_ENABLED, handleItemMouseOver, 0);
-on("mouseleave", SEL_MENU, handleMenuMouseLeave, 0);
 
-function handleMenuButtonKeyDown(event, button) {
-  if (!KEYS.includes(event.key)) return;
+function handleToggle(event, menu) {
+  if (event.newState === "open") {
+    if (!menu.selectedItem) {
+      selectNextItem(menu);
+    }
+  } else {
+    clearSelection(menu);
+  }
+}
+
+function handleButtonKeyDown(event, button) {
+  if (!KEYS.includes(event.key)) { return; }
 
   const menuId = button.getAttribute("popovertarget");
   const menu = document.getElementById(menuId);
@@ -41,13 +52,13 @@ function handleMenuButtonKeyDown(event, button) {
       break;
   }
 
-  if (!menu.is(":popover-open")) {
+  if (!menu.matches(":popover-open")) {
     menu.showPopover();
   }
 }
 
 function handleMenuKeyDown(event, menu) {
-  if (!KEYS.includes(event.key)) return;
+  if (!KEYS.includes(event.key)) { return };
 
   switch (event.key) {
     case KEY_ARROW_DOWN:
@@ -64,33 +75,25 @@ function handleMenuKeyDown(event, menu) {
   }
 }
 
-function handleToggleMenu(event, popover) {
-  if (event.newState === "open") {
-    selectNextItem(menu);
-  } else {
-    if (menu.selectedItem) {
-      menu.selectedItem.blur();
-    }
+function handleItemMouseOver(event, item) {
+  const menu = item.closest(SEL_MENU);
+  selectItem(menu, item)
+}
+
+// ------------------------------------------------------------
+
+export function clearSelection(menu) {
+  if (menu.selectedItem) {
+    menu.selectedItem.classList.remove(CLASS_SELECTED);
     menu.selectedItem = null;
   }
 }
 
-function handleItemClick(event, item) {
-  const menu = item.closest(SEL_MENU);
-  menu.hidePopover();
-}
-
-function handleMenuMouseLeave(event, menu) {
-  if (menu.selectedItem) {
-    menu.selectedItem.blur();
-  }
-  menu.selectedItem = null;
-}
-
-function handleItemMouseOver(event, item) {
-  const menu = item.closest(SEL_MENU);
-  if (menu.select === item){ return;}
-  selectItem(menu, item)
+export function selectItem(menu, item) {
+  if (menu.selectedItem === item){ return; }
+  clearSelection(menu);
+  item.classList.add(CLASS_SELECTED);
+  menu.selectedItem = item;
 }
 
 export function selectNextItem(menu) {
@@ -99,18 +102,15 @@ export function selectNextItem(menu) {
   if (!numItems) { return; }
 
   if (!menu.selectedItem) {
-    menu.selectedItem = items[0];
-    items[0].focus();
+    selectItem(menu, items[0]);
     return;
   }
 
   const index = items.indexOf(menu.selectedItem);
   if (index > -1 && index + 1 < numItems) {
-    menu.selectedItem = items[index + 1];
-    items[index + 1].focus();
+    selectItem(menu, items[index + 1]);
   } else {
-    menu.selectedItem = items[0];
-    items[0].focus();
+    selectItem(menu, items[0]);
   }
 }
 
@@ -120,22 +120,14 @@ export function selectPrevItem(menu) {
   if (!numItems) { return; }
 
   if (!menu.selectedItem) {
-    menu.selectedItem = items[numItems - 1];
-    items[numItems - 1].focus();
+    selectItem(menu, items[numItems - 1]);
     return;
   }
 
   const index = items.indexOf(menu.selectedItem);
   if (index - 1 >= 0) {
-    menu.selectedItem = items[index - 1];
-    items[index - 1].focus();
+    selectItem(menu, items[index - 1]);
   } else {
-    menu.selectedItem = items[numItems - 1];
-    items[numItems - 1].focus();
+    selectItem(menu, items[numItems - 1]);
   }
-}
-
-export function selectItem(menu, item) {
-  item.focus();
-  menu.selectedItem = item;
 }

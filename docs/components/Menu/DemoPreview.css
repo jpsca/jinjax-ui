@@ -1,5 +1,6 @@
 #demo-menu-1 {
-  position: absolute;
+  overflow: visible;
+  margin-top: 10px;z
   padding: 0.25rem;
   border-radius: 0.375rem;
   width: 12rem;
@@ -8,8 +9,7 @@
 
   .ui-menuitem {
     display: flex;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding: 0.25rem 0.75rem;
     align-items: center;
     border-radius: 0.25rem;
     font-size: 0.875rem;
@@ -17,9 +17,14 @@
     color: #000000;
     background-color: #ffffff;
     cursor: default;
+    user-select: none;
 
     &.ui-selected {
       background-color: rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      user-select: none;
     }
 
     .check {

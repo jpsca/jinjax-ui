@@ -1,7 +1,5 @@
 {#def disabled=false, tag="a" #}
 
-{% do attrs.setdefault(tabindex="0") %}
-
 {% if disabled -%}
   {% do attrs.set(class="ui-disabled") %}
 {%- endif %}

@@ -2,8 +2,51 @@
 {% filter markdown %}{% raw %}
 ```html+jinja
 {# Style classes and some content removed for clarity #}
-<Menu>
 
+<MenuButton id="demo-menu-1-btn" target="demo-menu-1">
+  Menu
+</MenuButton>
+
+<Menu id="demo-menu-1" anchor="demo-menu-1-btn">
+  <div>
+    <MenuItem>
+      <div class="check">✓</div>
+      <div>Normal</div>
+    </MenuItem>
+    <MenuItem>
+      <div class="check"></div>
+      <div>Heading 1</div>
+    </MenuItem>
+    <MenuItem>
+      <div class="check"></div>
+      <div>Heading 2</div>
+    </MenuItem>
+  </div>
+  <div>
+    <MenuItem>
+      <div class="check"></div>
+      <div>
+        <img src="align-left.svg" aria-hidden>
+        <span>Left</span>
+      </div>
+    </MenuItem>
+    <MenuItem>
+      <div class="check">✓</div>
+      <div>
+        <img src="align-center.svg" aria-hidden>
+        <span>Center</span>
+      </div>
+    </MenuItem>
+    <MenuItem>
+      <div class="check"></div>
+      <div>
+        <img src="align-right.svg" aria-hidden>
+        <span>Right</span>
+      </div>
+    </MenuItem>
+  </div>
+
+  <svg class="arrow-up" aria-hidden>...</svg>
 </Menu>
 ```
 {% endraw %}{% endfilter %}
