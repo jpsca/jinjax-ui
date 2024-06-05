@@ -32,6 +32,7 @@ def get_docs() -> Docs:
         content_folder=root_path,
         add_ons=[jinjax_ui],
         search=False,
+        cache=False,
     )
     docs.add_folder(here / "components")
     docs.add_folder(here / "theme")

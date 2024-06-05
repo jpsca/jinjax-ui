@@ -673,10 +673,6 @@ video {
   margin: 0px;
 }
 
-.m-1 {
-  margin: 0.25rem;
-}
-
 .-mx-4 {
   margin-left: -1rem;
   margin-right: -1rem;
@@ -704,10 +700,6 @@ video {
 
 .-ml-1 {
   margin-left: -0.25rem;
-}
-
-.-ml-24 {
-  margin-left: -6rem;
 }
 
 .-ml-32 {
@@ -913,10 +905,6 @@ video {
 
 .w-4 {
   width: 1rem;
-}
-
-.w-48 {
-  width: 12rem;
 }
 
 .w-5 {
@@ -1582,6 +1570,10 @@ video {
   padding-top: 2.5rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1642,10 +1634,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.italic {
-  font-style: italic;
 }
 
 .leading-5 {
@@ -3444,14 +3432,6 @@ pre a {
   display: none;
 }
 
-.\[\&\.ui-open\]\:block.ui-open {
-  display: block;
-}
-
-.\[\&\.ui-opened\]\:opacity-100.ui-opened {
-  opacity: 1;
-}
-
 .\[\&\.ui-selected\]\:bg-white.ui-selected {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -3503,60 +3483,12 @@ pre a {
   opacity: 1;
 }
 
-.\[\&_\.ui-menu-item\.ui-selected\]\:bg-black\/10 .ui-menu-item.ui-selected {
-  background-color: rgb(0 0 0 / 0.1);
-}
-
-.\[\&_\.ui-menu-item\]\:flex .ui-menu-item {
-  display: flex;
-}
-
 .\[\&_\.ui-menu-item\]\:h-10 .ui-menu-item {
   height: 2.5rem;
 }
 
 .\[\&_\.ui-menu-item\]\:h-8 .ui-menu-item {
   height: 2rem;
-}
-
-.\[\&_\.ui-menu-item\]\:cursor-default .ui-menu-item {
-  cursor: default;
-}
-
-.\[\&_\.ui-menu-item\]\:items-center .ui-menu-item {
-  align-items: center;
-}
-
-.\[\&_\.ui-menu-item\]\:rounded .ui-menu-item {
-  border-radius: 0.25rem;
-}
-
-.\[\&_\.ui-menu-item\]\:bg-white .ui-menu-item {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.\[\&_\.ui-menu-item\]\:px-3 .ui-menu-item {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.\[\&_\.ui-menu-item\]\:text-sm .ui-menu-item {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.\[\&_\.ui-menu-item\]\:text-black .ui-menu-item {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.\[\&_\.ui-menu-item_\.check\]\:w-7 .ui-menu-item .check {
-  width: 1.75rem;
-}
-
-.\[\&_\.ui-menu-item_\.check\]\:font-bold .ui-menu-item .check {
-  font-weight: 700;
 }
 
 .\[\&_a\.active\:before\]\:pr-1 a.active:before {

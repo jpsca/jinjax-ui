@@ -10,14 +10,18 @@ const ATTR_ANCHOR_LEFT = "data-anchor-left";
 const ATTR_ANCHOR_RIGHT = "data-anchor-right";
 const ATTR_ANCHOR_TOP = "data-anchor-top";
 const ATTR_ANCHOR_BOTTOM = "data-anchor-bottom";
-const SEL_ANCHOR = `[${ATTR_ANCHOR}]`;
 
-on("beforetoggle", SEL_ANCHOR, handleShowPopover);
+const SEL_ANCHORED = `.ui-pop[${ATTR_ANCHOR}]`;
+
+on("beforetoggle", SEL_ANCHORED, handleTogglePopover);
+
+function handleTogglePopover(event, popover) {
+  if (event.newState === "open") {
+    return handleShowPopover(event, popover);
+  }
+}
 
 function handleShowPopover(event, popover) {
-  if (event.newState !== "open") {
-    return
-  }
   const anchorId = popover.getAttribute(ATTR_ANCHOR);
   const anchor = document.getElementById(anchorId);
   const anchorLeft = popover.getAttribute(ATTR_ANCHOR_LEFT);
