@@ -1,60 +1,97 @@
-<div class="h-96 w-full max-w-xl px-2 py-16 sm:mr-10">
-  <div class="relative w-fit mx-auto">
+<div" class="h-96 w-full max-w-xl px-2 py-16 sm:mr-10">
+  <div id="demo1" class="relative w-fit mx-auto">
     <MenuButton
-      id="demo-menu-1-btn"
-      target="demo-menu-1"
+      id="demo1-menu-btn"
+      target="demo1-menu"
       class="
         rounded py-1 px-4 border shadow-lg bg-black/10
       text-white font-semibold hover:bg-black/20"
     >Menu </MenuButton>
 
-    <Menu id="demo-menu-1" anchor="demo-menu-1-btn">
-      <div class="divide-y divide-gray-200">
-        <div class="pb-1 [&_.ui-menu-item]:h-10">
+    <Menu id="demo1-menu" anchor="demo1-menu-btn">
+        <div class="group">
           <MenuItem>
-            <div class="check">✓</div>
-            <div class="">Normal</div>
+            <i class="icon"></i>
+            <a>New tab</a>
+            <kbd>Ctrl+T</kbd>
           </MenuItem>
           <MenuItem>
-            <div class="check"></div>
-            <div class="font-bold text-xl">Heading 1</div>
+            <i class="icon"></i>
+            <a>New window</a>
+            <kbd>Ctrl+N</kbd>
           </MenuItem>
           <MenuItem>
-            <div class="check"></div>
-            <div class="font-bold text-lg">Heading 2</div>
-          </MenuItem>
-        </div>
-
-        <div class="pt-1 [&_.ui-menu-item]:h-8">
-          <MenuItem>
-            <div class="check"></div>
-            <div class="flex items-center">
-              <img width="16" height="16" src="/static/align-left.svg" aria-hidden>
-              <span class="ml-1">Left</span>
-            </div>
-          </MenuItem>
-          <MenuItem>
-            <div class="check">✓</div>
-            <div class="flex items-center">
-              <img width="16" height="16" src="/static/align-center.svg" aria-hidden>
-              <span class="ml-1">Center</span>
-            </div>
-          </MenuItem>
-          <MenuItem>
-            <div class="check"></div>
-            <div class="flex items-center">
-              <img width="16" height="16" src="/static/align-right.svg" aria-hidden>
-              <span class="ml-1">Right</span>
-            </div>
+            <i class="icon"></i>
+            <a>New Incognito window</a>
+            <kbd>Ctrl+Shift+N</kbd>
           </MenuItem>
         </div>
-      </div>
+        <div class="group">
+          <MenuItem>
+            <i class="icon"></i>
+            <a>Downloads</a>
+            <kbd>Ctrl+J</kbd>
+          </MenuItem>
+          <MenuItemSub id="bookmarks-item">
+            <i class="icon"></i>
+            <a>Bookmarks and lists</a>
+            <kbd class="icon"></kbd>
 
-      <svg
-        class="block absolute -top-[4px] left-1/2 fill-white border-white rotate-180 z-10"
-        width="10" height="5" viewBox="0 0 30 10"
-        aria-hidden="true"
-      ><polygon points="0,0 30,0 15,10"></polygon></svg>
+            <Menu anchor="bookmarks-item" anchor-to="right start">
+              <div class="group">
+                <MenuItem>
+                  <i class="icon"></i>
+                  <a>Bookmark this tab...</a>
+                  <kbd>Ctrl+D</kbd>
+                </MenuItem>
+                <MenuItem>
+                  <i class="icon"></i>
+                  <a>Bookmark all tabs...</a>
+                  <kbd>Ctrl+Shift+D</kbd>
+                </MenuItem>
+              </div>
+              <div class="group">
+                <MenuItem>
+                  <i class="icon"></i>
+                  <a>Hide bookmarks bar</a>
+                  <kbd>Ctrl+Shift+B</kbd>
+                </MenuItem>
+                <MenuItem>
+                  <i class="icon"></i>
+                  <a>Show all bookmarks</a>
+                  <kbd></kbd>
+                </MenuItem>
+                <MenuItem>
+                  <i class="icon"></i>
+                  <a>Bookmark manager</a>
+                  <kbd>Ctrl+Shift+O</kbd>
+                </MenuItem>
+              </div>
+            </Menu>
+          </MenuItemSub>
+        </div>
+        <div class="group">
+          <MenuItem>
+            <i class="icon"></i>
+            <a>Print...</a>
+            <kbd>Ctrl+P</kbd>
+          </MenuItem>
+          <MenuItem>
+            <i class="icon"></i>
+            <a>Help</a>
+            <kbd></kbd>
+          </MenuItem>
+          <MenuItem>
+            <i class="icon"></i>
+            <a>Settings</a>
+            <kbd></kbd>
+          </MenuItem>
+          <MenuItem>
+            <i class="icon"></i>
+            <a>Exit</a>
+            <kbd></kbd>
+          </MenuItem>
+        </div>
     </Menu>
   </div>
 </div>

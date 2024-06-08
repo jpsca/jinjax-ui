@@ -1,4 +1,4 @@
-{#def id, mode="auto", anchor=None, anchor_to=None, tag="div" #}
+{#def mode="auto", anchor=None, anchor_to=None, tag="div" #}
 {#js "jxui.js", "jxui-pop.js", "jxui-menu.js" #}
 
 {% set mode = mode if mode in ["auto", "manual"] else "auto" %}
@@ -9,7 +9,6 @@
 {% endif %}
 
 <{{ tag }} {{ attrs.render(
-  id=id,
   class="ui-menu",
   popover=mode,
   tabindex="-1",

@@ -8,7 +8,7 @@ import { on } from "./jxui.js";
 const SEL_ACCORDION = ".ui-accordion"
 const SEL_DETAILS = "details"
 const SEL_DETAILS_IN_ACCORDION = `${SEL_ACCORDION} ${SEL_DETAILS}`
-const SEL_DETAILS_SCOPED = `${SEL_DETAILS}:not(:scope ${SEL_DETAILS} ${SEL_DETAILS})`
+const SEL_SCOPED_DETAILS = `${SEL_DETAILS}:not(:scope ${SEL_DETAILS} ${SEL_DETAILS})`
 
 on("toggle", SEL_DETAILS_IN_ACCORDION, handleToggle)
 
@@ -32,7 +32,7 @@ function handleToggle(event, details) {
 function closeOthers(details) {
   details
     .closest(SEL_ACCORDION)
-    .querySelectorAll(SEL_DETAILS_SCOPED)
+    .querySelectorAll(SEL_SCOPED_DETAILS)
     .forEach((det) => {
     if (det !== details) {
       det.removeAttribute("open")
