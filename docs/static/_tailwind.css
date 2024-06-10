@@ -4,16 +4,51 @@
 
 @layer base {
   @font-face {
-    font-family: silka; src: url("./silka.woff2") format("woff2"); font-display: swap;
-    font-style: normal; font-weight: 300;
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./fonts/Inter-Regular.woff2?v=3.19") format("woff2"),
+         url("./fonts/Inter-Regular.woff?v=3.19") format("woff");
   }
   @font-face {
-    font-family: silka; src: url("./silka-medium.woff2") format("woff2"); font-display: swap;
-    font-style: normal; font-weight: 400;
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("./fonts/Inter-SemiBold.woff2?v=3.19") format("woff2"),
+         url("./fonts/Inter-SemiBold.woff?v=3.19") format("woff");
   }
   @font-face {
-    font-family: silka; src: url("./silka-semibold.woff2") format("woff2"); font-display: swap;
-    font-style: normal; font-weight: 600;
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("./fonts/Inter-Bold.woff2?v=3.19") format("woff2"),
+         url("./fonts/Inter-Bold.woff?v=3.19") format("woff");
+  }
+  @font-face {
+    font-family: "Material Symbols Rounded";
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: block;
+    src: url("./fonts/material-symbols-rounded.woff2") format("woff2");
+  }
+  .icon {
+    font-family: "Material Symbols Rounded";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga";
   }
 
   :root {

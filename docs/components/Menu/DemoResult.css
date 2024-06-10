@@ -1,8 +1,7 @@
-#demo1 .group:not([hidden]) ~ .group:not([hidden]) {
+#menu-demo .group:not([hidden]) ~ .group:not([hidden]) {
   border-top: 1px solid #d1d5db;
 }
-
-#demo1 .ui-menu {
+#menu-demo .ui-menu {
   margin-top: 4px;
   padding: 8px 0;
   border-radius: 8px;
@@ -13,23 +12,19 @@
   font-size: 0.9rem;
   font-weight: 400;
 }
-
-#demo1 .ui-menu:focus {
+#menu-demo .ui-menu:focus {
   outline: none;
 }
-
-#demo1 .ui-menu .ui-menu {
+#menu-demo .ui-menu .ui-menu {
   position: absolute;
   margin: 0 0 0 -4px;
   width: 300px;
   z-index: 1;
 }
-
-#demo1 .ui-menu * {
+#menu-demo .ui-menu * {
   user-select: none;
 }
-
-#demo1 .ui-menuitem {
+#menu-demo .ui-menuitem {
   display: flex;
   height: 40px;
   padding-left: 24px;
@@ -43,29 +38,31 @@
   user-select: none;
   position: relative;
 }
-
-#demo1 .ui-menuitem.ui-selected {
+#menu-demo .ui-menuitem.ui-selected {
   background-color: #f2e7e4;
 }
-
-#demo1 .ui-menuitem.ui-disabled {
+#menu-demo .ui-menuitem.ui-disabled {
   color: #5f6368;
 }
-
-#demo1 .ui-menuitem .icon {
-  width: 16px;
-  text-align: center;
+#menu-demo .ui-menuitem .icon {
+  font-size: 1rem;
+  width: 24px;
+  text-align: left;
 }
-
-#demo1 .ui-menuitem.ui-disabled .icon {
+#menu-demo .ui-menuitem.ui-disabled .icon {
   color: #aca6a7;
 }
-
-#demo1 .ui-menuitem a {
+#menu-demo .ui-menuitem a {
   flex-grow: 1;
 }
-#demo1 .ui-menuitem kbd {
+#menu-demo .ui-menuitem kbd {
   margin-left: auto;
-  font-family: sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  text-align: right;
+}
+#menu-demo .ui-menuitem .arrow {
+  margin-left: auto;
+  font-size: 0.7rem;
+  text-align: right;
 }

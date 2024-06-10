@@ -17,7 +17,7 @@ component is the way to go instead.
   class="bg-gradient-to-r from-fuchsia-500 to-purple-600"
   prefix="demo"
   tabs={{
-    "Preview": "Pop.DemoPreview",
+    "Result": "Pop.DemoPreview",
     "Code": "Pop.DemoCode",
   }}
 />
@@ -34,6 +34,7 @@ By default, a popover appears centered in the layout view, but this component al
   {{ catalog.irender("Pop.AnchorPreview") }}
 </div>
 
+The positioning is done every time the popover opens, but you can trigger the re-position, for example, on windows resizing, by calling `jxui-pop/setPosition(popover)` function.
 
 ## Styling states
 
