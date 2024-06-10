@@ -3,7 +3,7 @@ title: Pop-over
 ---
 
 <Header title="Pop-over" section="Headless">
-  A simple wrapper over the Popover API
+  A wrapper over the Popover API with anchor positioning
 </Header>
 
 Pop-overs are powerful components with many use cases like edit menus,
@@ -23,6 +23,17 @@ component is the way to go instead.
 />
 
 Note that these components are called `Pop` and `PopButton`, *not* `Popover` and `PopoverButton`
+
+## Anchor positioning
+
+By default, a popover appears centered in the layout view, but this component allows you to  position it relative to an specific element in the page, using the `anchor` and `anchor-to` attributes.
+
+`anchor` is the ID of the element used as a reference, and  `anchor-to` which side of the anchor to use: "top", "bottom", "right", or "left"; with an optional postfix of "start" or "end" ("center" is the default). The demo below uses real Popovers:
+
+<div class="w-full bg-gradient-to-r from-fuchsia-500 to-purple-600">
+  {{ catalog.irender("Pop.AnchorPreview") }}
+</div>
+
 
 ## Styling states
 

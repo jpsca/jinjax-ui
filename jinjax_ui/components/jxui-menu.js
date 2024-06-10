@@ -10,14 +10,14 @@ const CLASS_DISABLED = "ui-disabled";
 
 const SEL_BUTTON = ".ui-menubutton";
 const SEL_MENU = ".ui-menu";
+const SEL_SUBMENU = `${SEL_MENU} ${SEL_MENU}`;
 const SEL_OPEN_MENU = `${SEL_MENU}:popover-open`;
 const SEL_CLOSED_MENU = `${SEL_MENU}:not(:popover-open)`;
-const SEL_ITEM = `${SEL_OPEN_MENU} .ui-menuitem`;
-const SEL_ITEMSUB = `${SEL_OPEN_MENU} .ui-menuitem-sub`;
+const SEL_ITEM = `.ui-menuitem`;
+const SEL_ITEMSUB = `.ui-menuitem-sub`;
 const SEL_ITEM_ENABLED = `${SEL_ITEM}:not(.${CLASS_DISABLED})`;
 const SEL_ITEMSUB_ENABLED = `${SEL_ITEMSUB}:not(.${CLASS_DISABLED})`;
-const SEL_SCOPED_ITEM_ENABLED = `${SEL_ITEM_ENABLED}:not(:scope ${SEL_MENU} ${SEL_ITEM})`;
-const SEL_ROOT_MENU = `${SEL_OPEN_MENU}:not(${SEL_OPEN_MENU} ${SEL_OPEN_MENU})`;
+const SEL_SCOPED_ITEM_ENABLED = `${SEL_ITEM_ENABLED}:not(:scope ${SEL_ITEM} ${SEL_ITEM})`;
 
 const KEY_ARROW_DOWN = "ArrowDown";
 const KEY_ARROW_UP = "ArrowUp";
@@ -28,21 +28,9 @@ const KEY_ENTER = "Enter";
 
 const KEYS = [KEY_ARROW_UP, KEY_ARROW_DOWN, KEY_ARROW_RIGHT, KEY_ARROW_LEFT, KEY_SPACE, KEY_ENTER];
 
-on("toggle", SEL_ROOT_MENU, handleToggle);
 on("keydown", SEL_BUTTON, handleButtonKeyDown);
 on("keydown", SEL_OPEN_MENU, handleMenuKeyDown);
 on("mouseover", SEL_ITEM_ENABLED, handleItemMouseOver, 0);
-on("mouseout", SEL_ITEMSUB_ENABLED, handleSubmenuMouseOut, 0);
-
-function handleToggle(event, menu) {
-  if (event.newState === "open") {
-    if (!menu.selectedItem) {
-      selectNextItem(menu);
-    }
-  } else {
-    clearSelection(menu);
-  }
-}
 
 function handleButtonKeyDown(event, button) {
   if (!KEYS.includes(event.key)) { return; }
@@ -57,50 +45,40 @@ function handleMenuKeyDown(event, menu) {
   event.preventDefault()
   event.stopPropagation();
 
-  if ([KEY_ARROW_DOWN, KEY_ARROW_UP].includes(event.key)) {
-
-    if (!menu.matches(SEL_OPEN_MENU)) {
-      menu.showPopover();
-    }
-    switch (event.key) {
-      case KEY_ARROW_DOWN:
-        console.log("case KEY_ARROW_DOWN:");
-        selectNextItem(menu);
-        break;
-
-      case KEY_ARROW_UP:
-        selectPrevItem(menu);
-        break;
-    }
-    return;
+  if (!menu.matches(SEL_OPEN_MENU)) {
+    menu.showPopover();
   }
-
-  if (menu.selectedItem && menu.selectedItem.matches(SEL_ITEMSUB_ENABLED)) {
-  console.log("menu.selectedItem.matches(SEL_ITEMSUB_ENABLED)");
-    handleSubmenuKeyDown(event, menu);
-  }
-}
-
-function handleSubmenuKeyDown(event, menu) {
-  const submenu = menu.selectedItem.querySelector(SEL_MENU);
-  console.log("submenu", submenu);
-  if (!submenu) { return; }
+  menu.focus();
 
   switch (event.key) {
+    case KEY_ARROW_DOWN:
+      selectNextItem(menu);
+      return;
+
+    case KEY_ARROW_UP:
+      selectPrevItem(menu);
+      return;
+
     case KEY_ARROW_RIGHT:
     case KEY_SPACE:
     case KEY_ENTER:
-      console.log("KEY open submenu");
-      submenu.showPopover();
-      submenu.focus();
-      selectNextItem(submenu);
-      break;
+      if (menu.selectedItem && menu.selectedItem.matches(SEL_ITEMSUB_ENABLED)
+      ) {
+        const submenu = menu.selectedItem.querySelector(SEL_MENU);
+        if (!submenu) { return; }
+        submenu.showPopover();
+        submenu.focus();
+        selectNextItem(submenu);
+        return;
+      }
 
     case KEY_ARROW_LEFT:
-      console.log("KEY close submenu");
-      submenu.hidePopover();
-      menu.focus();
-      break;
+      if (!menu.matches(SEL_SUBMENU)) { return; }
+      const parent = menu.parentNode.closest(SEL_MENU);
+      parent.focus();
+      clearSelection(menu);
+      menu.hidePopover()
+      return;
   }
 }
 
@@ -109,20 +87,10 @@ function handleItemMouseOver(event, item) {
   selectItem(menu, item)
 
   if (item.matches(SEL_ITEMSUB_ENABLED)) {
-  const submenu = item.querySelector(SEL_CLOSED_MENU);
+    const submenu = item.querySelector(SEL_CLOSED_MENU);
     if (submenu) {
       submenu.showPopover();
-      submenu.focus();
-      selectNextItem(submenu);
     }
-  }
-}
-
-function handleSubmenuMouseOut(event, item) {
-  const submenu = item.querySelector(SEL_OPEN_MENU);
-  if (submenu) {
-    submenu.blur();
-    submenu.hidePopover();
   }
 }
 
@@ -131,10 +99,12 @@ function handleSubmenuMouseOut(event, item) {
 export function clearSelection(menu) {
   if (!menu.selectedItem) { return; }
   if (menu.selectedItem.matches(SEL_ITEMSUB)) {
-  const submenu = menu.selectedItem.querySelector(SEL_OPEN_MENU)
-    if (submenu) { submenu.hidePopover(); }
+    const submenu = menu.selectedItem.querySelector(SEL_OPEN_MENU);
+    if (submenu) {
+      clearSelection(submenu);
+      submenu.hidePopover();
+    }
   }
-
   menu.selectedItem.classList.remove(CLASS_SELECTED);
   menu.selectedItem = null;
 }
