@@ -61,11 +61,15 @@ function comparator (a, b) {
 
 
 export function sendItem (item, checkbox) {
+  checkbox = checkbox || item.querySelector(SEL_CHECKBOX);
+  if (item.matches("[disabled]") || checkbox.matches("[disabled]")) {
+    return;
+  }
+
   const srcList = item.closest(SEL_LIST);
   const destList = document.getElementById(srcList.getAttribute(ATTR_LINKED));
   const active = destList.hasAttribute(ATTR_ACTIVE);
   const sorted = destList.hasAttribute(ATTR_SORTED);
-  checkbox = checkbox || item.querySelector(SEL_CHECKBOX);
 
   srcList.removeChild(item);
   if (!sorted) {

@@ -1,0 +1,82 @@
+<div id="linkedlist-demo" class="w-full max-w-xl px-2 py-16 sm:mr-10 md:flex md:space-x-4 text-sm">
+  <div class="w-full">
+    <label>All users</label>
+    <LinkedList id="linkedlist-demo-list1" linked_to="linkedlist-demo-list2">
+      <li><input type="checkbox" name="users" value="10" />
+        Alexander Summers</li>
+      <li><input type="checkbox" name="users" value="19" />
+        Alison Blaire</li>
+      <li><input type="checkbox" name="users" value="21" />
+        Anna Marie LeBeau</li>
+      <li><input type="checkbox" name="users" value="39" />
+        Charles Francis Xavier</li>
+      <li><input type="checkbox" name="users" value="23" />
+        Elizabeth Braddock</li>
+      <li><input type="checkbox" name="users" value="50" />
+        Emma Grace Frost</li>
+      <li disabled><input type="checkbox" name="users" value="14" disabled />
+        Erik Magnus Lehnsherr</li>
+      <li><input type="checkbox" name="users" value="17" />
+        Henry Philip McCoy</li>
+      <li><input type="checkbox" name="users" value="15" />
+        James Howlett</li>
+      <li><input type="checkbox" name="users" value="25" />
+        Jean Elaine Grey</li>
+      <li><input type="checkbox" name="users" value="31" />
+        John Proudstar</li>
+      <li><input type="checkbox" name="users" value="41" />
+        Jubilation Lee</li>
+      <li><input type="checkbox" name="users" value="30" />
+        Katherine Anne Pryde</li>
+      <li><input type="checkbox" name="users" value="19" />
+        Kurt Wagner</li>
+      <li><input type="checkbox" name="users" value="13" />
+        Lucas Bishop</li>
+      <li><input type="checkbox" name="users" value="16" />
+        Nathan Summers</li>
+      <li><input type="checkbox" name="users" value="28" />
+        Ororo Munroe</li>
+      <li><input type="checkbox" name="users" value="42" />
+        Piotr Nikolaievitch Rasputin</li>
+      <li><input type="checkbox" name="users" value="9" />
+        Rachel Anne Summers</li>
+      <li><input type="checkbox" name="users" value="32" />
+        Raven Darkhölme</li>
+      <li><input type="checkbox" name="users" value="48" />
+        Remy Etienne LeBeau</li>
+      <li><input type="checkbox" name="users" value="16" />
+        Robert Louis Drake</li>
+      <li><input type="checkbox" name="users" value="26" />
+        Roberto da Costa</li>
+      <li><input type="checkbox" name="users" value="46" />
+        Scott Summers</li>
+      <li><input type="checkbox" name="users" value="26" />
+        Sean Cassidy</li>
+      <li><input type="checkbox" name="users" value="40" />
+        Shiro Yoshida</li>
+      <li><input type="checkbox" name="users" value="10" />
+        Warren Worthington III</li>
+    </LinkedList>
+
+    <button
+      type="button"
+      class="appearance-none whitespace-nowrap border text-center cursor-pointer rounded px-3 py-2 transition-colors focus:outline-offset-1 flex-inline items-center justify-center space-x-1 mt-2 sm:px-2 sm:py-1 bg-gray-200 border-transparent shadow-none hover:border-blue-100 hover:bg-gray-100 focus:bg-gray-200 focus:outline-blue-500 float-right text-xs"
+      onclick="document.getElementById('linkedlist-demo-list1').dispatchEvent(new CustomEvent('jxui:linked:sendall'));"
+    >
+      Select all &raquo;
+    </button>
+  </div>
+  <div class="w-full">
+    <label>My Team</label>
+    <LinkedList id="linkedlist-demo-list2" linked_to="linkedlist-demo-list1" active>
+    </LinkedList>
+
+    <button
+      type="button"
+      class="appearance-none whitespace-nowrap border text-center cursor-pointer rounded px-3 py-2 transition-colors focus:outline-offset-1 flex-inline items-center justify-center space-x-1 mt-2 sm:px-2 sm:py-1 bg-gray-200 border-transparent shadow-none hover:border-blue-100 hover:bg-gray-100 focus:bg-gray-200 focus:outline-blue-500 text-xs"
+      onclick="document.getElementById('linkedlist-demo-list2').dispatchEvent(new CustomEvent('jxui:linked:sendall'));"
+    >
+      &laquo; Remove all
+    </button>
+  </div>
+</div>

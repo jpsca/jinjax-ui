@@ -1,12 +1,16 @@
-<div" class="h-96 w-full max-w-xl px-2 py-16 sm:mr-10">
+<div class="h-96 w-full max-w-xl px-2 py-16 sm:mr-10">
   <div id="menu-demo" class="relative w-fit mx-auto">
     <MenuButton
       id="menu-demo-menu-btn"
       target="menu-demo-menu"
       class="
         rounded py-1 px-4 border shadow-lg bg-black/10
-      text-white font-semibold hover:bg-black/20"
-    >Menu </MenuButton>
+      text-white font-semibold hover:bg-black/20
+      flex items-center justify-between
+      "
+    >
+      Menu <span class="icon ml-1 mt-1">keyboard_arrow_down</span>
+    </MenuButton>
 
     <Menu id="menu-demo-menu" anchor="menu-demo-menu-btn" anchor-to="bottom end">
       <div class="group">
@@ -35,7 +39,7 @@
         <MenuItemSub id="bookmarks-item">
           <i class="icon">bookmarks</i>
           <a>Bookmarks and lists</a>
-          <span class="icon arrow">arrow_forward_ios</span>
+          <span class="icon arrow">keyboard_arrow_right</span>
 
           <Menu anchor="bookmarks-item" anchor_to="right start">
             <div class="group">

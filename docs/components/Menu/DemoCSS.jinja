@@ -47,24 +47,29 @@
 .ui-menuitem.ui-disabled {
   color: #5f6368;
 }
-.ui-menuitem .icon {
+.ui-menuitem > .icon {
   font-size: 1rem;
   width: 24px;
   text-align: left;
 }
-.ui-menuitem.ui-disabled .icon {
+.ui-menuitem.ui-disabled > .icon {
   color: #aca6a7;
 }
-.ui-menuitem a {
+.ui-menuitem > a {
   flex-grow: 1;
 }
-.ui-menuitem kbd {
+.ui-menuitem > kbd {
+  visibility: hidden;
   margin-left: auto;
   font-size: 0.9rem;
   font-family: inherit;
   text-align: right;
+  color: #524f50;
 }
-.ui-menuitem .arrow {
+.ui-menuitem:not(.ui-disabled):hover > kbd {
+  visibility: visible;
+}
+.ui-menuitem > .arrow {
   margin-left: auto;
   font-size: 0.7rem;
   text-align: right;

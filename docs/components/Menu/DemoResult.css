@@ -1,68 +1,75 @@
-#menu-demo .group:not([hidden]) ~ .group:not([hidden]) {
-  border-top: 1px solid #d1d5db;
-}
-#menu-demo .ui-menu {
-  margin-top: 4px;
-  padding: 8px 0;
-  border-radius: 8px;
-  width: 400px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 3px 4px rgba(0, 0, 0, 0.2), 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-  overflow: visible;
-  font-size: 0.9rem;
-  font-weight: 400;
-}
-#menu-demo .ui-menu:focus {
-  outline: none;
-}
-#menu-demo .ui-menu .ui-menu {
-  position: absolute;
-  margin: 0 0 0 -4px;
-  width: 300px;
-  z-index: 1;
-}
-#menu-demo .ui-menu * {
-  user-select: none;
-}
-#menu-demo .ui-menuitem {
-  display: flex;
-  height: 40px;
-  padding-left: 24px;
-  padding-right: 24px;
-  align-items: center;
-  justify-items: flex-start;
-  line-height: 40px;
-  color: #000000;
-  background-color: #ffffff;
-  cursor: default;
-  user-select: none;
-  position: relative;
-}
-#menu-demo .ui-menuitem.ui-selected {
-  background-color: #f2e7e4;
-}
-#menu-demo .ui-menuitem.ui-disabled {
-  color: #5f6368;
-}
-#menu-demo .ui-menuitem .icon {
-  font-size: 1rem;
-  width: 24px;
-  text-align: left;
-}
-#menu-demo .ui-menuitem.ui-disabled .icon {
-  color: #aca6a7;
-}
-#menu-demo .ui-menuitem a {
-  flex-grow: 1;
-}
-#menu-demo .ui-menuitem kbd {
-  margin-left: auto;
-  font-size: 0.9rem;
-  font-family: inherit;
-  text-align: right;
-}
-#menu-demo .ui-menuitem .arrow {
-  margin-left: auto;
-  font-size: 0.7rem;
-  text-align: right;
+@scope (#menu-demo) {
+  .group:not([hidden]) ~ .group:not([hidden]) {
+    border-top: 1px solid #d1d5db;
+  }
+  .ui-menu {
+    margin-top: 4px;
+    padding: 8px 0;
+    border-radius: 8px;
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 4px rgba(0, 0, 0, 0.2), 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  .ui-menu:focus {
+    outline: none;
+  }
+  .ui-menu .ui-menu {
+    position: absolute;
+    margin: 0 0 0 -4px;
+    width: 300px;
+    z-index: 1;
+  }
+  .ui-menu * {
+    user-select: none;
+  }
+  .ui-menuitem {
+    display: flex;
+    height: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    align-items: center;
+    justify-items: flex-start;
+    line-height: 40px;
+    color: #000000;
+    background-color: #ffffff;
+    cursor: default;
+    user-select: none;
+    position: relative;
+  }
+  .ui-menuitem.ui-selected {
+    background-color: #f2e7e4;
+  }
+  .ui-menuitem.ui-disabled {
+    color: #5f6368;
+  }
+  .ui-menuitem > .icon {
+    font-size: 1rem;
+    width: 24px;
+    text-align: left;
+  }
+  .ui-menuitem.ui-disabled > .icon {
+    color: #aca6a7;
+  }
+  .ui-menuitem > a {
+    flex-grow: 1;
+  }
+  .ui-menuitem > kbd {
+    visibility: hidden;
+    margin-left: auto;
+    font-size: 0.9rem;
+    font-family: inherit;
+    text-align: right;
+    color: #524f50;
+  }
+  .ui-menuitem:not(.ui-disabled):hover > kbd {
+    visibility: visible;
+  }
+  .ui-menuitem > .arrow {
+    margin-left: auto;
+    font-size: 0.7rem;
+    text-align: right;
+  }
 }

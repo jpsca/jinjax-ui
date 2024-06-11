@@ -1,7 +1,9 @@
 <div class="w-full">
 {% filter markdown %}{% raw %}
 ```html+jinja
-<MenuButton id="demo-menu-btn" target="demo-menu">Menu</MenuButton>
+<MenuButton id="demo-menu-btn" target="demo-menu">
+  Menu <span class="icon ml-1 mt-1">keyboard_arrow_down</span>
+</MenuButton>
 
 <Menu id="demo-menu" anchor="demo-menu-btn" anchor-to="bottom end">
   <div class="group">
@@ -30,7 +32,7 @@
     <MenuItemSub id="bookmarks-item">
       <i class="icon">bookmarks</i>
       <a>Bookmarks and lists</a>
-      <span class="icon arrow">arrow_forward_ios</span>
+      <span class="icon arrow">keyboard_arrow_right</span>
 
       <Menu anchor="bookmarks-item" anchor_to="right start">
         <div class="group">

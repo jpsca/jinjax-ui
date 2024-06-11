@@ -6,7 +6,7 @@
   overflow-hidden rounded-xl"
 ) }}>
   <div class="flex w-full flex-col items-center justify-center relative">
-    <TabGroup class="w-full">
+    <TabGroup class="w-full max-h-[500px] overflow-y-auto">
       <TabList class="absolute pointer-events-none top-0 right-0 z-10">
         <div class="flex space-x-2 justify-end pt-2 pr-4">
           {%- for text in tabs.keys() %}
@@ -36,7 +36,7 @@
       {%- for name in tabs.values() %}
       <TabPanel
         id={"ex-%s-%s" % (prefix, loop.index)}
-        class="flex w-full flex-col items-center justify-center [&.ui-hidden]:hidden"
+        class="flex w-full h-full flex-col items-center justify-center [&.ui-hidden]:hidden"
         hidden={loop.index != 1}
       >
         {{ catalog.irender(name) }}

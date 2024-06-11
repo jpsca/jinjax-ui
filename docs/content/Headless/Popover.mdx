@@ -28,11 +28,12 @@ Note that these components are called `Pop` and `PopButton`, *not* `Popover` and
 
 By default, a popover appears centered in the layout view, but this component allows you to  position it relative to an specific element in the page, using the `anchor` and `anchor-to` attributes.
 
-`anchor` is the ID of the element used as a reference, and  `anchor-to` which side of the anchor to use: "top", "bottom", "right", or "left"; with an optional postfix of "start" or "end" ("center" is the default). The demo below uses real Popovers:
+`anchor` is the ID of the element used as a reference, and  `anchor-to` which side of the anchor to use: "top", "bottom", "right", or "left"; with an optional postfix of "start" or "end" ("center" is the default).
 
-<div class="w-full bg-gradient-to-r from-fuchsia-500 to-purple-600">
-  {{ catalog.irender("Pop.AnchorPreview") }}
-</div>
+<p>
+  <img src="/static/anchors.png" alt="Anchor positioning"
+    width="595" height="324" style="display:block;margin:60px auto;" />
+</p>
 
 The positioning is done every time the popover opens, but you can trigger the re-position, for example, on windows resizing, by calling `jxui-pop/setPosition(popover)` function.
 
