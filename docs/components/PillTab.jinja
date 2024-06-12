@@ -2,13 +2,11 @@
   class="
     w-full
     rounded-lg
-    py-2.5
     text-sm
-    font-medium
     leading-5
     [&:not(.ui-selected,.ui-disabled)]:text-blue-100
 
-    [&:not(.ui-selected,.ui-disabled)]:hover:bg-white/10
+    [&:not(.ui-selected,.ui-disabled)]:hover:bg-black/10
     [&:not(.ui-selected,.ui-disabled)]:hover:text-white
 
     focus:outline-none
@@ -16,8 +14,6 @@
     focus:ring-offset-2
     focus:ring-opacity-50
     focus:ring-blue-500
-    [&:not(.ui-selected,.ui-disabled)]:focus-visible:bg-white/10
-    [&:not(.ui-selected,.ui-disabled)]:focus-visible:text-white
 
     [&.ui-selected]:text-blue-700
     [&.ui-selected]:bg-white
@@ -25,4 +21,4 @@
   "
 ) %}
 
-<Tab __attrs={attrs}>{{ content }}</Tab>
+<Tab :__attrs="attrs">{{ content }}</Tab>

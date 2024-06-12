@@ -13,10 +13,10 @@ If you don't need to ensure only one section is open at a time, you don't need t
 <Example
   class="bg-gradient-to-r from-amber-300 to-orange-400"
   prefix="demo"
-  tabs={{
-    "Preview": "Accordion.DemoPreview",
-    "Code": "Accordion.DemoCode"
-  }}
+  :tabs="{
+    'Preview': 'Accordion.DemoPreview',
+    'Code': 'Accordion.DemoCode'
+  }"
 />
 
 

@@ -16,10 +16,10 @@ component is the way to go instead.
 <Example
   class="bg-gradient-to-r from-fuchsia-500 to-purple-600"
   prefix="demo"
-  tabs={{
-    "Result": "Pop.DemoPreview",
-    "Code": "Pop.DemoCode",
-  }}
+  :tabs="{
+    'Result': 'Pop.DemoPreview',
+    'Code': 'Pop.DemoCode',
+  }"
 />
 
 Note that these components are called `Pop` and `PopButton`, *not* `Popover` and `PopoverButton`

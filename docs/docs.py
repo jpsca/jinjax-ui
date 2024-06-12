@@ -12,15 +12,15 @@ logging.getLogger("jinjax").addHandler(logging.StreamHandler())
 here = Path(__file__).parent
 
 pages = [
-    "index.mdx",
+    "index.md",
     [
         "Headless", [
-            "Headless/Tabs.mdx",
-            "Headless/Popover.mdx",
-            "Headless/Menu.mdx",
-            "Headless/Accordion.mdx",
-            "Headless/LinkedList.mdx",
-            "Headless/RelDate.mdx",
+            "Headless/Tabs.md",
+            "Headless/Popover.md",
+            "Headless/Menu.md",
+            "Headless/Accordion.md",
+            "Headless/LinkedList.md",
+            "Headless/RelDate.md",
         ],
     ],
 ]

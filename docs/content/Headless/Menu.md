@@ -10,11 +10,11 @@ title: Menu (Dropdown)
 <Example
   class="bg-gradient-to-r from-pink-400 to-pink-600"
   prefix="menu-demo"
-  tabs={{
-    "Result": "Menu.DemoResult",
-    "HTML": "Menu.DemoHTML",
-    "CSS": "Menu.DemoCSS",
-  }}
+  :tabs="{
+    'Result': 'Menu.DemoResult',
+    'HTML': 'Menu.DemoHTML',
+    'CSS': 'Menu.DemoCSS',
+  }"
 />
 
 **Note:** This component does not handle keyboard shortcuts, here are shown only as an example.

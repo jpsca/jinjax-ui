@@ -9,10 +9,10 @@ title: Tabs
 <Example
   class="bg-gradient-to-r from-sky-400 to-blue-600"
   prefix="demo"
-  tabs={{
-    "Preview": "Tabs.DemoPreview",
-    "Code": "Tabs.DemoCode"
-  }}
+  :tabs="{
+    'Result': 'Tabs.DemoResult',
+    'HTML': 'Tabs.DemoHTML',
+  }"
 />
 
 Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
@@ -20,11 +20,11 @@ Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components
 
 ## Styling states
 
-| CSS selector         | Tailwind selector        | Description
-| -------------------  |------------------------- | --------------
-| `[data-ui-hidden]`   | `[&[data-ui-hidden]]:`   | Added to all `TabPanel` except the one that is active.
-| `[data-ui-disabled]` | `[&[data-ui-disabled]]:` | Added to the selected `Tab`.
-| `[data-ui-hidden]`   | `[&[data-ui-hidden]]:`   | Added to disabled `Tab`s.
+| CSS selector     | Description
+| ---------------  | --------------
+| `.ui-hidden`     | Added to all `TabPanel` except the one that is active.
+| `.ui-selected`   | Added to the selected `Tab`.
+| `.ui-disabled`   | Added to disabled `Tab`s.
 
 
 ## Manually activating tabs
@@ -36,12 +36,12 @@ If you'd rather not change the current tab until the user presses <Key>Enter</Ke
 Remember to add styles to the `:focus-visible` state of the tab so is clear to the user that the tab is focused.
 
 <Example
-  class="bg-blue-200"
+  class="bg-sky-500"
   prefix="manual"
-  tabs={{
-    "Code": "Tabs.ManualCode",
-    "Preview": "Tabs.ManualPreview",
-  }}
+  :tabs="{
+    'HTML': 'Tabs.ManualHTML',
+    'Result': 'Tabs.ManualResult',
+  }"
 />
 
 The manual prop has no impact on mouse interactions — tabs will still be selected as soon as they are clicked.
@@ -52,12 +52,12 @@ The manual prop has no impact on mouse interactions — tabs will still be selec
 If you've styled your `TabList` to appear vertically, use the `vertical` attribute to enable navigating with the <Key title="arrow up">↑</Key> and <Key title="arrow down">↓</Key> arrow keys instead of <Key title="arrow left">←</Key> and <Key title="arrow right">→</Key>, and to update the `aria-orientation` attribute for assistive technologies.
 
 <Example
-  class="bg-blue-200"
+  class="bg-sky-500"
   prefix="vertical"
-  tabs={{
-    "Code": "Tabs.VerticalCode",
-    "Preview": "Tabs.VerticalPreview",
-  }}
+  :tabs="{
+    'HTML': 'Tabs.VerticalHTML',
+    'Result': 'Tabs.VerticalResult',
+  }"
 />
 
 
@@ -69,12 +69,12 @@ A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `T
 Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibility the `TabList` must be remain in your code, even if it's visually hidden.
 
 <Example
-  class="bg-blue-200"
+  class="bg-sky-500"
   prefix="select"
-  tabs={{
-    "Code": "Tabs.SelectCode",
-    "Preview": "Tabs.SelectPreview",
-  }}
+  :tabs="{
+    'HTML': 'Tabs.SelectHTML',
+    'Result': 'Tabs.SelectResult',
+  }"
 />
 
 
@@ -90,12 +90,12 @@ is no content when the tab is selected.
 </Callout>
 
 <Example
-  class="bg-blue-200"
+  class="bg-sky-500"
   prefix="disabled"
-  tabs={{
-    "Code": "Tabs.DisabledCode",
-    "Preview": "Tabs.DisabledPreview",
-  }}
+  :tabs="{
+    'HTML': 'Tabs.DisabledHTML',
+    'Result': 'Tabs.DisabledResult',
+  }"
 />
 
 ## Component arguments

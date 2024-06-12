@@ -9,11 +9,11 @@ title: Linked Lists
 <Example
   class="bg-gradient-to-r from-green-400 to-green-700"
   prefix="demo"
-  tabs={{
-    "Result": "LinkedList.DemoResult",
-    "HTML": "LinkedList.DemoHTML",
-    "CSS": "LinkedList.DemoCSS",
-  }}
+  :tabs="{
+    'Result': 'LinkedList.DemoResult',
+    'HTML': 'LinkedList.DemoHTML',
+    'CSS': 'LinkedList.DemoCSS',
+  }"
 />
 
 **Note:** The checkboxes are shown to demostrate how it does work, but they can be hidden by CSS.
