@@ -80,13 +80,10 @@ Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibil
 
 ## Disabling a tab
 
-To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse,
-and are also skipped when navigating the tab list using the keyboard.
+To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse, and are also skipped when navigating the tab list using the keyboard.
 
 <Callout type="warning">
-Disabling tabs is normally confusing for users. If there is no content for a tab,
-either remove it or, if that would be confusing for your users, explain why there
-is no content when the tab is selected.
+Disabling tabs might be confusing for users. Instead, I reccomend you either remove it or explain why there is no content for that tab when is selected.
 </Callout>
 
 <Example

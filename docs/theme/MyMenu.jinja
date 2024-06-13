@@ -27,7 +27,11 @@
     <div class="mb-3 border-b border-zinc-200 dark:border-zinc-600">
       <div class="flex items-center h-14 px-4 sm:px-6">
         <Logo :base_url="nav.base_url" class="mr-auto" />
-        <CloseBtn class="ml-3" aria_label="Close" data_toggle="#menu|[open]" />
+        <TextButton class="ml-3" aria_label="Close" data_toggle="#menu|[open]" >
+          <div class="w-14 h-6 flex items-center justify-center">
+            Close
+          </div>
+        </TextButton>
       </div>
     </div>
 

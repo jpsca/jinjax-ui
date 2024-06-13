@@ -1,0 +1,42 @@
+.theme-Header {
+  margin-bottom: 2rem;
+}
+
+@scope (.theme-Header) {
+  div p {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 600;
+    color: rgb(82 82 91);
+  }
+  div p:is(.dark *) {
+    color: rgb(212 212 216);
+  }
+
+  h1 {
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1.25rem;
+    font-weight: 800;
+    color: rgb(24 24 27);
+  }
+  h1:is(.dark *) {
+    color: rgb(228 228 231);
+  }
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 1.875rem;
+    }
+  }
+
+  p.description {
+    margin-top: 0.25rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: rgb(63 63 70);
+  }
+  p.description:is(dark *) {
+    color: rgb(161 161 170);
+  }
+}

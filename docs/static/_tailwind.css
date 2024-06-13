@@ -38,7 +38,6 @@
     font-family: "Material Symbols Rounded";
     font-weight: normal;
     font-style: normal;
-    line-height: 1;
     letter-spacing: normal;
     text-transform: none;
     display: inline-block;
@@ -49,6 +48,8 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-feature-settings: "liga";
+    cursor: default;
+    pointer-events: none;
   }
 
   :root {

@@ -1,3 +1,5 @@
+{#js toggle.js #}
+
 <section class="
   relative z-50
   w-full
@@ -11,6 +13,10 @@
     <nav class="hidden md:flex items-center space-x-8">
       <NavLinks></NavLinks>
     </nav>
-    <Hamburger class="ml-3 lg:hidden" />
+    <TextButton title="Show menu" data_toggle="#menu|[open]" class="ml-3 lg:hidden">
+      <div class="pointer-events-none leading-6 w-14 h-6">
+        Menu
+      </div>
+    </TextButton>
   </div>
 </section>

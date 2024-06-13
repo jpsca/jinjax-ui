@@ -1,0 +1,119 @@
+@scope (.Callout) {
+  :scope {
+    position: relative;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    overflow: hidden;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    background-color: rgb(244 244 245 / 0.9);
+    border-color: rgb(212 212 216);
+    color: rgb(39 39 42);
+  }
+  @media (min-width: 640px) {
+    :scope {
+      border-left-width: 1px;
+      border-right-width: 1px;
+      border-radius: 0.25rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  div:scope {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.25rem 1rem;
+  }
+  @media (min-width: 640px) {
+    div:scope {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
+
+  .type-note,
+  .type-info,
+  .type-todo {
+    background-color: rgb(244 244 245 / 0.9);
+    border-color: rgb(212 212 216);
+    color: rgb(39 39 42);
+  }
+  .type-tip {
+    background-color: rgb(254 249 195 / 0.9);
+    border-color: rgb(254 240 138);
+    color: rgb(133 77 14);
+  }
+  .type-alert {
+    background-color: rgb(255 237 213 / 0.9);
+    border-color: rgb(254 215 170);
+    color: rgb(154 52 18);
+  }
+  .type-warning {
+    background-color: rgb(255 237 213 / 0.9);
+    border-color: rgb(254 215 170);
+    color: rgb(154 52 18);
+  }
+  .type-danger {
+    background-color: rgb(255 228 230 / 0.9);
+    border-color: rgb(254 205 211);
+    color: rgb(136 19 55);
+  }
+  .type-error {
+    background-color: rgb(255 228 230 / 0.9);
+    border-color: rgb(254 205 211);
+    color: rgb(136 19 55);
+  }
+  .type-internal {
+    background-color: rgb(231 229 228 / 0.9);
+    border-color: rgb(214 211 209);
+    color: rgb(28 25 23);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    height: 3rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    cursor: pointer;
+  }
+
+  .icon-wrapper {
+    padding-right: 1rem;
+    display: none;
+  }
+  @media (min-width: 640px) {
+    .icon-wrapper {
+      display: block;
+    }
+  }
+
+  .icon-wrapper .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    opacity: 0.7;
+    font-size: 1.5rem;
+    line-height: inherit;
+  }
+
+  .icon.arrow {
+    margin-left: auto;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  details:scope[open] .icon.arrow {
+    transform: rotate(180deg);
+  }
+
+  details:scope .content {
+    padding: 0 1rem 1rem;
+  }
+  @media (min-width: 640px) {
+    details:scope .content {
+      padding: 0 1.25rem 1rem;
+    }
+  }
+}
