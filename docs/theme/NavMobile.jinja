@@ -1,0 +1,18 @@
+{#js "toggle.js" #}
+
+<div {{ attrs.render(id="navMobile", class="tNavMobile") }}>
+  <div class="wrapper">
+    <header>
+      <div class="">
+        <Logo :base_url="nav.base_url" class="logo" />
+        <TextButton class="toggleSidebar" aria_label="Close" data_toggle="#navMobile|[open]" >
+          <div>Close</div>
+        </TextButton>
+      </div>
+    </header>
+
+    <NavLinks class="navLinks"></NavLinks>
+
+    <Toc class="toc" :toc="nav.toc" :page="nav.page" />
+  </div>
+</div>

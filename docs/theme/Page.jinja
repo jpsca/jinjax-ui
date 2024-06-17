@@ -1,21 +1,24 @@
 {#def title="" #}
-<Layout :title="title" :description="meta.get('description', '')">
+<Layout
+  :title="title"
+  :description="meta.get('description', '')"
+  class="tPage"
+>
   <NavBar />
-  <div class="px-4 sm:px-6 pb-16 z-10 flex mx-auto max-w-[100rem]">
-    <SidebarGlobal class="hidden lg:block" />
-    <main class="lg:pl-8 pt-10 2xl:mx-10 w-full">
-      <div class="Page prose">
+  <div class="wrapper">
+    <NavGlobal />
+    <main class="page">
+      <div class="prose">
         {{ content }}
       </div>
       <PrevNext
-        class="mt-16 w-full"
         :curr="nav.page"
         :prev="nav.prev_page"
         :next="nav.next_page"
       />
     </main>
-    <SidebarLocal class="hidden 2xl:block pl-8" />
+    <NavLocal class="navLocal" />
   </div>
-  <MyMenu />
+  <NavMobile />
   <Footer />
 </Layout>

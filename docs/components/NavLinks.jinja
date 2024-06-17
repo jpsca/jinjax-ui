@@ -1,36 +1,15 @@
-<a
-  class="
-    text-sm p-1
-    text-zinc-600 dark:text-zinc-300
-    hover:text-zinc-900 dark:hover:text-white
-  "
-  href="{{ nav.next_page.url }}"
-  tabindex="0"
->
-  Components
-</a>
-
-<a
-  class="
-    text-sm p-1
-    text-zinc-600 dark:text-zinc-300
-    hover:text-zinc-900 dark:hover:text-white
-  "
-  href="https://jinjax.scaletti.dev"
-  tabindex="0"
->
-  JinjaX
-</a>
-
-<LinkButton
-  title="Source code"
-  href="https://github.com/jpsca/jinjax-ui"
-  class="
-    text-sm p-1
-    text-zinc-600 dark:text-zinc-300
-    hover:text-zinc-900 dark:hover:text-white
-  "
-  tabindex="0"
->
-  {% include "svg/github.svg" %}
-</LinkButton>
+<nav {{ attrs.render(class="NavLinks") }}>
+  <a href="{{ nav.next_page.url }}" tabindex="0">
+    Components
+  </a>
+  <a href="https://jinjax.scaletti.dev" tabindex="0">
+    JinjaX
+  </a>
+  <LinkButton
+    title="Source code"
+    href="https://github.com/jpsca/jinjax-ui"
+    tabindex="0"
+  >
+    {% include "svg/github.svg" %}
+  </LinkButton>
+</nav>

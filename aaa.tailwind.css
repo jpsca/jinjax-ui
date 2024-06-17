@@ -1,0 +1,3 @@
+.built-with {
+  @apply hidden sm:block mx-auto sm:m-0 h-full dark:text-inherit text-zinc-500
+}

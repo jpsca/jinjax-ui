@@ -1,4 +1,3 @@
-(function(){
 /** "scrollspy" implementation
  * Only one ".Page" will be observed
 */
@@ -7,10 +6,10 @@ const ACTIVE = "active"
 const UP = "up"
 const DOWN = "down"
 
-const SEL_TOC = ".TocPage"
+const SEL_TOC = ".tTocPage"
 const SEL_TARGET = `${SEL_TOC} a`
 const SEL_ACTIVE = `${SEL_TARGET}.${ACTIVE}`
-const SEL_PAGE = ".Page"
+const SEL_PAGE = "main.page"
 const SEL_HEADERS = "h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]";
 
 function deActivateLinks() {
@@ -101,5 +100,3 @@ function activateLink(header) {
     node.classList.add(ACTIVE)
   })
 }
-
-})()

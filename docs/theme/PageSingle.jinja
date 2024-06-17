@@ -1,10 +1,12 @@
 {#def title="" #}
 
-<Layout :title="title" :description="meta.get('description', '')">
-  <NavBar></NavBar>
-  <main class="m-0 p-0 max-w-full font-sans">
-    {{ content }}
-  </main>
-  <MyMenu></MyMenu>
-  <Footer></Footer>
+<Layout
+  :title="title"
+  :description="meta.get('description', '')"
+  class="tPageSingle"
+>
+  <NavBar />
+  <main>{{ content }}</main>
+  <NavMobile />
+  <Footer />
 </Layout>
