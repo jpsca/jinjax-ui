@@ -14,8 +14,9 @@ If you don't need to ensure only one section is open at a time, you don't need t
   class="bg-gradient-to-r from-amber-300 to-orange-400"
   prefix="demo"
   :tabs="{
-    'Preview': 'Accordion.DemoPreview',
-    'Code': 'Accordion.DemoCode'
+    'Result': 'Accordion.DemoResult',
+    'HTML': 'Accordion.DemoHTML',
+    'CSS': 'Accordion.DemoCSS',
   }"
 />
 
