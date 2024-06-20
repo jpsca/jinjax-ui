@@ -1,44 +1,26 @@
-{#def prefix, tabs #}
+{#def prefix, tabs, bgfrom="", bgto="" #}
 
-<div {{ attrs.render(
-  class="not-prose relative mt-8 mb-12
-  flex flex-col items-center justify-center
-  overflow-hidden rounded-xl"
-) }}>
-  <div class="flex w-full flex-col items-center justify-center relative">
-    <TabGroup class="w-full max-h-[500px] overflow-y-auto">
-      <TabList class="absolute pointer-events-none top-2 right-6 z-10">
-        <div class="flex space-x-2 justify-end">
-          {%- for text in tabs.keys() %}
-          <Tab
-            :target="'ex-%s-%s' % (prefix, loop.index)""
-            class="
-              bg-white/40
-              hover:bg-white/50
-              text-black
-              [&.ui-selected]:bg-white
-              pointer-events-auto
-              flex
-              px-2
-              py-1
-              text-xs
-              font-bold
-              rounded-xl
-            "
-            :selected="loop.index == 1"
-          >{{ text }}</Tab>
-          {%- endfor %}
-        </div>
-      </TabList>
-      {%- for name in tabs.values() %}
-      <TabPanel
-        :id="'ex-%s-%s' % (prefix, loop.index)""
-        class="flex w-full h-full flex-col items-center justify-center [&.ui-hidden]:hidden"
-        :hidden="loop.index != 1"
-      >
-        {{ catalog.irender(name) }}
-      </TabPanel>
+<div {{ attrs.render(class="not-prose Example") }}>
+  <TabGroup class="example-tabgroup">
+    <TabList class="example-tablist">
+      {%- for text in tabs.keys() %}
+      <Tab
+        class="example-tab"
+        :target="'ex-%s-%s' % (prefix, loop.index)""
+        :selected="loop.index == 1"
+    );"
+      >{{ text }}</Tab>
       {%- endfor %}
-    </TabGroup>
-  </div>
+    </TabList>
+    {%- for name in tabs.values() %}
+    <TabPanel
+      class="example-tabpanel"
+      :id="'ex-%s-%s' % (prefix, loop.index)"
+      :hidden="loop.index != 1"
+      :style="'background-image:linear-gradient(to right,' + bgfrom + ',' + bgto + ')'"
+    >
+      {{ catalog.irender(name) }}
+    </TabPanel>
+    {%- endfor %}
+  </TabGroup>
 </div>

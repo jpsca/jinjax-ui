@@ -2,37 +2,19 @@
 {% filter markdown %}{% raw %}
 ```css
 @scope (#accordion-demo) {
-  :scope {
-    width: 100%;
-    max-width: 36rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  @media (min-width: 640px) {
-    :scope {
-      margin-right: 2.5rem;
-    }
-  }
-
   details {
     margin: 0;
-    height: 3.5rem;
-    overflow: hidden;
     border-width: 1px;
     border-color: rgb(212 212 212);
     background-color: rgb(245 245 245);
     padding: 0;
-    color: rgb(82 82 82);
-    transition-property: all;
-    transition-behavior: allow-discrete
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-    transition-duration: 0.2s;
+    overflow: hidden;
+    height: 3.5rem;
+    width: 36rem;
+    transition: all 0.15s ease-in-out;
   }
   details[open] {
-    height: auto;
+    height: 10rem;
   }
   details:focus-within {
     box-shadow: 0 1px 2px 0 #2563eb;
@@ -54,17 +36,17 @@
     border-bottom-width: 1px;
     border-color: transparent;
     background-color: rgb(255, 255, 255);
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem 1.25rem;
     color: rgb(0, 0, 0);
+    cursor: default;
   }
-  [open] summary {
+  details[open] > summary {
     border-color: rgb(229 229 229);
   }
 
   .panel {
+    color: rgb(82 82 82);
+    padding: 0 1.25rem;
     padding: 0.75rem 1.25rem;
   }
 }

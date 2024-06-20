@@ -7,8 +7,7 @@
       {{ prev.section or "Previous" if prev.section != curr.section else "Previous" }}
     </div>
     <div class="title">
-      <i class="icon">keyboard_arrow_left</i>
-      {{ prev.title }}
+      <i class="icon">keyboard_arrow_left</i>{{ prev.title }}
     </div>
   </a>
   {%- endif %}
@@ -19,8 +18,7 @@
       {{ next.section or "Next" if next.section != curr.section else "Next" }}
     </div>
     <div class="title">
-      {{ next.title }}
-      <i class="icon">keyboard_arrow_right/i>
+      {{ next.title }}<i class="icon">keyboard_arrow_right</i>
     </div>
   </a>
   {%- endif %}

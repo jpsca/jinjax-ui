@@ -11,13 +11,14 @@ An accordion is a vertically stacked group of collapsible sections. HTML has alr
 If you don't need to ensure only one section is open at a time, you don't need this component at all, just use the `<details>` element directly.
 
 <Example
-  class="bg-gradient-to-r from-amber-300 to-orange-400"
   prefix="demo"
   :tabs="{
     'Result': 'Accordion.DemoResult',
     'HTML': 'Accordion.DemoHTML',
     'CSS': 'Accordion.DemoCSS',
   }"
+  bgfrom="#fcd34d"
+  bgto="#fb923c"
 />
 
 

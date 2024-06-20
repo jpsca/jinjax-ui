@@ -774,7 +774,6 @@ body:is(.dark *) {
 }
 
 .tLogo > span {
-  margin-left: 0.5rem;
   white-space: nowrap;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -843,11 +842,6 @@ body:is(.dark *) {
   .toggleSidebar {
     margin-left: 0.75rem;
   }
-  @media (min-width: 1024px) {
-    .toggleSidebar {
-      display: none;
-    }
-  }
   .toggleSidebar div {
     pointer-events: none;
     height: 1.5rem;
@@ -859,23 +853,18 @@ body:is(.dark *) {
 
 @scope(.tNavGlobal) {
   :scope {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 0;
     width: 18rem;
+    min-height: 100%;
     overflow-y: auto;
     border-right-width: 1px;
     border-color: rgb(228 228 231);
     padding-right: 1rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
-    display: none;
-  }
-  @media (min-width: 1024px) {
-    .tPage .wrapper {
-      display: block;
-    }
+    flex-shrink: 0;
   }
   @media (min-width: 1536px) {
     :scope {
@@ -885,6 +874,7 @@ body:is(.dark *) {
   }
   @media (min-height: 768px) {
     :scope {
+      min-height: calc(100% - 4rem);
       top: 4rem;
     }
   }
@@ -916,6 +906,7 @@ body:is(.dark *) {
     -ms-scroll-chaining: none;
     overscroll-behavior: contain;
     scroll-behavior: smooth;
+    overflow: hidden;
   }
   @media (min-height: 768px) {
     :scope {
@@ -943,19 +934,10 @@ body:is(.dark *) {
     position: fixed;
     inset: 0px;
     z-index: 50;
-    display: none;
     height: 100vh;
     width: 100%;
     -ms-scroll-chaining: none;
     overscroll-behavior: contain;
-  }
-  :scope[open] {
-    display: block;
-  }
-  @media (min-width: 1024px) {
-    :scope[open] {
-      display: none;
-    }
   }
 
   :backdrop {
@@ -1101,14 +1083,14 @@ body:is(.dark *) {
 }
 
 
-.tPageSingle main {
+.tPageSingle > main {
   margin: 0;
   max-width: 100%;
   padding: 0;
 }
 
 @scope(.tPage) {
-  .wrapper {
+  .page-wrapper {
     z-index: 10;
     margin-left: auto;
     margin-right: auto;
@@ -1119,36 +1101,15 @@ body:is(.dark *) {
     padding-bottom: 4rem;
   }
   @media (min-width: 640px) {
-    .wrapper {
+    .page-wrapper {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
-  main {
+  .page-wrapper > main {
     width: 100%;
     padding-top: 2.5rem;
-  }
-  @media (min-width: 1024px) {
-    main {
-      padding-left: 2rem;
-    }
-  }
-  @media (min-width: 1536px) {
-    main {
-      margin-left: 2.5rem;
-      margin-right: 2.5rem;
-    }
-  }
-
-  .navLocal {
-    display: none;
-    padding-left: 2rem;
-  }
-  @media (min-width: 1536px) {
-    .navLocal {
-      display: block;
-    }
   }
 }
 
@@ -1169,11 +1130,14 @@ body:is(.dark *) {
     text-decoration: none;
     flex-direction: column;
     width: 50%;
+    border: 1px solid transparent;
     }
   a.prev {
+    padding-left: 0.5rem;
     margin-right: 1.25rem;
   }
   a.next {
+    padding-right: 0.5rem;
     margin-left: auto;
     align-items: flex-end;
   }
@@ -1184,39 +1148,36 @@ body:is(.dark *) {
     font-weight: 500;
   }
   a.prev .section {
-    margin-left: 1rem;
+    margin-left: 1.1rem;
     }
   a.next .section {
-    margin-right: 1rem;
+    margin-right: 1.1rem;
   }
   .section:is(.dark *) {
     color: rgb(113 113 122);
   }
 
-  a:hover .section {
-    color: rgb(82 82 910);
+  a.prev:hover, a.next:hover {
+    background-color: rgb(240 240 240);
+    border-color: rgb(200 200 200);
+
   }
-  a:hover .section:is(.dark *) {
-    color: rgb(161 161 170);
+  a.prev:is(.dark *):hover, a.next:is(.dark *):hover {
+    background-color: rgb(82 82 91);
   }
 
   .title {
     color: rgb(82 82 91);
+    position: relative;
   }
   .title:is(.dark *) {
     color: rgb(113 113 122);
   }
-  a:hover .title {
-    color: rgb(212 212 216);
-  }
-  a:hover .title:is(.dark *) {
-    color: white;
-  }
   .title .icon {
     width: 1rem;
   }
-  a.next .title .icon {
-    float: right;
+  a.next .title {
+    text-align: right;
   }
 }
 
@@ -1390,4 +1351,37 @@ body:is(.dark *) {
   .indent-4 { margin-left: 1rem; }
   .indent-6 { margin-left: 1.5rem; }
   .indent-8 { margin-left: 2rem; }
+}
+
+.tNavGlobal,
+.tNavLocal,
+.tNavMobile,
+.tNavBar .toggleSidebar {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .tNavMobile[open],
+  .tNavBar .toggleSidebar {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tPage .page-wrapper > main {
+    padding-left: 2rem;
+  }
+  .tNavGlobal {
+    display: block;
+  }
+}
+
+@media (min-width: 1530px) {
+  .tPage .page-wrapper > main {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+  .tNavLocal {
+    display: block;
+  }
 }

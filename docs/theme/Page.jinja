@@ -4,9 +4,9 @@
   :description="meta.get('description', '')"
   class="tPage"
 >
-  <NavBar />
-  <div class="wrapper">
-    <NavGlobal />
+  <NavBar></NavBar>
+  <div class="page-wrapper">
+    <NavGlobal></NavGlobal>
     <main class="page">
       <div class="prose">
         {{ content }}
@@ -17,8 +17,8 @@
         :next="nav.next_page"
       />
     </main>
-    <NavLocal class="navLocal" />
+    <NavLocal></NavLocal>
   </div>
-  <NavMobile />
-  <Footer />
+  <NavMobile></NavMobile>
+  <Footer></Footer>
 </Layout>
