@@ -1,21 +1,23 @@
-<div id="tabs-demo" class="w-full max-w-xl px-2 py-16 sm:mr-10">
+{#css Tabs/Tabs.css #}
+
+<div class="horizontal-tabs">
   <TabGroup>
-    <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-      <Tabs.CardTab target="demo-recent" selected>Recent</Tabs.CardTab>
-      <Tabs.CardTab target="demo-popular">Popular</Tabs.CardTab>
-      <Tabs.CardTab target="demo-trending">Trending</Tabs.CardTab>
+    <TabList>
+      <Tab target="demo-recent" selected>Recent</Tab>
+      <Tab target="demo-popular">Popular</Tab>
+      <Tab target="demo-trending">Trending</Tab>
     </TabList>
 
-    <Tabs.StyledPanel id="demo-recent">
-      <p>This is the tab panel for "Recent".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="demo-recent">
+      <p>This is the tab panel for <b>"Recent"</b>.</p>
+    </TabPanel>
 
-    <Tabs.StyledPanel id="demo-popular" hidden>
-      <p>This is the tab panel for "Popular".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="demo-popular" hidden>
+      <p>This is the tab panel for <b>"Popular"</b>.</p>
+    </TabPanel>
 
-    <Tabs.StyledPanel id="demo-trending" hidden>
-      <p>This is the tab panel for "Trending".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="demo-trending" hidden>
+      <p>This is the tab panel for <b>"Trending"</b>.</p>
+    </TabPanel>
   </TabGroup>
 </div>

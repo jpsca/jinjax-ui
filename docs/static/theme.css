@@ -496,39 +496,39 @@ body:is(.dark *) {
     }
   }
 
-  .type-note,
-  .type-info,
-  .type-todo {
+  :scope.type-note,
+  :scope.type-info,
+  :scope.type-todo {
     background-color: rgb(244 244 245 / 0.9);
     border-color: rgb(212 212 216);
     color: rgb(39 39 42);
   }
-  .type-tip {
+  :scope.type-tip {
     background-color: rgb(254 249 195 / 0.9);
     border-color: rgb(254 240 138);
     color: rgb(133 77 14);
   }
-  .type-alert {
+  :scope.type-alert {
     background-color: rgb(255 237 213 / 0.9);
     border-color: rgb(254 215 170);
     color: rgb(154 52 18);
   }
-  .type-warning {
+  :scope.type-warning {
     background-color: rgb(255 237 213 / 0.9);
     border-color: rgb(254 215 170);
     color: rgb(154 52 18);
   }
-  .type-danger {
+  :scope.type-danger {
     background-color: rgb(255 228 230 / 0.9);
     border-color: rgb(254 205 211);
     color: rgb(136 19 55);
   }
-  .type-error {
+  :scope.type-error {
     background-color: rgb(255 228 230 / 0.9);
     border-color: rgb(254 205 211);
     color: rgb(136 19 55);
   }
-  .type-internal {
+  :scope.type-internal {
     background-color: rgb(231 229 228 / 0.9);
     border-color: rgb(214 211 209);
     color: rgb(28 25 23);

@@ -7,12 +7,14 @@ title: Tabs
 </Header>
 
 <Example
-  class="bg-gradient-to-r from-sky-400 to-blue-600"
   prefix="demo"
   :tabs="{
     'Result': 'Tabs.DemoResult',
     'HTML': 'Tabs.DemoHTML',
+    'CSS': 'Tabs.DemoCSS',
   }"
+  bgfrom="rgba(56,189,248, 0.9)"
+  bgto="rgba(37,99,235, 0.9)"
 />
 
 Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
@@ -27,21 +29,31 @@ Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components
 | `.ui-disabled`   | Added to disabled `Tab`s.
 
 
+## Disabling a tab
+
+To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse, and are also skipped when navigating the tab list using the keyboard.
+
+<Callout type="warning">
+Disabling tabs might be confusing for users. Instead, I reccomend you either remove it or explain why there is no content for that tab when is selected.
+</Callout>
+
+
 ## Manually activating tabs
 
 By default, tabs are automatically selected as the user navigates through them using the arrow keys.
 
 If you'd rather not change the current tab until the user presses <Key>Enter</Key> or <Key>Space</Key>, use the `manual` attribute on the `TabGroup` component.
 
-Remember to add styles to the `:focus-visible` state of the tab so is clear to the user that the tab is focused.
+Remember to add styles to the `:focus` state of the tab so is clear to the user that the tab is focused.
 
 <Example
-  class="bg-sky-500"
   prefix="manual"
   :tabs="{
     'HTML': 'Tabs.ManualHTML',
     'Result': 'Tabs.ManualResult',
   }"
+  bgfrom="rgba(56,189,248, 0.2)"
+  bgto="rgba(37,99,235, 0.2)"
 />
 
 The manual prop has no impact on mouse interactions — tabs will still be selected as soon as they are clicked.
@@ -52,12 +64,13 @@ The manual prop has no impact on mouse interactions — tabs will still be selec
 If you've styled your `TabList` to appear vertically, use the `vertical` attribute to enable navigating with the <Key title="arrow up">↑</Key> and <Key title="arrow down">↓</Key> arrow keys instead of <Key title="arrow left">←</Key> and <Key title="arrow right">→</Key>, and to update the `aria-orientation` attribute for assistive technologies.
 
 <Example
-  class="bg-sky-500"
   prefix="vertical"
   :tabs="{
     'HTML': 'Tabs.VerticalHTML',
     'Result': 'Tabs.VerticalResult',
   }"
+  bgfrom="rgba(56,189,248, 0.2)"
+  bgto="rgba(37,99,235, 0.2)"
 />
 
 
@@ -69,31 +82,15 @@ A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `T
 Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibility the `TabList` must be remain in your code, even if it's visually hidden.
 
 <Example
-  class="bg-sky-500"
   prefix="select"
   :tabs="{
     'HTML': 'Tabs.SelectHTML',
     'Result': 'Tabs.SelectResult',
   }"
+  bgfrom="rgba(56,189,248, 0.2)"
+  bgto="rgba(37,99,235, 0.2)"
 />
 
-
-## Disabling a tab
-
-To disable a tab, use the disabled attribute on the `Tab` component. Disabled tabs cannot be selected with the mouse, and are also skipped when navigating the tab list using the keyboard.
-
-<Callout type="warning">
-Disabling tabs might be confusing for users. Instead, I reccomend you either remove it or explain why there is no content for that tab when is selected.
-</Callout>
-
-<Example
-  class="bg-sky-500"
-  prefix="disabled"
-  :tabs="{
-    'HTML': 'Tabs.DisabledHTML',
-    'Result': 'Tabs.DisabledResult',
-  }"
-/>
 
 ## Component arguments
 

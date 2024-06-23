@@ -14,14 +14,14 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgb(229 231 235);
+    border: 1px solid #999;
     border-radius: 0.4rem;
   }
 
   .example-tablist {
     z-index: 0;
     display: flex;
-    border-bottom: 1px solid rgb(229 231 235);
+    border-bottom: 1px solid #999;
     background-color: rgb(249 250 251);
     overflow-x: auto;
     overflow-y: hidden;
@@ -43,7 +43,7 @@
   .example-tab {
     user-select: none;
     border-right-width: 1px;
-    border-color: rgb(229 231 235);
+    border-color: #999;
     background-color: rgb(255 255 255);
     padding: 0.5rem 1.6rem;
     color: #333;

@@ -1,11 +1,10 @@
-<div class="w-full">
 {% filter markdown %}{% raw %}
 ```html+jinja
-<MenuButton id="demo-menu-btn" target="demo-menu">
-  Menu <span class="icon ml-1 mt-1">keyboard_arrow_down</span>
+<MenuButton id="menu-demo-btn" target="menu-demo-menu">
+  Menu <i class="icon">keyboard_arrow_down</i>
 </MenuButton>
 
-<Menu id="demo-menu" anchor="demo-menu-btn" anchor-to="bottom end">
+<Menu id="menu-demo-menu" anchor="menu-demo-btn" anchor-to="bottom end">
   <div class="group">
     <MenuItem>
       <i class="icon">tab</i>
@@ -19,7 +18,7 @@
     </MenuItem>
     <MenuItem disabled>
       <i class="icon">fingerprint_off</i>
-      <a>New Incognito window</a>
+      <a>Disabled item</a>
       <kbd>Ctrl+Shift+N</kbd>
     </MenuItem>
   </div>
@@ -88,4 +87,3 @@
 </Menu>
 ```
 {% endraw %}{% endfilter %}
-</div>

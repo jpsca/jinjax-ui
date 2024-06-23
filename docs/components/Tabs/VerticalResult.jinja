@@ -1,21 +1,26 @@
-<div class="w-full max-w-xl px-2 py-16 sm:mr-10">
-  <TabGroup class="flex w-full space-x-2">
-    <TabList class="flex flex-col space-y-1 rounded-xl bg-blue-900/20 p-1" vertical>
-      <Tabs.CardTab target="vertical-recent" selected>Recent</Tabs.CardTab>
-      <Tabs.CardTab target="vertical-popular">Popular</Tabs.CardTab>
-      <Tabs.CardTab target="vertical-trending">Trending</Tabs.CardTab>
+<div class="vertical-tabs">
+  <TabGroup>
+    <TabList vertical>
+      <Tab target="vertical-recent" selected>Recent</Tab>
+      <Tab target="vertical-popular">Popular</Tab>
+      <Tab target="vertical-disabled" disabled>Disabled</Tab>
+      <Tab target="vertical-trending">Trending</Tab>
     </TabList>
 
-    <Tabs.StyledPanel id="vertical-recent" class="w-full">
-      <p>This is the tab panel for "Recent".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="vertical-recent">
+      <p>This is the tab panel for <b>"Recent"</b>.</p>
+    </TabPanel>
 
-    <Tabs.StyledPanel id="vertical-popular" class="w-full" hidden>
-      <p>This is the tab panel for "Popular".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="vertical-popular" hidden>
+      <p>This is the tab panel for <b>"Popular"</b>.</p>
+    </TabPanel>
 
-    <Tabs.StyledPanel id="vertical-trending" class="w-full" hidden>
-      <p>This is the tab panel for "Trending".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="vertical-disabled" hidden>
+      <p>This is the tab panel for "Disabled".</p>
+    </TabPanel>
+
+    <TabPanel id="vertical-trending" hidden>
+      <p>This is the tab panel for <b>"Trending"</b>.</p>
+    </TabPanel>
   </TabGroup>
 </div>

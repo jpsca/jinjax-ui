@@ -14,15 +14,20 @@ Pop-overs are **always non-modal**. If you want to create a modal popoverover, a
 component is the way to go instead.
 
 <Example
-  class="bg-gradient-to-r from-fuchsia-500 to-purple-600"
   prefix="demo"
   :tabs="{
-    'Result': 'Pop.DemoPreview',
-    'Code': 'Pop.DemoCode',
+    'Result': 'Popover.DemoResult',
+    'HTML': 'Popover.DemoHTML',
+    'CSS': 'Popover.DemoCSS',
   }"
+  bgfrom="rgba(217,70,239, 0.9)"
+  bgto="rgba(147,51,234, 0.9)"
 />
 
-Note that these components are called `Pop` and `PopButton`, *not* `Popover` and `PopoverButton`
+A `Popover` starts hidden on page load by having `display:none` set on it (the Popover API does it automatically). To show/hide the popover, you need to add some control `PopButton`s.
+
+When a popover is shown, it has `display:none` removed from it and it is put into the top layer so, unlike just using `position: absolute`, it's guaranteed that it will sit on top of all other page content.
+
 
 ## Anchor positioning
 
@@ -35,56 +40,132 @@ By default, a popover appears centered in the layout view, but this component al
     width="595" height="324" style="display:block;margin:60px auto;" />
 </p>
 
-The positioning is done every time the popover opens, but you can trigger the re-position, for example, on windows resizing, by calling `jxui-pop/setPosition(popover)` function.
+The positioning is done every time the popover opens, but you can trigger the re-position, for example, on windows resizing, by calling the `jxui-popover/setPosition(popover)` function.
+
 
 ## Styling states
 
-| CSS selector         | Tailwind selector        | Description
-| -------------------  |------------------------- | --------------
-| `[data-ui-open]`     | `[&[data-ui-open]]:`     | Added to the popover when it is open. When closed, removed after a small delay
-| `[data-ui-opened]`   | `[&[data-ui-open]]:`     | Added to the popover when it is open. When closed, removed immediately
-
-To be able to animate the popover on closure, the `[data-ui-open]` class is removed after a small delay. This is 150ms by default, but can be configured with the `closed_delay` argument
-of the `Pop` component.
-
-For example, this is how you can fade-in/fade-out a popover with Tailwind classes.
-
-```html+jinja
-<Pop
-  id="demo-popover-1"
-  class="
-    hidden [&[data-ui-open]]:block
-    opacity-0 [&[data-ui-opened]]:opacity-100
-    transition-opacity duration-200 ease-in-out
-  "
-  close_delay="200"
-> ... </Pop>
-```
-
-In this example, the `[data-ui-open]` attribute is used to show the popover with an initial opacity of zero, and the `[data-ui-opened]` attribute is used to transform the opacity to 100%.
-
-When the popover is closed, the `[data-ui-opened]` attribute is removed immediately, so the element starts transition the opacity back to zero. Because the transition duration and the delay have the same value (`duration-200` and `close_delay="200"`), the animations ends just before the `[data-ui-open]` attribute is removed so the popover dissapears because of its default `display:none` (from th `"hidden"` Tailwind class).
-
-
-## `PopButton` actions
-
-A `PopButton` can have an `action` argument, which can be set to one of three values: "open", "close", or "toggle". This argument determines what happens to the target `Pop` when the button is clicked.
-
-| Argument          | Description
-| ----------------- | --------------
-| `action="open"`   | Opens the target `Pop`. If the `Pop` is already open, it has no effect.
-| `action="close"`  | Closes the target `Pop`. If the `Pop` is already closed, it has no effect.
-| `action="toggle"` | This is the default action. It toggles the target `Pop – opening it if it's closed and closing it if it's open.
+| CSS selector        | Description
+| ------------------- | --------------
+| `[popover]`         | Every popover has this attribute
+| `:popover-open`     | This pseudo-class matches only popovers that are currently being shown
+| `::backdrop`        | This pseudo-element is a full-screen element placed directly behind showing popover elements in the top layer, allowing effects to be added to the page content behind the popover(s) if desired. You might for example want to blur out the content behind the popover to help focus the user's attention on it
 
 
 ## Closing modes
 
-A `Pop` can be of two types: "auto" or "manual". This is controlled by the `close_mode` argument. If the `close_mode` argument is not set, it defaults to "auto".
+A `Popover` can be of two types: "auto" or "manual". This is controlled by the `mode` argument.
 
-| Argument              | Description
-| --------------------- | --------------
-| `close_mode="auto"`   | The `Pop` will close automatically when the user clicks outside of it, or when the user presses the Escape key.
-| `close_mode="manual"` | The `Pop` will not close automatically. It will only close when the user clicks on a linked `PopButton` with `action="close"` or `action="toggle"`.
+| Argument           | Description
+| ------------------ | --------------
+| `mode="auto"`      | The `Popover` will close automatically when the user clicks outside of it, or when presses the Escape key.
+| `mode="manual"`    | The `Popover` will not close automatically. It will only close when the user clicks on a linked `PopButton` with `action="close"` or `action="toggle"`.
+
+If the `mode` argument is not set, it defaults to "auto".
+
+
+## `PopButton` actions
+
+A `PopButton` can have an `action` argument, which can be set to one of three values: "open", "close", or "toggle". This argument determines what happens to the target `Popover` when the button is clicked.
+
+| Argument          | Description
+| ----------------- | --------------
+| `action="open"`   | Opens the target `Popover`. If the `Popover` is already open, it has no effect.
+| `action="close"`  | Closes the target `Popover`. If the `Popover` is already closed, it has no effect.
+| `action="toggle"` | This is the default action. It toggles the target `Pop – opening it if it's closed and closing it if it's open.
+
+
+## Animating popovers
+
+Popovers are set to `display:none;` when hidden and `display:block;` when shown, as well as being removed from / added to the [top layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer). Therefore, for popovers to be animated, the `display` property [needs to be animatable].
+
+[Supporting browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/display#browser_compatibility) animate `display` flipping between `none` and another value of `display` so that the animated content is shown for the entire animation duration. So, for example:
+
+- When animating `display` from `none` to `block` (or another visible `display` value), the value will flip to `block` at `0%` of the animation duration so it is visible throughout.
+- When animating `display` from `block` (or another visible `display` value) to `none`, the value will flip to `none` at `100%` of the animation duration so it is visible throughout.
+
+<Callout>
+When animating using CSS transitions, `transition-behavior:allow-discrete` needs to be set to enable the above behavior. When animating with CSS animations, the above behavior is available by default; an equivalent step is not required.
+</Callout>
+
+
+### Transitioning a popover
+
+When animating popovers with CSS transitions, the following features are required:
+
+- `@starting-style` at-rule
+
+  Provides a set of starting values for properties set on the popover that you want to transition from when it is first shown. This is needed to avoid unexpected behavior. By default, CSS transitions only occur when a property changes from one value to another on a visible element; they are not triggered on an element's first style update, or when the `display` type changes from `none` to another type.
+
+-  `display` property
+
+  Add `display` to the transitions list so that the popover will remain as `display:block` (or another visible `display` value) for the duration of the transition, ensuring the other transitions are visible.
+
+- `overlay` property
+
+  Include `overlay` in the transitions list to ensure the removal of the popover from the top layer is deferred until the transition completes, again ensuring the transition is visible.
+
+- `transition-behavior` property
+
+  Set `transition-behavior:allow-discrete` on the `display` and `overlay` transitions (or on the `transition` shorthand) to enable discrete transitions on these two properties that are not by default animatable.
+
+For example, let's say the styles we want to transition are `opacity` and `transform`: we want the popover to fade in or out while moving down or up.
+
+To achieve this, we set a starting state for these properties on the hidden state of the popover element (selected with the `[popover]` attribute selector) and an end state for the shown state of the popover (selected via the `:popover-open` pseudo-class). We also use the `transition` property to define the properties to animate and the animation's duration as the popover gets shown or hidden:
+
+```css
+/*** Transition for the popover itself ***/
+[popover]:popover-open {
+  opacity: 1;
+  transform: scaleX(1);
+}
+[popover] {
+  transition: all 0.2s allow-discrete;
+  /* Final state of the exit animation */
+  opacity: 0;
+  transform: translateY(-3rem);
+}
+[popover]:popover-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Needs to be after the previous [popover]:popover-open rule
+to take effect, as the specificity is the same */
+@starting-style {
+  [popover]:popover-open {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+}
+
+/*** Transition for the popover's backdrop ***/
+[popover]::backdrop {
+  /* Final state of the exit animation */
+  background-color: rgb(0 0 0 / 0%);
+  transition: all 0.2s allow-discrete;
+}
+[popover]:popover-open::backdrop {
+  background-color: rgb(0 0 0 / 15%);
+}
+@starting-style {
+  [popover]:popover-open::backdrop {
+    background-color: rgb(0 0 0 / 0%);
+  }
+}
+```
+
+You can see a working example of this in the demo [at the beginning of the page](#startpage).
+
+<Callout>
+Because popovers change from <code>display:none</code> to <code>display:block</code> each time they are shown, the popover transitions from its <code>@starting-style</code> styles to its <code>[popover]:popover-open</code> styles every time the entry transition occurs. When the popover closes, it transitions from its <code>[popover]:popover-open</code> state to the default <code>[popover]</code> state.
+
+<b>So it is possible for the style transition on entry and exit to be different.</b>
+</Callout>
+
+<Callout type="note">
+This section was adapted from [Animating popovers](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#animating_popovers)
+by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/MDN/Community/Roles_teams#contributor), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+</Callout>
 
 
 ## Component arguments
@@ -93,20 +174,18 @@ A `Pop` can be of two types: "auto" or "manual". This is controlled by the `clos
 
 | Argument        | Type      | Default    | Description
 | --------------- | --------- | ---------- | --------------
-| `target`        | `str`     |            | Required. The ID of the linked `Pop` component.
-| `open`          | `bool`    | `false`    | Initial state of the linked `Pop`.
+| `target`        | `str`     |            | Required. The ID of the linked `Popover` component.
 | `action`        | `str`     | `"toggle"` | `"open"`, `"close"`, or `"toggle"`.
-
+| `tag`           | `str`     | `"button"`    | HTML tag of the component.
 
 ## Pop
 
-| Argument        | Type      | Default    | Description
-| --------------- | --------- | ---------- | --------------
-| `id`            | `str`     |            | Required. The ID of the component.
-| `open`          | `bool`    | `false`    | Initial state of the component.
-| `mode`          | `str`     | `"auto"`   | `"auto"` or `"manual"`.
-| `tag`           | `str`     | `"div"`    | HTML tag of the component.
-
+| Argument     | Type  | Default  | Description
+| ------------ | ----- | -------- | --------------
+| `mode`       | `str` | `"auto"` | `"auto"` or `"manual"`.
+| `anchor`     | `str` |          | ID of the element used as an anchor
+| `anchor-to`  | `str` |          | Which side/position of the anchor to use: "**top**", "**bottom**", "**right**", or "**left**"; with an optional postfix of "**start**", "**end**", "**center**".
+| `tag`        | `str` | `"div"`  | HTML tag of the component.
 
 
 ## Accessibility notes
@@ -115,13 +194,12 @@ A `Pop` can be of two types: "auto" or "manual". This is controlled by the `clos
 
 - Clicking a `PopButton` will trigger the button action (open, close, or toggle state).
 
-- Clicking outside of a `Pop` will close *all* the `Pop` with `close_mode="auto"`.
+- Clicking outside of a `Popover` will close *all* the `Popover` with `mode="auto"`.
 
 
 ### Keyboard interaction
 
 - Pressing the <Key>Enter</Key> or <Key>Space</Key> keys on a `PopButton` will trigger
-the button action (open, close, or toggle state), and close *all* the `Pop` with `mode="auto"`.
+the button action (open, close, or toggle state), and close *all* the `Popover` with `mode="auto"`.
 
-- Pressing the <Key>Escape</Key> key will close *all* the `Pop` with `mode="auto"`.
-
+- Pressing the <Key>Escape</Key> key will close *all* the `Popover` with `mode="auto"`.

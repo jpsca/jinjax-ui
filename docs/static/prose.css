@@ -438,6 +438,7 @@ h6:hover a.headerlink {
 
 .prose :where(tbody td:first-child, tfoot td:first-child):not(:where([class~="not-prose"] *)) {
   padding-left: 0;
+  white-space: nowrap;
 }
 
 .prose :where(tbody td:last-child, tfoot td:last-child):not(:where([class~="not-prose"] *)) {

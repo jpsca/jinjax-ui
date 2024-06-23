@@ -1,24 +1,23 @@
-<div class="w-full">
 {% filter markdown %}{% raw %}
 ```html+jinja
-{# Style classes removed for clarity #}
 <TabGroup>
   <TabList>
-    <Tab target="recent" selected>Recent</Tab>
-    <Tab target="popular">Popular</Tab>
-    <Tab target="trending">Trending</Tab>
+    <Tab selected>Recent</Tab>
+    <Tab target="demo-popular">Popular</Tab>
+    <Tab target="demo-trending">Trending</Tab>
   </TabList>
 
-  <TabPanel id="recent">
-    <p>This is the tab panel for "Recent".</p>
+  <TabPanel id="demo-recent">
+    <p>This is the tab panel for <b>"Recent"</b>.</p>
   </TabPanel>
-  <TabPanel id="popular" hidden>
-    <p>This is the tab panel for "Popular".</p>
+
+  <TabPanel id="demo-popular" hidden>
+    <p>This is the tab panel for <b>"Popular"</b>.</p>
   </TabPanel>
-  <TabPanel id="trending" hidden>
-    <p>This is the tab panel for "Trending".</p>
+
+  <TabPanel id="demo-trending" hidden>
+    <p>This is the tab panel for <b>"Trending"</b>.</p>
   </TabPanel>
 </TabGroup>
 ```
 {% endraw %}{% endfilter %}
-</div>

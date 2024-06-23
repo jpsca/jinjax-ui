@@ -17,8 +17,8 @@ If you don't need to ensure only one section is open at a time, you don't need t
     'HTML': 'Accordion.DemoHTML',
     'CSS': 'Accordion.DemoCSS',
   }"
-  bgfrom="#fcd34d"
-  bgto="#fb923c"
+  bgfrom="rgba(252,211,77, 0.9)"
+  bgto="rgba(251,146,60, 0.9)"
 />
 
 

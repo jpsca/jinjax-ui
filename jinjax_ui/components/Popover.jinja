@@ -1,5 +1,5 @@
 {#def mode="auto", anchor=None, anchor_to=None, tag="div" #}
-{#js "jxui.js", "jxui-pop.js" #}
+{#js "jxui.js", "jxui-popover.js" #}
 
 {% set mode = mode if mode in ["auto", "manual"] else "auto" %}
 
@@ -11,6 +11,6 @@
 {% do attrs.set(class="ui-pop") %}
 
 <{{ tag }} {{ attrs.render(
-  class="ui-pop",
+  class="ui-popover",
   popover=mode,
 ) }}>{{ content }}</{{ tag }}>

@@ -7,7 +7,6 @@ import { on } from "./jxui.js";
 
 const ATTR_ANCHOR = "data-anchor";
 const ATTR_ANCHOR_TO = "data-anchor-to";
-const SEL_ANCHORED = `[${ATTR_ANCHOR}]`;
 const SEL_ANCHORED_SUB = `[${ATTR_ANCHOR}] [${ATTR_ANCHOR}]`;
 const SEL_ANCHORED_ROOT = `[${ATTR_ANCHOR}]:not(${SEL_ANCHORED_SUB})`;
 

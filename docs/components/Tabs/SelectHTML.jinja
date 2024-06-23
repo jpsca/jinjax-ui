@@ -1,30 +1,35 @@
-<div class="w-full">
 {% filter markdown %}{% raw %}
 ```html+jinja
-{# Style classes removed for clarity #}
 <TabGroup>
-  <TabList>
-    <Tab target="recent" selected>Recent</Tab>
-    <Tab target="popular">Popular</Tab>
-    <Tab target="trending" disabled>Disabled</Tab>
-  </TabList>
-
-  <TabSelect aria-hidden="true">
-    <TabOption target="recent" selected>Recent</TabOption>
-    <TabOption target="popular">Popular</TabOption>
-    <TabOption target="trending" disabled>Disabled</TabOption>
+  <TabSelect>
+    <TabOption target="select-recent">Recent</TabOption>
+    <TabOption target="select-popular">Popular</TabOption>
+    <TabOption target="select-disabled" disabled>Disabled</TabOption>
+    <TabOption target="select-trending">Trending</TabOption>
   </TabSelect>
 
-  <TabPanel id="recent">
-    <p>This is the tab panel for "Recent".</p>
+  <TabList>
+    <Tab target="select-recent">Recent</Tab>
+    <Tab target="select-popular" selected>Popular</Tab>
+    <Tab target="select-disabled" disabled>Disabled</Tab>
+    <Tab target="select-trending">Trending</Tab>
+  </TabList>
+
+  <TabPanel id="select-recent">
+    <p>This is the tab panel for <b>"Recent"</b>.</p>
   </TabPanel>
-  <TabPanel id="popular" hidden>
-    <p>This is the tab panel for "Popular".</p>
+
+  <TabPanel id="select-popular" hidden>
+    <p>This is the tab panel for <b>"Popular"</b>.</p>
   </TabPanel>
-  <TabPanel id="trending" hidden>
-    <p>This is the tab panel for "Trending".</p>
+
+  <TabPanel id="select-disabled" hidden>
+    <p>This is the tab panel for "Disabled".</p>
+  </TabPanel>
+
+  <TabPanel id="select-trending" hidden>
+    <p>This is the tab panel for <b>"Trending"</b>.</p>
   </TabPanel>
 </TabGroup>
 ```
 {% endraw %}{% endfilter %}
-</div>

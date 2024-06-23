@@ -1,21 +1,26 @@
-<div class="w-full max-w-xl px-2 py-16 sm:mr-10">
+<div class="horizontal-tabs">
   <TabGroup>
-    <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1" manual>
-      <Tabs.CardTab target="manual-recent" selected>Recent</Tabs.CardTab>
-      <Tabs.CardTab target="manual-popular">Popular</Tabs.CardTab>
-      <Tabs.CardTab target="manual-trending">Trending</Tabs.CardTab>
+    <TabList manual>
+      <Tab target="manual-recent" selected>Recent</Tab>
+      <Tab target="manual-popular">Popular</Tab>
+      <Tab target="manual-disabled" disabled>Disabled</Tab>
+      <Tab target="manual-trending">Trending</Tab>
     </TabList>
 
-    <Tabs.StyledPanel id="manual-recent">
-      <p>This is the tab panel for "Recent".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="manual-recent">
+      <p>This is the tab panel for <b>"Recent"</b>.</p>
+    </TabPanel>
 
-    <Tabs.StyledPanel id="manual-popular" hidden>
-      <p>This is the tab panel for "Popular".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="manual-popular" hidden>
+      <p>This is the tab panel for <b>"Popular"</b>.</p>
+    </TabPanel>
 
-    <Tabs.StyledPanel id="manual-trending" hidden>
-      <p>This is the tab panel for "Trending".</p>
-    </Tabs.StyledPanel>
+    <TabPanel id="manual-disabled" hidden>
+      <p>This is the tab panel for "Disabled".</p>
+    </TabPanel>
+
+    <TabPanel id="manual-trending" hidden>
+      <p>This is the tab panel for <b>"Trending"</b>.</p>
+    </TabPanel>
   </TabGroup>
 </div>

@@ -7,13 +7,14 @@ title: Linked Lists
 </Header>
 
 <Example
-  class="bg-gradient-to-r from-green-400 to-green-700"
   prefix="demo"
   :tabs="{
     'Result': 'LinkedList.DemoResult',
     'HTML': 'LinkedList.DemoHTML',
     'CSS': 'LinkedList.DemoCSS',
   }"
+  bgfrom="rgba(74,222,128, 0.9)"
+  bgto="rgb(21,128,61, 0.9)"
 />
 
 **Note:** The checkboxes are shown to demostrate how it does work, but they can be hidden by CSS.
