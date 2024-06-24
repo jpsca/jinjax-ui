@@ -7,14 +7,15 @@ title: Linked Lists
 </Header>
 
 <Example
+class="text-lime-500"
   prefix="demo"
   :tabs="{
     'Result': 'LinkedList.DemoResult',
     'HTML': 'LinkedList.DemoHTML',
     'CSS': 'LinkedList.DemoCSS',
   }"
-  bgfrom="rgba(74,222,128, 0.9)"
-  bgto="rgb(21,128,61, 0.9)"
+  bgfrom="rgb(132,204,22, 0.7)"
+  bgto="rgba(22,163,74, 0.7)"
 />
 
-**Note:** The checkboxes are shown to demostrate how it does work, but they can be hidden by CSS.
+<Callout>The checkboxes above are displayed so you can see how they get checked/unchecked. If you might want to hide them with CSS, the component will keep working as usual, but they must be present.</Callout>

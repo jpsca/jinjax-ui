@@ -62,6 +62,10 @@
   color: var(--tw-prose-body);
 }
 
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-family: var(--cd-font-serif);
+}
+
 .prose :where(p):not(:where([class~="not-prose"] *)) {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
@@ -219,9 +223,9 @@ h6:hover a.headerlink {
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.8em;
   margin-top: 2em;
-  margin-bottom: 1em;
+  margin-bottom: 0.75em;
   line-height: 1.3333333;
 }
 
@@ -233,7 +237,7 @@ h6:hover a.headerlink {
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
-  font-size: 1.25em;
+  font-size: 1.6em;
   margin-top: 1.6em;
   margin-bottom: 0.6em;
   line-height: 1.6;
@@ -438,7 +442,6 @@ h6:hover a.headerlink {
 
 .prose :where(tbody td:first-child, tfoot td:first-child):not(:where([class~="not-prose"] *)) {
   padding-left: 0;
-  white-space: nowrap;
 }
 
 .prose :where(tbody td:last-child, tfoot td:last-child):not(:where([class~="not-prose"] *)) {

@@ -11,17 +11,21 @@
  *
  * @param {Date | number} date - The date or time to be converted
  * @param {string} [lang=navigator.language] - The language to be used for formatting
+ * @param {int} [now=Date.now()] - The language to be used for formatting
  * @returns {string} The relative time string
  *
  * (Note: Leap years, leap seconds, February, etc. are completely irrelevant here
  *  due to the coarse nature of the relative time format)
  */
-export function getRelativeTimeString(date, lang = navigator.language) {
+export function getRelativeTimeString(date, lang=navigator.language, now=0) {
+  lang = Intl.RelativeTimeFormat.supportedLocalesOf(lang.split(/\s*,\s*/))[0] || navigator.language;
+  now = now || Date.now();
+
   // Allow dates or times to be passed
   const timeMs = typeof date === "number" ? date : date.getTime();
 
   // Get the amount of seconds between the given date and now
-  const deltaSeconds = Math.round((timeMs - Date.now()) / 1000);
+  const deltaSeconds = Math.round((timeMs - now) / 1000);
 
   // Array representing one minute, hour, day, week, month, etc in seconds
   const cutoffs = [60, 3600, 86400, 86400 * 7, 86400 * 30, 86400 * 365, Infinity];
@@ -46,18 +50,29 @@ export function getRelativeTimeString(date, lang = navigator.language) {
  *
  * @param {HTMLElement} timeNode - The <time> node to be processed
  */
-export function processTimeNode(timeNode) {
-  const lang = document.body.getAttribute("lang") || "en";
+export function processRelDate(timeNode) {
   const datetime = timeNode.getAttribute("datetime");
   const date = new Date(datetime);
-  timeNode.textContent = getRelativeTimeString(date, lang);
+  const lang = timeNode.getAttribute("lang")
+    || document.body.getAttribute("lang")
+    || navigator.language;
+  const nowAttr = timeNode.getAttribute("data-now");
+  let now;
+  if (nowAttr) {
+    now = Date.parse(nowAttr);
+    now = isNaN(now) ? 0 : now;
+  } else {
+    now = 0
+  }
+
+  timeNode.textContent = getRelativeTimeString(date, lang, now);
 }
 
 /**
  * Sets up a MutationObserver to detect when a new <time data-relative> tag has been inserted into the page,
- * and calls processTimeNode for it.
+ * and calls processRelDate for it.
  */
-export function observeTimeNodes() {
+export function observeRelDates() {
   // Create a new observer
   const observer = new MutationObserver((mutationsList) => {
     // Look through all mutations that just occured
@@ -68,7 +83,7 @@ export function observeTimeNodes() {
           // Check if the added node is a "time[data-relative]" element
           if(node.matches && node.matches("time[data-relative]")) {
             // If so, process it
-            processTimeNode(node);
+            processRelDate(node);
           }
         });
       }
@@ -80,10 +95,12 @@ export function observeTimeNodes() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("time[data-relative]").forEach(processTimeNode);
-  observeTimeNodes();
+  document.querySelectorAll("time[data-relative]").forEach(processRelDate);
+  observeRelDates();
 });
 
-htmx.onLoad(function(content) {
-  content.querySelectorAll("time[data-relative]").forEach(processTimeNode);
-});
+if (typeof(htmx) !== "undefined" && htmx.onload) {
+  htmx.onLoad(function(content) {
+    content.querySelectorAll("time[data-relative]").forEach(processRelDate);
+  });
+}

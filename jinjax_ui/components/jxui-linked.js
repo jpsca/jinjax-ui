@@ -9,10 +9,10 @@ const ATTR_LINKED = "data-linked-to";
 const ATTR_ACTIVE = "data-linked-active";
 const ATTR_SORTED = "data-linked-sorted";
 
-const SEL_ITEM = "li";
 const SEL_LIST = `[${ATTR_LINKED}]`;
-const SEL_ITEMS = `${SEL_LIST} > ${SEL_ITEM}`;
-const SEL_CHECKBOX = `${SEL_ITEMS} input[type=checkbox]`;
+const SEL_ITEM = `${SEL_LIST} > li`;
+const SEL_ACTIVE_ITEM = `${SEL_ITEM}:not([disabled])`;
+const SEL_CHECKBOX = `${SEL_ITEM} input[type=checkbox]:not([disabled])`;
 
 const EVENT_SEND_ALL = "jxui:linked:sendall"
 
@@ -20,9 +20,9 @@ const KEY_SPACE = " ";
 const KEY_ENTER = "Enter";
 const KEYS = [KEY_SPACE, KEY_ENTER];
 
-on("click", SEL_ITEM, handleClick);
+on("click", SEL_ACTIVE_ITEM, handleClick);
 on("click", SEL_CHECKBOX, handleCheckboxClick);
-on("keydown", SEL_ITEM, handleKeyDown);
+on("keydown", SEL_ACTIVE_ITEM, handleKeyDown);
 on(EVENT_SEND_ALL, SEL_LIST, handleSendAll);
 
 /** Event handlers **/
@@ -35,7 +35,7 @@ function handleClick (event, item) {
 function handleCheckboxClick (event, checkbox) {
   event.preventDefault();
   event.stopPropagation();
-  const item = checkbox.closest(SEL_ITEM);
+  const item = checkbox.closest(SEL_ACTIVE_ITEM);
   return sendItem(item, checkbox);
 }
 
@@ -61,11 +61,8 @@ function comparator (a, b) {
 
 
 export function sendItem (item, checkbox) {
+  if (!item) { return; }
   checkbox = checkbox || item.querySelector(SEL_CHECKBOX);
-  if (item.matches("[disabled]") || checkbox.matches("[disabled]")) {
-    return;
-  }
-
   const srcList = item.closest(SEL_LIST);
   const destList = document.getElementById(srcList.getAttribute(ATTR_LINKED));
   const active = destList.hasAttribute(ATTR_ACTIVE);
@@ -77,7 +74,7 @@ export function sendItem (item, checkbox) {
     return;
   }
 
-  const items = Array.from(destList.querySelectorAll(SEL_ITEMS));
+  const items = Array.from(destList.querySelectorAll(SEL_ITEM));
   items.push(item);
   items.sort(comparator)
   items.forEach(el => {
@@ -93,8 +90,8 @@ export function sendAllItems(srcList) {
   const active = destList.hasAttribute(ATTR_ACTIVE);
   const sorted = destList.hasAttribute(ATTR_SORTED);
 
-  const srcItems = Array.from(destList.querySelectorAll(SEL_ITEMS));
-  const newItems = Array.from(srcList.querySelectorAll(SEL_ITEMS));
+  const srcItems = Array.from(destList.querySelectorAll(SEL_ITEM));
+  const newItems = Array.from(srcList.querySelectorAll(SEL_ACTIVE_ITEM));
   const items = [...srcItems, ...newItems]
   if (sorted) {
     items.sort(comparator);

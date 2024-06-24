@@ -1,5 +1,10 @@
-{#def datetime #}
+{#def datetime, now="" #}
 {#js jxui-reldate.js #}
+
+{% if now %}
+  {% do attrs.set(data_now=now) %}
+{% endif%}
+
 <time {{ attrs.render(
   class="ui-reldate",
   datetime=datetime,

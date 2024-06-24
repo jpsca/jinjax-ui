@@ -1,6 +1,80 @@
+/* latin */
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/crimsontext-regular.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/crimsontext-regular-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/crimsontext-bold.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/crimsontext-bold-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/karla-regular-.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/karla-regular-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/karla-bold.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/karla-bold-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Material Symbols Rounded";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("./fonts/material-symbols-rounded.woff2") format("woff2");
+}
+
 :root {
   --cd-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --cd-font-sans: Inter, sans-serif;
+  --cd-font-sans: Karla, sans-serif;
+  --cd-font-serif: "Crimson Text", serif;
+  --cd-font-icons: "Material Symbols Rounded";
 
   --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
   --ease-out-5: cubic-bezier(0, 0, 0, 1);
@@ -106,12 +180,12 @@ b, strong {
 }
 
 /*
-1. Use the user's configured `mono` font-family by default.
+1. Use the user"s configured `mono` font-family by default.
 2. Correct the odd `em` font sizing in all browsers.
 */
 code, kbd, samp, pre {
   /* 1 */
-  font-family:
+  font-family: var(--cd-font-mono);
   font-feature-settings: normal;
   font-variation-settings: normal;
   /* 2 */
@@ -277,7 +351,7 @@ textarea {
 
 /*
 1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-2. Set the default placeholder color to the user's configured gray 400 color.
+2. Set the default placeholder color to the user"s configured gray 400 color.
 */
 input::-moz-placeholder,
 textarea::-moz-placeholder {
@@ -300,7 +374,7 @@ button,
   cursor: pointer;
 }
 
-/* Make sure disabled buttons don't get the pointer cursor. */
+/* Make sure disabled buttons don"t get the pointer cursor. */
 :disabled {
   cursor: default;
 }
@@ -333,39 +407,6 @@ img, video {
 
 /* ---------------------------------------------------------------------- */
 
-@font-face {
-  font-family: Inter;
-  font-style:  normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("./fonts/Inter-Regular.woff2?v=3.19") format("woff2"),
-       url("./fonts/Inter-Regular.woff?v=3.19") format("woff");
-}
-@font-face {
-  font-family: Inter;
-  font-style:  normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("./fonts/Inter-SemiBold.woff2?v=3.19") format("woff2"),
-       url("./fonts/Inter-SemiBold.woff?v=3.19") format("woff");
-}
-@font-face {
-  font-family: Inter;
-  font-style:  normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("./fonts/Inter-Bold.woff2?v=3.19") format("woff2"),
-       url("./fonts/Inter-Bold.woff?v=3.19") format("woff");
-}
-
-@font-face {
-  font-family: "Material Symbols Rounded";
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: block;
-  src: url("./fonts/material-symbols-rounded.woff2") format("woff2");
-}
-
 body {
   min-height: 100vh;
   overflow-y: auto;
@@ -397,8 +438,13 @@ body:is(.dark *) {
   width: auto;
 }
 
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
 .icon {
-  font-family: "Material Symbols Rounded";
+  font-family: var(--cd-font-icons);
   font-weight: normal;
   font-style: normal;
   letter-spacing: normal;
@@ -582,7 +628,6 @@ body:is(.dark *) {
   }
 }
 
-
 @scope(.tFooter) {
   :scope {
     padding-top: 1.25rem;
@@ -646,7 +691,6 @@ body:is(.dark *) {
   }
 }
 
-
 @scope (.tHeader) {
   :scope {
     margin-bottom: 2rem;
@@ -665,9 +709,9 @@ body:is(.dark *) {
 
   h1 {
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 1.25rem;
-    font-weight: 800;
+    font-weight: 700;
     color: rgb(24 24 27);
   }
   h1:is(.dark *) {
@@ -675,7 +719,7 @@ body:is(.dark *) {
   }
   @media (min-width: 640px) {
     h1 {
-      font-size: 1.875rem;
+      font-size: 2.2rem;
     }
   }
 
@@ -689,7 +733,6 @@ body:is(.dark *) {
     color: rgb(161 161 170);
   }
 }
-
 
 .tKey {
   font-family: var(--cd-font-mono);
@@ -707,12 +750,10 @@ body:is(.dark *) {
   border-color: #ffffff;
   box-shadow: 0 0 2px 0 #000;
 }
-
 .tKey:is(.dark *) {
   border-color: rgb(0 0 0);
   background-color: rgb(24 24 27);
 }
-
 
 .LinkButton {
   display: inline-flex;
@@ -758,7 +799,6 @@ body:is(.dark *) {
   border-color: rgb(161 161 170);
 }
 
-
 .tLogo {
   display: flex;
   height: 2.5rem;
@@ -780,7 +820,6 @@ body:is(.dark *) {
   font-weight: 700;
   line-height: 1;
 }
-
 
 @scope(.tNavBar) {
   :scope {
@@ -850,7 +889,6 @@ body:is(.dark *) {
   }
 }
 
-
 @scope(.tNavGlobal) {
   :scope {
     position: sticky;
@@ -890,7 +928,6 @@ body:is(.dark *) {
   }
 }
 
-
 @scope(.tNavLocal) {
   :scope {
     position: -webkit-sticky;
@@ -927,7 +964,6 @@ body:is(.dark *) {
     border-color: rgb(82 82 91);
   }
 }
-
 
 @scope(.tNavMobile) {
   :scope {
@@ -1082,7 +1118,6 @@ body:is(.dark *) {
   }
 }
 
-
 .tPageSingle > main {
   margin: 0;
   max-width: 100%;
@@ -1106,13 +1141,11 @@ body:is(.dark *) {
       padding-right: 1.5rem;
     }
   }
-
   .page-wrapper > main {
     width: 100%;
     padding-top: 2.5rem;
   }
 }
-
 
 @scope (.tPrevNext) {
   :scope {
@@ -1181,7 +1214,6 @@ body:is(.dark *) {
   }
 }
 
-
 .tTextButton {
   display: inline-flex;
   cursor: pointer;
@@ -1220,7 +1252,6 @@ body:is(.dark *) {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-
 .tTextButton:is(.dark *) {
   border-color: rgb(82 82 91);
   background-color: rgb(82 82 91 / 0.1);
@@ -1234,7 +1265,6 @@ body:is(.dark *) {
 .tTextButton:is(.dark *):active {
   border-color: rgb(161 161 170);
 }
-
 
 @scope(.tToc) {
   details, section {
@@ -1313,7 +1343,6 @@ body:is(.dark *) {
     color: rgb(212 212 216);
   }
 }
-
 
 @scope(.tTocPage) {
   a {
