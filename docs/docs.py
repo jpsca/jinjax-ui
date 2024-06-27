@@ -6,7 +6,7 @@ import jinjax_ui
 from claydocs import Docs
 
 
-logging.getLogger("jinjax").setLevel(logging.INFO)
+logging.getLogger("jinjax").setLevel(logging.ERROR)
 logging.getLogger("jinjax").addHandler(logging.StreamHandler())
 
 here = Path(__file__).parent
@@ -14,13 +14,14 @@ here = Path(__file__).parent
 pages = [
     "index.md",
     [
-        "Headless", [
-            "Headless/Tabs.md",
-            "Headless/Popover.md",
-            "Headless/Menu.md",
-            "Headless/Accordion.md",
-            "Headless/LinkedList.md",
-            "Headless/RelDate.md",
+        "UI", [
+            "ui/index.md",
+            "ui/tabs.md",
+            "ui/popover.md",
+            "ui/menu.md",
+            "ui/accordion.md",
+            "ui/linkedlist.md",
+            "ui/reldate.md",
         ],
     ],
 ]

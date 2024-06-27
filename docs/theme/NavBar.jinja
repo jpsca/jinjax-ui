@@ -1,11 +1,12 @@
-{#js toggle.js #}
-
 <section class="tNavBar">
   <div class="wrapper">
     <Logo class="logo" :base_url="nav.base_url" />
     <NavLinks class="navLinks"></NavLinks>
-    <TextButton title="Show menu" data_toggle="#navMobile|[open]" class="toggleSidebar">
-      <div>Menu</div>
-    </TextButton>
+    <ThemeSwitch class="themeswitch" :text="false" />
+    <PopButton
+      target="navMobile"
+      title="Show menu"
+      class="tTextButton toggleSidebar"
+    >Menu</PopButton>
   </div>
 </section>

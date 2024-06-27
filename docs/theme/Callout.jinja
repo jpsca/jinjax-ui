@@ -23,10 +23,8 @@
 <details {{ attrs.render(open=open, class="Callout") }}>
   <summary>
     {% if icon -%}
-    <div class="icon-wrapper">
       <i class="icon">{{ icon }}</i>
-    </div>
-    {%- endif %}
+    {% endif -%}
     {{ title }}
     <icon class="icon arrow">keyboard_arrow_down</icon>
   </summary>
@@ -35,13 +33,13 @@
 
 {%- else -%}
 
-<div {{ attrs.render(class="tCallout") }}>
+<aside {{ attrs.render(class="tCallout") }}>
   {% if icon -%}
   <div class="icon-wrapper">
     <i class="icon">{{ icon }}</i>
   </div>
   {%- endif %}
   <div class="content">{{content}}</div>
-</div>
+</aside>
 
 {%- endif %}

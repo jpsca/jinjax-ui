@@ -2,7 +2,7 @@
 title: Pop-over
 ---
 
-<Header title="Pop-over" section="Headless">
+<Header title="Pop-over" section="UI">
   A wrapper over the Popover API with anchor positioning
 </Header>
 
@@ -36,7 +36,7 @@ By default, a popover appears centered in the layout view, but this component al
 `anchor` is the ID of the element used as a reference, and  `anchor-to` which side of the anchor to use: "top", "bottom", "right", or "left"; with an optional postfix of "start" or "end" ("center" is the default).
 
 <p>
-  <img src="/static/anchors.png" alt="Anchor positioning"
+  <img src="/static//img/anchors.png" alt="Anchor positioning"
     width="595" height="324" style="display:block;margin:60px auto;" />
 </p>
 
@@ -170,7 +170,7 @@ by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/MDN/Community
 
 ## Component arguments
 
-## PopButton
+### PopButton
 
 | Argument        | Type      | Default    | Description
 | --------------- | --------- | ---------- | --------------
@@ -178,7 +178,7 @@ by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/MDN/Community
 | `action`        | `str`     | `"toggle"` | `"open"`, `"close"`, or `"toggle"`.
 | `tag`           | `str`     | `"button"`    | HTML tag of the component.
 
-## Pop
+### Pop
 
 | Argument     | Type  | Default  | Description
 | ------------ | ----- | -------- | --------------

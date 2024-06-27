@@ -2,7 +2,7 @@
 title: Linked Lists
 ---
 
-<Header title="Linked Lists" section="Headless">
+<Header title="Linked Lists" section="UI">
   A component to select multiple items from a long list, while keeping them sorted.
 </Header>
 

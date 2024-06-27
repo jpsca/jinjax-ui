@@ -2,7 +2,7 @@
 title: Accordion
 ---
 
-<Header title="Accordion" section="Headless">
+<Header title="Accordion" section="UI">
   Component for grouping <code>details</code> HTML elements where only one of them can be open at the same time.
 </Header>
 

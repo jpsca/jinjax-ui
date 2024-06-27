@@ -2,7 +2,7 @@
 title: Tabs
 ---
 
-<Header title="Tabs" section="Headless">
+<Header title="Tabs" section="UI">
   Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support.
 </Header>
 

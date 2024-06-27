@@ -40,6 +40,6 @@
 {% endmacro %}
 
 
-<div class="tToc">
+<div {{ attrs.render(class="tToc") }}>
   {{ render_children(toc, collapsable=False) }}
 </div>

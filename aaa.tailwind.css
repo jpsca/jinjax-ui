@@ -1,4 +1,4 @@
-button  {
+.themeswitch {
   @apply
-  appearance-none whitespace-nowrap border text-center cursor-pointer rounded px-3 py-2 transition-colors focus:outline-offset-1 inline-flex items-center justify-center space-x-1 mt-2 sm:px-2 sm:py-1 bg-gray-200 border-transparent shadow-none hover:border-blue-100 hover:bg-gray-100 focus:bg-gray-200 focus:outline-blue-500 text-xs
+  ml-auto mr-auto sm:ml-6 sm:mr-0
 }

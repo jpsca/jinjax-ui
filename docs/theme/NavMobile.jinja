@@ -1,18 +1,19 @@
-{#js "toggle.js" #}
+{% do attrs.set(id="navMobile", class="tNavMobile") %}
 
-<div {{ attrs.render(id="navMobile", class="tNavMobile") }}>
-  <div class="wrapper">
-    <header>
-      <div class="">
-        <Logo :base_url="nav.base_url" class="logo" />
-        <TextButton class="toggleSidebar" aria_label="Close" data_toggle="#navMobile|[open]" >
-          <div>Close</div>
-        </TextButton>
-      </div>
-    </header>
+<Popover :__attrs="attrs">
+  <header>
+    <Logo :base_url="nav.base_url" class="logo" />
+    <ThemeSwitch class="themeswitch" :text="false" />
+    <PopButton
+      target="navMobile"
+      action="close"
+      title="Close menu"
+      class="tTextButton toggleSidebar"
+    >Close</PopButton>
+    </TextButton>
+  </header>
 
-    <NavLinks class="navLinks"></NavLinks>
+  <NavLinks class="navLinks"></NavLinks>
 
-    <Toc class="toc" :toc="nav.toc" :page="nav.page" />
-  </div>
-</div>
+  <Toc class="toc" :toc="nav.toc" :page="nav.page" />
+</Popover>
