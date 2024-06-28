@@ -2,7 +2,7 @@
 title: Accordion
 ---
 
-<Header title="Accordion" section="UI">
+<Header title="Accordion">
   Component for grouping <code>details</code> HTML elements where only one of them can be open at the same time.
 </Header>
 
@@ -10,15 +10,13 @@ An accordion is a vertically stacked group of collapsible sections. HTML has alr
 
 If you don't need to ensure only one section is open at a time, you don't need this component at all, just use the `<details>` element directly.
 
-<Example
+<ExampleTabs
   prefix="demo"
-  :tabs="{
+  :panels="{
     'Result': 'Accordion.DemoResult',
     'HTML': 'Accordion.DemoHTML',
     'CSS': 'Accordion.DemoCSS',
   }"
-  bgfrom="rgba(252,211,77, 0.9)"
-  bgto="rgba(251,146,60, 0.9)"
 />
 
 

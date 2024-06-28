@@ -1,12 +1,15 @@
-# Extra Arguments
+---
+title: Extra Arguments
+---
 
+<Header title="Extra Arguments">
 If you pass arguments not declared in a component, those are not discarded, but rather collected in a `attrs` object that can render these extra arguments calling `attrs.render()`
+</Header>
 
 For example, this component:
 
 ```html+jinja title="components/Card.jinja"
 {#def title #}
-
 <div {{ attrs.render() }}>
   <h1>{{ title }}</h1>
   {{ content }}
@@ -16,9 +19,7 @@ For example, this component:
 Called as:
 
 ```html+jinja
-<Card title="Products" class="mb-10" open>
-bla
-</Card>
+<Card title="Products" class="mb-10" open>bla</Card>
 ```
 
 Will be rendered as:
@@ -34,7 +35,6 @@ You can add or remove arguments before rendering them using the other methods of
 
 ```html+jinja
 {#def title #}
-
 {% do attrs.set(id="mycard") -%}
 
 <div {{ attrs.render() }}>

@@ -1,6 +1,11 @@
-# Adding CSS and JS
+---
+title: Adding CSS and JS
+---
 
+<Header title="Adding CSS and JS">
 Your components might need custom styles or custom JavaScript for many reasons.
+</Header>
+
 Instead of using global stylesheet or script files, writing assets for each individual
 component has several advantages:
 

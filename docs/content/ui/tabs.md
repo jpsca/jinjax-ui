@@ -2,19 +2,17 @@
 title: Tabs
 ---
 
-<Header title="Tabs" section="UI">
+<Header title="Tabs">
   Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support.
 </Header>
 
-<Example
+<ExampleTabs
   prefix="demo"
-  :tabs="{
+  :panels="{
     'Result': 'Tabs.DemoResult',
     'HTML': 'Tabs.DemoHTML',
     'CSS': 'Tabs.DemoCSS',
   }"
-  bgfrom="rgba(56,189,248, 0.9)"
-  bgto="rgba(37,99,235, 0.9)"
 />
 
 Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
@@ -46,14 +44,12 @@ If you'd rather not change the current tab until the user presses <Key>Enter</Ke
 
 Remember to add styles to the `:focus` state of the tab so is clear to the user that the tab is focused.
 
-<Example
+<ExampleTabs
   prefix="manual"
-  :tabs="{
+  :panels="{
     'HTML': 'Tabs.ManualHTML',
     'Result': 'Tabs.ManualResult',
   }"
-  bgfrom="rgba(56,189,248, 0.2)"
-  bgto="rgba(37,99,235, 0.2)"
 />
 
 The manual prop has no impact on mouse interactions — tabs will still be selected as soon as they are clicked.
@@ -63,14 +59,12 @@ The manual prop has no impact on mouse interactions — tabs will still be selec
 
 If you've styled your `TabList` to appear vertically, use the `vertical` attribute to enable navigating with the <Key title="arrow up">↑</Key> and <Key title="arrow down">↓</Key> arrow keys instead of <Key title="arrow left">←</Key> and <Key title="arrow right">→</Key>, and to update the `aria-orientation` attribute for assistive technologies.
 
-<Example
+<ExampleTabs
   prefix="vertical"
-  :tabs="{
+  :panels="{
     'HTML': 'Tabs.VerticalHTML',
     'Result': 'Tabs.VerticalResult',
   }"
-  bgfrom="rgba(56,189,248, 0.2)"
-  bgto="rgba(37,99,235, 0.2)"
 />
 
 
@@ -81,14 +75,12 @@ A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `T
 
 Note that a `TabSelect` **is not a replacement for a `TabList`**. For accessibility the `TabList` must be remain in your code, even if it's visually hidden.
 
-<Example
+<ExampleTabs
   prefix="select"
-  :tabs="{
+  :panels="{
     'HTML': 'Tabs.SelectHTML',
     'Result': 'Tabs.SelectResult',
   }"
-  bgfrom="rgba(56,189,248, 0.2)"
-  bgto="rgba(37,99,235, 0.2)"
 />
 
 

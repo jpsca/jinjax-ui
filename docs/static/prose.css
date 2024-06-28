@@ -196,7 +196,7 @@
 .prose :where(h1):not(:where([class~="not-prose"] *)) {
   color: var(--cd-prose-headings);
   font-weight: 800;
-  font-size: 2.25em;
+  font-size: 2.2rem;
   margin-top: 0;
   margin-bottom: 0.8888889em;
   line-height: 1.1111111;
@@ -224,7 +224,7 @@
 .prose :where(h3):not(:where([class~="not-prose"] *)) {
   color: var(--cd-prose-headings);
   font-weight: 600;
-  font-size: 1.6em;
+  font-size: 1.4em;
   margin-top: 1em;
   margin-bottom: 0.4em;
   line-height: 1.6;
@@ -238,6 +238,7 @@
 .prose :where(h4):not(:where([class~="not-prose"] *)) {
   color: var(--cd-prose-headings);
   font-weight: 600;
+  font-size: 1.2em;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   line-height: 1.5;

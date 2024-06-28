@@ -2,7 +2,7 @@
 title: JinjaX UI
 ---
 
-<Header title="JinjaX UI" section=" ">
+<Header title="JinjaX UI" :section="false">
   Unstyled, fully accessible UI components, to integrate with your projects.
 </Header>
 

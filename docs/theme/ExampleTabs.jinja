@@ -1,9 +1,9 @@
-{#def prefix, tabs, bgfrom="", bgto="" #}
+{#def prefix, panels={} #}
 
-<div {{ attrs.render(class="tExample not-prose") }}>
+<div {{ attrs.render(class="tExampleTabs not-prose") }}>
   <TabGroup class="example-tabgroup">
     <TabList class="example-tablist">
-      {%- for text in tabs.keys() %}
+      {%- for text in panels.keys() %}
       <Tab
         class="example-tab"
         :target="'ex-%s-%s' % (prefix, loop.index)""
@@ -12,12 +12,11 @@
       >{{ text }}</Tab>
       {%- endfor %}
     </TabList>
-    {%- for name in tabs.values() %}
+    {%- for name in panels.values() %}
     <TabPanel
       class="example-tabpanel"
       :id="'ex-%s-%s' % (prefix, loop.index)"
       :hidden="loop.index != 1"
-      :style="'background-image:linear-gradient(to right,' + bgfrom + ',' + bgto + ')'"
     >
       {{ catalog.irender(name) }}
     </TabPanel>

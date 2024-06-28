@@ -1,6 +1,11 @@
-# Components
+---
+title: Components
+---
 
-The components are `.jinja` files with snippets of template code. They look like a fragment of a regular Jinja template – and they could be – except for the optional special comments at the beginning of the file.
+<Header title="Components">
+The components are `.jinja` files with snippets of template code.
+They look like a fragment of a regular Jinja template – and they could be – except for the optional special comments at the beginning of the file.
+</Header>
 
 <a href="" target="_blank">
   <img src="/static/img/anatomy-en.png" style="margin:0 auto;width:100%;max-width:40rem;">

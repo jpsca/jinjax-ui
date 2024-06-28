@@ -1,4 +1,9 @@
-# Quickstart
+---
+title: Quickstart
+---
+
+<Header title="Quickstart">
+</Header>
 
 ## Installation
 

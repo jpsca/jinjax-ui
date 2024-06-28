@@ -2,7 +2,7 @@
 title: Pop-over
 ---
 
-<Header title="Pop-over" section="UI">
+<Header title="Pop-over">
   A wrapper over the Popover API with anchor positioning
 </Header>
 
@@ -13,15 +13,13 @@ They can also be used for big hideable sidebars, like a shopping cart or action 
 Pop-overs are **always non-modal**. If you want to create a modal popoverover, a `Dialog`
 component is the way to go instead.
 
-<Example
+<ExampleTabs
   prefix="demo"
-  :tabs="{
+  :panels="{
     'Result': 'Popover.DemoResult',
     'HTML': 'Popover.DemoHTML',
     'CSS': 'Popover.DemoCSS',
   }"
-  bgfrom="rgba(217,70,239, 0.9)"
-  bgto="rgba(147,51,234, 0.9)"
 />
 
 A `Popover` starts hidden on page load by having `display:none` set on it (the Popover API does it automatically). To show/hide the popover, you need to add some control `PopButton`s.
