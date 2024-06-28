@@ -1,4 +1,4 @@
-.themeswitch {
+.Logo .text {
   @apply
-  ml-auto mr-auto sm:ml-6 sm:mr-0
+  ml-2 whitespace-nowrap leading-none text-2xl font-bold
 }

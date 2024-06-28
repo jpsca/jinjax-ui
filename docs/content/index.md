@@ -1,6 +1,4 @@
 ---
-title: Home
-component: PageSingle
+title: Test
+component: Test
 ---
-
-Hola mundo

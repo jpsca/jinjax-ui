@@ -46,7 +46,7 @@ By default, the menu appears centered in the layout view, but this component all
 `anchor` is the ID of the element used as a reference, and  `anchor-to` which side of the anchor to use: "top", "bottom", "right", or "left"; with an optional postfix of "start" or "end" ("center" is the default).
 
 <p>
-  <img src="/static/anchors.png" alt="Anchor positioning"
+  <img src="/static/img/anchors.png" alt="Anchor positioning"
     width="595" height="324" style="display:block;margin:60px auto;" />
 </p>
 

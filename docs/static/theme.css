@@ -447,7 +447,6 @@ body {
   pointer-events: none;
 }
 
-
 .scrollbar-thin {
   scrollbar-width: thin; /* Firefox */
 }
@@ -482,50 +481,135 @@ h6:hover a.headerlink {
   opacity: 0.5;
 }
 
-@scope (.tCallout) {
-  :scope {
+.cards {
+  & {
+    display: grid;
+    grid-gap: 1rem;
+  }
+  @media (min-width: 480px) {
+    & { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 900px) {
+    & { grid-template-columns: repeat(3, 1fr); }
+  }
+  & a.card {
+    display: block;
+    border: 1px solid var(--cd-border-color);
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: var(--cd-bg-color);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  & a.card:hover {
+    display: block;
+    background-color: var(--cd-bg-color-hover);
+  }
+  & a.card h2 {
+    text-decoration: none;
+    font-family: var(--cd-font-sans);
+    font-weight: bold;
+  }
+}
+
+.text-button {
+  display: inline-flex;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: rgb(228 228 231);
+  background-color: rgb(250 250 250);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: rgb(39 39 42);
+
+  &:hover {
+    border-color: rgb(212 212 216);
+    background-color: rgb(244 244 245);
+    color: rgb(24 24 27);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);;
+  }
+  &:focus {
+    outline-style: solid;
+    outline-offset: 1px;
+    outline-color: rgb(82 82 91 / 0.5);
+  }
+  &:active {
+    border-color: rgb(161 161 170);
+  }
+  &:disabled {
+    cursor: default;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  &:is(.dark *) {
+    border-color: rgb(82 82 91);
+    background-color: rgb(82 82 91 / 0.1);
+    color: rgb(228 228 231);
+  }
+  &:is(.dark *):hover {
+    border-color: rgb(113 113 122);
+    background-color: rgb(24 24 27);
+    color: rgb(244 244 245);
+  }
+  &:is(.dark *):active {
+    border-color: var(--cd-bg-color);
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+
+.tCallout {
+  --bg-color: rgb(244 244 245);
+  --border-color: rgb(212 212 216);
+  --text-color: rgb(39 39 42);
+
+  &.type-note,
+  &.type-info,
+  &.type-todo {
     --bg-color: rgb(244 244 245);
     --border-color: rgb(212 212 216);
     --text-color: rgb(39 39 42);
   }
-  :scope.type-note,
-  :scope.type-info,
-  :scope.type-todo {
-    --bg-color: rgb(244 244 245);
-    --border-color: rgb(212 212 216);
-    --text-color: rgb(39 39 42);
-  }
-  :scope.type-tip {
+  &.type-tip {
     --bg-color: rgb(254 249 195);
     --border-color: rgb(254 240 138);
     --text-color: rgb(133 77 14);
   }
-  :scope.type-alert {
+  &.type-alert {
     --bg-color: rgb(255 237 213);
     --border-color: rgb(254 215 170);
     --text-color: rgb(154 52 18);
   }
-  :scope.type-warning {
+  &.type-warning {
     --bg-color: rgb(255 237 213);
     --border-color: rgb(254 215 170);
     --text-color: rgb(154 52 18);
   }
-  :scope.type-danger {
+  &.type-danger {
     --bg-color: rgb(255 228 230);
     --border-color: rgb(254 205 211);
     --text-color: rgb(136 19 55);
   }
-  :scope.type-error {
+  &.type-error {
     --bg-color: rgb(255 228 230);
     --border-color: rgb(254 205 211);
     --text-color: rgb(136 19 55);
   }
-  :scope.type-internal {
+  &.type-internal {
     --bg-color: rgb(231 229 228);
     --border-color: rgb(214 211 209);
     --text-color: rgb(28 25 23);
   }
-  :scope {
+  & {
     position: relative;
     border-top-width: 1px;
     border-bottom-width: 1px;
@@ -537,7 +621,7 @@ h6:hover a.headerlink {
     color: var(--text-color);
   }
   @media (min-width: 640px) {
-    :scope {
+    & {
       border-left-width: 1px;
       border-right-width: 1px;
       border-radius: 0.25rem;
@@ -545,30 +629,26 @@ h6:hover a.headerlink {
       margin-right: 0;
     }
   }
-  :scope:is(.dark *) {
+  &:is(.dark *) {
     background-color: oklch(from var(--bg-color) calc(l * 2) calc(c * 3) h / 0.8);
     border-color: oklch(from var(--border-color) calc(l * 1.5) c h);
     color: oklch(from var(--text-color) calc(l * 0.5) c h);
   }
-  ::selection {
-    background-color: oklch(from var(--bg-color) calc(l * 0.9) calc(c * 3) h);
-  }
-  :scope:is(.dark *) ::selection {
+  &:is(.dark *) ::selection {
     background-color: oklch(from var(--bg-color) calc(l * 1.2) calc(c * 4) h)
   }
-
-  aside:scope {
+  &:is(aside) {
     display: flex;
     align-items: flex-start;
     padding: 1.25rem 1rem 1rem;
   }
   @media (min-width: 640px) {
-    aside:scope {
+    &:is(aside) {
       padding-left: 1.25rem;
       padding-right: 1.25rem;
     }
   }
-  summary {
+  & summary {
     display: flex;
     align-items: center;
     font-weight: 700;
@@ -577,52 +657,54 @@ h6:hover a.headerlink {
     padding-right: 1.25rem;
     cursor: pointer;
   }
-  .icon {
+  & .icon {
     margin: -0.1rem 1rem 0 -0.25rem;
     opacity: 0.9;
     font-size: 1.2rem;
     line-height: 1.4;
   }
   @media (max-width: 639px) {
-    .icon {
+    & .icon {
       display: none;
     }
   }
-  .icon.arrow {
+  & .icon.arrow {
     margin-left: auto;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
-  details:scope[open] .icon.arrow {
+  & details&[open] .icon.arrow {
     transform: rotate(180deg);
   }
-  .content {
+  & .content {
     line-height: 1.4;
   }
-  details:scope .content {
+  & details& .content {
     padding: 0 1rem 1rem;
   }
   @media (min-width: 640px) {
-    details:scope .content {
+    & details& .content {
       padding: 0 1.25rem 1rem;
     }
   }
 }
+/* Cannot be nested */
+.tCallout::selection {
+  background-color: oklch(from var(--bg-color) calc(l * 0.9) calc(c * 3) h);
+}
 
-@scope (.tExample) {
-  :scope {
-    position: relative;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
+.tExample {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 
-  .example-tabgroup {
+  & .example-tabgroup {
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -630,7 +712,7 @@ h6:hover a.headerlink {
     border-radius: 0.4rem;
   }
 
-  .example-tablist {
+  & .example-tablist {
     z-index: 0;
     display: flex;
     border-bottom: 1px solid #999;
@@ -646,13 +728,13 @@ h6:hover a.headerlink {
     font-weight: 500;
     color: rgb(107 114 128);
   }
-  .example-tablist:is(.dark *) {
+  & .example-tablist:is(.dark *) {
     border-color: rgb(75 85 99);
     background-color: rgb(55 65 81);
     color: rgb(156 163 175);
   }
 
-  .example-tab {
+  & .example-tab {
     user-select: none;
     border-right-width: 1px;
     border-color: #999;
@@ -660,32 +742,32 @@ h6:hover a.headerlink {
     padding: 0.5rem 1.6rem;
     color: #333;
   }
-  .example-tab:is(.dark *) {
+  & .example-tab:is(.dark *) {
     border-color: rgb(75 85 99);
     background-color: rgb(31 41 55);
     color: rgb(255 255 255);
   }
-  .example-tab:not(.ui-disabled):not(.ui-selected):hover {
+  & .example-tab:not(.ui-disabled):not(.ui-selected):hover {
     background-color: rgb(249 250 251);
     color: rgb(55 65 81);
   }
-  .example-tab:not(.ui-disabled):not(.ui-selected):hover:is(.dark *) {
+  & .example-tab:not(.ui-disabled):not(.ui-selected):hover:is(.dark *) {
     background-color: rgb(55 65 81);
     color: rgb(255 255 255);
   }
-  .example-tab.ui-disabled {
+  & .example-tab.ui-disabled {
     color: rgb(193 204 220);
   }
-  .example-tab.ui-selected {
+  & .example-tab.ui-selected {
     color: black;
     background-color: #e7e9ed;
   }
-  .example-tab.ui-selected:is(.dark *) {
+  & .example-tab.ui-selected:is(.dark *) {
     color: white;
     background-color: black;
   }
 
-  .example-tabpanel {
+  & .example-tabpanel {
     width: 100%;
     flex-grow: 0;`
     z-index: 10;
@@ -693,10 +775,10 @@ h6:hover a.headerlink {
     position: relative;
     max-height: 400px;
   }
-  .example-tabpanel.ui-hidden {
+  & .example-tabpanel.ui-hidden {
     display: none;
   }
-  .example-tabpanel div.highlight {
+  & .example-tabpanel div.highlight {
     margin: 0;
     padding: 0;
     border-radius: 0;
@@ -704,19 +786,18 @@ h6:hover a.headerlink {
   }
 }
 
-@scope(.tFooter) {
-  :scope {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    text-align: center;
-    border-top: 1px solid rgb(228 228 231);
-  }
-  :scope:is(.dark *){
+.tFooter {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+  border-top: 1px solid rgb(228 228 231);
+
+  &:is(.dark *){
     border-color: rgb(82 82 91);
   }
-  .wrapper {
+  & .wrapper {
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: auto;
@@ -725,65 +806,60 @@ h6:hover a.headerlink {
     display: flex;
     align-items: center;
   }
-
-  .copy {
+  & .copy {
     margin-right: auto;
   }
-  .built-with {
+  & .built-with {
     margin-left: auto;
     margin-right: auto;
     display: none;
     height: 100%;
     color: rgb(113 113 122);
   }
-  .built-with:is(.dark *) {
+  & .built-with:is(.dark *) {
     color: inherit;
   }
   @media (min-width: 640px) {
-    .built-with {
+    & .built-with {
       margin: 0;
       display: block;
     }
   }
-  .built-with a {
+  & .built-with a {
     text-decoration: underline;
     cursor: pointer;
   }
-  .themeswitch {
+  & .themeswitch {
     margin-left: 1.5rem;
     margin-right: 0;
   }
 }
 
-@scope (.tHeader) {
-  :scope {
-    margin-bottom: 2rem;
-  }
+.tHeader {
+  margin-bottom: 2rem;
 
-  div p {
+  & div p {
     margin-bottom: 0.5rem;
     font-size: 0.875rem;
     line-height: 1;
     font-weight: 600;
   }
-
-  h1 {
+  & h1 {
     display: inline-block;
     font-size: 1.8rem;
     line-height: 1.25rem;
     font-weight: 700;
     color: rgb(24 24 27);
   }
-  h1:is(.dark *) {
+  & h1:is(.dark *) {
     color: rgb(228 228 231);
   }
   @media (min-width: 640px) {
-    h1 {
+    & h1 {
       font-size: 2.2rem;
     }
   }
-
-  p.description {
+  & p.description {
     margin-top: 0.25rem;
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -791,89 +867,86 @@ h6:hover a.headerlink {
   }
 }
 
-@scope (.tKey) {
-  :scope {
-    font-family: var(--cd-font-mono);
-    display: inline-block;
-    padding: 0.2rem 0.25rem;
-    margin-left: 0.1rem;
-    margin-right: 0.1rem;
-    font-size: 0.875rem;
-    line-height: 1;
-    font-weight: 500;
-    letter-spacing: -0.025em;
-    line-height: 1;
-    border-radius: 0.25rem;
-    border-width: 1px;
-    border-color: #ffffff;
-    box-shadow: 0 0 2px 0 #000;
-  }
-  :scope:is(.dark *) {
+.tKey {
+  font-family: var(--cd-font-mono);
+  display: inline-block;
+  padding: 0.2rem 0.25rem;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: #ffffff;
+  box-shadow: 0 0 2px 0 #000;
+
+  &:is(.dark *) {
     border-color: rgb(0 0 0);
     background-color: rgb(24 24 27);
   }
 }
 
-@scope (.LinkButton) {
-  :scope {
-    display: inline-flex;
-    cursor: pointer;
-    touch-action: manipulation;
-    appearance: none;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    border-radius: 0.25rem;
-    padding: 0.25rem;
-    font-weight: 600;
-    color: rgb(39 39 42);
-  }
-  :scope:hover {
+.LinkButton {
+  display: inline-flex;
+  cursor: pointer;
+  touch-action: manipulation;
+  appearance: none;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: 600;
+  color: rgb(39 39 42);
+
+  &:hover {
     border-color: rgb(212 212 216);
     background-color: rgb(244 244 245);
     color: rgb(24 24 27);
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
-  :scope:focus {
+  &:focus {
     outline-style: solid;
     outline-offset: 1px;
   }
-  :scope:active {
+  &:active {
     border-color: rgb(161 161 170);
   }
-  :scope:disabled {
+  &:disabled {
     cursor: default;
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
-  :scope:is(.dark *) {
+  &:is(.dark *) {
     color: rgb(228 228 231);
   }
-  :scope:is(.dark *):hover {
+  &:is(.dark *):hover {
     border-color: rgb(113 113 122);
     background-color: rgb(24 24 27);
     color: rgb(244 244 245);
   }
-  :scope:is(.dark *):active {
+  &:is(.dark *):active {
     border-color: rgb(161 161 170);
   }
 }
 
-@scope (.tLogo) {
-  :scope {
-    display: flex;
-    height: 2.5rem;
-    align-items: center;
-    color: rgb(24 24 27);
-    opacity: 0.9;
-  }
-  :scope:hover {
+.tLogo {
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  color: rgb(24 24 27);
+  opacity: 0.9;
+
+  &:hover {
     opacity: 1;
   }
-  :scope:is(.dark *) {
+  &:is(.dark *) {
     color: rgb(244 244 245);
   }
-  :scope > span {
+  & > .text {
     white-space: nowrap;
     font-size: 1.5rem;
     line-height: 1.5;
@@ -882,30 +955,28 @@ h6:hover a.headerlink {
   }
 }
 
-@scope(.tNavBar) {
-  :scope {
-    position: relative;
-    z-index: 50;
-    width: 100%;
-    border-bottom-width: 1px;
-    border-color: rgb(228 228 231);
-    background-color: rgb(255 255 255 / 0.6);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-  }
-  :scope:is(.dark *) {
+.tNavBar {
+  position: relative;
+  z-index: 50;
+  width: 100%;
+  border-bottom-width: 1px;
+  border-color: rgb(228 228 231);
+  background-color: rgb(255 255 255 / 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+
+  &:is(.dark *) {
     border-color: rgb(82 82 91);
     background-color: rgb(39 39 42 / 0.6);
   }
   @media (min-height: 768px) {
-    :scope {
+    & {
       position: -webkit-sticky;
       position: sticky;
       top: 0;
     }
   }
-
-  .wrapper {
+  & .wrapper {
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -916,73 +987,75 @@ h6:hover a.headerlink {
     padding-right: 1rem;
   }
   @media (min-width: 640px) {
-    .wrapper {
+    & .wrapper {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
-  .logo {
+  & .logo {
     margin-right: auto;
   }
 
-  .navLinks {
+  & .navLinks {
     display: none;
     align-items: center;
   }
-  .navLinks > :not([hidden]) ~ :not([hidden]) {
+  & .navLinks > :not([hidden]) ~ :not([hidden]) {
     margin-left: 2rem;
   }
   @media (min-width: 768px) {
-    .navLinks {
+    & .navLinks {
       display: flex;
     }
   }
-  .themeswitch {
+
+  & .themeswitch {
     margin-left: 0.75rem;
   }
-  .toggleSidebar {
+
+  & .toggleSidebar {
     font-size: 1rem;
     margin-left: 0.75rem;
     height: 2rem;
+    width: 4.5rem;
     line-height: 1.5;
     padding: 0.25rem 0.75rem;
   }
 }
 
-@scope(.tNavGlobal) {
-  :scope {
-    position: sticky;
-    top: 0;
-    z-index: 0;
-    width: 12rem;
-    min-height: 100%;
-    overflow-y: auto;
-    border-right-width: 1px;
-    border-color: rgb(228 228 231);
-    padding-right: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    flex-shrink: 0;
-  }
+.tNavGlobal {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  width: 12rem;
+  min-height: 100%;
+  overflow-y: auto;
+  border-right-width: 1px;
+  border-color: rgb(228 228 231);
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  flex-shrink: 0;
+
   @media (min-width: 1536px) {
-    :scope {
+    & {
       font-size: 1rem;
       line-height: 1.5rem;
       width: 18rem;
     }
   }
   @media (min-height: 768px) {
-    :scope {
+    & {
       min-height: calc(100% - 4rem);
       top: 4rem;
     }
   }
-  :scope:is(.dark *) {
+  &:is(.dark *) {
     border-color: rgb(82 82 91);
   }
 
-  nav {
+  & nav {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -990,30 +1063,29 @@ h6:hover a.headerlink {
   }
 }
 
-@scope(.tNavLocal) {
-  :scope {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 0;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 16rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -ms-scroll-chaining: none;
-    overscroll-behavior: contain;
-    scroll-behavior: smooth;
-    overflow: hidden;
-  }
+.tNavLocal {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 16rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  overflow: hidden;
+
   @media (min-height: 768px) {
-    :scope {
+    & {
       top: 4rem;
     }
   }
 
-  .wrapper {
+  & .wrapper {
     margin-top: 2.5rem;
     border-left-width: 1px;
     border-color: rgb(228 228 231);
@@ -1022,34 +1094,31 @@ h6:hover a.headerlink {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
-  .wrapper:is(.dark *) {
+  & .wrapper:is(.dark *) {
     border-color: rgb(82 82 91);
   }
 }
 
-@scope(.tNavMobile) {
-  :scope {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    max-width: 640px;
-    -ms-scroll-chaining: none;
-    overscroll-behavior: contain;
-    margin: 0;
-    padding: 0;
-    background-color: var(--cd-bg-color);
-    color: var(--cd-text-color);
-  }
+.tNavMobile {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  max-width: 640px;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 0 0 4rem 0;
+  background-color: var(--cd-bg-color);
+  color: var(--cd-text-color);
 
   @media (min-width: 640px) {
-    :scope {
+    & {
       border-right: 1px solid var(--cd-border-color);
     }
   }
-
-  header {
+  & header {
     border-bottom: 1px solid var(--cd-border-color);
     /* border-color: rgb(228 228 231); */
     display: flex;
@@ -1059,30 +1128,29 @@ h6:hover a.headerlink {
     padding-right: 1rem;
   }
   @media (min-width: 640px) {
-    header {
+    & header {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-
-  .logo {
+  & .logo {
     margin-right: auto;
   }
-  .themeswitch {
+  & .themeswitch {
     margin-left: 0.75rem;
     height: 2rem;
     width: 2rem;
     line-height: 1;
   }
-  .navLinks {
+  & .navLinks {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
-  .navLinks > :not([hidden]) ~ :not([hidden]) {
+  & .navLinks > :not([hidden]) ~ :not([hidden]) {
     margin-left: 1rem;
   }
-  .navLinks {
+  & .navLinks {
     -ms-scroll-chaining: none;
     overscroll-behavior: contain;
     border-bottom: 1px solid var(--cd-border-color);
@@ -1091,15 +1159,16 @@ h6:hover a.headerlink {
     line-height: 1.5rem;
   }
 
-  .toggleSidebar {
+  & .toggleSidebar {
     font-size: 1rem;
     margin-left: 0.75rem;
     height: 2rem;
+    width: 4.5rem;
     line-height: 1.5;
     padding: 0.25rem 0.75rem;
   }
 
-  .toc {
+  & .toc {
     margin-bottom: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -1111,40 +1180,41 @@ h6:hover a.headerlink {
     line-height: 1.5rem;
   }
   @media (min-width: 640px) {
-    .toc {
+    & .toc {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
   @media (min-width: 1024px) {
-    .toc {
+    & .toc {
       padding-left: 2rem;
       padding-right: 2rem;
     }
   }
-}
-
-@media (min-width: 640px) {
-  .tNavMobile {
-    transition: all 0.2s allow-discrete;
-    /* Final state of the exit animation */
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  .tNavMobile:popover-open {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  /* Needs to be after the previous .tNavMobile:popover-open rule
-  to take effect, as the specificity is the same */
-  @starting-style {
-    .tNavMobile:popover-open {
+  @media (min-width: 640px) {
+    & {
+      transition: all 0.2s allow-discrete;
+      /* Final state of the exit animation */
       opacity: 0;
       transform: translateX(-100%);
     }
+    &:popover-open {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    /* Needs to be after the previous &:popover-open rule
+    to take effect, as the specificity is the same */
+    @starting-style {
+      &:popover-open {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+    }
   }
 }
-/* Transition for the popover's backdrop */
+
+/* Transition for the popover's backdrop.
+   ::backdrop cannot be nested */
 .tNavMobile::backdrop {
   transition: all 0.5s allow-discrete;
   /* Final state of the exit animation */
@@ -1168,8 +1238,8 @@ h6:hover a.headerlink {
   padding: 0;
 }
 
-@scope(.tPage) {
-  .page-wrapper {
+.tPage {
+  & .page-wrapper {
     z-index: 10;
     margin-left: auto;
     margin-right: auto;
@@ -1180,27 +1250,26 @@ h6:hover a.headerlink {
     padding-bottom: 4rem;
   }
   @media (min-width: 640px) {
-    .page-wrapper {
+    & .page-wrapper {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-  .page-wrapper > main {
+  & .page-wrapper > main {
     width: 100%;
     padding-top: 2.5rem;
   }
 }
 
-@scope (.tPrevNext) {
-  :scope {
-    display: flex;
-    font-weight: 600;
-    align-items: center;
-    width: 100%;
-    margin-top: 4rem;
-  }
+.tPrevNext {
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  width: 100%;
+  margin-top: 4rem;
 
-  a.prev, a.next {
+  & a.prev,
+  & a.next {
     display: flex;
     align-items: center;
     padding-top: 0.75rem;
@@ -1211,282 +1280,223 @@ h6:hover a.headerlink {
     color: var(--cd-text-color);
     font-weight: bold;
     }
-  a.prev {
+    & a.prev {
     padding-right: 0.5rem;
     margin-right: 1.25rem;
     justify-content: flex-start;
     text-align: left;
   }
-  a.next {
+  & a.next {
     padding-left: 0.5rem;
     margin-left: auto;
     justify-content: flex-end;
     text-align: right;
   }
-  a.prev:hover, a.next:hover {
+  & a.prev:hover,
+  & a.next:hover {
     background-color: var(--cd-bg-color-hover);
   }
-  a.prev:is(.dark *):hover, a.next:is(.dark *):hover {
+  & a.prev:is(.dark *):hover,
+  & a.next:is(.dark *):hover {
     color: white;
   }
-  .section {
+  & .section {
     font-size: 0.8rem;
     line-height: 1;
     color: rgb(113 113 122);
     margin-bottom: 0.1rem;
   }
-  .title {
+  & .title {
     line-height: 1.2;
   }
-  .icon {
+  & .icon {
     width: 2rem;
     font-size: 2rem;
     line-height: 1;
   }
 }
 
-@scope(.tThemeSwitch) {
-  :scope {
-    display: flex;
-    align-items: center;
-    -webkit-tap-highlight-color: transparent;
-  }
-  :scope > :not([hidden]) ~ :not([hidden]) {
-    margin-left: 0.25rem;
-  }
-  :scope {
+.tThemeSwitch {
+  display: flex;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+
+  & {
     padding: 0.3rem !important;
     font-weight: 400;
     height: 2rem;
-    width: 2rem;
   }
-  :scope:is(.dark *) {
+  &:is(.dark *) {
     padding: 0.1rem !important;
   }
-  .sun-and-moon {
+  & .sun-and-moon {
     pointer-events: none;
     display: block;
     height: 100%;
     width: 100%;
   }
-  .sun {
+  & .sun {
     transform-origin: center;
     transform: scale(1, 1);
     transform: translate3d(0, 0, 0);
     fill: #3f3f46;
     stroke: transparent;
   }
-  :scope:hover .sun {
+  &:hover .sun {
     fill: #27272a;
   }
-  :scope:focus-visible .sun {
+  &:focus-visible .sun {
     fill: #27272a;
   }
   @media (prefers-reduced-motion: no-preference) {
-    .sun {
+    & .sun {
       transition-property: transform;
       transition-timing-function: cubic-bezier(0.5, 1.25, 0.75, 1.25);
       transition-duration: 0.5s;
     }
   }
-  .sun:is(.dark *) {
+  & .sun:is(.dark *) {
     transform: scale(1.75, 1).75;
     fill: #e4e4e7;
   }
-  :scope:hover .sun:is(.dark *) {
+  &:hover .sun:is(.dark *) {
     fill: #f4f4f5;
   }
-  :scope:focus-visible .sun:is(.dark *) {
+  &:focus-visible .sun:is(.dark *) {
     fill: #f4f4f5;
   }
   @media (prefers-reduced-motion: no-preference) {
-    .sun:is(.dark *) {
+    & .sun:is(.dark *) {
       transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
       transition-duration: 250ms;
     }
   }
-  .sun-beams {
+  & .sun-beams {
     transform-origin: center;
     stroke: #3f3f46;
     stroke-width: 2;
   }
-  :scope:hover .sun-beams {
+  &:hover .sun-beams {
     stroke: #27272a;
   }
-  :scope:focus-visible .sun-beams {
+  &:focus-visible .sun-beams {
     stroke: #27272a;
   }
   @media (prefers-reduced-motion: no-preference) {
-    .sun-beams {
+    & .sun-beams {
       transition-property: transform, opacity;
       transition-timing-function: cubic-bezier(0.5, 1.5, 0.75, 1.25);
       transition-duration: 400ms;
     }
   }
-  .sun-beams:is(.dark *) {
+  & .sun-beams:is(.dark *) {
     transform: translate3d(0, 0, 0);
     transform: rotate(-25deg);
     stroke: #e4e4e7;
     opacity: 0;
   }
-  :scope:hover .sun-beams:is(.dark *) {
+  &:hover .sun-beams:is(.dark *) {
     stroke: #f4f4f5;
   }
-  :scope:focus-visible .sun-beams:is(.dark *) {
+  &:focus-visible .sun-beams:is(.dark *) {
     stroke: #f4f4f5;
   }
   @media (prefers-reduced-motion: no-preference) {
-    .sun-beams:is(.dark *) {
+    & .sun-beams:is(.dark *) {
       transition-duration: 150ms;
     }
   }
-  .moon {
+  & .moon {
     transform-origin: center;
     fill: #52525b;
   }
-  :scope:hover .moon {
+  &:hover .moon {
     fill: #71717a;
   }
-  .moon circle {
+  & .moon circle {
     transform: translate3d(0, 0, 0);
   }
   @media (prefers-reduced-motion: no-preference) {
-    .moon circle {
+    & .moon circle {
       transition-property: transform;
       transition-timing-function: cubic-bezier(0, 0, 0, 1);
       transition-duration: 0.3s;
     }
   }
-  .moon circle:is(.dark *) {
+  & .moon circle:is(.dark *) {
     transform: translateX(-7px);
   }
   @media (prefers-reduced-motion: no-preference) {
-    .moon circle:is(.dark *) {
+    & .moon circle:is(.dark *) {
       transition-delay: 0.3s;
     }
   }
-  .light-text {
+  & .light-text {
     margin-left: 0.5rem;
     display: none;
     white-space: nowrap;
   }
   @media (min-width: 1024px) {
-    .light-text {
+    & .light-text {
       display: block;
     }
-    .light-text:is(.dark *) {
+    & .light-text:is(.dark *) {
       display: none;
     }
   }
-  .dark-text {
-    margin-left: 0.5rem;
+  & .dark-text {
+    padding: 0 0.5rem 0 0.25rem;
     display: none;
     white-space: nowrap;
   }
   @media (min-width: 1024px) {
-    .dark-text:is(.dark *) {
+    & .dark-text:is(.dark *) {
       display: block;
     }
   }
 }
 
-@scope (.tTextButton) {
-  :scope {
-    display: inline-flex;
-    cursor: pointer;
-    touch-action: manipulation;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    border-radius: 0.25rem;
-    border-width: 1px;
-    border-color: rgb(228 228 231);
-    background-color: rgb(250 250 250);
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 600;
-    color: rgb(39 39 42);
-  }
-  :scope:hover {
-    border-color: rgb(212 212 216);
-    background-color: rgb(244 244 245);
-    color: rgb(24 24 27);
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);;
-  }
-  :scope:focus {
-    outline-style: solid;
-    outline-offset: 1px;
-    outline-color: rgb(82 82 91 / 0.5);
-  }
-
-  :scope:active {
-    border-color: rgb(161 161 170);
-  }
-  :scope:disabled {
-    cursor: default;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-  :scope:is(.dark *) {
-    border-color: rgb(82 82 91);
-    background-color: rgb(82 82 91 / 0.1);
-    color: rgb(228 228 231);
-  }
-  :scope:is(.dark *):hover {
-    border-color: rgb(113 113 122);
-    background-color: rgb(24 24 27);
-    color: rgb(244 244 245);
-  }
-  :scope:is(.dark *):active {
-    border-color: var(--cd-bg-color);
-  }
-}
-
-@scope(.tToc) {
-  details, section {
+.tToc {
+  & details,
+  & section {
     margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
   }
 
-  summary {
+  & summary {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: rgb(39 39 42);
   }
-  summary:is(.dark *) {
+  & summary:is(.dark *) {
     color: rgb(244 244 245);
   }
 
-  h2 {
+  & h2 {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: rgb(39 39 42);
   }
-  h2:is(.dark *) {
+  & h2:is(.dark *) {
     color: rgb(244 244 245);
   }
 
-  .page {
+  & .page {
     border-left-width: 2px;
     border-color: rgb(244 244 245);
     padding-left: 0.5rem;
   }
-  .page:hover {
+  & .page:hover {
     border-color: rgb(212 212 216);
   }
 
-  .page:is(.dark *) {
+  & .page:is(.dark *) {
     border-color: rgb(63 63 70 / 0.5);
   }
-  .page:is(.dark *):hover {
+  & .page:is(.dark *):hover {
     border-color: rgb(161 161 170);
   }
 
-  a {
+  & a {
     display: flex;
     align-items: center;
     border-radius: 0.25rem;
@@ -1500,29 +1510,28 @@ h6:hover a.headerlink {
     padding-right: 0.5rem;
     color: rgb(63 63 70);
   }
-
-  a:hover {
+  & a:hover {
     color: rgb(0 0 0);
   }
-  a:is(.dark *) {
+  & a:is(.dark *) {
     color: rgb(161 161 170);
   }
-  a:is(.dark *):hover {
+  & a:is(.dark *):hover {
     color: rgb(244 244 245);
   }
-  .active a {
+  & .active a {
     border-color: rgb(228 228 231);
     background-color: rgb(244 244 245);
     font-weight: bold;
     color: rgb(39 39 42);
   }
-  .active:is(.dark *) a {
+  & .active:is(.dark *) a {
     color: black;
   }
 }
 
-@scope(.tTocPage) {
-  a {
+.tTocPage {
+  & a {
     display: flex;
     align-items: center;
     border-left-width: 1px;
@@ -1533,63 +1542,36 @@ h6:hover a.headerlink {
     padding-right: 0.5rem;
     color: rgb(82 82 91);
   }
-  a:hover {
+  & a:hover {
     border-color: rgb(63 63 70);
     color: rgb(0 0 0);
   }
-  a.active {
+  & a.active {
     color: rgb(63 63 70);
   }
-
-  a:is(.dark *) {
+  & a:is(.dark *) {
     color: rgb(113 113 122);
   }
-  a:is(.dark *):hover {
+  & a:is(.dark *):hover {
     border-color: rgb(161 161 170);
     color: rgb(244 244 245);
   }
-  a:is(.dark *).active {
+  & a:is(.dark *).active {
     color: rgb(161 161 170);
   }
 
-  .indent-0 { margin-left: 0; }
-  .indent-2 { margin-left: 0.5rem; }
-  .indent-4 { margin-left: 1rem; }
-  .indent-6 { margin-left: 1.5rem; }
-  .indent-8 { margin-left: 2rem; }
-}
-
-@scope (.cards) {
-  :scope {
-    display: grid;
-    grid-gap: 1rem;
-  }
-  @media (min-width: 480px) {
-    :scope { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 900px) {
-    :scope { grid-template-columns: repeat(3, 1fr); }
-  }
-  a.card {
-    display: block;
-    border: 1px solid var(--cd-border-color);
-    padding: 1rem;
-    border-radius: 6px;
-    background-color: var(--cd-bg-color);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  a.card:hover {
-    display: block;
-    background-color: var(--cd-bg-color-hover);
-  }
-  a.card h2 {
-    text-decoration: none;
-    font-family: var(--cd-font-sans);
-    font-weight: bold;
-  }
+  & .indent-0 { margin-left: 0; }
+  & .indent-2 { margin-left: 0.5rem; }
+  & .indent-4 { margin-left: 1rem; }
+  & .indent-6 { margin-left: 1.5rem; }
+  & .indent-8 { margin-left: 2rem; }
 }
 
 /* ---------------------------------------------------------------------- */
+
+body:has(:popover-open) {
+  overflow: hidden;
+}
 
 .tNavGlobal,
 .tNavLocal,

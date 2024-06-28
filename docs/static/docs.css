@@ -1,0 +1,45 @@
+.Logo {
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  color: rgb(24 24 27);
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:is(.dark *) {
+    color: rgb(244 244 245);
+  }
+  & svg {
+    display:block;
+    height: 2rem;
+    width: 2rem;
+  }
+  & .text {
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+}
+.NavLinks {
+  & a {
+    padding: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(82 82 91);
+  }
+  & a:hover {
+    color: rgb(24 24 27);
+  }
+
+  & a:is(.dark *) {
+    color: rgb(212 212 216);
+  }
+  & a:is(.dark *):hover {
+    color: rgb(255 255 255);
+  }
+}
