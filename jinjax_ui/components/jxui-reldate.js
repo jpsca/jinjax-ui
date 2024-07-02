@@ -94,13 +94,8 @@ export function observeRelDates() {
   observer.observe(document, { childList: true, subtree: true });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = function () {
   document.querySelectorAll("time[data-relative]").forEach(processRelDate);
   observeRelDates();
-});
+};
 
-if (typeof(htmx) !== "undefined" && htmx.onload) {
-  htmx.onLoad(function(content) {
-    content.querySelectorAll("time[data-relative]").forEach(processRelDate);
-  });
-}
