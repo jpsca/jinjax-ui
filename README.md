@@ -1,6 +1,6 @@
 # JinjaX-UI
 
-Unstyled, fully accessible UI components, to integrate with your [JinjaX](https://github.com/jpsca/jinjax) projects.
+Accessible UI components, to integrate with your [JinjaX](https://github.com/jpsca/jinjax) projects.
 
 **Documentation:** https://jinjax.scaletti.dev/ui/
 
@@ -12,20 +12,3 @@ Unstyled, fully accessible UI components, to integrate with your [JinjaX](https:
 ## Roadmap
 
 It is pitch black. You are likely to be eaten by a grue.
-
-#### Done
-- [x] Tabs
-- [x] Popover
-- [x] Menu
-- [x] Accordion
-- [x] LinkedList
-- [x] RelDate
-
-#### Planned
-- [ ] Select
-- [ ] Combobox
-- [ ] Dialog?
-- [ ] ?
-
-
-
