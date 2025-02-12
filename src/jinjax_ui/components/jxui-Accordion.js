@@ -5,8 +5,8 @@
  */
 import { on } from "./jxui.js";
 
-const SEL_ACCORDION = ".ui-accordion"
-const SEL_DETAILS = "details"
+const SEL_ACCORDION = ".jxui-Accordion"
+const SEL_DETAILS = ".jxui-Details"
 const SEL_DETAILS_IN_ACCORDION = `${SEL_ACCORDION} ${SEL_DETAILS}`
 const SEL_SCOPED_DETAILS = `${SEL_DETAILS}:not(:scope ${SEL_DETAILS} ${SEL_DETAILS})`
 

@@ -3,7 +3,7 @@ title: Pop-over
 description: A wrapper over the Popover API with anchor positioning.
 ---
 
-<Header title="Pop-over" section="UI components">
+<Header title="Pop-over" section="Components">
   A wrapper over the Popover API with anchor positioning.
 </Header>
 

@@ -3,7 +3,7 @@ title: Introduction
 description: Unstyled, fully accessible UI components, to integrate with your projects.
 ---
 
-<Header title="Introduction" section="UI components">
+<Header title="Introduction" section="Components">
   Accessible UI components, to integrate with your projects.
 </Header>
 

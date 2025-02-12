@@ -11,13 +11,13 @@ import { on } from "./jxui.js";
  * @typedef {HTMLElement} TabGroup
  */
 
-export const EVENT_SELECTED = "jxui:tab:selected";
+export const EVENT_SELECTED = "jxui:Tab:selected";
 
-const SEL_GROUP = ".ui-tabgroup";
-const SEL_LIST = ".ui-tablist";
-const SEL_TAB = ".ui-tab";
-const SEL_PANEL = ".ui-tabpanel";
-const SEL_SELECT = ".ui-tabselect";
+const SEL_GROUP = ".jxui-TabGroup";
+const SEL_LIST = ".jxui-TabList";
+const SEL_TAB = ".jxui-Tab";
+const SEL_PANEL = ".jxui-TabPanel";
+const SEL_SELECT = ".jxui-TabSelect";
 
 const SEL_TAB_SCOPED = `${SEL_TAB}:not(:scope ${SEL_GROUP} *)`;
 const SEL_TABPANEL_SCOPED = `${SEL_PANEL}:not(:scope ${SEL_GROUP} *)`;
@@ -29,9 +29,9 @@ const ATTR_ARIA_CONTROLS = "aria-controls";
 const ATTR_TABINDEX = "tabindex";
 const ATTR_MANUAL = "data-manual";
 
-const CLASS_SELECTED = "ui-selected";
-const CLASS_DISABLED = "ui-disabled";
-const CLASS_HIDDEN = "ui-hidden";
+const CLASS_SELECTED = "jxui-selected";
+const CLASS_DISABLED = "jxui-disabled";
+const CLASS_HIDDEN = "jxui-hidden";
 
 const VALUE_VERTICAL = "vertical";
 

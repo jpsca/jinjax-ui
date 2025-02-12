@@ -1,7 +1,8 @@
 .PHONY: install
 install:
-	poetry install --with test
-	pip install -e ../jinjax/
+	uv sync
+	uv pip install -e .
+	uv pip install -e ../jinjax/
 
 .PHONY: docs
 docs:

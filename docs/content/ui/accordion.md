@@ -3,25 +3,20 @@ title: Accordion
 description: Component for grouping <details> HTML elements where only one of them can be open at the same time.
 ---
 
-<Header title="Accordion" section="UI components">
+<Header title="Accordion" section="Components">
   Component for grouping <code>details</code> HTML elements where only one of them can be open at the same time.
 </Header>
 
-An accordion is a vertically stacked group of collapsible sections. HTML has already a native element for this, the `<details>` element, but it doesn't support the "only one open at a time" behavior, so we need to add some JS to make it work, and that's what this component does.
-
-If you don't need to ensure only one section is open at a time, you don't need this component at all, just use the `<details>` element directly.
+An accordion is a vertically stacked group of collapsible sections. HTML has already a native element for this: the `<details>` element, so is what this component uses internally. It also include JavaScript code to ensure only one section is open at a time, if you want that.
 
 <ExampleTabs
-  prefix="demo"
+  prefix="d1"
   :panels="{
     'Result': 'ui.Accordion.DemoResult',
     'HTML': 'ui.Accordion.DemoHTML',
     'CSS': 'ui.Accordion.DemoCSS',
   }"
 />
-
-
-The `Accordion` is a simple wrapper plus some JS logic, so it doesn't uses any arguments and it's as accesible as the `details` element you put inside.
 
 
 ## Events

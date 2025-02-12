@@ -14,33 +14,16 @@ here = Path(__file__).parent
 pages = [
     "index.md",
         [
-            "Guide",
-            [
-                "guide/index.md",
-                "guide/components.md",
-                "guide/slots.md",
-                "guide/css_and_js.md",
-                # "guide/integrations.md",
-                # "guide/performance.md",
-                "guide/motivation.md",
-            ],
-        ],
-        [
-            "API",
-            [
-                "api.md",
-            ],
-        ],
-        [
-            "UI components", [
+            "Components", [
                 "ui/index.md",
-                "ui/button.md",
-                "ui/tabs.md",
-                "ui/popover.md",
-                "ui/menu.md",
-                "ui/accordion.md",
-                "ui/linkedlist.md",
-                "ui/reldate.md",
+                # "ui/button.md",
+                "ui/details.mdx",
+                # "ui/tabs.md",
+                # "ui/popover.md",
+                # "ui/menu.md",
+                # "ui/accordion.md",
+                # "ui/linkedlist.md",
+                # "ui/reldate.md",
             ],
         ],
 ]

@@ -3,7 +3,7 @@ title: Linked Lists
 description: A component to select multiple items from a long list, while keeping them sorted.
 ---
 
-<Header title="Linked Lists" section="UI components">
+<Header title="Linked Lists" section="Components">
   A component to select multiple items from a long list, while keeping them sorted.
 </Header>
 

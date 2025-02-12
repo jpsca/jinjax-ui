@@ -3,7 +3,7 @@ title: Relative date
 description: A component to convert datetimes to relative dates strings, such as "a minute ago", "in 2 hours", "yesterday", "3 months ago", etc. using JavaScript's Intl.RelativeTimeFormat API.
 ---
 
-<Header title="Relative date" section="UI components">
+<Header title="Relative date" section="Components">
 A component to convert datetimes to relative dates strings,
 such as "a minute ago", "in 2 hours", "yesterday", "3 months ago",
 etc. using JavaScript's <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat" target="_blank">Intl.RelativeTimeFormat API</a>.

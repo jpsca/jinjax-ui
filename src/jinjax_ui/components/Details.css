@@ -1,0 +1,28 @@
+.jxui-Details {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.jxui-Details > summary {
+  position: relative;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+.jxui-DetailsContent {
+  overflow: hidden;
+  height: auto;
+  color: rgb(82 82 82);
+  padding: 0.5rem 0.75rem 0.75rem;
+  animation: none;
+}
+@keyframes details-show {
+  from {
+    opacity:0;
+    transform: var(--jxui-details-translate, translateY(-0.5em));
+  }
+}
+.jxui-Details[open] > .jxui-DetailsContent {
+  animation: details-show 150ms ease-in-out;
+}

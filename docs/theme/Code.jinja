@@ -1,0 +1,8 @@
+{#def language="html+jinja" #}
+<div class="cd-Code">
+{% filter markdown %}
+```{{ language }}
+{{ content }}
+```
+{% endfilter %}
+</div>

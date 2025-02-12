@@ -1,8 +1,9 @@
 {#def vertical=False, manual=False, tag="nav" #}
-{#js jxui.js, jxui-tab.js #}
+{#js jxui.js, jxui-Tab.js #}
+{#css "Tab.css" #}
 
 <{{ tag }} {{ attrs.render(
-    class="ui-tablist",
+    class="jxui-TabList",
     role="tablist",
     aria_orientation="vertical" if vertical else "horizontal",
     data_manual=manual,

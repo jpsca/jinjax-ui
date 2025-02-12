@@ -3,7 +3,7 @@ title: Button
 description: Button is used to initiate actions on a page or form.
 ---
 
-<Header title="Button" section="UI components">
+<Header title="Button" section="Components">
   Button is used to initiate actions on a page or form.
 </Header>
 

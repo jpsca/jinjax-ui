@@ -1,4 +1,16 @@
-<div {{ attrs.render(
-  class="cd-example not-prose",
-  data_component="Example",
-) }}>{{ content }}</div>
+{#def name, prefix #}
+
+<div {{ attrs.render(class="cd-Example not-prose") }} data-md-skip>
+  <TabGroup class="cd-Example-TabGroup">
+    <TabList class="cd-Example-TabList">
+      <Tab class="cd-Example-Tab" target={{ "ex-%s-demo" % prefix }} selected={{ true }} >Demo</Tab>
+      <Tab class="cd-Example-Tab" target={{ "ex-%s-code" % prefix }}>Demo</Tab>
+    </TabList>
+    <TabPanel class="cd-Example-TabPanel cd-Example-TabPanel--demo" id={{ "ex-%s-demo" % prefix }}>
+      {{ catalog.irender(name) }}
+    </TabPanel>
+    <TabPanel class="cd-Example-TabPanel cd-Example-TabPanel--code" id={{ "ex-%s-code" % prefix }} hidden>
+      <Code>{{ catalog.get_source(name) }}</Code>
+    </TabPanel>
+  </TabGroup>
+</div>
