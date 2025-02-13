@@ -1,5 +1,10 @@
-{#def language="html+jinja" #}
-<div class="cd-Code">
+{#def language="html+jinja", embed=False #}
+
+{% if embed %}
+  {% do attrs.add_class("cd-Code--embed") %}
+{% endif %}
+
+<div {{ attrs.render(class="cd-Code") }}>
 {% filter markdown %}
 ```{{ language }}
 {{ content }}

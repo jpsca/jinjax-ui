@@ -1,0 +1,150 @@
+.cd-Code:not(.cd-Code--embed) .highlight {
+  margin: 2rem 0 1rem;
+  border-radius: 6px;
+  max-height: 400px;
+}
+
+.cd-Code .highlight {
+  overflow: hidden;
+}
+.cd-Code .highlight:has(> .filename) {
+  background-color: rgb(249 250 251);
+  border: 1px solid rgb(153, 153, 153);
+}
+.cd-Code .highlight:is(.dark *):has(> .filename) {
+  background-color: rgb(55 65 81);
+  border-color: rgb(75 85 99);
+}
+.cd-Code .highlight > .filename {
+  border-radius: 6px 0 0 0;
+  display: inline-block;
+  border-right: 1px solid rgb(153, 153, 153);
+  background-color: #e7e9ed;
+  padding: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+.cd-Code .highlight:is(.dark *) > .filename {
+  border-color: rgb(75 85 99);
+  background-color: #111;
+  color: rgb(255 255 255);
+}
+.cd-Code .highlight pre {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 6px;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+.cd-Code .highlight .filename + pre {
+  border-radius: 0 0 6px 6px;
+}
+.cd-Code .highlight pre code { color: white; }
+
+.cd-Code .highlight pre code [data-linenos]:before {
+  content: attr(data-linenos);
+  display: inline-block;
+  width: 3rem;
+  text-align: right;
+  padding-right: 1rem;
+  white-space: nowrap;
+  color: rgb(82 82 91);
+  font-size: 0.75rem;
+}
+.cd-Code .highlight .hll {
+  background-color: #333;
+  display: block;
+}
+
+.cd-Code .highlight .c { color: hsl(31, 76%, 64%) } /* Comment */
+.cd-Code .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.cd-Code .highlight .k { color: #66d9ef } /* Keyword */
+.cd-Code .highlight .l { color: #ae81ff } /* Literal */
+.cd-Code .highlight .n { color: #f8f8f2 } /* Name */
+.cd-Code .highlight .o { color: #f92672 } /* Operator */
+.cd-Code .highlight .p { color: #f8f8f2 } /* Punctuation */
+.cd-Code .highlight .cm { color: hsl(30, 20%, 50%) } /* Comment.Multiline */
+.cd-Code .highlight .cp { color: hsl(30, 20%, 50%) } /* Comment.Preproc */
+.cd-Code .highlight .c1 { color: hsl(30, 20%, 50%) } /* Comment.Single */
+.cd-Code .highlight .cs { color: hsl(30, 20%, 50%) } /* Comment.Special */
+.cd-Code .highlight .ge { font-style: italic } /* Generic.Emph */
+.cd-Code .highlight .gs { font-weight: bold } /* Generic.Strong */
+.cd-Code .highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.cd-Code .highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.cd-Code .highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.cd-Code .highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.cd-Code .highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.cd-Code .highlight .kt { color: #66d9ef } /* Keyword.Type */
+.cd-Code .highlight .ld { color: #e6db74 } /* Literal.Date */
+.cd-Code .highlight .m { color: #ae81ff } /* Literal.Number */
+.cd-Code .highlight .s { color: #e6db74 } /* Literal.String */
+.cd-Code .highlight .na { color: #a6e22e } /* Name.Attribute */
+.cd-Code .highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.cd-Code .highlight .nc { color: #a6e22e } /* Name.Class */
+.cd-Code .highlight .no { color: #66d9ef } /* Name.Constant */
+.cd-Code .highlight .nd { color: #a6e22e } /* Name.Decorator */
+.cd-Code .highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.cd-Code .highlight .ne { color: #a6e22e } /* Name.Exception */
+.cd-Code .highlight .nf { color: #a6e22e } /* Name.Function */
+.cd-Code .highlight .nl { color: #f8f8f2 } /* Name.Label */
+.cd-Code .highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.cd-Code .highlight .nx { color: #a6e22e } /* Name.Other */
+.cd-Code .highlight .py { color: #f8f8f2 } /* Name.Property */
+.cd-Code .highlight .nt { color: #f92672 } /* Name.Tag */
+.cd-Code .highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.cd-Code .highlight .ow { color: #f92672 } /* Operator.Word */
+.cd-Code .highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.cd-Code .highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.cd-Code .highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.cd-Code .highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.cd-Code .highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.cd-Code .highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.cd-Code .highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.cd-Code .highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.cd-Code .highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.cd-Code .highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.cd-Code .highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.cd-Code .highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.cd-Code .highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.cd-Code .highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.cd-Code .highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.cd-Code .highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.cd-Code .highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.cd-Code .highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.cd-Code .highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.cd-Code .highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.cd-Code .highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+.cd-Code .highlight .gu { color: hsl(30, 20%, 50%); } /* Generic.Subheading & Diff Unified/Comment? */
+.cd-Code .highlight .gd { color: #f92672; } /* Generic.Deleted & Diff Deleted */
+.cd-Code .highlight .gi { color: #a6e22e; } /* Generic.Inserted & Diff Inserted */
+
+.cd-Code pre {
+  overflow-x: auto;
+  font-weight: 400;
+  font-feature-settings: "kern";
+  white-space: pre;
+  scrollbar-width: thin;
+  padding: 1rem 2rem 1rem 0.5rem;
+}
+.cd-Code pre::-webkit-scrollbar {
+  width: 2px;
+  background-color: ButtonFace;
+}
+.cd-Code pre:has([data-linenos]) {
+  padding-left: 0;
+}
+.cd-Code pre code {
+  background-color: transparent;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+  font-weight: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+
+}
+.cd-Code pre a {
+  text-decoration: none;
+}

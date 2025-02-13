@@ -1,0 +1,27 @@
+.jxui-Avatar {
+  position: relative;
+  display: flex;
+  height: 3rem;
+  width: 3rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 100%;
+  border: 1px solid rgb(230 230 230);
+}
+.jxui-Avatar > * {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: rgb(230 230 230);
+}
+.jxui-Avatar > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+}

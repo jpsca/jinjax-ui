@@ -3,8 +3,25 @@ title: Details
 description: A disclosure component
 ---
 
-<Header title="Details" section="Components">
-  A disclosure component
-</Header>
+<Example name="ui.Details" prefix="details-default" />
 
-<Example name="ui.Details.Demo" prefix="demo" />
+
+## Events
+
+The `Details` component doesn't emit or listen to any events, but the native `<details>` element inside do.
+
+In addition to the usual events supported by HTML elements, the `<details>` element supports the `toggle` event,
+which is dispatched to the `<details>` element whenever its state changes between open and closed.
+
+The `toggle` event is sent *after* the state is changed, although if the state changes multiple times before the
+browser can dispatch the event, the events are coalesced so that only one is sent.
+
+```js
+details.addEventListener("toggle", (event) => {
+  if (details.open) {
+    /* the element was toggled open */
+  } else {
+    /* the element was toggled closed */
+  }
+});
+```

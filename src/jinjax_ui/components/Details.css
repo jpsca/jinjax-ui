@@ -10,19 +10,14 @@
   font-weight: 500;
   user-select: none;
 }
-.jxui-DetailsContent {
+.jxui-DetailsPanel {
   overflow: hidden;
-  height: auto;
   color: rgb(82 82 82);
   padding: 0.5rem 0.75rem 0.75rem;
-  animation: none;
+  height: 0;
+  transition: all 0.2s allow-discrete;
 }
-@keyframes details-show {
-  from {
-    opacity:0;
-    transform: var(--jxui-details-translate, translateY(-0.5em));
-  }
-}
-.jxui-Details[open] > .jxui-DetailsContent {
-  animation: details-show 150ms ease-in-out;
+
+.jxui-Details[open] .jxui-DetailsPanel {
+  height: auto;
 }

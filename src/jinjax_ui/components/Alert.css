@@ -1,0 +1,42 @@
+.jxui-Alert {
+  position: relative;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  padding: 1rem;
+  color: rgb(10 10 10);
+  border-color: rgb(155, 130, 130);
+  background-color: white;
+}
+.jxui-Alert--red {
+  color: rgb(220 38 38);
+  border-color: rgb(220 38 38);
+}
+.jxui-Alert--green {
+  color: rgb(21 128 61);
+  border-color: rgb(21 128 61);
+}
+
+.jxui-Alert > svg {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+.jxui-Alert > svg + div {
+  transform: translate(0, -3px)
+}
+.jxui-Alert > svg ~ * {
+  padding-left: 1.75rem;
+}
+.jxui-AlertTitle {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.jxui-AlertDescription {
+  font-size: 0.875rem;
+  line-height: 1.625;
+}

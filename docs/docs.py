@@ -16,14 +16,10 @@ pages = [
         [
             "Components", [
                 "ui/index.md",
-                # "ui/button.md",
+                "ui/accordion.mdx",
+                "ui/alert.mdx",
+                "ui/avatar.mdx",
                 "ui/details.mdx",
-                # "ui/tabs.md",
-                # "ui/popover.md",
-                # "ui/menu.md",
-                # "ui/accordion.md",
-                # "ui/linkedlist.md",
-                # "ui/reldate.md",
             ],
         ],
 ]

@@ -1,0 +1,4 @@
+{# def variant="default" #}
+{#css "Alert.css" #}
+{% do attrs.add_class("jxui-Alert--" + variant) %}
+<div {{ attrs.render(class="jxui-Alert", role="alert") }}>{{ content }}</div>

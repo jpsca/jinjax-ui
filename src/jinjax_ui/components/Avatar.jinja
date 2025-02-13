@@ -1,0 +1,8 @@
+{#def src="", fallback="" #}
+
+<span {{ attrs.render(class="jxui-Avatar") }}>
+  <span>{{ fallback }}</span>
+  {% if src -%}
+    <img src="{{ src }}" onload="this.style.display='block'" />
+  {%- endif %}
+</span>
