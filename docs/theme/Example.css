@@ -16,6 +16,14 @@
   align-items: flex-start;
   justify-content: space-around;
   font-size: 1rem;
+  flex-wrap: wrap;
+}
+.cd-Example-TabPanel--demo > p {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .cd-Example-TabPanel--code {
   color: #fafafa;

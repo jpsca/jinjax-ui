@@ -19,6 +19,7 @@ pages = [
                 "ui/accordion.mdx",
                 "ui/alert.mdx",
                 "ui/avatar.mdx",
+                "ui/button.mdx",
                 "ui/details.mdx",
             ],
         ],
