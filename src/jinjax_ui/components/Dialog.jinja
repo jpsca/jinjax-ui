@@ -1,6 +1,9 @@
 {#def id, close_delay=0 #}
-{#js jxui.js, jxui-dialog.js #}
+{#js jxui.js, jxui-Dialog.js #}
+{#css Dialog.css #}
 
 <dialog {{ attrs.render(
-  class="ui-dialog",
+  class="jxui-Dialog",
+  id=id,
+  data_close_delay=close_delay,
 ) }}>{{ content }}</dialog>

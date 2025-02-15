@@ -1,0 +1,31 @@
+{#def tag=None, href=None, variant=None, size=None, shape=None #}
+{#css "Button.css" #}
+
+{% if not tag %}
+  {% if href %}
+    {% set tag = "a" %}
+  {% else %}
+    {% set tag = "button" %}
+  {% endif %}
+{% endif %}
+
+{% if tag == "button" %}
+  {% do attrs.setdefault(type="button") %}
+{% endif %}
+
+{% if variant and variant in ("primary", "danger", "ghost", "link") %}
+  {% do attrs.add_class("jxui-Button--" + variant) %}
+{% endif %}
+
+{% if size and size in ("large", "small", "mini") %}
+  {% do attrs.add_class("jxui-Button--d-" + size) %}
+{% endif %}
+
+{% if shape and shape in ("block", "circle") %}
+  {% do attrs.add_class("jxui-Button--s-" + shape) %}
+{% endif %}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-Button",
+  href=href,
+) }}>{{ content }}</{{ tag }}>

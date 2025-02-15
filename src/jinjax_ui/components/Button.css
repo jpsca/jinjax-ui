@@ -1,0 +1,159 @@
+.jxui-Button {
+  appearance: none;
+  background: none;
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  font-family: inherit;
+  font-weight: 500;
+  min-inline-size: min-content;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  grid-gap: 0.4rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 0.5rem 1rem;
+
+  color: #111;
+  background-color: #f0f0f0;
+  border: 1px solid #c6c6c6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+.jxui-Button:hover:not([disabled]) {
+  color: #000;
+  background-color: #e6e6e6;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.jxui-Button:active:not([disabled])  {
+  color: #000;
+  background-color: #ddd;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.jxui-Button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* Icons */
+.jxui-Button svg {
+  height: 20px;
+  aspect-ratio: 1;
+}
+
+/* Variant modifiers */
+.jxui-Button--primary {
+  --background: 240 6% 10%;
+
+  color: hsl(0 0% 98%);
+  background-color: hsl(var(--background));
+  border-color: #aaa;
+}
+.jxui-Button--primary:hover:not([disabled]) {
+  color: hsl(0 0% 98%);
+  background-color: hsl(var(--background) / 0.9);
+}
+
+.jxui-Button--primary:active:not([disabled]) {
+  color: hsl(0 0% 98%);
+  background-color: hsl(var(--background) / 0.8);
+}
+
+.jxui-Button--danger {
+  color: hsl(0 0% 98%);
+  background-color: hsl(0, 84%, 60%);
+  border-color: #aaa;
+}
+.jxui-Button--danger:hover:not([disabled]) {
+    color: hsl(0 0% 98%);
+    background-color: hsl(0, 84%, 51%);
+}
+.jxui-Button--danger:active:not([disabled]) {
+  color: hsl(0 0% 98%);
+  background-color: hsl(0, 84%, 44%);
+}
+
+
+.jxui-Button--ghost {
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+.jxui-Button--ghost:hover:not([disabled]) {
+  color: #000;
+  border-color: #f0f0f0;
+  background-color: hsl(0, 0%, 94%);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.jxui-Button--ghost:active:not([disabled])  {
+  color: #000;
+  border-color: #c6c6c6;
+  background-color: hsl(0, 0%, 88%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.jxui-Button--link {
+  color: hsl(224, 76%, 60%);
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+.jxui-Button--link:hover:not([disabled]) {
+  color: hsl(224, 76%, 53%);
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.jxui-Button--link:active:not([disabled]) {
+  color: hsl(224, 76%, 48%);
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+
+/* Size modifiers */
+.jxui-Button--d-large {
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+}
+.jxui-Button--d-small {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+}
+.jxui-Button--d-mini {
+  font-size: 0.75rem;
+  padding: 0.05rem 0.25rem;
+}
+
+
+/* Shape modifiers */
+.jxui-Button--s-circle {
+  border-radius: 100%;
+  padding: 0.5rem;
+}
+.jxui-Button--d-large.jxui-Button--s-circle {
+  padding: 0.75rem;
+}
+.jxui-Button--d-large.jxui-Button--s-circle svg {
+  height: 24px;
+  aspect-ratio: 1;
+}
+
+.jxui-Button--s-block {
+  width: 100%;
+}

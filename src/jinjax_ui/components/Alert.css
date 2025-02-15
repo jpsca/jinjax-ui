@@ -8,11 +8,11 @@
   border-color: rgb(155, 130, 130);
   background-color: white;
 }
-.jxui-Alert--red {
+.jxui-Alert--danger {
   color: rgb(220 38 38);
   border-color: rgb(220 38 38);
 }
-.jxui-Alert--green {
+.jxui-Alert--ok {
   color: rgb(21 128 61);
   border-color: rgb(21 128 61);
 }
