@@ -1,5 +1,5 @@
-{# def variant="default" #}
+{# def color=None #}
 {#css "Alert.css" #}
 
-{% do attrs.add_class("jxui-Alert--" + variant) %}
+{% if color %}{% do attrs.set(data_color=color) %}{% endif %}
 <div {{ attrs.render(class="jxui-Alert", role="alert") }}>{{ content }}</div>
