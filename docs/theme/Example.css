@@ -4,14 +4,13 @@
 .cd-Example-TabPanel {
   position: relative;
   min-height: 250px;
-  max-height: 500px;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 .cd-Example-TabPanel--demo {
   color: #111;
-  padding: 5rem 20%;
+  padding: 3rem 20%;
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
@@ -30,6 +29,7 @@
   margin: 0;
   padding: 0;
   height: 100%;
+  max-height: 600px;
 }
 .cd-Example-TabPanel--code .highlight {
   display: block;

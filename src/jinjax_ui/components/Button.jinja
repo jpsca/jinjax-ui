@@ -1,5 +1,5 @@
 {#def tag=None, href=None, variant=None, size=None, shape=None #}
-{#css "Button.css" #}
+{#css jxui.css, Button.css #}
 
 {% if not tag %}
   {% if href %}
@@ -13,16 +13,16 @@
   {% do attrs.setdefault(type="button") %}
 {% endif %}
 
-{% if variant and variant in ("primary", "danger", "ghost", "link") %}
-  {% do attrs.add_class("jxui-Button--" + variant) %}
+{% if variant in ("ghost", "text") %}
+  {% do attrs.set(data_variant=variant) %}
 {% endif %}
 
-{% if size and size in ("large", "small", "mini") %}
-  {% do attrs.add_class("jxui-Button--d-" + size) %}
+{% if size in ("large", "small", "mini") %}
+  {% do attrs.set(data_size=size) %}
 {% endif %}
 
-{% if shape and shape in ("block", "circle") %}
-  {% do attrs.add_class("jxui-Button--s-" + shape) %}
+{% if shape in ("block", "circle", "square") %}
+  {% do attrs.set(data_shape=shape) %}
 {% endif %}
 
 <{{ tag }} {{ attrs.render(

@@ -1,5 +1,38 @@
-{# def color=None #}
-{#css "Alert.css" #}
+{#def title=None, icon=None, variant="info", dismissable=False #}
+{#css jxui.css, Alert.css, Tooltip.css #}
+{#js jxui.js, Tooltip.js #}
 
-{% if color %}{% do attrs.set(data_color=color) %}{% endif %}
-<div {{ attrs.render(class="jxui-Alert", role="alert") }}>{{ content }}</div>
+{% if variant not in ["critical", "info", "success", "option", "warning"] %}
+  {% set variant = "info" %}
+{% endif %}
+
+{% if not icon %}
+  {% set icon = {
+    "critical": "error",
+    "info": "circle_notifications",
+    "success": "check_circle",
+    "option": "add_circle",
+    "warning": "error"
+  }[variant] %}
+{% endif %}
+
+{% do attrs.set(data_variant=variant) %}
+
+{% if title %}
+  {% do attrs.add_class("jxui-Alert--entitled") %}
+{% endif %}
+
+<section {{ attrs.render(class="jxui-Alert", role="alert") }}>
+  <div class="jxui-Alert-icon">
+    <i class="icon">{{ icon }}</i>
+  </div>
+  <div class="jxui-Alert-content">
+    {% if title %}<h2 class="jxui-Alert-title">{{ title }}</h2>{% endif %}
+    {{ content }}
+  </div>
+  {% if dismissable %}
+    <Button variant="ghost" shape="square" class="jxui-Alert-dismiss" aria-label="Dismiss alert" aria-hidden="true" title="Dismiss alert" data-tooltip>
+      <i class="icon">close</i>
+    </Button>
+  {% endif %}
+</section>
