@@ -32,32 +32,22 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0.6rem;
-
   background-color: var(--alert-bgColor, #fff);
   border: 1px solid var(--alert-borderColor, #444);
 }
 
-@supports (container-type:inline-size) {
-  .jxui-Alert{
-    container: alert / inline-size;
-  }
-}
-
 .jxui-Alert-icon,
 .jxui-Alert-dismiss {
-  line-height: 1;
   color: var(--alert-iconColor, #222) !important;
-  height: fit-content;
-  margin: 0.2rem 0 0;
-  padding: 0.3rem 0.3rem 0.2rem !important;
+  line-height: 1;
 }
-.jxui-Alert--entitled .jxui-Alert-icon,
-.jxui-Alert--entitled .jxui-Alert-dismiss {
-  margin-top: 0;
+.jxui-Alert-icon {
+  margin-top: 0.45rem;
 }
 .jxui-Alert-dismiss {
-  font-size: 0.9rem;
+  margin-top: 0.2rem;
 }
+
 
 .jxui-Alert-content {
   font-size: 0.9rem;
@@ -69,8 +59,10 @@
 .jxui-Alert-title {
   font-size: inherit;
   font-weight: 600;
+  padding: 0.15rem 0.5rem 0;
+  margin: 0;
 }
-.jxui-Alert-title,
+
 .jxui-AlertDescription {
   padding: 0 0.5rem;
   margin: 0;
@@ -88,19 +80,11 @@
   flex-direction: row;
 }
 
-@media screen and (min-width: 544px) {
-  .jxui-Alert-content:not(.jxui-Alert--entitled .jxui-Alert-content) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .jxui-AlertActions:not(.jxui-Alert--entitled .jxui-AlertActions) {
-    padding: 0;
-    flex-direction: row-reverse;
-  }
+.jxui-Alert{
+  container: alert / inline-size;
 }
 
-@container sidebar (min-width: 544px) {
+@container alert (min-width: 500px) {
   .jxui-Alert-content:not(.jxui-Alert--entitled .jxui-Alert-content) {
     display: flex;
     flex-wrap: nowrap;

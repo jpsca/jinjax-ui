@@ -7,6 +7,8 @@
   overflow: hidden;
   border-radius: 100%;
   border: 1px solid rgb(230 230 230);
+  font-size: 0.825rem;
+  font-weight: bold;
 }
 .jxui-Avatar > * {
   display: flex;

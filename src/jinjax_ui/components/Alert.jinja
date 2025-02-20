@@ -9,10 +9,10 @@
 {% if not icon %}
   {% set icon = {
     "critical": "error",
-    "info": "circle_notifications",
+    "info": "info",
     "success": "check_circle",
     "option": "add_circle",
-    "warning": "error"
+    "warning": "warning"
   }[variant] %}
 {% endif %}
 
@@ -31,7 +31,7 @@
     {{ content }}
   </div>
   {% if dismissable %}
-    <Button variant="ghost" shape="square" class="jxui-Alert-dismiss" aria-label="Dismiss alert" aria-hidden="true" title="Dismiss alert" data-tooltip>
+    <Button variant="ghost" shape="square" size="mini" class="jxui-Alert-dismiss" aria-label="Dismiss alert" aria-hidden="true" title="Dismiss alert" data-tooltip>
       <i class="icon">close</i>
     </Button>
   {% endif %}
