@@ -220,7 +220,7 @@ kbd {
   padding: 0.2rem 0.25rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  font-size: 0.875rem;
+  font-size: var(--text-body-size-medium);
   line-height: 1;
   font-weight: 500;
   letter-spacing: -0.025em;
@@ -233,9 +233,17 @@ kbd {
 
 
 :root {
+  --text-body-size-medium: 0.875rem;
+  --text-body-size-small: 0.75rem;
+
   --color-fg-default: #1F2328;
+  --color-fg-muted: #59636e;
   --color-bg-default: #fff;
+  --color-canvas-default: var(--color-bg-default);
   --color-border-default: #c6c6c6;
+  --color-shadow-inset: #d0d7de33;
+
+  --color-accent-fg: #0969da;
 
   --color-critical-subtle: #ffebe9;
   --color-critical-muted: #ff818266;

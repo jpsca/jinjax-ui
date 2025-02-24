@@ -90,7 +90,7 @@
   padding: 0 0.5rem;
 }
 .jxui-Button[data-size="small"] {
-  font-size: 0.875rem;
+  font-size: var(--text-body-size-medium);
   gap: 0.4rem;
   height: 2rem;
   padding: 0 0.75rem;

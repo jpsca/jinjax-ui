@@ -22,6 +22,7 @@ pages = [
                 "ui/button.mdx",
                 "ui/details.mdx",
                 "ui/tooltip.mdx",
+                "ui/text-input.mdx",
             ],
         ],
 ]

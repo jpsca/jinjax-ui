@@ -1,0 +1,73 @@
+.jxui-TextInput > label {
+  align-self: flex-start;
+  display: block;
+  color: var(--color-fg-default);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--text-body-size-medium);
+}
+
+.jxui-TextInput-wrapper {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-fg-default);
+  vertical-align: middle;
+  background-color: var(--color-canvas-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  outline: none;
+  box-shadow: inset 0 1px 0 var(--color-shadow-inset);
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.jxui-TextInput[data-validation="invalid"] .jxui-TextInput-wrapper {
+  border-color: var(--color-critical-fg);
+}
+.jxui-TextInput[data-validation="valid"] .jxui-TextInput-wrapper {
+  border-color: var(--color-success-fg);
+}
+.jxui-TextInput .jxui-TextInput-wrapper:focus-within {
+  border-color: var(--color-accent-fg, #0969da);
+  outline: 2px solid var(--color-accent-fg, #0969da);
+  outline-offset: -1px;
+}
+
+.jxui-TextInput-wrapper > input {
+  cursor: text;
+  padding: 6px 0.5rem;
+  outline: none;
+  font-size: 1rem;
+}
+
+.jxui-TextInput-wrapper > :not(input) {
+  align-self: center;
+  color: var(--color-fg-muted);
+  flex-shrink: 0;
+}
+
+.jxui-TextInput-valid,
+.jxui-TextInput-invalid {
+  display: block;
+  font-size: var(--text-body-size-medium);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 0.1rem;
+}
+
+.jxui-TextInput-valid {
+  color: var(--color-success-fg);
+}
+.jxui-TextInput-invalid {
+  color: var(--color-critical-fg);
+}
+
+.jxui-TextInput-caption {
+  color: var(--color-fg-muted);
+  display: block;
+  font-size: var(--text-body-size-medium);
+  line-height: 1.3;
+  margin-top: 0.4rem;
+}

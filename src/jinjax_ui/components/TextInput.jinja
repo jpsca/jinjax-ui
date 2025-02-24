@@ -1,13 +1,41 @@
-{#def caption=None #}
+{#def label, name=None, value="", id=None, type="text", caption=None, invalid=None, valid=None, loading=False #}
 
-{% set caption = caption or content("caption") %}
+{% set id = "akjsakjsh" %}
+{% set leading = content("leading") or "" %}
+{% set trailing = content("caption") or "" %}
+{% set caption = caption or content("caption") or content() %}
 
-<div data-has-label="" display="flex">
-  <label for=":r1:" class="sc-iGgWBj ffxCYX">Default label</label>
-  <span class="sc-fqkvVR cqWiBT sc-dcJsrY iRIYSI TextInput-wrapper" aria-busy="false">
-    <input type="text" id=":r1:" aria-describedby=":r1:-caption" data-component="input" class="sc-eqUAAy kRUyJB">
+{% if invalid %}
+  {% set validation = "invalid" %}
+{% elif valid %}
+  {% set validation = "valid" %}
+{% else %}
+  {% set validation = "" %}
+{% endif %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+<div class="jxui-TextInput" data-validation="{{ validation }}">
+  <label for="{{ id }}">{{ label }}</label>
+  <span class="jxui-TextInput-wrapper" aria-busy="{{ 'true' and loading or 'false' }}">
+    {{ leading }} <input {{ attrs.render(
+      id=id,
+      type=type,
+      name=name,
+      value=value,
+      aria_label=label,
+    ) }} /> {{ trailing }}
   </span>
   {% if caption -%}
-    <span class="jxui-TextInput-Caption">{{ caption }}</span>
-  {% endif %}
+    <span id="{{ id }}-caption" class="jxui-TextInput-caption">{{ caption }}</span>
+  {%- endif %}
+  {% if valid -%}
+    <span class="jxui-TextInput-valid"><i class="icon">check</i> {{ valid }}</span>
+  {%- endif %}
+  {% if invalid -%}
+    <span class="jxui-TextInput-invalid"><i class="icon">warning</i> {{ invalid }}</span>
+  {%- endif %}
 </div>
+
