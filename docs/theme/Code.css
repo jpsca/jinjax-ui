@@ -4,9 +4,6 @@
   max-height: 400px;
 }
 
-.cd-Code .highlight {
-  overflow: hidden;
-}
 .cd-Code .highlight:has(> .filename) {
   background-color: rgb(249 250 251);
   border: 1px solid rgb(153, 153, 153);
@@ -31,7 +28,7 @@
   color: rgb(255 255 255);
 }
 .cd-Code .highlight pre {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000000e6;
   border-radius: 6px;
   font-size: 0.98rem;
   line-height: 1.4;
@@ -119,10 +116,9 @@
 .cd-Code .highlight .gi { color: #a6e22e; } /* Generic.Inserted & Diff Inserted */
 
 .cd-Code pre {
-  overflow-x: auto;
   font-weight: 400;
   font-feature-settings: "kern";
-  white-space: pre;
+  white-space: pre-wrap;
   scrollbar-width: thin;
   padding: 1rem 2rem 1rem 0.5rem;
 }

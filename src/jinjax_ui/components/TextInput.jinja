@@ -1,0 +1,13 @@
+{#def caption=None #}
+
+{% set caption = caption or content("caption") %}
+
+<div data-has-label="" display="flex">
+  <label for=":r1:" class="sc-iGgWBj ffxCYX">Default label</label>
+  <span class="sc-fqkvVR cqWiBT sc-dcJsrY iRIYSI TextInput-wrapper" aria-busy="false">
+    <input type="text" id=":r1:" aria-describedby=":r1:-caption" data-component="input" class="sc-eqUAAy kRUyJB">
+  </span>
+  {% if caption -%}
+    <span class="jxui-TextInput-Caption">{{ caption }}</span>
+  {% endif %}
+</div>

@@ -7,15 +7,14 @@
 {%- endif -%}
 
 {% if disabled %}
-  {% do attrs.set(class="jxui-disabled") %}
+  {% do attrs.set(aria_disabled=True) %}
 {% elif selected %}
-  {% do attrs.set(class="jxui-selected") %}
+  {% do attrs.set(aria_selected=True) %}
 {% endif %}
 
 <{{ tag }} {{ attrs.render(
   class="jxui-Tab",
   role="tab",
-  aria_selected="true" if selected and not disabled else "false",
   aria_controls=target,
   tabindex="0" if selected else "-1",
 ) }}>{{ content }}</{{ tag }}>

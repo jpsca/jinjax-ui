@@ -1,12 +1,18 @@
 .cd-Example {
   margin: 2rem 0 1rem;
 }
+
+.cd-Example-Tab {
+  font-size: 0.875rem;
+  padding: 0.5rem 3rem !important;
+}
+
 .cd-Example-TabPanel {
   position: relative;
   min-height: 250px;
   border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  overflow: hidden;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  overflow: auto;
 }
 .cd-Example-TabPanel--demo {
   color: #111;

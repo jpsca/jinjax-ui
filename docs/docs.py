@@ -21,6 +21,7 @@ pages = [
                 "ui/avatar.mdx",
                 "ui/button.mdx",
                 "ui/details.mdx",
+                "ui/tooltip.mdx",
             ],
         ],
 ]

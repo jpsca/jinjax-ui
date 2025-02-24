@@ -24,14 +24,15 @@ const SEL_TABPANEL_SCOPED = `${SEL_PANEL}:not(:scope ${SEL_GROUP} *)`;
 const SEL_SELECT_SCOPED = `${SEL_SELECT}:not(:scope ${SEL_GROUP} *)`;
 
 const ATTR_ARIA_SELECTED = "aria-selected";
+const ATTR_ARIA_HIDDEN = "aria-hidden";
 const ATTR_ARIA_ORIENTATION = "aria-orientation";
 const ATTR_ARIA_CONTROLS = "aria-controls";
 const ATTR_TABINDEX = "tabindex";
 const ATTR_MANUAL = "data-manual";
 
-const CLASS_SELECTED = "jxui-selected";
-const CLASS_DISABLED = "jxui-disabled";
-const CLASS_HIDDEN = "jxui-hidden";
+const ATTR_SELECTED = "data-selected";
+const ATTR_DISABLED = "data-disabled";
+const ATTR_HIDDEN = "data-hidden";
 
 const VALUE_VERTICAL = "vertical";
 
@@ -67,7 +68,7 @@ on("change", SEL_SELECT, handleChangeSelect);
  * @param {Tab} tab
  */
 function handleClickOnTab(event, tab) {
-  if (tab.classList.contains(CLASS_DISABLED)) { return; }
+  if (tab.hasAttribute(ATTR_DISABLED)) { return; }
   selectTab(tab);
 }
 
@@ -96,7 +97,7 @@ function handleKeyDown(event, tab) {
 
   const tabList = tab.closest(SEL_LIST);
   const manual = tabList.hasAttribute(ATTR_MANUAL);
-  const tabs = tabList.querySelectorAll(`${SEL_TAB_SCOPED}:not(.${CLASS_DISABLED})`);
+  const tabs = tabList.querySelectorAll(`${SEL_TAB_SCOPED}:not([${ATTR_DISABLED}])`);
   const lastIndex = tabs.length - 1;
   let newTab;
 
@@ -166,11 +167,11 @@ function selectTab(tab, focus = true) {
   const tablist = tab.closest(SEL_LIST);
 
   tablist
-    .querySelectorAll(`${SEL_TAB_SCOPED}.${CLASS_SELECTED}`)
+    .querySelectorAll(`${SEL_TAB_SCOPED}[${ATTR_SELECTED}]`)
     .forEach(el => {
       if (el === tab) return;
+      el.removeAttribute(ATTR_SELECTED);
       el.removeAttribute(ATTR_ARIA_SELECTED);
-      el.classList.remove(CLASS_SELECTED);
       el.setAttribute(ATTR_TABINDEX, "-1");
     });
 
@@ -180,9 +181,9 @@ function selectTab(tab, focus = true) {
   }
 
   if (focus) { tab.focus(); }
-  tab.setAttribute(ATTR_ARIA_SELECTED, "true");
+  tab.setAttribute(ATTR_SELECTED, "1");
+  tab.setAttribute(ATTR_ARIA_SELECTED, "1");
   tab.setAttribute(ATTR_TABINDEX, "0");
-  tab.classList.add(CLASS_SELECTED);
   selectPanel(target);
 }
 
@@ -193,12 +194,14 @@ function selectPanel(panelId) {
   const panel = document.getElementById(panelId);
   panel
   .closest(SEL_GROUP)
-  .querySelectorAll(`${SEL_TABPANEL_SCOPED}:not(.${CLASS_HIDDEN})`)
+  .querySelectorAll(`${SEL_TABPANEL_SCOPED}:not([${ATTR_HIDDEN}])`)
   .forEach(el => {
-    el.classList.add(CLASS_HIDDEN);
+    el.setAttribute(ATTR_HIDDEN, "1");
+    el.setAttribute(ATTR_ARIA_HIDDEN, "1");
   });
 
-  panel.classList.remove(CLASS_HIDDEN);
+  panel.removeAttribute(ATTR_HIDDEN);
+  panel.removeAttribute(ATTR_ARIA_HIDDEN);
 }
 
 /**
@@ -206,13 +209,14 @@ function selectPanel(panelId) {
  * @param {TabGroup} tabGroup
  */
 function selectDefault(tabGroup) {
-  let tab = tabGroup.querySelector(`${SEL_TAB_SCOPED}.${CLASS_SELECTED}`);
+  let tab = tabGroup.querySelector(`${SEL_TAB_SCOPED}[${ATTR_SELECTED}]`);
   if (!tab) {
     tab = tabGroup.querySelector(SEL_TAB_SCOPED);
   }
   if (tab) {
     tabGroup.querySelectorAll(SEL_TABPANEL_SCOPED).forEach(el => {
-      el.classList.add(CLASS_HIDDEN);
+      el.setAttribute(ATTR_HIDDEN, "1");
+      el.setAttribute(ATTR_ARIA_HIDDEN, "1");
     });
     selectTab(tab, false);
   }

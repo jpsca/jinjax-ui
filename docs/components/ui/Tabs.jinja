@@ -1,5 +1,3 @@
-{% filter markdown %}{% raw %}
-```html+jinja
 <TabGroup>
   <TabList>
     <Tab target="demo-recent" selected>Recent</Tab>
@@ -7,7 +5,7 @@
     <Tab target="demo-trending">Trending</Tab>
   </TabList>
 
-  <TabPanel id>
+  <TabPanel id="demo-recent">
     <p>This is the tab panel for <b>"Recent"</b>.</p>
   </TabPanel>
 
@@ -19,5 +17,3 @@
     <p>This is the tab panel for <b>"Trending"</b>.</p>
   </TabPanel>
 </TabGroup>
-```
-{% endraw %}{% endfilter %}

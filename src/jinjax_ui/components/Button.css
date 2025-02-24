@@ -20,19 +20,19 @@
   outline: 4px solid transparent;
   outline-offset: 1px;
 
-  --color: rgb(0, 0, 0);
-  --bg: rgb(240, 240, 240);
-  --border: rgb(198, 198, 198);
+  --color: #000000;
+  --bg: #f0f0f0;
+  --border: var(--color-border-default);
 
-  --color-hover: rgb(0, 0, 0);
-  --bg-hover: rgb(230, 230, 230);
-  --border-hover: rgb(198, 198, 198);
+  --color-hover: #000000;
+  --bg-hover: #e6e6e6;
+  --border-hover: #c6c6c6;
 
-  --color-active: rgb(0, 0, 0);
-  --bg-active: rgb(226, 226, 226);
-  --border-active: rgb(198, 198, 198);
+  --color-active: #000000;
+  --bg-active: #e2e2e2;
+  --border-active: #c6c6c6;
 
-  --outline: rgba(120, 120, 120, 0.1);
+  --outline: #7878781a;
 
   color: var(--color);
   background: var(--bg);
@@ -40,14 +40,17 @@
 }
 
 .jxui-Button:hover:not([disabled]),
-.jxui-Button:focus-visible:not([disabled]) {
+.jxui-Button:focus-visible:not([disabled]),
+.jxui-Button:hover:not([data-disabled]),
+.jxui-Button:focus-visible:not([data-disabled]) {
   outline-color: var(--outline);
   color: var(--color-hover);
   background: var(--bg-hover);
   border-color: var(--border-hover);
 }
 
-.jxui-Button:active:not([disabled])  {
+.jxui-Button:active:not([disabled]),
+.jxui-Button:active:not([data-disabled]) {
   color: var(--color-active);
   background: var(--bg-active);
   border-color: var(--border-active);
@@ -60,8 +63,11 @@
 .jxui-Button[disabled],
 .jxui-Button[disabled]:hover,
 .jxui-Button[disabled]:focus-visible,
-.jxui-Button[disabled]:active {
-  cursor: not-allowed;
+.jxui-Button[disabled]:active,
+.jxui-Button[data-disabled],
+.jxui-Button[data-disabled]:hover,
+.jxui-Button[data-disabled]:focus-visible,
+.jxui-Button[data-disabled]:active{
   opacity: 0.6;
   box-shadow: none;
 }
@@ -150,16 +156,20 @@
 
   box-shadow: none;
 }
-.jxui-Button[data-variant="ghost"]:hover:not([disabled]) {
+.jxui-Button[data-variant="ghost"]:hover:not([disabled])
+.jxui-Button[data-variant="ghost"]:hover:not([data-disabled]) {
   outline-color: transparent;
 }
 
 .jxui-Button[data-variant="ghost"]:hover:not([disabled]),
-.jxui-Button[data-variant="ghost"]:focus-visible:not([disabled]) {
+.jxui-Button[data-variant="ghost"]:focus-visible:not([disabled])
+.jxui-Button[data-variant="ghost"]:hover:not([data-disabled]),
+.jxui-Button[data-variant="ghost"]:focus-visible:not([data-disabled]) {
   box-shadow: 0px 0px 0px 3px rgba(30, 30, 30, 0.1);
 }
 
-.jxui-Button[data-variant="ghost"]:active:not([disabled])  {
+.jxui-Button[data-variant="ghost"]:active:not([disabled]),
+.jxui-Button[data-variant="ghost"]:active:not([datta-disabled]) {
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
     1px 1px 2px rgba(0, 0, 0, 0.05);
@@ -180,18 +190,22 @@
   outline: none;
 }
 
-.jxui-Button[data-variant="text"]:hover:not([disabled]) {
+.jxui-Button[data-variant="text"]:hover:not([disabled]),
+.jxui-Button[data-variant="text"]:hover:not([data-disabled]) {
   outline: none;
 }
 
 .jxui-Button[data-variant="text"]:hover:not([disabled]),
-.jxui-Button[data-variant="text"]:focus-visible:not([disabled]) {
+.jxui-Button[data-variant="text"]:focus-visible:not([disabled]),
+.jxui-Button[data-variant="text"]:hover:not([data-disabled]),
+.jxui-Button[data-variant="text"]:focus-visible:not([data-disabled]) {
   box-shadow: none;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.jxui-Button[data-variant="text"]:active:not([disabled]) {
+.jxui-Button[data-variant="text"]:active:not([disabled])
+.jxui-Button[data-variant="text"]:active:not([data-disabled]) {
   box-shadow: none;
   text-decoration: none;
 }

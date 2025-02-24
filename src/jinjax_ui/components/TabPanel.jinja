@@ -3,7 +3,7 @@
 
 {% do attrs.setdefault(tabindex="0") %}
 {% if hidden %}
-  {% do attrs.set(class="jxui-hidden") %}
+  {% do attrs.set(aria_hidden=True) %}
 {% endif %}
 
 <{{ tag }} {{ attrs.render(

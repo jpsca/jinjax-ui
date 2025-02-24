@@ -152,19 +152,21 @@ button,
 [role="button"] {
   cursor: pointer;
 }
-:disabled {
-  cursor: default;
-}
 img, svg, video, canvas, audio, iframe, embed, object {
-  display: block;
+  display: inline-block;
   vertical-align: middle;
 }
 img, video {
   max-width: 100%;
   height: auto;
 }
-[hidden] {
-  display: none;
+
+[data-disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+[data-hidden] {
+  display: none !important;
 }
 
 
@@ -231,6 +233,10 @@ kbd {
 
 
 :root {
+  --color-fg-default: #1F2328;
+  --color-bg-default: #fff;
+  --color-border-default: #c6c6c6;
+
   --color-critical-subtle: #ffebe9;
   --color-critical-muted: #ff818266;
   --color-critical-fg: #d1242f;
@@ -250,4 +256,9 @@ kbd {
   --color-warning-subtle: #fff8c5;
   --color-warning-muted: #d4a72c66;
   --color-warning-fg: #9a6700;
+}
+
+body {
+  color: var(--color-fg-default);
+  background: var(--color-bg-default);
 }

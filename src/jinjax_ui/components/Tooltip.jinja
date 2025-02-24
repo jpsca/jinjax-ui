@@ -1,0 +1,8 @@
+{#def text, position="bottom" #}
+
+<div {{ attrs.render(class="jxui-has-tooltip") }}>
+  {{ content }}
+  <div class="jxui-Tooltip", role="tooltip" data-position="{{ position }}" tabindex="-1">
+    {{ text }}
+  </div>
+</div>
