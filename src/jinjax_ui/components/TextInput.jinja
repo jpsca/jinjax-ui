@@ -1,12 +1,28 @@
-{#def label, name=None, value="", id=None, type="text", caption=None, invalid=None, valid=None, loading=False #}
+{#def
+  label,
+  name=None,
+  value="",
+  id=None,
+  type="text",
+  caption=None,
+  invalid=None,
+  valid=None,
+  disabled=False,
+  loading=False,
+  leading=None,
+  leading_text=None,
+  trailing=None,
+  trailing_text=None,
+  size=None,
+  block=False,
+#}
 
 {% set id = "akjsakjsh" %}
-{% set leading = content("leading") or "" %}
-{% set trailing = content("caption") or "" %}
-{% set caption = caption or content("caption") or content() %}
+{% set caption = caption or content() %}
 
 {% if invalid %}
   {% set validation = "invalid" %}
+  {% do attrs.set(aria_invalid="true") %}
 {% elif valid %}
   {% set validation = "valid" %}
 {% else %}
@@ -17,16 +33,30 @@
   {% do attrs.set(aria_describedby=id + "-caption") %}
 {% endif %}
 
-<div class="jxui-TextInput" data-validation="{{ validation }}">
+<div
+  class="jxui-TextInput"
+  data-validation="{{ validation }}"
+  {% if size %}data-size="{{ size }}"{% endif %}
+  {% if block %}data-block{% endif %}
+  {% if disabled %}data-disabled{% endif %}
+>
   <label for="{{ id }}">{{ label }}</label>
-  <span class="jxui-TextInput-wrapper" aria-busy="{{ 'true' and loading or 'false' }}">
-    {{ leading }} <input {{ attrs.render(
-      id=id,
-      type=type,
-      name=name,
-      value=value,
-      aria_label=label,
-    ) }} /> {{ trailing }}
+  <span class="jxui-TextInput-wrapper"{% if loading %} aria-busy{% endif %}>
+    {%- if leading %}
+      <i class="icon jxui-TextInput-leading">{{ leading }}</i>
+    {%- elif leading_text %}
+      <span class="jxui-TextInput-leading">{{ leading_text }}</span>
+    {%- endif -%}
+
+    <input {{ attrs.render(id=id, type=type, name=name, value=value, disabled=disabled, aria_label=label) }} />
+
+    {%- if loading %}
+      <i class="icon jxui-TextInput-loading">progress_activity</i>
+    {%- elif trailing %}
+      <i class="icon jxui-TextInput-trailing">{{ trailing }}</i>
+    {%- elif trailing_text %}
+      <span class="jxui-TextInput-trailing">{{ trailing_text }}</span>
+    {%- endif %}
   </span>
   {% if caption -%}
     <span id="{{ id }}-caption" class="jxui-TextInput-caption">{{ caption }}</span>

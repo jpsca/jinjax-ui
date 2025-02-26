@@ -194,6 +194,10 @@ img, video {
   cursor: default;
   pointer-events: none;
 }
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 
 .scrollbar-thin {
@@ -238,9 +242,14 @@ kbd {
 
   --color-fg-default: #1F2328;
   --color-fg-muted: #59636e;
+
   --color-bg-default: #fff;
+  --color-bg-disabled: #efefef4d;
   --color-canvas-default: var(--color-bg-default);
+
   --color-border-default: #c6c6c6;
+  --color-border-disabled: #7676764d;
+
   --color-shadow-inset: #d0d7de33;
 
   --color-accent-fg: #0969da;

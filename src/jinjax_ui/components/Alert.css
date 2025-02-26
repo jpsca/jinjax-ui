@@ -43,6 +43,7 @@
 }
 .jxui-Alert-icon {
   margin-top: 0.45rem;
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 .jxui-Alert-dismiss {
   margin-top: 0.2rem;

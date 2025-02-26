@@ -30,6 +30,16 @@
   align-items: center;
   justify-content: space-around;
 }
+.cd-Example-TabPanel--demo a[href] {
+  color: #0969da;
+  text-decoration: none;
+}
+.cd-Example-TabPanel--demo a[href]:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-style: dashed;
+}
+
 .cd-Example-TabPanel--code {
   color: #fafafa;
   margin: 0;
