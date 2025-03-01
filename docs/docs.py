@@ -20,9 +20,12 @@ pages = [
                 "ui/alert.mdx",
                 "ui/avatar.mdx",
                 "ui/button.mdx",
+                "ui/checkbox.mdx",
                 "ui/details.mdx",
-                "ui/tooltip.mdx",
+                "ui/select.mdx",
+                "ui/radio.mdx",
                 "ui/text-input.mdx",
+                "ui/tooltip.mdx",
             ],
         ],
 ]

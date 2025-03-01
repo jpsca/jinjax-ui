@@ -1,0 +1,8 @@
+.jxui-FormLoading {
+  text-align: center;
+  line-height: 1;
+  animation: rotate 1s linear infinite;
+  padding: 2px 0 0;
+  font-size: inherit;
+  margin-top: 0.1rem;
+}

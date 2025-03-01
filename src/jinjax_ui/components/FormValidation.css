@@ -1,0 +1,18 @@
+.jxui-FormValid {
+  display: block;
+  font-size: var(--text-body-size-medium);
+  line-height: 1.4;
+  margin: 0.2rem 0 0;
+  width: 100%;
+  font-weight: 600;
+  color: var(--color-success-fg);
+}
+.jxui-FormInvalid {
+  display: block;
+  font-size: var(--text-body-size-medium);
+  line-height: 1.4;
+  margin: 0.2rem 0 0;
+  width: 100%;
+  font-weight: 600;
+  color: var(--color-critical-fg);
+}

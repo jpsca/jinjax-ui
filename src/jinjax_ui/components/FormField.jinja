@@ -1,0 +1,19 @@
+{#def
+  size=None,
+  validation=None,
+  required=False,
+  disabled=False,
+  block=False,
+  loading=False,
+#}
+{#css jxui.css, FormField.css #}
+
+<div {{ attrs.render(
+  class="jxui-FormField",
+  data_size=size,
+  data_validation=validation,
+  data_required=required,
+  data_disabled=disabled,
+  data_block=block,
+  aria_busy=loading,
+) }}>{{ content }}</div>

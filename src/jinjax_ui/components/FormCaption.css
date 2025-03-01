@@ -1,0 +1,8 @@
+.jxui-FormCaption {
+  display: block;
+  font-size: var(--text-body-size-medium);
+  line-height: 1.4;
+  margin: 0.2rem 0 0;
+  width: 100%;
+  color: var(--color-fg-muted);
+}

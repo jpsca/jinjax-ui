@@ -655,7 +655,7 @@ h6:hover a.headerlink {
     line-height: 1.25rem;
     color: rgb(24 24 27);
     font-weight: 800;
-    margin: 0;
+    margin: 0.5rem 0;
   }
   & h1:is(.dark *) {
     color: rgb(228 228 231);

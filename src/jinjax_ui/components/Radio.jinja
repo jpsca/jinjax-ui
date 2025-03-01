@@ -1,0 +1,57 @@
+{#def
+  label="Default label",
+  id=None,
+  size=None,
+  block=False,
+  invalid=None,
+  valid=None,
+  required=False,
+  disabled=False,
+  caption=None,
+  icon=None,
+#}
+{#css jxui.css, Radio.css #}
+
+{% set id = id or get_random_id() %}
+{% set caption = caption or content() %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+{% if invalid %}
+  {% set validation = "invalid" %}
+  {% do attrs.set(aria_invalid="true") %}
+{% elif valid %}
+  {% set validation = "valid" %}
+{% else %}
+  {% set validation = "" %}
+{% endif %}
+
+<FormField
+  class="jxui-Radio"
+  size={{size}}
+  validation={{validation}}
+  required={{required}}
+  disabled={{disabled}}
+  block={{block}}
+>
+  <input {{ attrs.render(
+    class="jxui-Radio-input",
+    type="radio",
+    id=id,
+    required=required,
+    disabled=disabled,
+  ) }} />
+  {% if icon -%}
+    <i class="icon jxui-Radio-icon">{{ icon }}</i>
+  {% endif -%}
+  <div>
+    <FormLabel for={{id}}>{{ label }}</FormLabel>
+    {% if caption -%}
+      <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
+    {%- endif %}
+  </div>
+
+  <FormValidation valid={{valid}} invalid={{invalid}} />
+</FormField>

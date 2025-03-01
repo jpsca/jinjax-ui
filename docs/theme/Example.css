@@ -19,16 +19,20 @@
   padding: 3rem 20%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-size: 1rem;
   flex-wrap: wrap;
 }
-.cd-Example-TabPanel--demo > p {
+.cd-Example-TabPanel--demo > .row {
   width: 100%;
   margin-bottom: 1rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
+}
+.cd-Example-TabPanel--demo > .row > button {
+  align-self: center;
+  margin: 0 auto 0 0.5rem;
 }
 .cd-Example-TabPanel--demo a[href] {
   color: #0969da;

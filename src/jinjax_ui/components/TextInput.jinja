@@ -1,23 +1,23 @@
 {#def
-  label,
-  name=None,
-  value="",
+  label="Default label",
   id=None,
   type="text",
-  caption=None,
+  size=None,
+  block=False,
   invalid=None,
   valid=None,
+  required=False,
   disabled=False,
   loading=False,
+  caption=None,
   leading=None,
   leading_text=None,
   trailing=None,
   trailing_text=None,
-  size=None,
-  block=False,
 #}
+{#css jxui.css, TextInput.css #}
 
-{% set id = "akjsakjsh" %}
+{% set id = id or get_random_id() %}
 {% set caption = caption or content() %}
 
 {% if invalid %}
@@ -33,39 +33,43 @@
   {% do attrs.set(aria_describedby=id + "-caption") %}
 {% endif %}
 
-<div
+<FormField
   class="jxui-TextInput"
-  data-validation="{{ validation }}"
-  {% if size %}data-size="{{ size }}"{% endif %}
-  {% if block %}data-block{% endif %}
-  {% if disabled %}data-disabled{% endif %}
+  size={{size}}
+  validation={{validation}}
+  required={{required}}
+  disabled={{disabled}}
+  block={{block}}
+  loading={{loading}}
 >
-  <label for="{{ id }}">{{ label }}</label>
-  <span class="jxui-TextInput-wrapper"{% if loading %} aria-busy{% endif %}>
+  <FormLabel for={{id}}>{{ label }}</FormLabel>
+  <FormWrapper>
     {%- if leading %}
       <i class="icon jxui-TextInput-leading">{{ leading }}</i>
     {%- elif leading_text %}
       <span class="jxui-TextInput-leading">{{ leading_text }}</span>
     {%- endif -%}
 
-    <input {{ attrs.render(id=id, type=type, name=name, value=value, disabled=disabled, aria_label=label) }} />
+    <input {{ attrs.render(
+      class="jxui-TextInput-input",
+      id=id,
+      type=type,
+      required=required,
+      disabled=disabled,
+    ) }} />
 
     {%- if loading %}
-      <i class="icon jxui-TextInput-loading">progress_activity</i>
+      <FormLoading />
     {%- elif trailing %}
       <i class="icon jxui-TextInput-trailing">{{ trailing }}</i>
     {%- elif trailing_text %}
       <span class="jxui-TextInput-trailing">{{ trailing_text }}</span>
     {%- endif %}
-  </span>
+  </FormWrapper>
+
+  <FormValidation valid={{valid}} invalid={{invalid}} />
   {% if caption -%}
-    <span id="{{ id }}-caption" class="jxui-TextInput-caption">{{ caption }}</span>
+    <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
   {%- endif %}
-  {% if valid -%}
-    <span class="jxui-TextInput-valid"><i class="icon">check</i> {{ valid }}</span>
-  {%- endif %}
-  {% if invalid -%}
-    <span class="jxui-TextInput-invalid"><i class="icon">warning</i> {{ invalid }}</span>
-  {%- endif %}
-</div>
+</FormField>
 

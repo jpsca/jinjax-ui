@@ -1,4 +1,12 @@
-{#def tag=None, icon=None, href=None, variant=None, size=None, shape=None #}
+{#def
+  tag=None,
+  icon=None,
+  href=None,
+  variant=None,
+  size=None,
+  shape=None,
+  block=False,
+#}
 {#css jxui.css, Button.css #}
 
 {% if not tag %}
@@ -13,15 +21,18 @@
   {% do attrs.setdefault(type="button") %}
 {% endif %}
 
-{% if variant in ("ghost", "text") %}
+{% if variant %}
   {% do attrs.set(data_variant=variant) %}
 {% endif %}
 
-{% if size in ("mini", "small", "large", "big") %}
+{% if size %}
   {% do attrs.set(data_size=size) %}
 {% endif %}
 
-{% if shape in ("block", "circle", "square") %}
+{% if block %}
+  {% set shape = "block" %}
+{% endif %}
+{% if shape %}
   {% do attrs.set(data_shape=shape) %}
 {% endif %}
 
