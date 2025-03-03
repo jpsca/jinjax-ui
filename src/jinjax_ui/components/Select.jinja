@@ -38,7 +38,7 @@
   block={{block}}
   loading={{loading}}
 >
-  <FormLabel for={{id}}>{{ label }}</FormLabel>
+  {% if label %}<FormLabel for={{id}}>{{ label }}</FormLabel>{% endif %}
   <FormWrapper>
     <select {{ attrs.render(
       class="jxui-Select-select",

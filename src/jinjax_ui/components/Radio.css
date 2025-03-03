@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 0.2rem 0.5rem;
+  gap: var(--4px) var(--8px);
   width: 15rem;
   flex-wrap: wrap;
 }
@@ -38,7 +38,7 @@
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-size: 1rem;
+  font-size: var(--font-size-md);
   text-align: center;
   background: var(--color-canvas-default);
   border: 0.25rem solid transparent;

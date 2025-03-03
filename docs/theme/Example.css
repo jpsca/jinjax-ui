@@ -11,7 +11,6 @@
   position: relative;
   min-height: 250px;
   border: 1px solid #ccc;
-  border-radius: 0 0.5rem 0.5rem 0.5rem;
   overflow: auto;
 }
 .cd-Example-TabPanel--demo {
@@ -33,6 +32,10 @@
 .cd-Example-TabPanel--demo > .row > button {
   align-self: center;
   margin: 0 auto 0 0.5rem;
+}
+.cd-Example-TabPanel--demo .jxui-TabPanel {
+  padding: 20px;
+  border: 1px solid #c6c6c6;
 }
 .cd-Example-TabPanel--demo a[href] {
   color: #0969da;

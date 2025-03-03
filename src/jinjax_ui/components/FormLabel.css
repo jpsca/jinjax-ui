@@ -3,8 +3,8 @@
   color: var(--color-fg-default);
   cursor: pointer;
   font-weight: 600;
-  font-size: var(--text-body-size-medium);
-  height: 1.5rem;
+  font-size: var(--font-size-sm);
+  height: var(--24px);
   width: 100%;
   user-select: none;
   overflow: hidden;
@@ -14,8 +14,8 @@
 
 [data-size="large"] > * > .jxui-FormLabel,
 [data-size="large"] > .jxui-FormLabel {
-  font-size: 1rem;
-  height: 1.75rem;
+  font-size: var(--font-size-md);
+  height: var(--28px);
 }
 [data-disabled] > * > .jxui-FormLabel,
 [data-disabled] > .jxui-FormLabel {
@@ -25,5 +25,5 @@
 [data-required] > * > .jxui-FormLabel::after
 [data-required] > .jxui-FormLabel::after {
   content: "*";
-  margin-left: 0.2rem;
+  margin-left: 4px;
 }

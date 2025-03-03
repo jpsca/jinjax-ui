@@ -1,34 +1,130 @@
+.jxui-TabGroup {
+  display: flex;
+  width: 100%;
+}
+.jxui-TabGroup[data-position="top"] {
+  flex-direction: column;
+}
+.jxui-TabGroup[data-position="bottom"] {
+  flex-direction: column-reverse;
+}
+.jxui-TabGroup[data-position="left"] {
+  flex-direction: row;
+}
+.jxui-TabGroup[data-position="right"] {
+  flex-direction: row-reverse;
+}
+
 .jxui-TabList {
   display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
   position: relative;
-  transform: translateY(1px);
   z-index: 1;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+[data-position="top"] > .jxui-TabList,
+[data-position="bottom"] > .jxui-TabList {
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+[data-position="left"] > .jxui-TabList,
+[data-position="right"] > .jxui-TabList {
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+[data-position="top"] > .jxui-TabList {
+  transform: translateY(1px);
+  padding-top: 1px;
+}
+[data-position="bottom"] > .jxui-TabList {
+  transform: translateY(-1px);
+  padding-bottom: 1px;
+}
+[data-position="left"] > .jxui-TabList {
+  transform: translateX(1px);
+  padding-left: 1px;
+}
+[data-position="right"] > .jxui-TabList {
+  transform: translateX(-1px);
+  padding-right: 1px;
+}
+
+[data-align="start"] > .jxui-TabList {
+  justify-content: flex-start;
+}
+[data-align="center"] > .jxui-TabList {
+  justify-content: center;
+}
+[data-align="end"] > .jxui-TabList {
+  justify-content: flex-end;
 }
 
 .jxui-Tab {
-  padding: 0.5rem 1rem;
   line-height: 1.4;
   color: var(--color-fg-default, #1F2328);
   text-decoration: none;
   background: #f9f9f9;
-  border: 1px solid transparent;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
+  border: 1px solid var(--color-border-muted);
   z-index: 1;
   transition: 80ms cubic-bezier(0.65, 0, 0.35, 1);
   transition-property: background-color, border-color, color;
 }
-.jxui-Tab:not([data-selected]) {
-  transform: translateY(-1px);
-}
 .jxui-Tab[data-selected] {
   background-color: var(--color-bg-default);
   border-color: var(--color-border-default);
+}
+
+[data-position="top"] > .jxui-TabList .jxui-Tab {
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+[data-position="top"] > .jxui-TabList .jxui-Tab[data-selected] {
   border-bottom-color: var(--color-bg-default);
+}
+
+[data-position="right"] > .jxui-TabList .jxui-Tab {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+[data-position="right"] > .jxui-TabList .jxui-Tab[data-selected] {
+  border-left-color: var(--color-bg-default);
+}
+
+[data-position="bottom"] > .jxui-TabList .jxui-Tab {
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+[data-position="bottom"] > .jxui-TabList .jxui-Tab[data-selected] {
+  border-top-color: var(--color-bg-default);
+}
+
+[data-position="left"] > .jxui-TabList .jxui-Tab {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+[data-position="left"] > .jxui-TabList .jxui-Tab[data-selected] {
+  border-right-color: var(--color-bg-default);
+}
+
+[data-position="top"] > .jxui-TabList .jxui-Tab,
+[data-position="bottom"] > .jxui-TabList .jxui-Tab {
+  padding: 0.8rem 1rem;
+}
+
+[data-position="left"] > .jxui-TabList .jxui-Tab,
+[data-position="right"] > .jxui-TabList .jxui-Tab {
+  padding: 1rem 0.8rem;
 }
 
 .jxui-TabPanel {
   z-index: 0;
+  flex-grow: 1;
+  align-self: stretch;
+  border-radius: 4px;
 }

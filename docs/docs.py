@@ -24,6 +24,8 @@ pages = [
                 "ui/details.mdx",
                 "ui/select.mdx",
                 "ui/radio.mdx",
+                "ui/rel-date.mdx",
+                "ui/tabs.mdx",
                 "ui/text-input.mdx",
                 "ui/tooltip.mdx",
             ],

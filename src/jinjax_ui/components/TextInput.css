@@ -1,14 +1,14 @@
 .jxui-TextInput > .jxui-FormWrapper {
-  padding: 0 0.5rem;
+  padding: 0 9px;
 }
 .jxui-TextInput[data-size="large"] > .jxui-FormWrapper {
-  padding: 0 0.6rem;
+  padding: 0 10px;
 }
 
 .jxui-TextInput-input {
   cursor: text;
   outline: none;
-  font-size: 1rem;
+  font-size: var(--font-size-md);
   flex-grow: 1;
   flex-shrink: 1;
   width: 100%;
@@ -16,7 +16,7 @@
   background: transparent;
 }
 [data-size="large"] > * > .jxui-TextInput-input {
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
 }
 
 .jxui-TextInput-leading:not(.icon),
@@ -26,5 +26,5 @@
 .jxui-TextInput-leading.icon,
 .jxui-TextInput-trailing.icon {
   font-size: inherit;
-  margin-top: 0.25rem;
+  margin-top: 5px;
 }

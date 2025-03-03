@@ -5,7 +5,7 @@
 }
 .jxui-Details > summary {
   position: relative;
-  padding: 0.75rem;
+  padding: 12px;
   cursor: pointer;
   font-weight: 500;
   user-select: none;
@@ -13,7 +13,7 @@
 .jxui-DetailsPanel {
   overflow: hidden;
   color: rgb(82 82 82);
-  padding: 0.5rem 0.75rem 0.75rem;
+  padding: 9px 12px 12px;
   height: 0;
   transition: all 0.2s allow-discrete;
 }

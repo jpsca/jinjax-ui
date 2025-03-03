@@ -27,11 +27,11 @@
 .jxui-Alert {
   position: relative;
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0.6rem;
+  padding: 10px;
   background-color: var(--alert-bgColor, #fff);
   border: 1px solid var(--alert-borderColor, #444);
 }
@@ -42,17 +42,16 @@
   line-height: 1;
 }
 .jxui-Alert-icon {
-  margin-top: 0.45rem;
+  margin-top: 8px;
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 .jxui-Alert-dismiss {
-  margin-top: 0.2rem;
+  margin-top: 2px;
 }
 
-
 .jxui-Alert-content {
-  font-size: 0.9rem;
-  padding: 0 0.5rem 0 0;
+  font-size: var(--font-size-md);
+  padding: 0 10px 0 0;
   display: block;
   flex-grow: 1;
 }
@@ -60,24 +59,25 @@
 .jxui-Alert-title {
   font-size: inherit;
   font-weight: 600;
-  padding: 0.15rem 0.5rem 0;
+  padding: 2px 10px 0;
   margin: 0;
 }
 
 .jxui-AlertDescription {
-  padding: 0 0.5rem;
+  padding: 0 10px;
   margin: 0;
+  flex-grow: 1;
 }
 
 .jxui-AlertActions {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.2rem;
+  gap: var(--4px);
   flex-wrap: nowrap;
   align-self: flex-start;
-  font-size: 0.8rem;
-  padding: 0.5rem 0 0.25rem;
+  font-size: var(--font-size-sm);
+  padding: 10px 0 5px;
   flex-direction: row;
 }
 
@@ -85,7 +85,7 @@
   container: alert / inline-size;
 }
 
-@container alert (min-width: 500px) {
+@container alert (min-width: 32rem) {
   .jxui-Alert-content:not(.jxui-Alert--entitled .jxui-Alert-content) {
     display: flex;
     flex-wrap: nowrap;
