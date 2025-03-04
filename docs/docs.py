@@ -27,6 +27,7 @@ pages = [
                 "ui/rel-date.mdx",
                 "ui/tabs.mdx",
                 "ui/text-input.mdx",
+                "ui/textarea.mdx",
                 "ui/tooltip.mdx",
             ],
         ],

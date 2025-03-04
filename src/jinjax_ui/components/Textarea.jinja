@@ -1,0 +1,55 @@
+{#def
+  label="Default label",
+  id=None,
+  type="text",
+  size=None,
+  block=False,
+  invalid=None,
+  valid=None,
+  required=False,
+  disabled=False,
+  caption=None,
+#}
+{#css jxui.css, TextInput.css #}
+
+{% set id = id or get_random_id() %}
+{% set caption = caption or content() %}
+{% do attrs.setdefault(rows=5) %}
+
+{% if invalid %}
+  {% set validation = "invalid" %}
+  {% do attrs.set(aria_invalid="true") %}
+{% elif valid %}
+  {% set validation = "valid" %}
+{% else %}
+  {% set validation = "" %}
+{% endif %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+<FormField
+  class="jxui-Textarea"
+  size={{size}}
+  validation={{validation}}
+  required={{required}}
+  disabled={{disabled}}
+  block={{block}}
+>
+  <FormLabel for={{id}}>{{ label }}</FormLabel>
+  <FormWrapper>
+    <textarea {{ attrs.render(
+      class="jxui-Textarea-input",
+      id=id,
+      required=required,
+      disabled=disabled,
+    ) }}>{{ content() }}</textarea>
+  </FormWrapper>
+
+  <FormValidation valid={{valid}} invalid={{invalid}} />
+  {% if caption -%}
+    <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
+  {%- endif %}
+</FormField>
+

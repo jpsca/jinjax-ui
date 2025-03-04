@@ -1,21 +1,29 @@
 .jxui-TextInput > .jxui-FormWrapper {
-  padding: 0 9px;
-}
-.jxui-TextInput[data-size="large"] > .jxui-FormWrapper {
   padding: 0 10px;
 }
-
-.jxui-TextInput-input {
+.jxui-Textarea > .jxui-FormWrapper {
+  padding: 0;
+  height: auto;
+}
+.jxui-TextInput-input,
+.jxui-Textarea-input  {
   cursor: text;
   outline: none;
   font-size: var(--font-size-md);
   flex-grow: 1;
   flex-shrink: 1;
   width: 100%;
-  padding: 0;
   background: transparent;
 }
-[data-size="large"] > * > .jxui-TextInput-input {
+.jxui-TextInput-input {
+  padding: 0;
+}
+.jxui-Textarea-input  {
+  padding: 10px;
+  min-height: 4rem;
+}
+[data-size="large"] > * > .jxui-TextInput-input,
+[data-size="large"] > * > .jxui-Textarea-input  {
   font-size: var(--font-size-lg);
 }
 
