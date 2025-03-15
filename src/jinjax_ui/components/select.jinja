@@ -1,0 +1,67 @@
+{#def
+  label="Default label",
+  id=None,
+  caption=None,
+  invalid=None,
+  valid=None,
+  required=False,
+  disabled=False,
+  size=None,
+  block=False,
+  loading=False,
+  placeholder=None,
+#}
+{#css jxui.css, select.css #}
+
+{% set id = id or get_random_id() %}
+{% set caption = caption %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+{% if invalid %}
+  {% set validation = "invalid" %}
+  {% do attrs.set(aria_invalid="true") %}
+{% elif valid %}
+  {% set validation = "valid" %}
+{% else %}
+  {% set validation = "" %}
+{% endif %}
+
+<FormField
+  class="jxui-select"
+  size={{size}}
+  validation={{validation}}
+  required={{required}}
+  disabled={{disabled}}
+  block={{block}}
+  loading={{loading}}
+>
+  {% if label %}<FormLabel for={{id}}>{{ label }}</FormLabel>{% endif %}
+  <FormWrapper>
+    <select {{ attrs.render(
+      class="jxui-select-select",
+      id=id,
+      required=required,
+      disabled=disabled,
+    ) }}>
+    {%- if placeholder -%}
+      <option>{{ placeholder }}</option>
+    {%- endif -%}
+    {{ content() }}</select>
+
+    <span class="jxui-select-icon">
+      {% if loading -%}
+        <FormLoading />
+      {%- else -%}
+        <i class="icon jxui-select-arrow">arrow_drop_down</i>
+      {%- endif %}
+    </span>
+  </FormWrapper>
+
+  <FormValidation valid={{valid}} invalid={{invalid}} />
+  {% if caption -%}
+    <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
+  {%- endif %}
+</FormField>

@@ -1,0 +1,9 @@
+.jxui-form-field {
+  width: 15rem;
+}
+.jxui-form-field[data-size="large"] {
+  width: 19rem;
+}
+.jxui-form-field[data-block] {
+  width: 100%;
+}

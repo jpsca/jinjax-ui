@@ -1,9 +1,0 @@
-.jxui-FormField {
-  width: 15rem;
-}
-.jxui-FormField[data-size="large"] {
-  width: 19rem;
-}
-.jxui-FormField[data-block] {
-  width: 100%;
-}

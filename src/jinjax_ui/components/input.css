@@ -1,0 +1,38 @@
+.jxui-input > .jxui-form-wrapper {
+  padding: 0 10px;
+}
+.jxui-textarea > .jxui-form-wrapper {
+  padding: 0;
+  height: auto;
+}
+.jxui-input-input,
+.jxui-textarea-input  {
+  cursor: text;
+  outline: none;
+  font-size: var(--font-size-md);
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+  background: transparent;
+}
+.jxui-input-input {
+  padding: 0;
+}
+.jxui-textarea-input  {
+  padding: 10px;
+  min-height: 4rem;
+}
+[data-size="large"] > * > .jxui-input-input,
+[data-size="large"] > * > .jxui-textarea-input  {
+  font-size: var(--font-size-lg);
+}
+
+.jxui-input-leading:not(.icon),
+.jxui-input-trailing:not(.icon) {
+  font-size: 85%;
+}
+.jxui-input-leading.icon,
+.jxui-input-trailing.icon {
+  font-size: inherit;
+  margin-top: 5px;
+}

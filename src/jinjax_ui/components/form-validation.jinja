@@ -1,0 +1,9 @@
+{#def valid=None, invalid=None #}
+{#css jxui.css, form-validation.css #}
+
+{% if valid -%}
+  <span class="jxui-form-valid"><i class="icon">check</i> {{ valid }}</span>
+{%- endif %}
+{% if invalid -%}
+  <span class="jxui-form-invalid"><i class="icon">check</i> {{ invalid }}</span>
+{%- endif %}

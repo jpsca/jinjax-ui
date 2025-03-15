@@ -1,0 +1,31 @@
+.jxui-select-select {
+  appearance: none;
+  border-radius: inherit;
+  border: 0px;
+  color: currentcolor;
+  font-size: inherit;
+  outline: none;
+  width: 100%;
+  background-color: inherit;
+  margin: 1px 0 1px 1px;
+  padding: 0 0.5rem;
+}
+.jxui-select[data-size="large"] > * > .jxui-select-select {
+  padding: 0 0.6rem;
+}
+
+.jxui-select-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  pointer-events: none;
+}
+.jxui-select-arrow {
+  font-size: 1.3rem;
+}

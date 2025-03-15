@@ -1,0 +1,237 @@
+button.jxui-button,
+a.jxui-button,
+a.jxui-button[href],
+.jxui-button {
+  display: inline-flex;
+  appearance: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  font-family: inherit;
+  min-inline-size: min-content;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 8px;
+  line-height: 1;
+  transition:
+    200ms cubic-bezier(0.65, 0, 0.35, 1) background-color,
+    100ms cubic-bezier(0.65, 0, 0.35, 1) border-color,
+    100ms cubic-bezier(0.65, 0, 0.35, 1) color,
+    100ms cubic-bezier(0.65, 0, 0.35, 1) fill,
+    100ms cubic-bezier(0.65, 0, 0.35, 1) outline-color;
+  box-shadow: 0px 1px 1px 0px rgba(30, 30, 30, 0.1);
+  outline: 4px solid transparent;
+  outline-offset: 1px;
+  text-decoration: none !important;
+
+  --color: #000000;
+  --bg: #f0f0f0;
+  --border: var(--color-border-default);
+
+  --color-hover: #000000;
+  --bg-hover: #e6e6e6;
+  --border-hover: #c6c6c6;
+
+  --color-active: #000000;
+  --bg-active: #e2e2e2;
+  --border-active: #c6c6c6;
+
+  --outline: #7878781a;
+
+  color: var(--color);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.jxui-button:hover:not([disabled]),
+.jxui-button:focus-visible:not([disabled]),
+.jxui-button:hover:not([data-disabled]),
+.jxui-button:focus-visible:not([data-disabled]) {
+  outline-color: var(--outline);
+  color: var(--color-hover);
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+  text-decoration: none;
+}
+
+.jxui-button:active:not([disabled]),
+.jxui-button:active:not([data-disabled]) {
+  color: var(--color-active);
+  background: var(--bg-active);
+  border-color: var(--border-active);
+  outline-color: transparent;
+  box-shadow:
+    inset 1px 2px 4px rgba(30, 30, 30, 0.2),
+    1px 1px 2px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+}
+
+.jxui-button[disabled],
+.jxui-button[disabled]:hover,
+.jxui-button[disabled]:focus-visible,
+.jxui-button[disabled]:active,
+.jxui-button[data-disabled],
+.jxui-button[data-disabled]:hover,
+.jxui-button[data-disabled]:focus-visible,
+.jxui-button[data-disabled]:active{
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.jxui-button-icon {
+  line-height: 1;
+  font-size: 1.125em;
+}
+
+/**************** Sizes ****************/
+.jxui-button {
+  font-size: var(--15px);
+  gap: var(--8px);
+  height: var(--40px);
+  width: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 0 16px;
+}
+.jxui-button[data-size="mini"] {
+  font-size: var(--font-size-xs);
+  gap: var(--4px);
+  height: var(--28px);
+  padding: 0 8px;
+}
+.jxui-button[data-size="small"] {
+  font-size: var(--font-size-sm);
+  gap: var(--6px);
+  height: var(--32px);
+  padding: 0 12px;
+}
+.jxui-button[data-size="large"] {
+  font-size: var(--font-size-lg);
+  gap: var(--8px);
+  height: var(--48px);
+  padding: 0 20px;
+}
+.jxui-button[data-size="big"] {
+  font-size: var(--font-size-xl);
+  gap: var(--10px);
+  height: var(--64px);
+  padding: 0 24px;
+}
+
+/**************** Shapes ****************/
+.jxui-button[data-shape="square"],
+.jxui-button[data-shape="circle"] {
+  line-height: 1;
+  font-size: var(--font-size-lg);
+  padding: 0;
+  aspect-ratio: 1;
+  width: var(--40px);
+}
+.jxui-button[data-shape="square"][data-size="mini"],
+.jxui-button[data-shape="circle"][data-size="mini"] {
+  width: var(--28px);
+  font-size: var(--font-size-xs);
+}
+.jxui-button[data-shape="square"][data-size="small"],
+.jxui-button[data-shape="circle"][data-size="small"] {
+  width: var(--32px);
+  font-size: var(--font-size-sm);
+}
+.jxui-button[data-shape="square"][data-size="large"],
+.jxui-button[data-shape="circle"][data-size="large"] {
+  width: var(--48px);
+  font-size: var(--font-size-xl);
+}
+.jxui-button[data-shape="square"][data-size="big"],
+.jxui-button[data-shape="circle"][data-size="big"] {
+  width: var(--64px);
+  font-size: var(--font-size-xl);
+}
+.jxui-button[data-shape="circle"] {
+  border-radius: 100%;
+}
+.jxui-button[data-shape="square"] {
+  border-radius: 6px;
+}
+.jxui-button[data-shape="block"] {
+  width: 100%;
+}
+
+
+/**************** Variants ****************/
+.jxui-button[data-variant="ghost"] {
+  --bg: transparent;
+  --border: transparent;
+  --border-hover: rgba(240, 240, 240, 0.5);
+  --bg-hover: rgba(240, 240, 240, 0.5);
+  --border-active: rgba(198, 198, 198, 0.5);
+  --bg-active: rgba(224, 224, 224, 0.5);
+
+  box-shadow: none;
+}
+.jxui-button[data-variant="ghost"]:hover:not([disabled])
+.jxui-button[data-variant="ghost"]:hover:not([data-disabled]) {
+  outline-color: transparent;
+}
+
+.jxui-button[data-variant="ghost"]:hover:not([disabled]),
+.jxui-button[data-variant="ghost"]:focus-visible:not([disabled])
+.jxui-button[data-variant="ghost"]:hover:not([data-disabled]),
+.jxui-button[data-variant="ghost"]:focus-visible:not([data-disabled]) {
+  box-shadow: 0px 0px 0px 3px rgba(30, 30, 30, 0.1);
+}
+
+.jxui-button[data-variant="ghost"]:active:not([disabled]),
+.jxui-button[data-variant="ghost"]:active:not([datta-disabled]) {
+  box-shadow:
+    inset 1px 2px 4px rgba(30, 30, 30, 0.2),
+    1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.jxui-button[data-variant="text"] {
+  --color: rgb(75, 117, 231);
+  --bg: transparent;
+  --border: transparent;
+  --color-hover: rgb(44, 93, 226);
+  --bg-hover: transparent;
+  --border-hover: transparent;
+  --color-active: rgb(29, 79, 215);
+  --bg-active: transparent;
+  --border-active: transparent;
+
+  box-shadow: none;
+  outline: none;
+}
+
+.jxui-button[data-variant="text"]:hover:not([disabled]),
+.jxui-button[data-variant="text"]:hover:not([data-disabled]) {
+  outline: none;
+}
+
+.jxui-button[data-variant="text"]:hover:not([disabled]),
+.jxui-button[data-variant="text"]:focus-visible:not([disabled]),
+.jxui-button[data-variant="text"]:hover:not([data-disabled]),
+.jxui-button[data-variant="text"]:focus-visible:not([data-disabled]) {
+  box-shadow: none;
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+
+.jxui-button[data-variant="text"]:active:not([disabled])
+.jxui-button[data-variant="text"]:active:not([data-disabled]) {
+  box-shadow: none;
+  text-decoration: none !important;
+}
+
+.jxui-button-label {
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

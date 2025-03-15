@@ -1,0 +1,23 @@
+{#def
+  label="",
+  id=None,
+  caption=None,
+  size=None,
+  block=False,
+  placeholder=None,
+#}
+{#css jxui.css, tab.css #}
+
+{% do attrs.set(
+  class="jxui-tab-select",
+  aria_hidden=True,
+  tabindex="0",
+  label=label,
+  id=id,
+  caption=caption,
+  size=size,
+  block=block,
+  placeholder=placeholder,
+) %}
+
+<Select __attrs={{ attrs }}>{{ content }}</Select>

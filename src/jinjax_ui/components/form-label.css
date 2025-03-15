@@ -1,0 +1,29 @@
+.jxui-form-label {
+  display: block;
+  color: var(--color-fg-default);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  height: var(--24px);
+  width: 100%;
+  user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+[data-size="large"] > * > .jxui-form-label,
+[data-size="large"] > .jxui-form-label {
+  font-size: var(--font-size-md);
+  height: var(--28px);
+}
+[data-disabled] > * > .jxui-form-label,
+[data-disabled] > .jxui-form-label {
+  color: var(--color-fg-muted);
+  cursor: default;
+}
+[data-required] > * > .jxui-form-label::after
+[data-required] > .jxui-form-label::after {
+  content: "*";
+  margin-left: 4px;
+}

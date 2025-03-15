@@ -1,0 +1,10 @@
+{#def tag="nav" #}
+{#css jxui.css, tab.css #}
+{#js jxui.js, tab.js #}
+
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-tab-list",
+  role="tablist",
+  tabindex="-1",
+) }}>{{ content }}</{{ tag }}>

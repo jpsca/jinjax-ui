@@ -1,0 +1,16 @@
+{#def
+  manual=False,
+  position = "top",
+  align = "start",
+  tag="div",
+#}
+{#css jxui.css, tab.css #}
+{#js jxui.js, tab.js #}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-tab-group",
+  aria_orientation="vertical" if position in ("left", "right") else "horizontal",
+  data_manual=manual,
+  data_position=position,
+  data_align=align,
+) }}>{{ content }}</{{ tag }}>
