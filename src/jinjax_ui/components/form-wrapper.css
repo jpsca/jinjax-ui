@@ -1,11 +1,11 @@
 .jxui-form-wrapper {
-  font-size: var(--font-size-md);
-  color: var(--color-fg-default);
-  background-color: var(--color-canvas-default);
-  border: 1px solid var(--color-border-default);
+  font-size: var(--jxui-font-size-md);
+  color: var(--jxui-color-fg-default);
+  background-color: var(--jxui-color-canvas-bg);
+  border: 1px solid var(--jxui-color-border-default);
   border-radius: 6px;
   outline: none;
-  box-shadow: inset 0 1px 0 var(--color-shadow-inset);
+  box-shadow: inset 0 1px 0 var(--jxui-color-shadow-inset);
   overflow: hidden;
   display: flex;
   padding: 0;
@@ -21,33 +21,33 @@
 }
 
 [data-validation="invalid"] > .jxui-form-wrapper {
-  border-color: var(--color-critical-fg);
+  border-color: var(--jxui-color-critical-fg);
 }
 [data-validation="valid"] > .jxui-form-wrapper {
-  border-color: var(--color-success-fg);
+  border-color: var(--jxui-color-success-fg);
 }
 
 .jxui-form-wrapper:where(:not([data-disabled] > .jxui-form-wrapper)):focus-within {
-  border-color: var(--color-accent-fg, #0969da);
-  outline: 2px solid var(--color-accent-fg, #0969da);
+  border-color: var(--jxui-color-accent-fg, #0969da);
+  outline: 2px solid var(--jxui-color-accent-fg, #0969da);
   outline-offset: -1px;
 }
 [data-disabled] > .jxui-form-wrapper {
-  background-color: var(--color-bg-disabled);
-  border-color: var(--color-border-disabled);
-  color: var(--color-fg-muted);
+  background-color: var(--jxui-color-bg-disabled);
+  border-color: var(--jxui-color-border-disabled);
+  color: var(--jxui-color-fg-muted);
   cursor: default;
 }
 
 [data-size="large"] > .jxui-form-wrapper {
-  font-size: var(--font-size-lg);
+  font-size: var(--jxui-font-size-lg);
   gap: var(--8px);
   height: 3rem;
 }
 
 .jxui-form-wrapper > :not(input, select) {
   align-self: center;
-  color: var(--color-fg-muted);
+  color: var(--jxui-color-fg-muted);
   flex-shrink: 0;
   flex-grow: 0;
   user-select: none;

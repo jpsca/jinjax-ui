@@ -30,13 +30,13 @@ a.jxui-button[href],
 
   --color: #000000;
   --bg: #f0f0f0;
-  --border: var(--color-border-default);
+  --border: var(--jxui-color-border-default);
 
-  --color-hover: #000000;
+  --jxui-color-hover: #000000;
   --bg-hover: #e6e6e6;
   --border-hover: #c6c6c6;
 
-  --color-active: #000000;
+  --jxui-color-active: #000000;
   --bg-active: #e2e2e2;
   --border-active: #c6c6c6;
 
@@ -52,7 +52,7 @@ a.jxui-button[href],
 .jxui-button:hover:not([data-disabled]),
 .jxui-button:focus-visible:not([data-disabled]) {
   outline-color: var(--outline);
-  color: var(--color-hover);
+  color: var(--jxui-color-hover);
   background: var(--bg-hover);
   border-color: var(--border-hover);
   text-decoration: none;
@@ -60,7 +60,7 @@ a.jxui-button[href],
 
 .jxui-button:active:not([disabled]),
 .jxui-button:active:not([data-disabled]) {
-  color: var(--color-active);
+  color: var(--jxui-color-active);
   background: var(--bg-active);
   border-color: var(--border-active);
   outline-color: transparent;
@@ -98,25 +98,25 @@ a.jxui-button[href],
   padding: 0 16px;
 }
 .jxui-button[data-size="mini"] {
-  font-size: var(--font-size-xs);
+  font-size: var(--jxui-font-size-xs);
   gap: var(--4px);
   height: var(--28px);
   padding: 0 8px;
 }
 .jxui-button[data-size="small"] {
-  font-size: var(--font-size-sm);
+  font-size: var(--jxui-font-size-sm);
   gap: var(--6px);
   height: var(--32px);
   padding: 0 12px;
 }
 .jxui-button[data-size="large"] {
-  font-size: var(--font-size-lg);
+  font-size: var(--jxui-font-size-lg);
   gap: var(--8px);
   height: var(--48px);
   padding: 0 20px;
 }
 .jxui-button[data-size="big"] {
-  font-size: var(--font-size-xl);
+  font-size: var(--jxui-font-size-xl);
   gap: var(--10px);
   height: var(--64px);
   padding: 0 24px;
@@ -126,7 +126,7 @@ a.jxui-button[href],
 .jxui-button[data-shape="square"],
 .jxui-button[data-shape="circle"] {
   line-height: 1;
-  font-size: var(--font-size-lg);
+  font-size: var(--jxui-font-size-lg);
   padding: 0;
   aspect-ratio: 1;
   width: var(--40px);
@@ -134,22 +134,22 @@ a.jxui-button[href],
 .jxui-button[data-shape="square"][data-size="mini"],
 .jxui-button[data-shape="circle"][data-size="mini"] {
   width: var(--28px);
-  font-size: var(--font-size-xs);
+  font-size: var(--jxui-font-size-xs);
 }
 .jxui-button[data-shape="square"][data-size="small"],
 .jxui-button[data-shape="circle"][data-size="small"] {
   width: var(--32px);
-  font-size: var(--font-size-sm);
+  font-size: var(--jxui-font-size-sm);
 }
 .jxui-button[data-shape="square"][data-size="large"],
 .jxui-button[data-shape="circle"][data-size="large"] {
   width: var(--48px);
-  font-size: var(--font-size-xl);
+  font-size: var(--jxui-font-size-xl);
 }
 .jxui-button[data-shape="square"][data-size="big"],
 .jxui-button[data-shape="circle"][data-size="big"] {
   width: var(--64px);
-  font-size: var(--font-size-xl);
+  font-size: var(--jxui-font-size-xl);
 }
 .jxui-button[data-shape="circle"] {
   border-radius: 100%;
@@ -162,8 +162,8 @@ a.jxui-button[href],
 }
 
 
-/**************** Variants ****************/
-.jxui-button[data-variant="ghost"] {
+/**************** Types ****************/
+.jxui-button[data-look="ghost"] {
   --bg: transparent;
   --border: transparent;
   --border-hover: rgba(240, 240, 240, 0.5);
@@ -173,33 +173,33 @@ a.jxui-button[href],
 
   box-shadow: none;
 }
-.jxui-button[data-variant="ghost"]:hover:not([disabled])
-.jxui-button[data-variant="ghost"]:hover:not([data-disabled]) {
+.jxui-button[data-look="ghost"]:hover:not([disabled])
+.jxui-button[data-look="ghost"]:hover:not([data-disabled]) {
   outline-color: transparent;
 }
 
-.jxui-button[data-variant="ghost"]:hover:not([disabled]),
-.jxui-button[data-variant="ghost"]:focus-visible:not([disabled])
-.jxui-button[data-variant="ghost"]:hover:not([data-disabled]),
-.jxui-button[data-variant="ghost"]:focus-visible:not([data-disabled]) {
+.jxui-button[data-look="ghost"]:hover:not([disabled]),
+.jxui-button[data-look="ghost"]:focus-visible:not([disabled])
+.jxui-button[data-look="ghost"]:hover:not([data-disabled]),
+.jxui-button[data-look="ghost"]:focus-visible:not([data-disabled]) {
   box-shadow: 0px 0px 0px 3px rgba(30, 30, 30, 0.1);
 }
 
-.jxui-button[data-variant="ghost"]:active:not([disabled]),
-.jxui-button[data-variant="ghost"]:active:not([datta-disabled]) {
+.jxui-button[data-look="ghost"]:active:not([disabled]),
+.jxui-button[data-look="ghost"]:active:not([datta-disabled]) {
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
     1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.jxui-button[data-variant="text"] {
+.jxui-button[data-look="text"] {
   --color: rgb(75, 117, 231);
   --bg: transparent;
   --border: transparent;
-  --color-hover: rgb(44, 93, 226);
+  --jxui-color-hover: rgb(44, 93, 226);
   --bg-hover: transparent;
   --border-hover: transparent;
-  --color-active: rgb(29, 79, 215);
+  --jxui-color-active: rgb(29, 79, 215);
   --bg-active: transparent;
   --border-active: transparent;
 
@@ -207,22 +207,22 @@ a.jxui-button[href],
   outline: none;
 }
 
-.jxui-button[data-variant="text"]:hover:not([disabled]),
-.jxui-button[data-variant="text"]:hover:not([data-disabled]) {
+.jxui-button[data-look="text"]:hover:not([disabled]),
+.jxui-button[data-look="text"]:hover:not([data-disabled]) {
   outline: none;
 }
 
-.jxui-button[data-variant="text"]:hover:not([disabled]),
-.jxui-button[data-variant="text"]:focus-visible:not([disabled]),
-.jxui-button[data-variant="text"]:hover:not([data-disabled]),
-.jxui-button[data-variant="text"]:focus-visible:not([data-disabled]) {
+.jxui-button[data-look="text"]:hover:not([disabled]),
+.jxui-button[data-look="text"]:focus-visible:not([disabled]),
+.jxui-button[data-look="text"]:hover:not([data-disabled]),
+.jxui-button[data-look="text"]:focus-visible:not([data-disabled]) {
   box-shadow: none;
   text-decoration: underline !important;
   text-underline-offset: 4px;
 }
 
-.jxui-button[data-variant="text"]:active:not([disabled])
-.jxui-button[data-variant="text"]:active:not([data-disabled]) {
+.jxui-button[data-look="text"]:active:not([disabled])
+.jxui-button[data-look="text"]:active:not([data-disabled]) {
   box-shadow: none;
   text-decoration: none !important;
 }

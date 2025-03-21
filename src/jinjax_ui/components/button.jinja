@@ -2,7 +2,7 @@
   tag=None,
   icon=None,
   href=None,
-  variant=None,
+  look=None,
   size=None,
   shape=None,
   block=False,
@@ -21,11 +21,11 @@
   {% do attrs.setdefault(type="button") %}
 {% endif %}
 
-{% if variant %}
-  {% do attrs.set(data_variant=variant) %}
+{% if look %} {# "ghost", "text" #}
+  {% do attrs.set(data_look=look) %}
 {% endif %}
 
-{% if size %}
+{% if size %} {# "mini", "small", "large", "big" #}
   {% do attrs.set(data_size=size) %}
 {% endif %}
 
@@ -40,6 +40,6 @@
   class="jxui-button",
   href=href,
 ) }}>
-  {%- if icon %}<i class="icon jxui-button-icon">{{ icon }}</i>{% endif -%}
+  {%- if icon %}<Icon class="jxui-button-icon" name={{ icon }} />{% endif -%}
   {%- if content %}<span class="jxui-button-label">{{ content }}</span>{% endif -%}
 </{{ tag }}>

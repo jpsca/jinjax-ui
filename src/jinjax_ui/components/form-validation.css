@@ -1,18 +1,18 @@
 .jxui-form-valid {
   display: block;
-  font-size: var(--font-size-sm);
+  font-size: var(--jxui-font-size-sm);
   line-height: 1.4;
   margin: 5px 0 0;
   width: 100%;
   font-weight: 600;
-  color: var(--color-success-fg);
+  color: var(--jxui-color-success-fg);
 }
 .jxui-form-invalid {
   display: block;
-  font-size: var(--font-size-sm);
+  font-size: var(--jxui-font-size-sm);
   line-height: 1.4;
   margin: 5px 0 0;
   width: 100%;
   font-weight: 600;
-  color: var(--color-critical-fg);
+  color: var(--jxui-color-critical-fg);
 }

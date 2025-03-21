@@ -45,7 +45,7 @@
   <FormLabel for={{id}}>{{ label }}</FormLabel>
   <FormWrapper>
     {%- if leading %}
-      <i class="icon jxui-input-leading">{{ leading }}</i>
+      <Icon class="jxui-input-leading" name={{ leading }} />
     {%- elif leading_text %}
       <span class="jxui-input-leading">{{ leading_text }}</span>
     {%- endif -%}
@@ -61,7 +61,7 @@
     {%- if loading %}
       <FormLoading />
     {%- elif trailing %}
-      <i class="icon jxui-input-trailing">{{ trailing }}</i>
+      <Icon class="jxui-input-trailing" name={{ trailing }} />
     {%- elif trailing_text %}
       <span class="jxui-input-trailing">{{ trailing_text }}</span>
     {%- endif %}

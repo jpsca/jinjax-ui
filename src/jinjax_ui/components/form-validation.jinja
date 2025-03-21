@@ -2,8 +2,8 @@
 {#css jxui.css, form-validation.css #}
 
 {% if valid -%}
-  <span class="jxui-form-valid"><i class="icon">check</i> {{ valid }}</span>
+  <span class="jxui-form-valid"><Icon name="check" /> {{ valid }}</span>
 {%- endif %}
 {% if invalid -%}
-  <span class="jxui-form-invalid"><i class="icon">check</i> {{ invalid }}</span>
+  <span class="jxui-form-invalid"><Icon name="cancel" /> {{ invalid }}</span>
 {%- endif %}

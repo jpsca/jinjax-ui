@@ -1,9 +1,9 @@
 .jxui-form-label {
   display: block;
-  color: var(--color-fg-default);
+  color: var(--jxui-color-fg-default);
   cursor: pointer;
   font-weight: 600;
-  font-size: var(--font-size-sm);
+  font-size: var(--jxui-font-size-sm);
   height: var(--24px);
   width: 100%;
   user-select: none;
@@ -14,12 +14,12 @@
 
 [data-size="large"] > * > .jxui-form-label,
 [data-size="large"] > .jxui-form-label {
-  font-size: var(--font-size-md);
+  font-size: var(--jxui-font-size-md);
   height: var(--28px);
 }
 [data-disabled] > * > .jxui-form-label,
 [data-disabled] > .jxui-form-label {
-  color: var(--color-fg-muted);
+  color: var(--jxui-color-fg-muted);
   cursor: default;
 }
 [data-required] > * > .jxui-form-label::after

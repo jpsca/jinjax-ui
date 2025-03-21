@@ -9,7 +9,7 @@
 .jxui-textarea-input  {
   cursor: text;
   outline: none;
-  font-size: var(--font-size-md);
+  font-size: var(--jxui-font-size-md);
   flex-grow: 1;
   flex-shrink: 1;
   width: 100%;
@@ -24,7 +24,7 @@
 }
 [data-size="large"] > * > .jxui-input-input,
 [data-size="large"] > * > .jxui-textarea-input  {
-  font-size: var(--font-size-lg);
+  font-size: var(--jxui-font-size-lg);
 }
 
 .jxui-input-leading:not(.icon),

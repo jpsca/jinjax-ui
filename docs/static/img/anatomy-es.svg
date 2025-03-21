@@ -71,7 +71,7 @@
      font-size="11px"
      font-weight="bold"
      stroke-width="1.4"
-     style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25"><tspan
+     style="font-type-caps:normal;font-type-east-asian:normal;font-type-ligatures:normal;font-type-numeric:normal;line-height:1.25"><tspan
        x="17"
        y="90"
        font-style="italic"
