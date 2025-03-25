@@ -1,27 +1,27 @@
 .jxui-alert[data-type="critical"] {
-  --alert-bgColor: var(--jxui-color-critical-subtle);
-  --alert-borderColor: var(--jxui-color-critical-muted);
-  --alert-iconColor: var(--jxui-color-critical-fg);
+  --alert-bgColor: var(--uicolor-critical-subtle);
+  --alert-borderColor: var(--uicolor-critical-muted);
+  --alert-iconColor: var(--uicolor-critical-fg);
 }
 .jxui-alert[data-type="info"] {
-  --alert-bgColor: var(--jxui-color-info-subtle);
-  --alert-borderColor: var(--jxui-color-info-muted);
-  --alert-iconColor: var(--jxui-color-info-fg);
+  --alert-bgColor: var(--uicolor-info-subtle);
+  --alert-borderColor: var(--uicolor-info-muted);
+  --alert-iconColor: var(--uicolor-info-fg);
 }
 .jxui-alert[data-type="success"] {
-  --alert-bgColor: var(--jxui-color-success-subtle);
-  --alert-borderColor: var(--jxui-color-success-muted);
-  --alert-icon-fgColor: var(--jxui-color-success-fg);
+  --alert-bgColor: var(--uicolor-success-subtle);
+  --alert-borderColor: var(--uicolor-success-muted);
+  --alert-icon-fgColor: var(--uicolor-success-fg);
 }
 .jxui-alert[data-type="option"] {
-  --alert-bgColor: var(--jxui-color-option-subtle);
-  --alert-borderColor: var(--jxui-color-option-muted);
-  --alert-iconColor: var(--jxui-color-option-fg);
+  --alert-bgColor: var(--uicolor-option-subtle);
+  --alert-borderColor: var(--uicolor-option-muted);
+  --alert-iconColor: var(--uicolor-option-fg);
 }
 .jxui-alert[data-type="warning"] {
-  --alert-bgColor: var(--jxui-color-warning-subtle);
-  --alert-borderColor: var(--jxui-color-warning-muted);
-  --alert-iconColor: var(--jxui-color-warning-fg);
+  --alert-bgColor: var(--uicolor-warning-subtle);
+  --alert-borderColor: var(--uicolor-warning-muted);
+  --alert-iconColor: var(--uicolor-warning-fg);
 }
 
 .jxui-alert {
@@ -51,7 +51,7 @@
 }
 
 .jxui-alert-content {
-  font-size: var(--jxui-font-size-md);
+  font-size: var(--uifont-size-md);
   padding: 0 10px 0 8px;
   display: block;
   flex-grow: 1;
@@ -77,7 +77,7 @@
   gap: var(--4px);
   flex-wrap: nowrap;
   align-self: flex-start;
-  font-size: var(--jxui-font-size-sm);
+  font-size: var(--uifont-size-sm);
   padding: 10px 0 5px;
   flex-direction: row;
 }

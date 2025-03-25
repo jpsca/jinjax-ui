@@ -7,7 +7,7 @@
   overflow: hidden;
   border-radius: 100%;
   border: 1px solid rgb(230 230 230);
-  font-size: var(--jxui-font-size-sm);
+  font-size: var(--uifont-size-sm);
   font-weight: bold;
 }
 .jxui-avatar > * {

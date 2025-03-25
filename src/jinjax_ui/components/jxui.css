@@ -64,54 +64,52 @@
   --63px: 3.9375rem;
   --64px: 4rem;
 
-  --jxui-font-family-serif: var(--font-family-serif, 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif);
-  --jxui-font-family-sans: var(--font-family-sans, 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif);
-  --jxui-font-family-mono: var(--font-family-mono, ui-monospace, 'Fira Code', 'Fira Mono', 'Consolas', 'Menlo', monospace);
+  --uifont-family-mono: ui-monospace, 'Fira Code', 'Fira Mono', 'Consolas', 'Menlo', monospace;
 
-  --jxui-font-size-xs: var(--font-size-xs, 0.75rem); /* 12px */
-  --jxui-font-size-sm: var(--font-size-sm, 0.875rem); /* 14px */
-  --jxui-font-size-md: var(--font-size-md, 1rem); /* 16px */
-  --jxui-font-size-lg: var(--font-size-lg, 1.125rem); /* 18px */
-  --jxui-font-size-xl: var(--font-size-xl, 1.3125rem); /* 21px */
-  --jxui-font-size-2xl: var(--font-size-2xl, 1.5rem); /* 24px */
-  --jxui-font-size-3xl: var(--font-size-3xl, 2.625rem); /* 42px */
-  --jxui-font-size-4xl: var(--font-size-4xl, 4rem); /* 64px */
+  --uifont-size-xs: 0.75rem; /* 12px */
+  --uifont-size-sm: 0.875rem; /* 14px */
+  --uifont-size-md: 1rem; /* 16px */
+  --uifont-size-lg: 1.125rem; /* 18px */
+  --uifont-size-xl: 1.3125rem; /* 21px */
+  --uifont-size-2xl: 1.5rem; /* 24px */
+  --uifont-size-3xl: 2.625rem; /* 42px */
+  --uifont-size-4xl: 4rem; /* 64px */
 
-  --jxui-color-fg-default: var(--color-fg-default, #1F2328);
-  --jxui-color-fg-muted: var(--color-fg-muted, #59636e);
+  --uicolor-fg-default: #1F2328;
+  --uicolor-fg-muted: #59636e;
 
-  --jxui-color-bg-default: var(--color-bg-default, #fff);
-  --jxui-color-bg-disabled: var(--color-bg-disabled, #efefef4d);
-  --jxui-color-canvas-bg: var(--color-canvas-bg, #cfcfcf);
-  --jxui-color-canvas-bg-hover: var(--color-canvas-bg-hover, #bfbfbf);
+  --uicolor-bg-default: #fff;
+  --uicolor-bg-disabled: #efefef4d;
+  --uicolor-canvas-bg: #cfcfcf;
+  --uicolor-canvas-bg-hover: #bfbfbf;
 
-  --jxui-color-border-default: var(--color-border-default, #c6c6c6);
-  --jxui-color-border-muted: var(--color-border-muted, #ddd);
-  --jxui-color-border-disabled: var(--color-border-disabled, #7676764d);
+  --uicolor-border-default: #c6c6c6;
+  --uicolor-border-muted: #ddd;
+  --uicolor-border-disabled: #7676764d;
 
-  --jxui-color-shadow-inset: var(--color-shadow-inset, #d0d7de33);
+  --uicolor-shadow-inset: #d0d7de33;
 
-  --jxui-color-accent-fg: var(--color-accent-fg, #0969da);
+  --uicolor-accent-fg: #0969da;
 
-  --jxui-color-critical-subtle: var(--color-critical-subtle, #ffebe9);
-  --jxui-color-critical-muted: var(--color-critical-muted, #ff818266);
-  --jxui-color-critical-fg: var(--color-critical-fg, #d1242f);
+  --uicolor-critical-subtle: #ffebe9;
+  --uicolor-critical-muted: #ff818266;
+  --uicolor-critical-fg: #d1242f;
 
-  --jxui-color-info-subtle: var(--color-info-subtle, #ddf4ff);
-  --jxui-color-info-muted: var(--color-info-muted, #54aeff66);
-  --jxui-color-info-fg: var(--color-info-fg, #0969da);
+  --uicolor-info-subtle: #ddf4ff;
+  --uicolor-info-muted: #54aeff66;
+  --uicolor-info-fg: #0969da;
 
-  --jxui-color-success-subtle: var(--color-success-subtle, #dafbe1);
-  --jxui-color-success-muted: var(--color-success-muted, #4ac26b66);
-  --jxui-color-success-fg: var(--color-success-fg, #1a7f37);
+  --uicolor-success-subtle: #dafbe1;
+  --uicolor-success-muted: #4ac26b66;
+  --uicolor-success-fg: #1a7f37;
 
-  --jxui-color-option-subtle: var(--color-option-subtle, #fbefff);
-  --jxui-color-option-muted: var(--color-option-muted, #c297ff66);
-  --jxui-color-option-fg: var(--color-option-fg, #8250df);
+  --uicolor-option-subtle: #fbefff;
+  --uicolor-option-muted: #c297ff66;
+  --uicolor-option-fg: #8250df;
 
-  --jxui-color-warning-subtle: var(--color-warning-subtle, #fff8c5);
-  --jxui-color-warning-muted: var(--color-warning-muted, #d4a72c66);
-  --jxui-color-warning-fg: var(--color-warning-fg, #9a6700);
+  --uicolor-warning-subtle: #fff8c5;
+  --uicolor-warning-muted: #d4a72c66;
+  --uicolor-warning-fg: #9a6700;
 }
 
 
@@ -124,11 +122,6 @@
 ::before,
 ::after {
   --cd-content: "";
-}
-
-html {
-  color: var(--jxui-color-fg-default);
-  background: var(--jxui-color-bg-default);
 }
 
 [data-disabled] {
@@ -162,12 +155,12 @@ html {
 }
 
 kbd {
-  font-family: var(--jxui-font-family-monospace);
+  font-family: var(--uifont-family-mono);
   display: inline-block;
   padding: 0.2rem 0.25rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  font-size: var(--jxui-font-size-sm);
+  font-size: var(--uifont-size-sm);
   line-height: 1;
   font-weight: 500;
   letter-spacing: -0.025em;

@@ -1,8 +1,8 @@
 .jxui-form-caption {
   display: block;
-  font-size: var(--jxui-font-size-sm);
+  font-size: var(--uifont-size-sm);
   line-height: 1.4;
   margin: 4px 0 0;
   width: 100%;
-  color: var(--jxui-color-fg-muted);
+  color: var(--uicolor-fg-muted);
 }

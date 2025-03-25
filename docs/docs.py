@@ -1,58 +1,51 @@
 #!/usr/bin/env python
 import logging
-from pathlib import Path
-
 import jinjax_ui
-from claydocs import Docs
+
+from claydocs import Docs, theme_path
 
 
 logging.getLogger("jinjax").setLevel(logging.INFO)
 logging.getLogger("jinjax").addHandler(logging.StreamHandler())
 
-here = Path(__file__).parent
-
 pages = [
-    "index.md",
-        [
-            "Components", [
-                "ui/index.md",
-                "ui/alert.mdx",
-                "ui/avatar.mdx",
-                "ui/button.mdx",
-                "ui/checkbox.mdx",
-                "ui/details.mdx",
-                "ui/select.mdx",
-                "ui/radio.mdx",
-                "ui/rel-date.mdx",
-                "ui/tabs.mdx",
-                "ui/input.mdx",
-                "ui/textarea.mdx",
-                "ui/tooltip.mdx",
-            ],
-        ],
+    "index.mdx",
+    "alert.mdx",
+    "avatar.mdx",
+    "button.mdx",
+    "checkbox.mdx",
+    "details.mdx",
+    "select.mdx",
+    "radio.mdx",
+    "rel-date.mdx",
+    "tabs.mdx",
+    "input.mdx",
+    "textarea.mdx",
+    "tooltip.mdx",
 ]
 
+
 def get_docs() -> Docs:
-    root_path = here / "content"
     docs = Docs(
         pages,
-        content_folder=root_path,
-        add_ons=[jinjax_ui],
+        content_folder="./content",
         search=False,
         cache=False,
-        domain="https://jinjax.scaletti.dev",
-        default_component="Page",
+        domain="https://jinjax-ui.scaletti.dev",
+        default="Page",
         default_social="SocialCard",
         metadata={
-            "name": "JinjaX",
-            "language": "en",
-            "license": "MIT",
-            "version": "0.43",
-            "web": "https://jinjax.scaletti.dev",
-        }
+            "default_title": "JinjaX-UI Documentation",
+            "repo": "https://github.com/jpsca/jinjax-ui",
+            "logo": "/static/img/logo.svg",
+        },
     )
-    docs.add_folder(here / "components")
-    docs.add_folder(here / "theme")
+
+    # Custom component + theme overrides
+    docs.add_folder("./components")
+    docs.add_folder(jinjax_ui.components_path)
+    # Default theme
+    docs.add_folder(theme_path)
     return docs
 
 

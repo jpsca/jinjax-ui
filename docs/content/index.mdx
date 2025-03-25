@@ -1,0 +1,27 @@
+---
+title: Introduction
+description: Styled and accessible UI components, to integrate with your JinjaX projects.
+---
+
+
+## How to use
+
+1. Install the `jinjax-ui` python library doing
+
+  ```bash
+  pip install jinjax-ui
+  ```
+
+2. Add it to your *JinjaX* catalog:
+
+  ```python
+  import jinjax_ui
+
+  catalog.add_folder(jinjax_ui.components_path, prefix="")
+  ```
+
+3. Use the UI components in your components/templates:
+
+  ```html+jinja
+  <Popover> ... </Popover>
+  ```
