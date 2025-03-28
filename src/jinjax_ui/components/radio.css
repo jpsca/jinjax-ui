@@ -21,8 +21,8 @@
   width: 1.2rem;
   aspect-ratio: 1;
   appearance: none;
-  background-color: var(--uicolor-canvas-bg);
-  border: 1px solid var(--uicolor-border-default);
+  background-color: var(--uicolor-bg-canvas);
+  border: 2px solid var(--uicolor-border-default);
   position: relative;
   transition-duration: 0.2s;
   transition-property: background-color, border-color;
@@ -40,7 +40,7 @@
   line-height: 1;
   font-size: var(--uifont-size-md);
   text-align: center;
-  background: var(--uicolor-canvas-bg);
+  background: var(--uicolor-bg-canvas);
   border: 0.25rem solid transparent;
   border-radius: 100%;
   position: absolute;
@@ -52,7 +52,7 @@
 }
 .jxui-radio-input:checked::after {
   background-color: var(--uicolor-accent-fg);
-  border-color: var(--uicolor-canvas-bg);
+  border-color: var(--uicolor-bg-canvas);
 }
 .jxui-radio-input:checked {
   border-color: var(--uicolor-accent-fg);

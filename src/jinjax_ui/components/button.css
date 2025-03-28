@@ -17,30 +17,27 @@ a.jxui-button[href],
   white-space: nowrap;
   border-radius: 8px;
   line-height: 1;
-  transition:
-    200ms cubic-bezier(0.65, 0, 0.35, 1) background-color,
-    100ms cubic-bezier(0.65, 0, 0.35, 1) border-color,
-    100ms cubic-bezier(0.65, 0, 0.35, 1) color,
-    100ms cubic-bezier(0.65, 0, 0.35, 1) fill,
-    100ms cubic-bezier(0.65, 0, 0.35, 1) outline-color;
-  box-shadow: 0px 1px 1px 0px rgba(30, 30, 30, 0.1);
+  transition-duration: 200ms;
+  transition-property: background-color, border-color, color, fill, outline-color;
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  box-shadow: 0px 1px 1px 0px rgba(17, 17, 17, 0.1);
   outline: 4px solid transparent;
   outline-offset: 1px;
   text-decoration: none !important;
 
   --color: var(--uicolor-dark-4);
-  --bg: var(--uicolor-light-1);
+  --bg: var(--uicolor-light-2);
   --border: var(--uicolor-border-default);
 
   --color-hover: var(--uicolor-dark-4);
-  --bg-hover: var(--uicolor-light-2);
-  --border-hover: var(--uicolor-light-4);
+  --bg-hover: var(--uicolor-light-3);
+  --border-hover: var(--uicolor-border-default);
 
   --color-active: var(--uicolor-dark-4);
-  --bg-active: var(--uicolor-light-2);
+  --bg-active: var(--uicolor-light-4);
   --border-active: var(--uicolor-light-5);
 
-  --outline: #7878781a;
+  --outline: rgba(0, 94, 255, 0.1);
 
   color: var(--color);
   background: var(--bg);
@@ -51,11 +48,15 @@ a.jxui-button[href],
 .jxui-button:focus-visible:not([disabled]),
 .jxui-button:hover:not([data-disabled]),
 .jxui-button:focus-visible:not([data-disabled]) {
-  outline-color: var(--outline);
   color: var(--color-hover);
   background: var(--bg-hover);
   border-color: var(--border-hover);
   text-decoration: none;
+}
+
+.jxui-button:focus-visible:not([disabled]),
+.jxui-button:focus-visible:not([data-disabled]) {
+  outline-color: var(--outline);
 }
 
 .jxui-button:active:not([disabled]),
@@ -64,10 +65,10 @@ a.jxui-button[href],
   background: var(--bg-active);
   border-color: var(--border-active);
   outline-color: transparent;
+  text-decoration: none;
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
     1px 1px 2px rgba(0, 0, 0, 0.05);
-    text-decoration: none;
 }
 
 .jxui-button[disabled],
@@ -167,11 +168,10 @@ a.jxui-button[href],
   --bg: transparent;
   --border: transparent;
   --bg-hover: transparent;
-  --outline: transparent;
   box-shadow: none;
 }
 .jxui-button[data-look="ghost"]:active:not([disabled]),
-.jxui-button[data-look="ghost"]:active:not([datta-disabled]) {
+.jxui-button[data-look="ghost"]:active:not([data-disabled]) {
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
     1px 1px 2px rgba(0, 0, 0, 0.05);
@@ -180,34 +180,27 @@ a.jxui-button[href],
 .jxui-button[data-look="outline"] {
   --bg: transparent;
   --bg-hover: transparent;
-  --outline: transparent;
   box-shadow: none;
 }
 .jxui-button[data-look="outline"]:active:not([disabled]),
-.jxui-button[data-look="outline"]:active:not([datta-disabled]) {
+.jxui-button[data-look="outline"]:active:not([data-disabled]) {
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
     1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .jxui-button[data-look="text"] {
-  --color: var(--uicolor-blue-3);
+  --color: var(--uicolor-blue-4);
   --bg: transparent;
   --border: transparent;
   --color-hover: var(--uicolor-blue-4);
   --bg-hover: transparent;
   --border-hover: transparent;
-  --uicolor-active: var(--uicolor-blue-5);
+  --color-active: var(--uicolor-blue-5);
   --bg-active: transparent;
   --border-active: transparent;
 
   box-shadow: none;
-  outline: none;
-}
-
-.jxui-button[data-look="text"]:hover:not([disabled]),
-.jxui-button[data-look="text"]:hover:not([data-disabled]) {
-  outline: none;
 }
 
 .jxui-button[data-look="text"]:hover:not([disabled]),

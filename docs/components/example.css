@@ -10,17 +10,24 @@
 .cd-Example-TabPanel {
   position: relative;
   min-height: 250px;
-  border: 1px solid #ccc;
   overflow: auto;
+  border: 1px solid var(--uicolor-border-default);
+  background-color: var(--uicolor-bg-default);
 }
 .cd-Example-TabPanel--demo {
   color: #111;
-  padding: 3rem 20%;
+  padding: 3rem 10%;
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
   font-size: 1rem;
   flex-wrap: wrap;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .cd-Example-TabPanel--demo {
+    padding: 3rem 20px;
+  }
 }
 .cd-Example-TabPanel--demo > .row {
   width: 100%;
@@ -28,6 +35,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
+  gap: 10px;
 }
 .cd-Example-TabPanel--demo > .row > button {
   align-self: center;
@@ -35,7 +43,7 @@
 }
 .cd-Example-TabPanel--demo .jxui-tab-panel {
   padding: 20px;
-  border: 1px solid #c6c6c6;
+  border: 1px solid var(--uicolor-border-muted);
 }
 .cd-Example-TabPanel--demo a[href] {
   color: #0969da;

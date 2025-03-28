@@ -1,7 +1,7 @@
 .jxui-form-wrapper {
   font-size: var(--uifont-size-md);
   color: var(--uicolor-fg-input);
-  background-color: var(--uicolor-canvas-bg);
+  background-color: var(--uicolor-bg-canvas);
   border: 1px solid var(--uicolor-border-default);
   border-radius: var(--uiborder-radius);
   outline: none;

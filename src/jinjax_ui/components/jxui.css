@@ -146,17 +146,20 @@
   --uicolor-fg-default: var(--uicolor-dark-4);
   --uicolor-fg-input: var(--uicolor-dark-3);
   --uicolor-fg-muted: var(--uicolor-dark-1);
+  --uicolor-fg-tooltip: var(--uicolor-light-0);
 
   --uicolor-bg-default: var(--uicolor-light-1);
   --uicolor-bg-disabled: var(--uicolor-light-1);
+  --uicolor-bg-canvas: var(--uicolor-light-1);
+  --uicolor-bg-canvas-hover: var(--uicolor-light-2);
+  --uicolor-bg-panel: var(--uicolor-light-3);
+  --uicolor-bg-tooltip: var(--uicolor-dark-3);
 
-  --uicolor-canvas-bg: var(--uicolor-light-1);
-  --uicolor-canvas-bg-hover: var(--uicolor-light-2);
-
-  --uicolor-border-default: var(--uicolor-light-4);
-  --uicolor-border-muted: var(--uicolor-light-2);
+  --uicolor-border-default: var(--uicolor-light-8);
+  --uicolor-border-muted: var(--uicolor-light-5);
   --uicolor-border-disabled: var(--uicolor-light-3);
 
+  --uicolor-outline: rgba(var(--uicolor-dark-0), 0.1);
   --uicolor-shadow-inset: #d0d7de33;
   --uicolor-accent-fg: var(--uicolor-blue-4);
 
