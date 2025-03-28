@@ -191,13 +191,13 @@ a.jxui-button[href],
 }
 
 .jxui-button[data-look="text"] {
-  --color: rgb(75, 117, 231);
+  --color: var(--uicolor-blue-3);
   --bg: transparent;
   --border: transparent;
-  --color-hover: rgb(44, 93, 226);
+  --color-hover: var(--uicolor-blue-4);
   --bg-hover: transparent;
   --border-hover: transparent;
-  --uicolor-active: rgb(29, 79, 215);
+  --uicolor-active: var(--uicolor-blue-5);
   --bg-active: transparent;
   --border-active: transparent;
 

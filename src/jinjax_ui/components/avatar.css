@@ -6,7 +6,7 @@
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 100%;
-  border: 1px solid rgb(230 230 230);
+  border: 1px solid var(--uicolor-border-default);
   font-size: var(--uifont-size-sm);
   font-weight: bold;
 }
@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  background-color: rgb(230 230 230);
+  background-color: var(--uicolor-border-default);
 }
 .jxui-avatar > img {
   position: absolute;
