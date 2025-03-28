@@ -52,6 +52,7 @@
       <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
     {%- endif %}
   </div>
-
-  <FormValidation valid={{valid}} invalid={{invalid}} />
+  {% if invalid or valid -%}
+    <FormFooter valid={{valid}} invalid={{invalid}} />
+  {%- endif %}
 </FormField>

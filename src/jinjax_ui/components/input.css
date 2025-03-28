@@ -27,12 +27,11 @@
   font-size: var(--uifont-size-lg);
 }
 
-.jxui-input-leading:not(.icon),
-.jxui-input-trailing:not(.icon) {
+.jxui-input-leading:not(.jxui-icon),
+.jxui-input-trailing:not(.jxui-icon) {
   font-size: 85%;
 }
-.jxui-input-leading.icon,
-.jxui-input-trailing.icon {
-  font-size: inherit;
-  margin-top: 5px;
+.jxui-input-leading,
+.jxui-input-trailing {
+  margin-top: 2px;
 }

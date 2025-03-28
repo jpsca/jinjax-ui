@@ -1,18 +1,21 @@
+.jxui-form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 5px 0 0;
+  width: 100%;
+}
 .jxui-form-valid {
   display: block;
   font-size: var(--uifont-size-sm);
   line-height: 1.4;
-  margin: 5px 0 0;
-  width: 100%;
   font-weight: 600;
-  color: var(--uicolor-success-fg);
+  color: var(--uicolor-green-4);
 }
 .jxui-form-invalid {
   display: block;
   font-size: var(--uifont-size-sm);
   line-height: 1.4;
-  margin: 5px 0 0;
-  width: 100%;
   font-weight: 600;
-  color: var(--uicolor-critical-fg);
+  color: var(--uicolor-red-3);
 }

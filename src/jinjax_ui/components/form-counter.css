@@ -1,0 +1,14 @@
+.jxui-form-counter {
+  text-align: right;
+  color: var(--uicolor-fg-muted);
+  font-size: var(--uifont-size-sm);
+  white-space: nowrap;
+  margin-left: auto
+}
+/* .jxui-form-counter[data-validation="valid"] {
+  color: var(--uicolor-green-4);
+} */
+.jxui-form-counter[data-validation="invalid"] {
+  color: var(--uicolor-red-3);
+}
+

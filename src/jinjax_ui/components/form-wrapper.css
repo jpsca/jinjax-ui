@@ -1,9 +1,9 @@
 .jxui-form-wrapper {
   font-size: var(--uifont-size-md);
-  color: var(--uicolor-fg-default);
+  color: var(--uicolor-fg-input);
   background-color: var(--uicolor-canvas-bg);
   border: 1px solid var(--uicolor-border-default);
-  border-radius: 6px;
+  border-radius: var(--uiborder-radius);
   outline: none;
   box-shadow: inset 0 1px 0 var(--uicolor-shadow-inset);
   overflow: hidden;
@@ -21,10 +21,10 @@
 }
 
 [data-validation="invalid"] > .jxui-form-wrapper {
-  border-color: var(--uicolor-critical-fg);
+  border-color: var(--uicolor-red-3);
 }
 [data-validation="valid"] > .jxui-form-wrapper {
-  border-color: var(--uicolor-success-fg);
+  border-color: var(--uicolor-green-4);
 }
 
 .jxui-form-wrapper:where(:not([data-disabled] > .jxui-form-wrapper)):focus-within {
@@ -36,16 +36,23 @@
   background-color: var(--uicolor-bg-disabled);
   border-color: var(--uicolor-border-disabled);
   color: var(--uicolor-fg-muted);
-  cursor: default;
+}
+
+[data-disabled] > .jxui-form-wrapper,
+[data-disabled] > .jxui-form-wrapper *,
+.jxui-form-wrapper :disabled {
+  cursor: not-allowed;
 }
 
 [data-size="large"] > .jxui-form-wrapper {
   font-size: var(--uifont-size-lg);
   gap: var(--8px);
+}
+[data-size="large"] > .jxui-form-wrapper:has(input) {
   height: 3rem;
 }
 
-.jxui-form-wrapper > :not(input, select) {
+.jxui-form-wrapper > :not(input, select, textarea) {
   align-self: center;
   color: var(--uicolor-fg-muted);
   flex-shrink: 0;

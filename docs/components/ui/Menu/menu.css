@@ -28,7 +28,7 @@
   .ui-menubutton:hover {
     background-color: rgb(0 0 0 / 0.2);
   }
-  .ui-menubutton .icon {
+  .ui-menubutton .jxui-icon {
     margin-left: 0.25rem;
   }
 
@@ -97,12 +97,12 @@
   .ui-menuitem.ui-disabled {
     color: #5f6368;
   }
-  .ui-menuitem > .icon {
+  .ui-menuitem > .jxui-icon {
     font-size: 1rem;
     width: 24px;
     text-align: left;
   }
-  .ui-menuitem.ui-disabled > .icon {
+  .ui-menuitem.ui-disabled > .jxui-icon {
     color: #aca6a7;
   }
   .ui-menuitem > a {

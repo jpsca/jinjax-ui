@@ -4,17 +4,18 @@
   type="text",
   size=None,
   block=False,
-  invalid=None,
-  valid=None,
   required=False,
   disabled=False,
+  invalid=None,
+  valid=None,
   caption=None,
+  countermin=None,
+  countermax=None,
 #}
 {#css jxui.css, input.css #}
 
 {% set id = id or get_random_id() %}
-{% set caption = caption or content() %}
-{% do attrs.setdefault(rows=5) %}
+{% do attrs.setdefault(rows=4) %}
 
 {% if invalid %}
   {% set validation = "invalid" %}
@@ -46,10 +47,15 @@
       disabled=disabled,
     ) }}>{{ content() }}</textarea>
   </FormWrapper>
-
-  <FormValidation valid={{valid}} invalid={{invalid}} />
-  {% if caption -%}
-    <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
+  {% if invalid or valid or caption or countermax or countermin -%}
+    <FormFooter
+      target={{id}}
+      invalid={{invalid}}
+      valid={{valid}}
+      caption={{caption}}
+      countermax={{countermax}}
+      countermin={{countermin}}
+    />
   {%- endif %}
 </FormField>
 

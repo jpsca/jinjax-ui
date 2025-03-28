@@ -222,9 +222,8 @@ function selectDefault(tabGroup) {
   }
 }
 
-/**
- * Select the default Tab for each TabGroup on the page.
- */
-document.addEventListener("DOMContentLoaded", function selectAllDefaults() {
+function setup() {
   document.querySelectorAll(SEL_GROUP).forEach(selectDefault);
-});
+}
+document.addEventListener("DOMContentLoaded", setup);
+setup();

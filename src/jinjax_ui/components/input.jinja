@@ -4,12 +4,14 @@
   type="text",
   size=None,
   block=False,
-  invalid=None,
-  valid=None,
   required=False,
   disabled=False,
   loading=False,
+  invalid=None,
+  valid=None,
   caption=None,
+  countermin=None,
+  countermax=None,
   leading=None,
   leading_text=None,
   trailing=None,
@@ -67,9 +69,15 @@
     {%- endif %}
   </FormWrapper>
 
-  <FormValidation valid={{valid}} invalid={{invalid}} />
-  {% if caption -%}
-    <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
+  {% if invalid or valid or caption or countermax or countermin -%}
+    <FormFooter
+      target={{id}}
+      invalid={{invalid}}
+      valid={{valid}}
+      caption={{caption}}
+      countermax={{countermax}}
+      countermin={{countermin}}
+    />
   {%- endif %}
 </FormField>
 

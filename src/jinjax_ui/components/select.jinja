@@ -59,9 +59,12 @@
       {%- endif %}
     </span>
   </FormWrapper>
-
-  <FormValidation valid={{valid}} invalid={{invalid}} />
-  {% if caption -%}
-    <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
+  {% if invalid or valid or caption -%}
+    <FormFooter
+      target={{id}}
+      invalid={{invalid}}
+      valid={{valid}}
+      caption={{caption}}
+    />
   {%- endif %}
 </FormField>

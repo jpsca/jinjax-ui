@@ -94,8 +94,9 @@ export function observeRelDates() {
   observer.observe(document, { childList: true, subtree: true });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+function setup() {
   document.querySelectorAll("time[data-relative]").forEach(processRelDate);
   observeRelDates();
-});
-
+}
+document.addEventListener("DOMContentLoaded", setup);
+setup();

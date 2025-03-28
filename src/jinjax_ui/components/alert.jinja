@@ -28,7 +28,7 @@
   </div>
   <div class="jxui-alert-content">
     {% if title %}<h2 class="jxui-alert-title">{{ title }}</h2>{% endif %}
-    <div>{{ content }}</div>
+    {{ content }}
   </div>
   {% if dismissable %}
     <Button look="ghost" shape="square" size="mini" class="jxui-alert-dismiss" aria-label="Dismiss alert" aria-hidden="true" title="Dismiss alert" data-tooltip>
