@@ -1,0 +1,20 @@
+.jxui-swatch {
+  text-align: left;
+}
+.jxui-swatch__color > div {
+  display: block;
+  border-radius: var(--uiborder-radius);
+  height: 1.9rem;
+  width: 5rem;
+  border: 1px solid var(--uicolor-border-default);
+}
+tr.separator {
+  height: 1rem;
+  border-right: none;
+  border-left: none;
+}
+.jxui-swatch__color > *,
+.jxui-swatch__name > *,
+.jxui-swatch__value > * {
+  white-space: nowrap;
+}

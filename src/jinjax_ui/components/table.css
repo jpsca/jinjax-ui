@@ -1,0 +1,36 @@
+.jxui-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 0;
+  border: none;
+}
+.jxui-table {
+  border: none;
+  text-indent: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.jxui-table * {
+  border: none;
+}
+.jxui-table tr:not(:last-child) {
+  border-bottom: 1px solid var(--uicolor-border-muted);
+}
+.jxui-table thead {
+  border-bottom: 1px solid var(--uicolor-border-default);
+}
+.jxui-table th {
+  font-weight: semibold;
+  padding: 5px 8px 8px;
+}
+.jxui-table td {
+  padding: 5px 8px;
+}
+.jxui-table td, th {
+  font-size: 0.94em;
+  text-align: left;
+  vertical-align: middle;
+}

@@ -1,0 +1,16 @@
+{% macro linked(source) -%}
+{%- if source.startswith(("http://", "https://")) -%}
+  {% set url = source %}
+{%- else -%}
+  {% set url = metadata.repo + "/tree/main/src/jinjax_ui/components/" + source %}
+{%- endif -%}
+<a href="{{ url }}" target="_blank" rel="noopener noreferrer">{{ source }}</a>
+{%- endmacro %}
+
+{% set sources = page.meta.get("sources", []) %}
+
+{% if sources -%}
+<p class="ui-sources">Source code: {% for source in sources -%}
+{{ linked(source) }}{% if not loop.last %}, {% endif -%}
+{% endfor %}</p>
+{%- endif %}

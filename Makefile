@@ -1,8 +1,8 @@
 .PHONY: install
 install:
-	uv sync
-	uv pip install -e .
+	uv sync --group docs
 	uv pip install -e ../jinjax/
+	uv pip install -e ../claydocs/
 
 .PHONY: docs
 docs:
