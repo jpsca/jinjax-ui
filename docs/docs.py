@@ -37,7 +37,7 @@ def get_docs() -> Docs:
         metadata={
             "default_title": "JinjaX-UI Documentation",
             "repo": "https://github.com/jpsca/jinjax-ui",
-            "logo": "/static/img/logo.svg",
+            "logo": "/static/img/ui-logo.svg",
         },
     )
 

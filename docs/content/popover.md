@@ -1,6 +1,9 @@
 ---
 title: Pop-over
 description: A wrapper over the Popover API with anchor positioning.
+sources: [
+  ["Popover", "popover.jinja"],
+]
 ---
 
 <Header title="Pop-over" section="Components">

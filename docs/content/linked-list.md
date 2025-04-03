@@ -1,6 +1,11 @@
 ---
 title: Linked Lists
 description: A component to select multiple items from a long list, while keeping them sorted.
+sources: [
+  ["LinkedList", "linked-list.jinja"],
+  ["", "linked-list.css"],
+  ["", "linked-list.js"],
+]
 ---
 
 <Header title="Linked Lists" section="Components">

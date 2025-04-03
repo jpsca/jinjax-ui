@@ -1,0 +1,10 @@
+.ui-link {
+  color: #3584e4;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ui-link:hover {
+  color: #1c71d8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

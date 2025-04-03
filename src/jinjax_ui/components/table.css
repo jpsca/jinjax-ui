@@ -2,7 +2,8 @@
   width: 100%;
   overflow-x: auto;
   padding: 0;
-  border: none;
+  border: 1px solid var(--uicolor-border-muted);
+  border-radius: var(--uiborder-radius);
 }
 .jxui-table {
   border: none;
@@ -12,25 +13,51 @@
   padding: 0;
   margin: 0;
   width: 100%;
+  font-size: 0.9em;
 }
 .jxui-table * {
   border: none;
+}
+.jxui-table tr:hover {
+  background-color: var(--uicolor-bg-canvas-hover);
 }
 .jxui-table tr:not(:last-child) {
   border-bottom: 1px solid var(--uicolor-border-muted);
 }
 .jxui-table thead {
   border-bottom: 1px solid var(--uicolor-border-default);
+  background-color: var(--uicolor-bg-canvas-hover);
+  line-height: 1.4;
+  font-size: 0.9em;
 }
 .jxui-table th {
-  font-weight: semibold;
+  font-weight: 500;
   padding: 5px 8px 8px;
 }
 .jxui-table td {
   padding: 5px 8px;
 }
-.jxui-table td, th {
+.jxui-table td,
+.jxui-table th {
   font-size: 0.94em;
   text-align: left;
   vertical-align: middle;
+}
+.jxui-table td.center,
+.jxui-table th.center {
+  text-align: center;
+}
+.jxui-table td.right,
+.jxui-table th.right {
+  text-align: right;
+}
+.jxui-table td.left,
+.jxui-table th.left {
+  text-align: left;
+}
+.jxui-table td.nowrap,
+.jxui-table th.nowrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
