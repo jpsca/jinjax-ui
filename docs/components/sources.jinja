@@ -6,9 +6,9 @@
 <Table class="ui-sources">
 <thead>
   <tr>
-    <th>Component</th>
-    <th>File</th>
-    <th class="right">Source</th>
+    <th><div>Component</div></th>
+    <th><div>File</div></th>
+    <th class="right"><div>Source</div></th>
   </tr>
 </thead>
 <tbody>
@@ -20,15 +20,21 @@
   {%- endif -%}
 
   <tr>
-    <th>{% if cname %}<strong><code>{{ cname }}</code></strong>{% endif %}</th>
-    <td><code>{{ filename }}</code></td>
-    <td class="right"><Button
-      icon="terminal"
-      size="mini"
-      href={{url}}
-      target="_blank"
-      rel="noopener noreferrer"
-    >See source</Button></td>
+    <th>
+      {%- if cname %}<div><code>{{ cname }}</code></div>{% endif -%}
+    </th>
+    <td>
+      <div><code>{{ filename }}</code></div>
+    </td>
+    <td class="right">
+      <div><Button
+        icon="terminal"
+        size="mini"
+        href={{url}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >See source</Button></div>
+    </td>
   </tr>
 {% endfor %}
 </tbody>

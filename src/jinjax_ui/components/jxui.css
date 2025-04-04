@@ -162,7 +162,10 @@
   --ui-color-shadow-inset: #d0d7de33;
   --ui-color-accent-fg: var(--ui-color-blue-4);
 
-  --ui-border-radius: 0.5rem;
+  --ui-border-radius-sm: 2px;
+  --ui-border-radius: 4px;
+  --ui-border-radius-lg: 8px;
+  --ui-border-radius-xl: 12px;
 }
 
 

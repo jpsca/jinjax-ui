@@ -1,8 +1,6 @@
 .jxui-table-wrapper {
-  width: 100%;
-  padding: 0;
   overflow: auto;
-  border-radius: var(--ui-border-radius);
+  width: 100%;
 }
 .jxui-table {
   border: none;
@@ -15,7 +13,7 @@
   font-size: 0.9em;
   cursor: default;
 }
-.jxui-table * {
+.jxui-table tr, .jxui-table td, .jxui-table th {
   border: none;
 }
 .jxui-table tr:hover:not(thead tr, tfoot tr) {

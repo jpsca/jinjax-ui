@@ -1,0 +1,11 @@
+.ui-sources {
+  border: 1px solid var(--ui-color-border-muted);
+  border-radius: var(--ui-border-radius);
+}
+.ui-sources th code {
+  font-weight: 600;
+  background: transparent;
+}
+.ui-sources div {
+  padding: 2px 8px;
+}

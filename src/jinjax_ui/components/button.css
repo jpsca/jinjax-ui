@@ -15,7 +15,7 @@ a.jxui-button[href],
   text-decoration: none;
   user-select: none;
   white-space: nowrap;
-  border-radius: 8px;
+  border-radius: var(--ui-border-radius-lg);
   line-height: 1;
   transition-duration: 200ms;
   transition-property: background-color, border-color, color, fill, outline-color;
@@ -156,7 +156,7 @@ a.jxui-button[href],
   border-radius: 100%;
 }
 .jxui-button[data-shape="square"] {
-  border-radius: 6px;
+  border-radius: var(--ui-border-radius);
 }
 .jxui-button[data-shape="block"] {
   width: 100%;

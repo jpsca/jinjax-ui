@@ -12,6 +12,7 @@ pages = [
     "index.mdx",
     "alert.mdx",
     "avatar.mdx",
+    "badge.mdx",
     "button.mdx",
     "checkbox.mdx",
     "details.mdx",
