@@ -1,0 +1,42 @@
+---
+title: Table
+description: Textarea is used to set a value that is multiple lines of text.
+sources: [
+  ["Table", "table.jinja"],
+  ["", "table.css"],
+]
+---
+
+<Example name="ex.Table"/>
+
+
+## Usage
+
+```html+jinja
+<Table>
+  <caption>Optional caption</caption>
+  <thead>
+    <tr>
+      <th>Invoice</th>
+      <th>Status</th>
+      <th class="center">Method</th>
+      <th class="right">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>INV001</td>
+      <td>Paid</td>
+      <td class="center">Credit Card</td>
+      <td class="right">$250.00</td>
+    </tr>
+    ...
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total</td>
+      <td class="right">$2,500.00</td>
+    </tr>
+  </tfoot>
+</Table>
+```

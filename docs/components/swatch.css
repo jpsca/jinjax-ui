@@ -3,10 +3,10 @@
 }
 .jxui-swatch__color > div {
   display: block;
-  border-radius: var(--uiborder-radius);
+  border-radius: var(--ui-border-radius);
   height: 1.9rem;
   width: 5rem;
-  border: 1px solid var(--uicolor-border-default);
+  border: 1px solid var(--ui-color-border-default);
 }
 tr.separator {
   height: 1rem;

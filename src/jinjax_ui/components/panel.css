@@ -1,8 +1,8 @@
 .jxui-panel {
   display: block;
-  border-radius: var(--uiborder-radius);
-  background-color: var(--uicolor-bg-canvas);
-  border: 1px solid var(--uicolor-border-muted);
+  border-radius: var(--ui-border-radius);
+  background-color: var(--ui-color-bg-canvas);
+  border: 1px solid var(--ui-color-border-muted);
   box-shadow: rgba(17,7,17,0.2) 0px 4px 10px 0px;
   padding: 16px;
   width: 100%;

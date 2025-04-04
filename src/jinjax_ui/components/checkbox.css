@@ -14,15 +14,15 @@
   width: var(--20px);
   aspect-ratio: 1;
   appearance: none;
-  background-color: var(--uicolor-bg-canvas);
-  border: 2px solid var(--uicolor-border-default);
+  background-color: var(--ui-color-bg-canvas);
+  border: 2px solid var(--ui-color-border-default);
   position: relative;
   transition-duration: 0.2s;
   transition-property: background-color, border-color;
 }
 .jxui-checkbox-input:focus-visible {
-  border-color: var(--uicolor-accent-fg);
-  outline: 2px solid var(--uicolor-accent-fg);
+  border-color: var(--ui-color-accent-fg);
+  outline: 2px solid var(--ui-color-accent-fg);
   outline-offset: -1px;
 }
 .jxui-checkbox-input:checked::after {
@@ -31,9 +31,9 @@
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-size: var(--uifont-size-md);
+  font-size: var(--ui-font-size-md);
   text-align: center;
-  background: var(--uicolor-bg-canvas);
+  background: var(--ui-color-bg-canvas);
   border: 4px solid transparent;
   border-radius: 4px;
   position: absolute;
@@ -44,17 +44,17 @@
   pointer-events: none;
 }
 .jxui-checkbox-input:checked::after {
-  background-color: var(--uicolor-accent-fg);
-  border-color: var(--uicolor-bg-canvas);
+  background-color: var(--ui-color-accent-fg);
+  border-color: var(--ui-color-bg-canvas);
 }
 .jxui-checkbox-input:checked {
-  border-color: var(--uicolor-accent-fg);
+  border-color: var(--ui-color-accent-fg);
 }
 
 [data-disabled] > .jxui-checkbox-input {
-  background-color: var(--uicolor-bg-disabled);
-  border-color: var(--uicolor-border-disabled);
-  color: var(--uicolor-fg-muted);
+  background-color: var(--ui-color-bg-disabled);
+  border-color: var(--ui-color-border-disabled);
+  color: var(--ui-color-fg-muted);
   cursor: default;
 }
 [data-size="large"] > .jxui-checkbox-input {
@@ -66,7 +66,7 @@
 
 
 .jxui-checkbox-icon {
-  color: var(--uicolor-fg-muted);
-  font-size: var(--uifont-size-lg);
+  color: var(--ui-color-fg-muted);
+  font-size: var(--ui-font-size-lg);
   line-height: 1.4;
 }

@@ -1,35 +1,48 @@
 .jxui-table-wrapper {
   width: 100%;
-  overflow-x: auto;
   padding: 0;
-  border: 1px solid var(--uicolor-border-muted);
-  border-radius: var(--uiborder-radius);
+  overflow: auto;
+  border-radius: var(--ui-border-radius);
 }
 .jxui-table {
   border: none;
   text-indent: 0;
   border-spacing: 0;
   border-collapse: collapse;
-  padding: 0;
+  padding: 4px;
   margin: 0;
   width: 100%;
   font-size: 0.9em;
+  cursor: default;
 }
 .jxui-table * {
   border: none;
 }
-.jxui-table tr:hover {
-  background-color: var(--uicolor-bg-canvas-hover);
+.jxui-table tr:hover:not(thead tr, tfoot tr) {
+  background-color: var(--ui-color-neutral-1);
 }
 .jxui-table tr:not(:last-child) {
-  border-bottom: 1px solid var(--uicolor-border-muted);
+  border-bottom: 1px solid var(--ui-color-border-muted);
 }
 .jxui-table thead {
-  border-bottom: 1px solid var(--uicolor-border-default);
-  background-color: var(--uicolor-bg-canvas-hover);
+  border-bottom: 1px solid var(--ui-color-border-default);
   line-height: 1.4;
-  font-size: 0.9em;
+  color: var(--ui-color-fg-muted);
+  font-weight: 600;
 }
+.jxui-table tfoot {
+  border-top: 1px solid var(--ui-color-border-default);
+  background-color: var(--ui-color-neutral-2);
+}
+.jxui-table caption {
+  color: var(--ui-color-fg-muted);
+  margin: 0 0 0.5rem;
+}
+.jxui-table caption.bottom {
+  caption-side: bottom;
+  margin: 0.5rem 0 0;
+}
+
 .jxui-table th {
   font-weight: 500;
   padding: 5px 8px 8px;
@@ -39,7 +52,7 @@
 }
 .jxui-table td,
 .jxui-table th {
-  font-size: 0.94em;
+  font-size: var(--ui-font-size-sm);
   text-align: left;
   vertical-align: middle;
 }

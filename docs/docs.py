@@ -22,6 +22,7 @@ pages = [
     "input.mdx",
     "textarea.mdx",
     "tooltip.mdx",
+    "table.mdx",
 ]
 
 

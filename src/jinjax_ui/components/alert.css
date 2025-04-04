@@ -1,27 +1,27 @@
 .jxui-alert[data-type="critical"] {
-  --alert-bgColor: var(--uicolor-red-0);
-  --alert-borderColor: var(--uicolor-red-2);
-  --alert-iconColor: var(--uicolor-red-3);
+  --alert-bgColor: var(--ui-color-red-0);
+  --alert-borderColor: var(--ui-color-red-2);
+  --alert-iconColor: var(--ui-color-red-3);
 }
 .jxui-alert[data-type="info"] {
-  --alert-bgColor: var(--uicolor-blue-0);
-  --alert-borderColor: var(--uicolor-blue-2);
-  --alert-iconColor: var(--uicolor-blue-3);
+  --alert-bgColor: var(--ui-color-blue-0);
+  --alert-borderColor: var(--ui-color-blue-2);
+  --alert-iconColor: var(--ui-color-blue-3);
 }
 .jxui-alert[data-type="success"] {
-  --alert-bgColor: var(--uicolor-green-0);
-  --alert-borderColor: var(--uicolor-green-2);
-  --alert-iconColor: var(--uicolor-green-4);
+  --alert-bgColor: var(--ui-color-green-0);
+  --alert-borderColor: var(--ui-color-green-2);
+  --alert-iconColor: var(--ui-color-green-4);
 }
 .jxui-alert[data-type="option"] {
-  --alert-bgColor: var(--uicolor-purple-0);
-  --alert-borderColor: var(--uicolor-purple-2);
-  --alert-iconColor: var(--uicolor-purple-3);
+  --alert-bgColor: var(--ui-color-purple-0);
+  --alert-borderColor: var(--ui-color-purple-2);
+  --alert-iconColor: var(--ui-color-purple-3);
 }
 .jxui-alert[data-type="warning"] {
-  --alert-bgColor: var(--uicolor-yellow-0);
-  --alert-borderColor: var(--uicolor-yellow-2);
-  --alert-iconColor: var(--uicolor-yellow-5);
+  --alert-bgColor: var(--ui-color-yellow-0);
+  --alert-borderColor: var(--ui-color-yellow-2);
+  --alert-iconColor: var(--ui-color-yellow-5);
 }
 
 .jxui-alert {
@@ -43,16 +43,16 @@
 }
 .jxui-alert-icon {
   margin-top: 6px;
-  font-size: var(--uifont-size-xl);
+  font-size: var(--ui-font-size-xl);
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 .jxui-alert-dismiss {
-  --font-size: var(--uifont-size-lg);
+  --font-size: var(--ui-font-size-lg);
   margin-top: 2px;
 }
 
 .jxui-alert-content {
-  font-size: var(--uifont-size-md);
+  font-size: var(--ui-font-size-md);
   padding: 0 10px 0 8px;
   display: block;
   flex-grow: 1;
@@ -78,7 +78,7 @@
   gap: var(--4px);
   flex-wrap: nowrap;
   align-self: flex-start;
-  font-size: var(--uifont-size-sm);
+  font-size: var(--ui-font-size-sm);
   padding: 10px 0 5px;
   flex-direction: row;
 }

@@ -1,11 +1,11 @@
 .jxui-form-wrapper {
-  font-size: var(--uifont-size-md);
-  color: var(--uicolor-fg-input);
-  background-color: var(--uicolor-bg-canvas);
-  border: 1px solid var(--uicolor-border-default);
-  border-radius: var(--uiborder-radius);
+  font-size: var(--ui-font-size-md);
+  color: var(--ui-color-fg-input);
+  background-color: var(--ui-color-bg-canvas);
+  border: 1px solid var(--ui-color-border-default);
+  border-radius: var(--ui-border-radius);
   outline: none;
-  box-shadow: inset 0 1px 0 var(--uicolor-shadow-inset);
+  box-shadow: inset 0 1px 0 var(--ui-color-shadow-inset);
   overflow: hidden;
   display: flex;
   padding: 0;
@@ -21,21 +21,21 @@
 }
 
 [data-validation="invalid"] > .jxui-form-wrapper {
-  border-color: var(--uicolor-red-3);
+  border-color: var(--ui-color-red-3);
 }
 [data-validation="valid"] > .jxui-form-wrapper {
-  border-color: var(--uicolor-green-4);
+  border-color: var(--ui-color-green-4);
 }
 
 .jxui-form-wrapper:where(:not([data-disabled] > .jxui-form-wrapper)):focus-within {
-  border-color: var(--uicolor-accent-fg, #0969da);
-  outline: 2px solid var(--uicolor-accent-fg, #0969da);
+  border-color: var(--ui-color-accent-fg, #0969da);
+  outline: 2px solid var(--ui-color-accent-fg, #0969da);
   outline-offset: -1px;
 }
 [data-disabled] > .jxui-form-wrapper {
-  background-color: var(--uicolor-bg-disabled);
-  border-color: var(--uicolor-border-disabled);
-  color: var(--uicolor-fg-muted);
+  background-color: var(--ui-color-bg-disabled);
+  border-color: var(--ui-color-border-disabled);
+  color: var(--ui-color-fg-muted);
 }
 
 [data-disabled] > .jxui-form-wrapper,
@@ -45,7 +45,7 @@
 }
 
 [data-size="large"] > .jxui-form-wrapper {
-  font-size: var(--uifont-size-lg);
+  font-size: var(--ui-font-size-lg);
   gap: var(--8px);
 }
 [data-size="large"] > .jxui-form-wrapper:has(input) {
@@ -54,7 +54,7 @@
 
 .jxui-form-wrapper > :not(input, select, textarea) {
   align-self: center;
-  color: var(--uicolor-fg-muted);
+  color: var(--ui-color-fg-muted);
   flex-shrink: 0;
   flex-grow: 0;
   user-select: none;

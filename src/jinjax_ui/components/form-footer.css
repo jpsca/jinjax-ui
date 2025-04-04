@@ -7,15 +7,15 @@
 }
 .jxui-form-valid {
   display: block;
-  font-size: var(--uifont-size-sm);
+  font-size: var(--ui-font-size-sm);
   line-height: 1.4;
   font-weight: 600;
-  color: var(--uicolor-green-4);
+  color: var(--ui-color-green-4);
 }
 .jxui-form-invalid {
   display: block;
-  font-size: var(--uifont-size-sm);
+  font-size: var(--ui-font-size-sm);
   line-height: 1.4;
   font-weight: 600;
-  color: var(--uicolor-red-3);
+  color: var(--ui-color-red-3);
 }
