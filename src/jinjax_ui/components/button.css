@@ -181,7 +181,8 @@ a.jxui-button[href],
   --bg: transparent;
   --border: transparent;
 
-  --bg-hover: transparent;
+  --bg-hover: var(--ui-color-neutral-1);
+  --border-hover: transparent;
 
   box-shadow: none;
 }
@@ -235,7 +236,7 @@ a.jxui-button[href],
   text-decoration: none !important;
 }
 
-.jxui-button[data-var="info"],
+.jxui-button[data-var="primary"],
 .jxui-button[data-var="blue"] {
   --color: white;
   --bg: var(--ui-color-blue-3);
@@ -313,80 +314,80 @@ a.jxui-button[href],
   --bg-active: var(--ui-color-brown-5);
 }
 
-.jxui-button[data-var="outline-info"],
+.jxui-button[data-var="outline-primary"],
 .jxui-button[data-var="outline-blue"] {
   --bg: var(--ui-color-blue-0);
-  --border: var(--ui-color-blue-1);
+  --border: var(--ui-color-blue-3);
 
   --bg-hover: var(--ui-color-blue-0);
-  --border-hover: var(--ui-color-blue-1);
+  --border-hover: var(--ui-color-blue-3);
 
   --bg-active: var(--ui-color-blue-1);
-  --border-active: var(--ui-color-blue-1);
+  --border-active: var(--ui-color-blue-3);
 }
 .jxui-button[data-var="outline-success"],
 .jxui-button[data-var="outline-green"] {
   --bg: var(--ui-color-green-0);
-  --border: var(--ui-color-green-1);
+  --border: var(--ui-color-green-4);
 
   --bg-hover: var(--ui-color-green-0);
-  --border-hover: var(--ui-color-green-1);
+  --border-hover: var(--ui-color-green-4);
 
   --bg-active: var(--ui-color-green-1);
-  --border-active: var(--ui-color-green-1);
+  --border-active: var(--ui-color-green-4);
 }
 .jxui-button[data-var="outline-warning"],
 .jxui-button[data-var="outline-yellow"] {
   --bg: var(--ui-color-yellow-0);
-  --border: var(--ui-color-yellow-2);
+  --border: var(--ui-color-yellow-4);
 
   --bg-hover: var(--ui-color-yellow-0);
-  --border-hover: var(--ui-color-yellow-2);
+  --border-hover: var(--ui-color-yellow-4);
 
   --bg-active: var(--ui-color-yellow-1);
-  --border-active: var(--ui-color-yellow-2);
+  --border-active: var(--ui-color-yellow-4);
 }
 .jxui-button[data-var="outline-alert"],
 .jxui-button[data-var="outline-orange"] {
   --bg: var(--ui-color-orange-0);
-  --border: var(--ui-color-orange-1);
+  --border: var(--ui-color-orange-3);
 
   --bg-hover: var(--ui-color-orange-0);
-  --border-hover: var(--ui-color-orange-1);
+  --border-hover: var(--ui-color-orange-3);
 
   --bg-active: var(--ui-color-orange-1);
-  --border-active: var(--ui-color-orange-1);
+  --border-active: var(--ui-color-orange-3);
 }
 .jxui-button[data-var="outline-critical"],
 .jxui-button[data-var="outline-red"] {
   --bg: var(--ui-color-red-0);
-  --border: var(--ui-color-red-1);
+  --border: var(--ui-color-red-3);
 
   --bg-hover: var(--ui-color-red-0);
-  --border-hover: var(--ui-color-red-1);
+  --border-hover: var(--ui-color-red-3);
 
   --bg-active: var(--ui-color-red-1);
-  --border-active: var(--ui-color-red-1);
+  --border-active: var(--ui-color-red-3);
 }
 .jxui-button[data-var="outline-option"],
 .jxui-button[data-var="outline-purple"] {
   --bg: var(--ui-color-purple-0);
-  --border: var(--ui-color-purple-1);
+  --border: var(--ui-color-purple-3);
 
   --bg-hover: var(--ui-color-purple-0);
-  --border-hover: var(--ui-color-purple-1);
+  --border-hover: var(--ui-color-purple-3);
 
   --bg-active: var(--ui-color-purple-1);
-  --border-active: var(--ui-color-purple-1);
+  --border-active: var(--ui-color-purple-3);
 }
 .jxui-button[data-var="outline-note"],
 .jxui-button[data-var="outline-brown"] {
   --bg: var(--ui-color-brown-0);
-  --border: var(--ui-color-brown-1);
+  --border: var(--ui-color-brown-3);
 
   --bg-hover: var(--ui-color-brown-0);
-  --border-hover: var(--ui-color-brown-1);
+  --border-hover: var(--ui-color-brown-3);
 
   --bg-active: var(--ui-color-brown-1);
-  --border-active: var(--ui-color-brown-1);
+  --border-active: var(--ui-color-brown-3);
 }
