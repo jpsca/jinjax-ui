@@ -1,22 +1,25 @@
-{#def title=None, icon=None, type="info", dismissable=False #}
+{#def title=None, icon=None, var="info", dismissable=False #}
 {#css jxui.css, alert.css, tooltip.css #}
 {#js jxui.js #}
 
-{% if type not in ["critical", "info", "success", "option", "warning"] %}
-  {% set type = "info" %}
-{% endif %}
-
 {% if not icon %}
-  {% set icon = {
+  {% set icon = ({
     "critical": "error",
+    "red": "error",
     "info": "info",
+    "blue": "info",
     "success": "check_circle",
+    "green": "check_circle",
     "option": "add_circle",
-    "warning": "warning"
-  }[type] %}
+    "purple": "add_circle",
+    "warning": "warning",
+    "yellow": "warning",
+    "alert": "warning",
+    "note": "info",
+  }).get(var, "info") %}
 {% endif %}
 
-{% do attrs.set(data_type=type) %}
+{% do attrs.set(data_var=var) %}
 
 {% if title %}
   {% do attrs.add_class("jxui-alert--entitled") %}
@@ -31,7 +34,7 @@
     {{ content }}
   </div>
   {% if dismissable %}
-    <Button look="ghost" shape="square" size="mini" class="jxui-alert-dismiss" aria-label="Dismiss alert" aria-hidden="true" title="Dismiss alert" data-tooltip>
+    <Button var="ghost" shape="square" size="mini" class="jxui-alert-dismiss" aria-label="Dismiss alert" aria-hidden="true" title="Dismiss alert" data-tooltip>
       <Icon name="close" />
     </Button>
   {% endif %}

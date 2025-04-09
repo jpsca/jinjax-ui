@@ -1,27 +1,44 @@
-.jxui-alert[data-type="critical"] {
+.jxui-alert[data-var="critical"],
+.jxui-alert[data-var="red"] {
   --alert-bgColor: var(--ui-color-red-0);
   --alert-borderColor: var(--ui-color-red-2);
   --alert-iconColor: var(--ui-color-red-3);
 }
-.jxui-alert[data-type="info"] {
+.jxui-alert[data-var="info"],
+.jxui-alert[data-var="blue"] {
   --alert-bgColor: var(--ui-color-blue-0);
   --alert-borderColor: var(--ui-color-blue-2);
   --alert-iconColor: var(--ui-color-blue-3);
 }
-.jxui-alert[data-type="success"] {
+.jxui-alert[data-var="success"],
+.jxui-alert[data-var="green"] {
   --alert-bgColor: var(--ui-color-green-0);
   --alert-borderColor: var(--ui-color-green-2);
   --alert-iconColor: var(--ui-color-green-4);
 }
-.jxui-alert[data-type="option"] {
+.jxui-alert[data-var="option"],
+.jxui-alert[data-var="purple"] {
   --alert-bgColor: var(--ui-color-purple-0);
   --alert-borderColor: var(--ui-color-purple-2);
   --alert-iconColor: var(--ui-color-purple-3);
 }
-.jxui-alert[data-type="warning"] {
+.jxui-alert[data-var="warning"],
+.jxui-alert[data-var="yellow"] {
   --alert-bgColor: var(--ui-color-yellow-0);
   --alert-borderColor: var(--ui-color-yellow-2);
   --alert-iconColor: var(--ui-color-yellow-5);
+}
+.jxui-alert[data-var="alert"],
+.jxui-alert[data-var="orange"] {
+  --alert-bgColor: var(--ui-color-orange-0);
+  --alert-borderColor: var(--ui-color-orange-2);
+  --alert-iconColor: var(--ui-color-orange-5);
+}
+.jxui-alert[data-var="note"],
+.jxui-alert[data-var="brown"] {
+  --alert-bgColor: var(--ui-color-brown-0);
+  --alert-borderColor: var(--ui-color-brown-2);
+  --alert-iconColor: var(--ui-color-brown-4);
 }
 
 .jxui-alert {

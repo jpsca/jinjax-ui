@@ -1,7 +1,7 @@
-{#def look=None, size=None #}
+{#def var=None, size=None #}
 
-{% if look %}  {# *default, outline, blue, green, yellow, orange, red, purple, brown #}
-{% do attrs.set(data_look=look) %}
+{% if var %}  {# *default, outline, blue, green, yellow, orange, red, purple, brown #}
+{% do attrs.set(data_var=var) %}
 {% endif %}
 {% if size %}  {# small, *medium, large #}
 {% do attrs.set(data_size=size) %}

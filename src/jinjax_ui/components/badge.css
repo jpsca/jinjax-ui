@@ -13,40 +13,47 @@
   cursor: default;
 }
 
-.jxui-badge[data-look="outline"] {
+.jxui-badge[data-var="outline"] {
   background-color: white;
 }
-.jxui-badge[data-look="blue"] {
+.jxui-badge[data-var="info"],
+.jxui-badge[data-var="blue"] {
   background-color: var(--ui-color-blue-0);
   border-color: var(--ui-color-blue-1);
   color: var(--ui-color-blue-4);
 }
-.jxui-badge[data-look="green"] {
+.jxui-badge[data-var="success"],
+.jxui-badge[data-var="green"] {
   background-color: var(--ui-color-green-0);
   border-color: var(--ui-color-green-1);
   color: var(--ui-color-green-5);
 }
-.jxui-badge[data-look="yellow"] {
+.jxui-badge[data-var="warning"],
+.jxui-badge[data-var="yellow"] {
   background-color: var(--ui-color-yellow-0);
   border-color: var(--ui-color-yellow-2);
   color: var(--ui-color-yellow-5);
 }
-.jxui-badge[data-look="orange"] {
+.jxui-badge[data-var="alert"],
+.jxui-badge[data-var="orange"] {
   background-color: var(--ui-color-orange-0);
   border-color: var(--ui-color-orange-1);
   color: var(--ui-color-orange-4);
 }
-.jxui-badge[data-look="red"] {
+.jxui-badge[data-var="critical"],
+.jxui-badge[data-var="red"] {
   background-color: var(--ui-color-red-0);
   border-color: var(--ui-color-red-1);
   color: var(--ui-color-red-4);
 }
-.jxui-badge[data-look="purple"] {
+.jxui-badge[data-var="option"],
+.jxui-badge[data-var="purple"] {
   background-color: var(--ui-color-purple-0);
   border-color: var(--ui-color-purple-1);
   color: var(--ui-color-purple-4);
 }
-.jxui-badge[data-look="brown"] {
+.jxui-badge[data-var="note"],
+.jxui-badge[data-var="brown"] {
   background-color: var(--ui-color-brown-0);
   border-color: var(--ui-color-brown-1);
   color: var(--ui-color-brown-5);

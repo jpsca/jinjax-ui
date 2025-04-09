@@ -1,6 +1,7 @@
 .jxui-form-label {
-  display: block;
-  color: var(--ui-color-fg-default);
+  display: flex;
+  align-items: center;
+  color: var(--ui-color-fg-input);
   cursor: pointer;
   font-weight: 600;
   font-size: var(--ui-font-size-sm);
@@ -14,7 +15,6 @@
 
 [data-size="large"] > * > .jxui-form-label,
 [data-size="large"] > .jxui-form-label {
-  font-size: var(--ui-font-size-md);
   height: var(--28px);
 }
 [data-disabled] > * > .jxui-form-label,

@@ -2,7 +2,7 @@
   tag=None,
   icon=None,
   href=None,
-  look=None,
+  var=None,
   size=None,
   shape=None,
   block=False,
@@ -21,8 +21,8 @@
   {% do attrs.setdefault(type="button") %}
 {% endif %}
 
-{% if look %} {# "ghost", "text" #}
-  {% do attrs.set(data_look=look) %}
+{% if var %} {# "ghost", "text" #}
+  {% do attrs.set(data_var=var) %}
 {% endif %}
 
 {% if size %} {# "mini", "small", "large", "big" #}

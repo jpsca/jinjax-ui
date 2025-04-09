@@ -21,27 +21,29 @@ a.jxui-button[href],
   transition-property: background-color, border-color, color, fill, outline-color;
   transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   box-shadow: 0px 1px 1px 0px rgba(17, 17, 17, 0.1);
-  outline: 4px solid transparent;
   outline-offset: 1px;
   text-decoration: none !important;
 
   --color: var(--ui-color-neutral-14);
-  --bg: var(--ui-color-neutral-2);
-  --border: var(--ui-color-border-default);
-
   --color-hover: var(--ui-color-neutral-14);
-  --bg-hover: var(--ui-color-neutral-3);
-  --border-hover: var(--ui-color-border-default);
-
   --color-active: var(--ui-color-neutral-14);
+
+  --bg: var(--ui-color-neutral-2);
+  --bg-hover: var(--ui-color-neutral-3);
   --bg-active: var(--ui-color-neutral-4);
+
+  --border: var(--ui-color-border-default);
+  --border-hover: var(--ui-color-border-default);
   --border-active: var(--ui-color-neutral-5);
 
-  --outline: rgba(0, 94, 255, 0.1);
+  --outline: transparent;
+  --outline-hover: rgba(0, 94, 255, 0.1);
+  --outline-active: transparent;
 
   color: var(--color);
   background: var(--bg);
   border: 1px solid var(--border);
+  outline: 4px solid var(--outline);
 }
 
 .jxui-button:hover:not([disabled]),
@@ -56,7 +58,7 @@ a.jxui-button[href],
 
 .jxui-button:focus-visible:not([disabled]),
 .jxui-button:focus-visible:not([data-disabled]) {
-  outline-color: var(--outline);
+  outline-color: var(--outline-hover);
 }
 
 .jxui-button:active:not([disabled]),
@@ -64,7 +66,7 @@ a.jxui-button[href],
   color: var(--color-active);
   background: var(--bg-active);
   border-color: var(--border-active);
-  outline-color: transparent;
+  outline-color: var(--outline-active);;
   text-decoration: none;
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
@@ -83,12 +85,22 @@ a.jxui-button[href],
   box-shadow: none;
 }
 
+.jxui-button-label {
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .jxui-button-icon {
   line-height: 1;
   font-size: 1.125em;
 }
 
 /**************** Sizes ****************/
+
 .jxui-button {
   font-size: var(--font-size, --15px);
   gap: var(--8px);
@@ -124,6 +136,7 @@ a.jxui-button[href],
 }
 
 /**************** Shapes ****************/
+
 .jxui-button[data-shape="square"],
 .jxui-button[data-shape="circle"] {
   line-height: 1;
@@ -162,40 +175,44 @@ a.jxui-button[href],
   width: 100%;
 }
 
+/**************** Variants ****************/
 
-/**************** Types ****************/
-.jxui-button[data-look="ghost"] {
+.jxui-button[data-var="ghost"] {
   --bg: transparent;
   --border: transparent;
+
   --bg-hover: transparent;
+
   box-shadow: none;
 }
-.jxui-button[data-look="ghost"]:active:not([disabled]),
-.jxui-button[data-look="ghost"]:active:not([data-disabled]) {
+.jxui-button[data-var="ghost"]:active:not([disabled]),
+.jxui-button[data-var="ghost"]:active:not([data-disabled]) {
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
     1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.jxui-button[data-look="outline"] {
+.jxui-button[data-var="outline"] {
   --bg: transparent;
   --bg-hover: transparent;
   box-shadow: none;
 }
-.jxui-button[data-look="outline"]:active:not([disabled]),
-.jxui-button[data-look="outline"]:active:not([data-disabled]) {
+.jxui-button[data-var="outline"]:active:not([disabled]),
+.jxui-button[data-var="outline"]:active:not([data-disabled]) {
   box-shadow:
     inset 1px 2px 4px rgba(30, 30, 30, 0.2),
     1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.jxui-button[data-look="text"] {
+.jxui-button[data-var="text"] {
   --color: var(--ui-color-blue-4);
   --bg: transparent;
   --border: transparent;
+
   --color-hover: var(--ui-color-blue-4);
   --bg-hover: transparent;
   --border-hover: transparent;
+
   --color-active: var(--ui-color-blue-5);
   --bg-active: transparent;
   --border-active: transparent;
@@ -203,26 +220,173 @@ a.jxui-button[href],
   box-shadow: none;
 }
 
-.jxui-button[data-look="text"]:hover:not([disabled]),
-.jxui-button[data-look="text"]:focus-visible:not([disabled]),
-.jxui-button[data-look="text"]:hover:not([data-disabled]),
-.jxui-button[data-look="text"]:focus-visible:not([data-disabled]) {
+.jxui-button[data-var="text"]:hover:not([disabled]),
+.jxui-button[data-var="text"]:focus-visible:not([disabled]),
+.jxui-button[data-var="text"]:hover:not([data-disabled]),
+.jxui-button[data-var="text"]:focus-visible:not([data-disabled]) {
   box-shadow: none;
   text-decoration: underline !important;
   text-underline-offset: 4px;
 }
 
-.jxui-button[data-look="text"]:active:not([disabled])
-.jxui-button[data-look="text"]:active:not([data-disabled]) {
+.jxui-button[data-var="text"]:active:not([disabled])
+.jxui-button[data-var="text"]:active:not([data-disabled]) {
   box-shadow: none;
   text-decoration: none !important;
 }
 
-.jxui-button-label {
-  line-height: 1;
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.jxui-button[data-var="info"],
+.jxui-button[data-var="blue"] {
+  --color: white;
+  --bg: var(--ui-color-blue-3);
+
+  --color-hover: white;
+  --bg-hover: var(--ui-color-blue-4);
+
+  --color-active: white;
+  --bg-active: var(--ui-color-blue-5);
+}
+
+.jxui-button[data-var="success"],
+.jxui-button[data-var="green"] {
+  --bg: var(--ui-color-green-3);
+
+  --bg-hover: var(--ui-color-green-4);
+
+  --bg-active: var(--ui-color-green-5);
+}
+
+.jxui-button[data-var="warning"],
+.jxui-button[data-var="yellow"] {
+  --bg: var(--ui-color-yellow-3);
+
+  --bg-hover: var(--ui-color-yellow-4);
+
+  --bg-active: var(--ui-color-yellow-5);
+}
+
+.jxui-button[data-var="alert"],
+.jxui-button[data-var="orange"] {
+  --color: white;
+  --bg: var(--ui-color-orange-3);
+
+  --color-hover: white;
+  --bg-hover: var(--ui-color-orange-4);
+
+  --color-active: white;
+  --bg-active: var(--ui-color-orange-5);
+}
+
+.jxui-button[data-var="critical"],
+.jxui-button[data-var="red"] {
+  --color: white;
+  --bg: var(--ui-color-red-3);
+
+  --color-hover: white;
+  --bg-hover: var(--ui-color-red-4);
+
+  --color-active: white;
+  --bg-active: var(--ui-color-red-5);
+}
+
+.jxui-button[data-var="option"],
+.jxui-button[data-var="purple"] {
+  --color: white;
+  --bg: var(--ui-color-purple-3);
+
+  --color-hover: white;
+  --bg-hover: var(--ui-color-purple-4);
+
+  --color-active: white;
+  --bg-active: var(--ui-color-purple-5);
+}
+
+.jxui-button[data-var="note"],
+.jxui-button[data-var="brown"] {
+  --color: white;
+  --bg: var(--ui-color-brown-3);
+
+  --color-hover: white;
+  --bg-hover: var(--ui-color-brown-4);
+
+  --color-active: white;
+  --bg-active: var(--ui-color-brown-5);
+}
+
+.jxui-button[data-var="outline-info"],
+.jxui-button[data-var="outline-blue"] {
+  --bg: var(--ui-color-blue-0);
+  --border: var(--ui-color-blue-1);
+
+  --bg-hover: var(--ui-color-blue-0);
+  --border-hover: var(--ui-color-blue-1);
+
+  --bg-active: var(--ui-color-blue-1);
+  --border-active: var(--ui-color-blue-1);
+}
+.jxui-button[data-var="outline-success"],
+.jxui-button[data-var="outline-green"] {
+  --bg: var(--ui-color-green-0);
+  --border: var(--ui-color-green-1);
+
+  --bg-hover: var(--ui-color-green-0);
+  --border-hover: var(--ui-color-green-1);
+
+  --bg-active: var(--ui-color-green-1);
+  --border-active: var(--ui-color-green-1);
+}
+.jxui-button[data-var="outline-warning"],
+.jxui-button[data-var="outline-yellow"] {
+  --bg: var(--ui-color-yellow-0);
+  --border: var(--ui-color-yellow-2);
+
+  --bg-hover: var(--ui-color-yellow-0);
+  --border-hover: var(--ui-color-yellow-2);
+
+  --bg-active: var(--ui-color-yellow-1);
+  --border-active: var(--ui-color-yellow-2);
+}
+.jxui-button[data-var="outline-alert"],
+.jxui-button[data-var="outline-orange"] {
+  --bg: var(--ui-color-orange-0);
+  --border: var(--ui-color-orange-1);
+
+  --bg-hover: var(--ui-color-orange-0);
+  --border-hover: var(--ui-color-orange-1);
+
+  --bg-active: var(--ui-color-orange-1);
+  --border-active: var(--ui-color-orange-1);
+}
+.jxui-button[data-var="outline-critical"],
+.jxui-button[data-var="outline-red"] {
+  --bg: var(--ui-color-red-0);
+  --border: var(--ui-color-red-1);
+
+  --bg-hover: var(--ui-color-red-0);
+  --border-hover: var(--ui-color-red-1);
+
+  --bg-active: var(--ui-color-red-1);
+  --border-active: var(--ui-color-red-1);
+}
+.jxui-button[data-var="outline-option"],
+.jxui-button[data-var="outline-purple"] {
+  --bg: var(--ui-color-purple-0);
+  --border: var(--ui-color-purple-1);
+
+  --bg-hover: var(--ui-color-purple-0);
+  --border-hover: var(--ui-color-purple-1);
+
+  --bg-active: var(--ui-color-purple-1);
+  --border-active: var(--ui-color-purple-1);
+}
+.jxui-button[data-var="outline-note"],
+.jxui-button[data-var="outline-brown"] {
+  --bg: var(--ui-color-brown-0);
+  --border: var(--ui-color-brown-1);
+
+  --bg-hover: var(--ui-color-brown-0);
+  --border-hover: var(--ui-color-brown-1);
+
+  --bg-active: var(--ui-color-brown-1);
+  --border-active: var(--ui-color-brown-1);
 }
