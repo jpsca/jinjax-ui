@@ -1,31 +1,31 @@
-<TabGroup>
-  <TabSelect>
-    <TabOption target="select-recent">Recent</TabOption>
-    <TabOption target="select-popular">Popular</TabOption>
-    <TabOption target="select-disabled" disabled>Disabled</TabOption>
-    <TabOption target="select-trending">Trending</TabOption>
-  </TabSelect>
+<ui:TabGroup>
+  <ui:TabSelect>
+    <ui:TabOption target="select-recent">Recent</ui:TabOption>
+    <ui:TabOption target="select-popular">Popular</ui:TabOption>
+    <ui:TabOption target="select-disabled" disabled>Disabled</ui:TabOption>
+    <ui:TabOption target="select-trending">Trending</ui:TabOption>
+  </ui:TabSelect>
 
-  <TabList data-hidden>
-    <Tab target="select-recent">Recent</Tab>
-    <Tab target="select-popular" selected>Popular</Tab>
-    <Tab target="select-disabled" disabled>Disabled</Tab>
-    <Tab target="select-trending">Trending</Tab>
-  </TabList>
+  <ui:TabList data-hidden>
+    <ui:Tab target="select-recent">Recent</ui:Tab>
+    <ui:Tab target="select-popular" selected>Popular</ui:Tab>
+    <ui:Tab target="select-disabled" disabled>Disabled</ui:Tab>
+    <ui:Tab target="select-trending">Trending</ui:Tab>
+  </ui:TabList>
 
-  <TabPanel id="select-recent">
+  <ui:TabPanel id="select-recent">
     <p>This is the tab panel for <b>"Recent"</b>.</p>
-  </TabPanel>
+  </ui:TabPanel>
 
-  <TabPanel id="select-popular" hidden>
+  <ui:TabPanel id="select-popular" hidden>
     <p>This is the tab panel for <b>"Popular"</b>.</p>
-  </TabPanel>
+  </ui:TabPanel>
 
-  <TabPanel id="select-disabled" hidden>
+  <ui:TabPanel id="select-disabled" hidden>
     <p>This is the tab panel for "Disabled".</p>
-  </TabPanel>
+  </ui:TabPanel>
 
-  <TabPanel id="select-trending" hidden>
+  <ui:TabPanel id="select-trending" hidden>
     <p>This is the tab panel for <b>"Trending"</b>.</p>
-  </TabPanel>
-</TabGroup>
+  </ui:TabPanel>
+</ui:TabGroup>

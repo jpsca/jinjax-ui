@@ -3,7 +3,7 @@
 {% if sources -%}
 <h2>Components&nbsp;<a class="headerlink" href="#s-sources">¶</a></h2>
 
-<Table class="ui-sources">
+<ui:Table class="ui-sources">
 <thead>
   <tr>
     <th><div>Component</div></th>
@@ -27,16 +27,16 @@
       <div><code>{{ filename }}</code></div>
     </td>
     <td class="right">
-      <div><Button
+      <div><ui:Button
         icon="terminal"
         size="mini"
         href={{url}}
         target="_blank"
         rel="noopener noreferrer"
-      >See source</Button></div>
+      >See source</ui:Button></div>
     </td>
   </tr>
 {% endfor %}
 </tbody>
-</Table>
+</ui:Table>
 {%- endif %}

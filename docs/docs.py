@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import logging
-import jinjax_ui
 
 from claydocs import Docs, theme_path
 
@@ -14,16 +13,21 @@ pages = [
     "avatar.mdx",
     "badge.mdx",
     "button.mdx",
-    "checkbox.mdx",
     "details.mdx",
-    "select.mdx",
-    "radio.mdx",
     "rel-date.mdx",
     "tabs.mdx",
-    "input.mdx",
-    "textarea.mdx",
     "tooltip.mdx",
     "table.mdx",
+    [
+        "Forms",
+        [
+            "forms/input.mdx",
+            "forms/textarea.mdx",
+            "forms/checkbox.mdx",
+            "forms/radio.mdx",
+            "forms/select.mdx",
+        ],
+    ]
 ]
 
 
@@ -45,7 +49,6 @@ def get_docs() -> Docs:
 
     # Custom component + theme overrides
     docs.add_folder("./components")
-    docs.add_folder(jinjax_ui.components_path)
     # Default theme
     docs.add_folder(theme_path)
     return docs

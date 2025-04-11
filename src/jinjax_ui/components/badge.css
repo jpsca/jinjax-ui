@@ -32,7 +32,7 @@
 .jxui-badge[data-var="yellow"] {
   background-color: var(--ui-color-yellow-0);
   border-color: var(--ui-color-yellow-2);
-  color: var(--ui-color-yellow-5);
+  color: var(--ui-color-orange-3);
 }
 .jxui-badge[data-var="alert"],
 .jxui-badge[data-var="orange"] {

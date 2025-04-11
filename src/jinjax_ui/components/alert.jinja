@@ -1,6 +1,6 @@
-{#def title=None, icon=None, var="info", dismissable=False #}
+{#def title=None, icon=None, var="info", dismissible=False #}
 {#css jxui.css, alert.css, tooltip.css #}
-{#js jxui.js #}
+{#js jxui.js, alert.js #}
 
 {% if not icon %}
   {% set icon = ({
@@ -25,7 +25,7 @@
   {% do attrs.add_class("jxui-alert--entitled") %}
 {% endif %}
 
-<section {{ attrs.render(class="jxui-alert", role="alert") }}>
+<section {{ attrs.render(class="jxui-alert", role="alert", data_dismissible=dismissible) }}>
   <div class="jxui-alert-icon">
     <Icon name={{ icon }} />
   </div>
@@ -33,7 +33,7 @@
     {% if title %}<h2 class="jxui-alert-title">{{ title }}</h2>{% endif %}
     {{ content }}
   </div>
-  {% if dismissable %}
+  {% if dismissible %}
     <Button var="ghost" shape="square" size="mini" class="jxui-alert-dismiss" aria-label="Dismiss alert" aria-hidden="true" title="Dismiss alert" data-tooltip>
       <Icon name="close" />
     </Button>

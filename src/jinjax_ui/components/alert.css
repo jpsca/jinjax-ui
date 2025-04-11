@@ -51,6 +51,16 @@
   padding: 10px;
   background-color: var(--alert-bgColor, #fff);
   border: 1px solid var(--alert-borderColor, #444);
+  opacity: 1;
+  transition-behavior: allow-discrete;
+  transition-duration: 0.2s;
+  transition-property: display, opacity, transform;
+  transition-timing-function: ease-in-out;
+}
+.jxui-alert.dismissed {
+  display: none;
+  opacity: 0;
+  transform: translateY(-50px);
 }
 
 .jxui-alert-icon,
