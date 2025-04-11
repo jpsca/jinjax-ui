@@ -9,6 +9,8 @@ logging.getLogger("jinjax").addHandler(logging.StreamHandler())
 
 pages = [
     "index.mdx",
+    "intro.mdx",
+
     "alert.mdx",
     "avatar.mdx",
     "badge.mdx",

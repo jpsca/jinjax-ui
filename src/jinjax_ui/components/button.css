@@ -24,22 +24,6 @@ a.jxui-button[href],
   outline-offset: 1px;
   text-decoration: none !important;
 
-  --color: var(--ui-color-neutral-14);
-  --color-hover: var(--ui-color-neutral-14);
-  --color-active: var(--ui-color-neutral-14);
-
-  --bg: var(--ui-color-neutral-2);
-  --bg-hover: var(--ui-color-neutral-3);
-  --bg-active: var(--ui-color-neutral-4);
-
-  --border: var(--ui-color-border-default);
-  --border-hover: var(--ui-color-border-default);
-  --border-active: var(--ui-color-neutral-5);
-
-  --outline: transparent;
-  --outline-hover: rgba(0, 94, 255, 0.1);
-  --outline-active: transparent;
-
   color: var(--color);
   background: var(--bg);
   border: 1px solid var(--border);
@@ -176,6 +160,24 @@ a.jxui-button[href],
 }
 
 /**************** Variants ****************/
+
+.jxui-button {
+  --color: var(--ui-color-neutral-14);
+  --color-hover: var(--ui-color-neutral-14);
+  --color-active: var(--ui-color-neutral-14);
+
+  --bg: var(--ui-color-neutral-2);
+  --bg-hover: var(--ui-color-neutral-3);
+  --bg-active: var(--ui-color-neutral-4);
+
+  --border: var(--ui-color-border-default);
+  --border-hover: var(--ui-color-border-default);
+  --border-active: var(--ui-color-neutral-5);
+
+  --outline: transparent;
+  --outline-hover: rgba(0, 94, 255, 0.1);
+  --outline-active: transparent;
+}
 
 .jxui-button[data-var="ghost"] {
   --bg: transparent;
