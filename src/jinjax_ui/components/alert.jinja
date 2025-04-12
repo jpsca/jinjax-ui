@@ -30,7 +30,7 @@
     <Icon name={{ icon }} />
   </div>
   <div class="jxui-alert-content">
-    {% if title %}<h2 class="jxui-alert-title">{{ title }}</h2>{% endif %}
+    {% if title %}<h2 class="jxui-alert-title" data-outline-skip>{{ title }}</h2>{% endif %}
     {{ content }}
   </div>
   {% if dismissible %}

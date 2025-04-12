@@ -10,18 +10,23 @@ logging.getLogger("jinjax").addHandler(logging.StreamHandler())
 pages = [
     "index.mdx",
     "intro.mdx",
-
-    "alert.mdx",
-    "avatar.mdx",
-    "badge.mdx",
-    "button.mdx",
-    "details.mdx",
-    "rel-date.mdx",
-    "tabs.mdx",
-    "tooltip.mdx",
-    "table.mdx",
+    "colors.mdx",
     [
-        "Forms",
+        "Components",
+        [
+            "components/alert.mdx",
+            "components/avatar.mdx",
+            "components/badge.mdx",
+            "components/button.mdx",
+            "components/details.mdx",
+            "components/rel-date.mdx",
+            "components/tabs.mdx",
+            "components/tooltip.mdx",
+            "components/table.mdx",
+        ],
+    ],
+    [
+        "Form components",
         [
             "forms/input.mdx",
             "forms/textarea.mdx",
