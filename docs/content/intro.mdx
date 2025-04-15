@@ -16,10 +16,23 @@ description: Styled and accessible UI components, to integrate with your JinjaX 
   ```python
   import jinjax_ui
 
-  catalog.add_folder(jinjax_ui.components_path)
+  catalog.add_folder(jinjax_ui.components_path, prefix="ui")
   ```
 
-3. Use the UI components in your components/templates:
+3. Insert the `<ui:JXUI/>` component at the beginning of your base template, to load the shared UI assets:
+
+  ```html+jinja
+  <ui:JXUI/>
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      {{ catalog.render_assets() }}
+      ...
+  ```
+
+4. Use any of the UI components in your own components/templates:
 
   ```html+jinja
   <ui:Alert> ... </ui:Alert>
