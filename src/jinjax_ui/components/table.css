@@ -17,23 +17,23 @@
   border: none;
 }
 .jxui-table tr:hover:not(thead tr, tfoot tr) {
-  background-color: var(--ui-color-neutral-1);
+  background-color: var(--ui-neutral-50);
 }
 .jxui-table tr:not(:last-child) {
-  border-bottom: 1px solid var(--ui-color-border-muted);
+  border-bottom: 1px solid var(--ui-border-muted);
 }
 .jxui-table thead {
-  border-bottom: 1px solid var(--ui-color-border-default);
+  border-bottom: 1px solid var(--ui-border-default);
   line-height: 1.4;
-  color: var(--ui-color-fg-muted);
+  color: var(--ui-fg-muted);
   font-weight: 600;
 }
 .jxui-table tfoot {
-  border-top: 1px solid var(--ui-color-border-default);
-  background-color: var(--ui-color-neutral-2);
+  border-top: 1px solid var(--ui-border-default);
+  background-color: var(--ui-neutral-200);
 }
 .jxui-table caption {
-  color: var(--ui-color-fg-muted);
+  color: var(--ui-fg-muted);
   margin: 0 0 0.5rem;
 }
 .jxui-table caption.bottom {

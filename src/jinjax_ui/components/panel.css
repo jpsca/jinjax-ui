@@ -1,9 +1,9 @@
 .jxui-panel {
   display: block;
-  border-radius: var(--ui-border-radius);
-  background-color: var(--ui-color-bg-canvas);
-  border: 1px solid var(--ui-color-border-muted);
+  border-radius: var(--ui-radius-lg);
+  background-color: var(--ui-bg-canvas);
+  border: 1px solid var(--ui-border-muted);
   box-shadow: rgba(17,7,17,0.2) 0px 4px 10px 0px;
-  padding: 16px;
+  padding: 8px;
   width: 100%;
 }

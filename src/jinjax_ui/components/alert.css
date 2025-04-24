@@ -1,44 +1,44 @@
 .jxui-alert[data-var="critical"],
 .jxui-alert[data-var="red"] {
-  --alert-bgColor: var(--ui-color-red-0);
-  --alert-borderColor: var(--ui-color-red-2);
-  --alert-iconColor: var(--ui-color-red-3);
+  --alert-bgColor: var(--ui-red-50);
+  --alert-borderColor: var(--ui-red-400);
+  --alert-iconColor: var(--ui-red-500);
 }
 .jxui-alert[data-var="info"],
 .jxui-alert[data-var="blue"] {
-  --alert-bgColor: var(--ui-color-blue-0);
-  --alert-borderColor: var(--ui-color-blue-2);
-  --alert-iconColor: var(--ui-color-blue-3);
+  --alert-bgColor: var(--ui-blue-50);
+  --alert-borderColor: var(--ui-blue-400);
+  --alert-iconColor: var(--ui-blue-500);
 }
 .jxui-alert[data-var="success"],
 .jxui-alert[data-var="green"] {
-  --alert-bgColor: var(--ui-color-green-0);
-  --alert-borderColor: var(--ui-color-green-2);
-  --alert-iconColor: var(--ui-color-green-4);
+  --alert-bgColor: var(--ui-green-50);
+  --alert-borderColor: var(--ui-green-400);
+  --alert-iconColor: var(--ui-green-500);
 }
 .jxui-alert[data-var="option"],
 .jxui-alert[data-var="purple"] {
-  --alert-bgColor: var(--ui-color-purple-0);
-  --alert-borderColor: var(--ui-color-purple-2);
-  --alert-iconColor: var(--ui-color-purple-3);
+  --alert-bgColor: var(--ui-purple-50);
+  --alert-borderColor: var(--ui-purple-400);
+  --alert-iconColor: var(--ui-purple-500);
 }
 .jxui-alert[data-var="warning"],
 .jxui-alert[data-var="yellow"] {
-  --alert-bgColor: var(--ui-color-yellow-0);
-  --alert-borderColor: var(--ui-color-yellow-2);
-  --alert-iconColor: var(--ui-color-yellow-5);
+  --alert-bgColor: var(--ui-yellow-50);
+  --alert-borderColor: var(--ui-yellow-300);
+  --alert-iconColor: var(--ui-yellow-500);
 }
 .jxui-alert[data-var="alert"],
 .jxui-alert[data-var="orange"] {
-  --alert-bgColor: var(--ui-color-orange-0);
-  --alert-borderColor: var(--ui-color-orange-2);
-  --alert-iconColor: var(--ui-color-orange-5);
+  --alert-bgColor: var(--ui-orange-50);
+  --alert-borderColor: var(--ui-orange-300);
+  --alert-iconColor: var(--ui-orange-500);
 }
 .jxui-alert[data-var="note"],
-.jxui-alert[data-var="brown"] {
-  --alert-bgColor: var(--ui-color-brown-0);
-  --alert-borderColor: var(--ui-color-brown-2);
-  --alert-iconColor: var(--ui-color-brown-4);
+.jxui-alert[data-var="stone"] {
+  --alert-bgColor: var(--ui-stone-50);
+  --alert-borderColor: var(--ui-stone-300);
+  --alert-iconColor: var(--ui-stone-400);
 }
 
 .jxui-alert {
@@ -52,15 +52,15 @@
   background-color: var(--alert-bgColor, #fff);
   border: 1px solid var(--alert-borderColor, #444);
   opacity: 1;
-  transition-behavior: allow-discrete;
   transition-duration: 0.3s;
   transition-property: display, opacity, transform, height, padding;
   transition-timing-function: ease-in-out;
 }
 .jxui-alert.dismissed {
-  /* display: none; */
+  transition-behavior: allow-discrete;
+  display: none;
   opacity: 0;
-  transform: translate(20px, -20px);
+  transform: translate(0, -20px);
   height: 0;
   padding: 0 10px;
 }

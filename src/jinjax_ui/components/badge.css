@@ -1,10 +1,10 @@
 .jxui-badge {
   display: inline-flex;
   font-weight: 500;
-  color: var(--ui-color-fg-default);
-  background: var(--ui-color-neutral-2);
-  border: 1px solid var(--ui-color-border-muted);
-  border-radius: var(--ui-border-radius-xl);
+  color: var(--ui-neutral-600);
+  background: var(--ui-neutral-100);
+  border: 1px solid var(--ui-neutral-400);
+  border-radius: var(--ui-radius-xl);
   flex-grow: 0;
   flex-shrink: 0;
   width: fit-content;
@@ -18,45 +18,45 @@
 }
 .jxui-badge[data-var="info"],
 .jxui-badge[data-var="blue"] {
-  background-color: var(--ui-color-blue-0);
-  border-color: var(--ui-color-blue-1);
-  color: var(--ui-color-blue-4);
+  background-color: var(--ui-blue-50);
+  border-color: var(--ui-blue-300);
+  color: var(--ui-blue-600);
 }
 .jxui-badge[data-var="success"],
 .jxui-badge[data-var="green"] {
-  background-color: var(--ui-color-green-0);
-  border-color: var(--ui-color-green-1);
-  color: var(--ui-color-green-5);
+  background-color: var(--ui-green-50);
+  border-color: var(--ui-green-300);
+  color: var(--ui-green-600);
 }
 .jxui-badge[data-var="warning"],
 .jxui-badge[data-var="yellow"] {
-  background-color: var(--ui-color-yellow-0);
-  border-color: var(--ui-color-yellow-2);
-  color: var(--ui-color-orange-3);
+  background-color: var(--ui-yellow-50);
+  border-color: var(--ui-yellow-300);
+  color: var(--ui-orange-500);
 }
 .jxui-badge[data-var="alert"],
 .jxui-badge[data-var="orange"] {
-  background-color: var(--ui-color-orange-0);
-  border-color: var(--ui-color-orange-1);
-  color: var(--ui-color-orange-4);
+  background-color: var(--ui-orange-50);
+  border-color: var(--ui-orange-200);
+  color: var(--ui-orange-600);
 }
 .jxui-badge[data-var="critical"],
 .jxui-badge[data-var="red"] {
-  background-color: var(--ui-color-red-0);
-  border-color: var(--ui-color-red-1);
-  color: var(--ui-color-red-4);
+  background-color: var(--ui-red-50);
+  border-color: var(--ui-red-300);
+  color: var(--ui-red-600);
 }
 .jxui-badge[data-var="option"],
 .jxui-badge[data-var="purple"] {
-  background-color: var(--ui-color-purple-0);
-  border-color: var(--ui-color-purple-1);
-  color: var(--ui-color-purple-4);
+  background-color: var(--ui-purple-50);
+  border-color: var(--ui-purple-300);
+  color: var(--ui-purple-600);
 }
 .jxui-badge[data-var="note"],
-.jxui-badge[data-var="brown"] {
-  background-color: var(--ui-color-brown-0);
-  border-color: var(--ui-color-brown-1);
-  color: var(--ui-color-brown-5);
+.jxui-badge[data-var="stone"] {
+  background-color: var(--ui-stone-50);
+  border-color: var(--ui-stone-400);
+  color: var(--ui-stone-500);
 }
 
 .jxui-badge {

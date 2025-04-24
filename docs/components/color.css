@@ -1,0 +1,88 @@
+.jxui-color {
+  container: jxui-color / inline-size;
+  border: 1px solid rgb(228, 228, 231);
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.jxui-color-header {
+  padding: 0 0.5rem;
+  display: flex;
+}
+.jxui-color-name {
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.jxui-color-swatches {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  flex-direction: row;
+}
+
+.jxui-color-swatch {
+  appearance: none;
+  width: auto;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  flex: 1 1 0%;
+  position: relative;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}
+.jxui-color-swatch-color {
+  border-radius: 0.5rem;
+  width: 100%;
+  flex: 1 1 0%;
+}
+.jxui-color-swatch-name {
+  text-align: center;
+  color: #71717a;
+  transition-property: color;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: 0.15s;
+  font-size: .75rem;
+  line-height: 1rem;
+  font-family: monospace;
+  font-variant-numeric: tabular-nums;
+}
+.jxui-color-swatch:hover .jxui-color-swatch-name {
+  color: #09090b;
+}
+
+@container jxui-color (max-width: 1024px) {
+  .jxui-color-swatch-name-family {
+    display: none;
+  }
+}
+@container jxui-color (max-width: 640px) {
+  .jxui-color-swatches {
+    flex-direction: column;
+  }
+  .jxui-color-swatch {
+    width: 100%;
+    aspect-ratio: 4 / 1;
+  }
+  .jxui-color-swatch-name {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+  .jxui-color-swatch-name > span {
+    background-color: white;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0.25rem 0.5rem;
+  }
+  .jxui-color-swatch-name-family {
+    display: inline;
+  }
+}

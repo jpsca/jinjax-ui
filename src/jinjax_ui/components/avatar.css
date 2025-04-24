@@ -6,11 +6,11 @@
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 100%;
-  border: 1px solid var(--ui-color-border-muted);
+  border: 1px solid var(--ui-border-muted);
   font-size: var(--ui-font-size-sm);
   font-weight: bold;
   border-radius: 100%;
-  background-color: var(--ui-color-bg-panel);
+  background-color: var(--ui-bg-panel);
 }
 .jxui-avatar > * {
   display: flex;

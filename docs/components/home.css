@@ -44,10 +44,10 @@
   margin: 20px 0;
   max-width: 40rem;
   font-weight: 600;
-  color: --ui-color-fg-default;
+  color: --ui-fg-default;
 }
 .page-home section.hero h2 span {
-  color: var(--ui-color-fg-muted);
+  color: var(--ui-fg-muted);
 }
 
 .page-home section.cta {

@@ -3,7 +3,6 @@
 }
 .jxui-textarea > .jxui-form-wrapper {
   padding: 0;
-  height: auto;
 }
 .jxui-input-input,
 .jxui-textarea-input  {
@@ -21,8 +20,9 @@
 }
 .jxui-textarea-input  {
   padding: 10px;
-  min-height: 4rem;
+  min-height: var(--40px);
 }
+
 [data-size="large"] > * > .jxui-input-input,
 [data-size="large"] > * > .jxui-textarea-input  {
   font-size: var(--ui-font-size-lg);

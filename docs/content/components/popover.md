@@ -205,3 +205,5 @@ by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/MDN/Community
 the button action (open, close, or toggle state), and close *all* the `Popover` with `mode="auto"`.
 
 - Pressing the <kbd>Escape</kbd> key will close *all* the `Popover` with `mode="auto"`.
+
+<Sources />

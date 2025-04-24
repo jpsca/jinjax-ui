@@ -19,6 +19,7 @@ pages = [
             "components/badge.mdx",
             "components/button.mdx",
             "components/details.mdx",
+            "components/icon.mdx",
             "components/rel-date.mdx",
             "components/tabs.mdx",
             "components/tooltip.mdx",

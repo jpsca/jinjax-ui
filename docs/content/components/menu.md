@@ -113,3 +113,5 @@ To animate a menu, follow the [Animating popovers section](/headless/popover#ani
 the button action (open, close, or toggle state), and close *all* the `Popover` with `mode="auto"`.
 
 - Pressing the <kbd>Escape</kbd> key will close *all* the `Popover` with `mode="auto"`.
+
+<Sources />

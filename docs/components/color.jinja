@@ -1,0 +1,12 @@
+{#def name #}
+
+{% do attrs.set(class="jxui-color") %}
+
+<ui:Panel __attrs={{attrs}}>
+  <header class="jxui-color-header">
+    <div class="jxui-color-name">{{ name }}</div>
+  </header>
+  <div class="jxui-color-swatches">
+    {{ content }}
+  </div>
+</ui:Panel>
