@@ -38,9 +38,9 @@ docs = [
 ]
 
 [project.urls]
-homepage = "https://jinjax.scaletti.dev/"
-repository = "https://github.com/jpsca/jinjax"
-documentation = "https://jinjax.scaletti.dev/"
+homepage = "https://jxui.scaletti.dev/"
+repository = "https://github.com/jpsca/jinjax-ui"
+documentation = "https://jxui.scaletti.dev/"
 
 [project.scripts]
 proper = "proper.cl:run"

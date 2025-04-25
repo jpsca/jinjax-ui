@@ -4,6 +4,7 @@ description: Displays a list of options that a user can choose with robust suppo
 sources: [
   ["", ""],
 ]
+copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
 <Header title="Menu" section="Components">

@@ -2,7 +2,7 @@
 
 Accessible UI components, to integrate with your [JinjaX](https://github.com/jpsca/jinjax) projects.
 
-**Documentation:** https://jinjax-ui.scaletti.dev/
+**Documentation:** https://jxui.scaletti.dev/
 
 ## Roadmap
 

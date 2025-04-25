@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+JinjaX-UI Docs
+Copyright (c) Juan-Pablo Scaletti https://github.com/jpsca
+"""
 import logging
 
 from claydocs import Docs, theme_path

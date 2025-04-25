@@ -1,3 +1,8 @@
+/**
+ * JinjaX-UI - Alert
+ * @author Juan-Pablo Scaletti https://github.com/jpsca
+ * MIT license
+ */
 import { on } from "./jxui.js";
 
 const SEL_ALERT = ".jxui-alert";

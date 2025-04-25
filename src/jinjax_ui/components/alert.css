@@ -1,3 +1,4 @@
+/* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
 .jxui-alert[data-var="critical"],
 .jxui-alert[data-var="red"] {
   --alert-bgColor: var(--ui-red-50);

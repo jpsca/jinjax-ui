@@ -6,6 +6,7 @@ sources: [
   ["", "linked-list.css"],
   ["", "linked-list.js"],
 ]
+copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
 <Header title="Linked Lists" section="Components">

@@ -4,6 +4,7 @@ description: A wrapper over the Popover API with anchor positioning.
 sources: [
   ["Popover", "popover.jinja"],
 ]
+copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
 <Header title="Pop-over" section="Components">
