@@ -34,6 +34,7 @@
 .page-home section.hero h1 {
   display: block;
   margin: 20px 0;
+  position: relative;
 }
 .page-home section.hero h1 img {
   width: 600px;
@@ -57,4 +58,24 @@
   align-items: center;
   justify-content: center;
   gap: 1rem
+}
+
+.beta-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+
+  display: inline-block;
+  background: linear-gradient(to bottom, #d0eaff 0%, #7db9e8 100%);
+  color: #084d78;
+  font-family: "Verdana", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 4px 20px;
+  border-radius: 120px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #6ca8d9;
+  text-shadow: 0 1px 2px #fff;
+  letter-spacing: 1px;
+  user-select: none;
 }
