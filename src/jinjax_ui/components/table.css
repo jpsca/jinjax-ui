@@ -2,6 +2,11 @@
   overflow: auto;
   width: 100%;
 }
+.jxui-table--bordered {
+  border: 1px solid var(--ui-border-muted);
+  border-radius: var(--ui-radius-lg);
+}
+
 .jxui-table {
   border: none;
   text-indent: 0;
@@ -17,7 +22,7 @@
   border: none;
 }
 .jxui-table tr:hover:not(thead tr, tfoot tr) {
-  background-color: var(--ui-neutral-50);
+  background-color: var(--ui-neutral-100);
 }
 .jxui-table tr:not(:last-child) {
   border-bottom: 1px solid var(--ui-border-muted);

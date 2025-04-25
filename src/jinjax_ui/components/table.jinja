@@ -1,4 +1,7 @@
+{#def border=False #}
 {#css jxui.css, table.css #}
+
+{% if border %}{% do attrs.set(class="jxui-table--bordered") %}{% endif %}
 
 <div {{ attrs.render(class="jxui-table-wrapper") }}><table class="jxui-table">{{content}}</table></div>
 

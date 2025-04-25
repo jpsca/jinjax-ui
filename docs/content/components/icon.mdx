@@ -1,11 +1,21 @@
 ---
 title: Icon
-description: Font-based icon
+description: Visual cues to support user understanding of content or context
 sources: [
   ["Icon", "icon.jinja"],
   ["", "icon.css"],
 ]
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
+
+The `<Icon>` component is a simple wrapper around an `<i>` element styled using the [Material Icons](https://fonts.google.com/icons) font.
+
+The other components in the library use this component to display icons, so you can override it to customize the icon styles.
+
+## Usage
+
+<Example name="ex.Icon"/>
+
+The size and color of the icon is determined by the font size of the parent element
 
 <Sources />
