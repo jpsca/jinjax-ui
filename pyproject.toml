@@ -28,9 +28,8 @@ classifiers = [
 ]
 requires-python = ">=3.11,<4"
 dependencies = [
-    "jinjax >= 0.53",
+    "jinjax >= 0.55",
 ]
-
 
 [dependency-groups]
 docs = [

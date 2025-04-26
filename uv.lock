@@ -15,15 +15,15 @@ wheels = [
 
 [[package]]
 name = "jinjax"
-version = "0.53"
+version = "0.55"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jinja2" },
     { name = "markupsafe" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/03/69/f6ead07faab613fd5c4f9c842dabfe60d1d3bbb8375255fc34020b575d12/jinjax-0.53.tar.gz", hash = "sha256:9244a91d6add4aab595e9a06dfb6bc8f3952e420af087d009053fce58f277ebe", size = 28398 }
+sdist = { url = "https://files.pythonhosted.org/packages/d4/69/dd643c35ff1e4bda38f3d4d8499c901e116acdcfac4a06d09b1b99be4a9e/jinjax-0.55.tar.gz", hash = "sha256:6cb75b42d4c0eb58ad2638daaa0389bf515dda7edac032b4ca51c744ef968f34", size = 28719 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/87/1f/23ae1e1dde8a2b1afc26abba026f812f43ee4df5c0024d3473f2041342b6/jinjax-0.53-py3-none-any.whl", hash = "sha256:1c825d603ffb7b687038960a24f284ff06a6938cdc07adce91975d43916daba3", size = 18424 },
+    { url = "https://files.pythonhosted.org/packages/c9/7c/7499c47aea84a7376192ac9770d5f0538e4a6a06174419ea00382ae7ae3a/jinjax-0.55-py3-none-any.whl", hash = "sha256:2a4cbba14276971b32bc5b0efe4b2a198f8b11e27f1aba74b7d0b26b98e9144a", size = 18637 },
 ]
 
 [[package]]
@@ -40,7 +40,7 @@ docs = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "jinjax", specifier = ">=0.53" }]
+requires-dist = [{ name = "jinjax", specifier = ">=0.55" }]
 
 [package.metadata.requires-dev]
 docs = [{ name = "whitenoise", specifier = "~=6.9.0" }]

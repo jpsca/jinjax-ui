@@ -12,9 +12,11 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
   pip install jinjax-ui
   ```
 
-  -- or --
+  **-- or --**
 
-  Copy and paste the components you need to a folder into your project.
+  Copy the components you need [from Github]({{metadata.repo}}) to a folder into your project.
+
+
 
 2. Add the folder to your *JinjaX* catalog:
 
@@ -24,10 +26,10 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
   catalog.add_folder(jinjax_ui.components_path, prefix="ui")
   ```
 
-3. Insert the `<ui:JXUI/>` component at the beginning of your base template, to load the shared UI assets:
+3. Insert the `<ui:Globals />` component at the beginning of your base template, to load the shared UI assets:
 
   ```html+jinja
-  <ui:JXUI/>
+  <ui:Globals/>
 
   <!DOCTYPE html>
   <html>
