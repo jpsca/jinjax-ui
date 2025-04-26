@@ -12,15 +12,32 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
   pip install jinjax-ui
   ```
 
-2. Add it to your *JinjaX* catalog:
+  -- or --
+
+  Copy and paste the components you need to a folder into your project.
+
+2. Add the folder to your *JinjaX* catalog:
 
   ```python
   import jinjax_ui
 
-  catalog.add_folder(jinjax_ui.components_path)
+  catalog.add_folder(jinjax_ui.components_path, prefix="ui")
   ```
 
-3. Use the UI components in your components/templates:
+3. Insert the `<ui:JXUI/>` component at the beginning of your base template, to load the shared UI assets:
+
+  ```html+jinja
+  <ui:JXUI/>
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      {{ catalog.render_assets() }}
+      ...
+  ```
+
+4. Use the UI components in your components/templates:
 
   ```html+jinja
   <ui:Alert> ... </ui:Alert>
