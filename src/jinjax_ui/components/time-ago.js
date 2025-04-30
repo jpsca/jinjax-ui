@@ -1,8 +1,32 @@
 /**
- * JinjaX-UI - Relative dates
+ * JinjaX-UI - Time ago
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */
+
+import { Controller } from "./_stimulus.js";
+
+export class TimeAgoController extends Controller {
+  connect() {
+    const datetime = this.element.getAttribute("datetime");
+    const date = new Date(datetime);
+    const lang = this.element.getAttribute("lang")
+      || document.body.getAttribute("lang")
+      || navigator.language;
+    const nowAttr = this.element.getAttribute("data-now");
+    let now;
+    if (nowAttr) {
+      now = Date.parse(nowAttr);
+      now = isNaN(now) ? 0 : now;
+    } else {
+      now = 0
+    }
+
+    this.element.textContent = getRelativeTimeString(date, lang, now);
+  }
+}
+window.Stimulus.register("ui--time-ago", TimeAgoController);
+
 
 /**
  * Convert a date to a relative time string, such as
@@ -17,7 +41,7 @@
  * (Note: Leap years, leap seconds, February, etc. are completely irrelevant here
  *  due to the coarse nature of the relative time format)
  */
-export function getRelativeTimeString(date, lang=navigator.language, now=0) {
+function getRelativeTimeString(date, lang=navigator.language, now=0) {
   lang = Intl.RelativeTimeFormat.supportedLocalesOf(lang.split(/\s*,\s*/))[0] || navigator.language;
   now = now || Date.now();
 
@@ -44,59 +68,3 @@ export function getRelativeTimeString(date, lang=navigator.language, now=0) {
   const rtf = new Intl.RelativeTimeFormat(lang, { numeric: "auto" });
   return rtf.format(Math.floor(deltaSeconds / divisor), units[unitIndex]);
 }
-
-/**
- * Takes a <time> node and sets its content to a relative time string
- *
- * @param {HTMLElement} timeNode - The <time> node to be processed
- */
-export function processRelDate(timeNode) {
-  const datetime = timeNode.getAttribute("datetime");
-  const date = new Date(datetime);
-  const lang = timeNode.getAttribute("lang")
-    || document.body.getAttribute("lang")
-    || navigator.language;
-  const nowAttr = timeNode.getAttribute("data-now");
-  let now;
-  if (nowAttr) {
-    now = Date.parse(nowAttr);
-    now = isNaN(now) ? 0 : now;
-  } else {
-    now = 0
-  }
-
-  timeNode.textContent = getRelativeTimeString(date, lang, now);
-}
-
-/**
- * Sets up a MutationObserver to detect when a new <time data-relative> tag has been inserted into the page,
- * and calls processRelDate for it.
- */
-export function observeRelDates() {
-  // Create a new observer
-  const observer = new MutationObserver((mutationsList) => {
-    // Look through all mutations that just occured
-    for(let mutation of mutationsList) {
-      // If the addedNodes property has one or more nodes
-      if(mutation.addedNodes.length) {
-        mutation.addedNodes.forEach((node) => {
-          // Check if the added node is a "time[data-relative]" element
-          if(node.matches && node.matches("time[data-relative]")) {
-            // If so, process it
-            processRelDate(node);
-          }
-        });
-      }
-    }
-  });
-
-  // Start observing the document with the configured parameters
-  observer.observe(document, { childList: true, subtree: true });
-}
-
-function setup() {
-  document.querySelectorAll("time[data-relative]").forEach(processRelDate);
-  observeRelDates();
-}
-document.addEventListener("DOMContentLoaded", setup);
-setup();

@@ -3,7 +3,7 @@
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */
-import { Controller } from "./stimulus.js";
+import { Controller } from "./_stimulus.js";
 
 export class AlertController extends Controller {
   dismiss(event) {
