@@ -53,17 +53,15 @@
   background-color: var(--alert-bgColor, #fff);
   border: 1px solid var(--alert-borderColor, #444);
   opacity: 1;
+  margin-top: 0;
   transition-duration: 0.3s;
-  transition-property: display, opacity, transform, height, padding;
+  transition-property: opacity, margin;
   transition-timing-function: ease-in-out;
+  transition-delay: 0s;
 }
 .jxui-alert.dismissed {
-  transition-behavior: allow-discrete;
-  display: none;
   opacity: 0;
-  transform: translate(0, -20px);
-  height: 0;
-  padding: 0 10px;
+  margin-top: -30px;
 }
 
 .jxui-alert-icon,
@@ -72,7 +70,6 @@
   line-height: 1;
 }
 .jxui-alert-icon {
-  margin-top: 6px;
   font-size: var(--ui-font-size-xl);
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }

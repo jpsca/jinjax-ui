@@ -1,15 +1,15 @@
 {#def
-  label="Default label",
-  id=None,
-  caption=None,
-  invalid=None,
-  valid=None,
-  required=False,
-  disabled=False,
-  size=None,
-  block=False,
-  loading=False,
-  placeholder=None,
+  label: str = "Default label",
+  id: str | None = None,
+  caption: str | None = None,
+  size: str | None = None,
+  block: bool = False,
+  required: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  valid: str | None = None,
+  invalid: str | None = None,
+  placeholder: str | None = None,
 #}
 {#css select.css #}
 
@@ -20,23 +20,17 @@
   {% do attrs.set(aria_describedby=id + "-caption") %}
 {% endif %}
 
-{% if invalid %}
-  {% set validation = "invalid" %}
-  {% do attrs.set(aria_invalid="true") %}
-{% elif valid %}
-  {% set validation = "valid" %}
-{% else %}
-  {% set validation = "" %}
-{% endif %}
-
 <FormField
   class="jxui-select"
+  id={{id}}
+  caption={{caption}}
   size={{size}}
-  validation={{validation}}
+  block={{block}}
   required={{required}}
   disabled={{disabled}}
-  block={{block}}
   loading={{loading}}
+  valid={{valid}}
+  invalid={{invalid}}
 >
   {% if label %}<FormLabel for={{id}}>{{ label }}</FormLabel>{% endif %}
   <FormWrapper>
@@ -59,14 +53,6 @@
       {%- endif %}
     </span>
   </FormWrapper>
-  {% if invalid or valid or caption -%}
-    <FormFooter
-      target={{id}}
-      invalid={{invalid}}
-      valid={{valid}}
-      caption={{caption}}
-    />
-  {%- endif %}
 </FormField>
 
 {# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

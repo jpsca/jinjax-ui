@@ -1,48 +1,48 @@
 {#def
-  label="Default label",
-  id=None,
-  type="text",
-  size=None,
-  block=False,
-  required=False,
-  disabled=False,
-  loading=False,
-  invalid=None,
-  valid=None,
-  caption=None,
-  countermin=None,
-  countermax=None,
-  leading=None,
-  leading_text=None,
-  trailing=None,
-  trailing_text=None,
+  label: str = "Default label",
+  id: str | None = None,
+  type: str = "text",
+  caption: str | None = None,
+  size: str | None = None,
+  block: bool = False,
+  required: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  valid: str | None = None,
+  invalid: str | None = None,
+  countermin: int | None = None,
+  countermax: int | None = None,
+  leading: str | None = None,
+  leading_text: str | None = None,
+  trailing: str | None = None,
+  trailing_text: str | None = None,
 #}
 {#css input.css #}
 
 {% set id = id or get_random_id() %}
 {% set caption = caption or content() %}
 
-{% if invalid %}
-  {% set validation = "invalid" %}
-  {% do attrs.set(aria_invalid="true") %}
-{% elif valid %}
-  {% set validation = "valid" %}
-{% else %}
-  {% set validation = "" %}
-{% endif %}
-
 {% if caption %}
   {% do attrs.set(aria_describedby=id + "-caption") %}
 {% endif %}
 
+{% if countermin or countermax %}
+  {% do attrs.set(data_ui__form_counter_target="input") %}
+{% endif %}
+
 <FormField
   class="jxui-input"
+  id={{id}}
+  caption={{caption}}
   size={{size}}
-  validation={{validation}}
+  block={{block}}
   required={{required}}
   disabled={{disabled}}
-  block={{block}}
   loading={{loading}}
+  valid={{valid}}
+  invalid={{invalid}}
+  countermax={{countermax}}
+  countermin={{countermin}}
 >
   <FormLabel for={{id}}>{{ label }}</FormLabel>
   <FormWrapper>
@@ -68,17 +68,6 @@
       <span class="jxui-input-trailing">{{ trailing_text }}</span>
     {%- endif %}
   </FormWrapper>
-
-  {% if invalid or valid or caption or countermax or countermin -%}
-    <FormFooter
-      target={{id}}
-      invalid={{invalid}}
-      valid={{valid}}
-      caption={{caption}}
-      countermax={{countermax}}
-      countermin={{countermin}}
-    />
-  {%- endif %}
 </FormField>
 
 {# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

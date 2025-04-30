@@ -3,23 +3,18 @@
  * @author Juan-Pablo Scaletti https://github.com/jpsca
  * MIT license
  */
-import { on } from "./jxui.js";
+import { Controller } from "./stimulus.js";
 
-const SEL_ALERT = ".jxui-alert";
-const SEL_BUTTON = `${SEL_ALERT}[data-dismissible] .jxui-alert-dismiss`;
-const CLASS_DISMISSED = "dismissed";
-
-
-function dismissAlert(e) {
-  const alert = e.target.closest(SEL_ALERT);
-  if (!alert) { return; }
-  alert.classList.add(CLASS_DISMISSED);
-  setTimeout(() => { alert.remove(); }, 300);
+export class AlertController extends Controller {
+  dismiss(event) {
+    const alert = event.target.closest(".jxui-alert");
+    if (!alert) return;
+    alert.addEventListener("transitionend", (e) => {
+      if (e.target === alert && e.propertyName === "opacity") {
+        alert.remove();
+      }
+    });
+    alert.classList.add("dismissed");
+  }
 }
-
-function setup() {
-  on("click", SEL_BUTTON, dismissAlert, 10);
-}
-
-document.addEventListener("DOMContentLoaded", setup);
-setup();
+window.Stimulus.register("ui--alert", AlertController);
