@@ -4,7 +4,7 @@ requires = ["setuptools"]
 
 [project]
 name = "jinjax-ui"
-version = "1.0.0"
+version = "1.1.0"
 description = "JinjaX UI components"
 authors = [
     {name = "Juan Pablo Scaletti", email = "juanpablo@jpscaletti.com"},
@@ -28,11 +28,15 @@ classifiers = [
 ]
 requires-python = ">=3.11,<4"
 dependencies = [
-    "jinjax >= 0.55",
+    "jinjax >= 0.56",
 ]
+
+[tool.uv.sources]
+claydocs = { path = "../claydocs", editable = true }
 
 [dependency-groups]
 docs = [
+    "claydocs",
     "whitenoise ~= 6.9.0"
 ]
 

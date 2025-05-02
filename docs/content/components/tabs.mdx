@@ -2,28 +2,28 @@
 title: Tabs
 description: Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support.
 sources: [
-  ["TabGroup", "tab-group.jinja"],
-  ["TabList", "tab-list.jinja"],
-  ["Tab", "tab.jinja"],
-  ["TabPanel", "tab-panel.jinja"],
-  ["TabSelect", "tab-select.jinja"],
-  ["TabOption", "tab-option.jinja"],
-  ["", "tab.css"],
-  ["", "tab.js"],
+  ["Tab", "tab/index.jinja"],
+  ["Tab.Group", "tab/group.jinja"],
+  ["Tab.List", "tab/list.jinja"],
+  ["Tab.Panel", "tab/panel.jinja"],
+  ["Tab.Select", "tab/select.jinja"],
+  ["Tab.Option", "tab/option.jinja"],
+  ["", "tab/tab.css"],
+  ["", "tab/tab.js"],
 ]
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
 <Example name="ex.Tabs" />
 
-Tabs are built using the `TabGroup`, `TabList`, `Tab`, and `TabPanel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
+Tabs are built using the `Tab.Group`, `Tab.List`, `Tab`, and `Tab.Panel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
 
 
 ## Styling states
 
 | CSS selector     | Description
 | ---------------  | --------------
-| `[data-hidden]`     | Added to all `TabPanel` except the one that is active.
+| `[data-hidden]`     | Added to all `Tab.Panel` except the one that is active.
 | `[data-selected]`   | Added to the selected `Tab`.
 | `[data-disabled]`   | Added to disabled `Tab`s.
 
@@ -41,7 +41,7 @@ Disabling tabs might be confusing for users. Instead, I reccomend you either rem
 
 By default, tabs are automatically selected as the user navigates through them using the arrow kbds.
 
-If you'd rather not change the current tab until the user presses <kbd>Enter</kbd> or <kbd>Space</kbd>, use the `manual` attribute on the `TabGroup` component.
+If you'd rather not change the current tab until the user presses <kbd>Enter</kbd> or <kbd>Space</kbd>, use the `manual` attribute on the `Tab.Group` component.
 
 Remember to add styles to the `:focus` state of the tab so is clear to the user that the tab is focused.
 
@@ -50,9 +50,9 @@ Remember to add styles to the `:focus` state of the tab so is clear to the user 
 The manual prop has no impact on mouse interactions — tabs will still be selected as soon as they are clicked.
 
 
-## TabList Position
+## Tab.List Position
 
-You can choose on which side of the tab panels the `TabList` is rendered by setting the `position` attribute on the `TabList` component.
+You can choose on which side of the tab panels the `Tab.List` is rendered by setting the `position` attribute on the `Tab.List` component.
 
 ### Top (default)
 
@@ -72,29 +72,29 @@ You can choose on which side of the tab panels the `TabList` is rendered by sett
 
 <Example name="ex.TabsPositionRight" />
 
-## TabList Align
+## Tab.List Align
 
-You can also choose if you want the tabs to aligned to the start of the list (the default), center or to the end, by setting the `align` attribute on the `TabList` component.
+You can also choose if you want the tabs to aligned to the start of the list (the default), center or to the end, by setting the `align` attribute on the `Tab.List` component.
 
 <Example name="ex.TabsAlign" />
 
 
 ## Controlling the tabs with a `<select>`
 
-In narrow screens, you might want to hide the tabs and display a `<select>` element instead. To do so, use the `TabSelect` and `TabOption` components.
-A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `TabOption` components as children.
+In narrow screens, you might want to hide the tabs and display a `<select>` element instead. To do so, use the `Tab.Select` and `Tab.Option` components.
+A `Tab.Select` component is a wrapper for a `<select>` element, and it accepts `Tab.Option` components as children.
 
 <Example name="ex.TabsSelect" />
 
 ## Component arguments
 
-### TabGroup
+### Tab.Group
 
 | Argument    | Type     | Default    | Description
 | ----------- | -------- | ---------- | --------------
 | tag         | `str`    | `"div"`    | HTML tag used for rendering the wrapper.
 
-### TabList
+### Tab.List
 
 | Argument    | Type     | Default    | Description
 | ----------- | -------- | ---------- | --------------
@@ -109,11 +109,11 @@ A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `T
 | Argument    | Type     | Default    | Description
 | ----------- | -------- | ---------- | --------------
 | target      | `str`    |            | Required. HTML id of the panel associated with this tab.
-| selected    | `bool`   | `false`    | Initially selected tab. Only one tab in the `TabList` can be selected at the time.
+| selected    | `bool`   | `false`    | Initially selected tab. Only one tab in the `Tab.List` can be selected at the time.
 | disabled    | `bool`   | `false`    | If the tab can be selected.
 | tag         | `str`    | `"button"` | HTML tag used for rendering the tab.
 
-### TabPanel
+### Tab.Panel
 
 | Argument    | Type     | Default    | Description
 | ----------- | -------- | ---------- | --------------
@@ -121,12 +121,12 @@ A `TabSelect` component is a wrapper for a `<select>` element, and it accepts `T
 | tag         | `bool`   | `"div"`    | HTML tag used for rendering the panel.
 
 
-### TabSelect
+### Tab.Select
 
 No arguments.
 
 
-### TabOption
+### Tab.Option
 
 | Argument    | Type     | Default    | Description
 | ----------- | -------- | ---------- | --------------
@@ -136,7 +136,7 @@ No arguments.
 
 ## Events
 
-A tab emits a `jxui:tab:selected` event every time is selected. The event contains the `target` property with the tag node.
+The tab group emits a `tab:selected` event every time is selected. The event contains the `target` property with the tag node.
 
 ```js
 document.addEventListener("jxui:tab:selected", (event) => {
@@ -149,7 +149,7 @@ document.addEventListener("jxui:tab:selected", (event) => {
 
 ### Mouse interaction
 
-Clicking a `Tab` will select that tab and display the corresponding `TabPanel`.
+Clicking a `Tab` will select that tab and display the corresponding `Tab.Panel`.
 
 ### Keyboard interaction
 

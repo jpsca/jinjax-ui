@@ -20,10 +20,9 @@
   {% do attrs.set(aria_describedby=id + "-caption") %}
 {% endif %}
 
-<FormField
+<Form.Field
   class="jxui-checkbox"
   id={{id}}
-  caption={{caption}}
   size={{size}}
   block={{block}}
   required={{required}}
@@ -43,11 +42,11 @@
     <Icon class="jxui-checkbox-icon" name={{ icon }} />
   {% endif -%}
   <div>
-    <FormLabel for={{id}}>{{ label }}</FormLabel>
+    <Form.Label for={{id}}>{{ label }}</Form.Label>
     {% if caption -%}
-      <FormCaption id={{id + "-caption"}}>{{ caption }}</FormCaption>
+      <Form.Caption id={{id + "-caption"}}>{{ caption }}</Form.Caption>
     {%- endif %}
   </div>
-</FormField>
+</Form.Field>
 
 {# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

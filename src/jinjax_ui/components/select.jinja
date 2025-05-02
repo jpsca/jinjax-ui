@@ -20,7 +20,7 @@
   {% do attrs.set(aria_describedby=id + "-caption") %}
 {% endif %}
 
-<FormField
+<Form.Field
   class="jxui-select"
   id={{id}}
   caption={{caption}}
@@ -32,8 +32,8 @@
   valid={{valid}}
   invalid={{invalid}}
 >
-  {% if label %}<FormLabel for={{id}}>{{ label }}</FormLabel>{% endif %}
-  <FormWrapper>
+  {% if label %}<Form.Label for={{id}}>{{ label }}</Form.Label>{% endif %}
+  <Form.Wrapper>
     <select {{ attrs.render(
       class="jxui-select-select",
       id=id,
@@ -47,12 +47,12 @@
 
     <span class="jxui-select-icon">
       {% if loading -%}
-        <FormLoading />
+        <Form.Loading />
       {%- else -%}
         <Icon class="jxui-select-arrow" name="arrow_drop_down" />
       {%- endif %}
     </span>
-  </FormWrapper>
-</FormField>
+  </Form.Wrapper>
+</Form.Field>
 
 {# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}
