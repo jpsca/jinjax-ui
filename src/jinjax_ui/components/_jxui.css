@@ -325,6 +325,9 @@
   --ui-fg-tooltip: var(--ui-white);
 
   --ui-bg-default: var(--ui-neutral-50);
+  --ui-bg-default-100: var(--ui-neutral-100);
+  --ui-bg-default-200: var(--ui-neutral-200);
+  --ui-bg-default-300: var(--ui-neutral-300);
   --ui-bg-disabled: var(--ui-neutral-50);
   --ui-bg-canvas: var(--ui-neutral-50);
   --ui-bg-canvas-hover: var(--ui-neutral-200);
@@ -336,8 +339,9 @@
   --ui-border-disabled: var(--ui-neutral-200);
 
   --ui-outline: rgba(var(--ui-neutral-500), 0.1);
+  --ui-shadow-default: 0px 1px 4px 1px ,oklch(0.71 0.02 26 / 0.3);
   --ui-shadow-inset: oklch(0.88 0.01 247.97 / 0.20);
-  --ui-accent-fg: var(--ui-blue-500);
+  --ui-fg-accent: var(--ui-blue-500);
 
   --ui-radius-sm: 2px;
   --ui-radius-base: 4px;

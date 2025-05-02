@@ -39,8 +39,8 @@
 }
 
 .jxui-form-wrapper:where(:not([data-disabled] > .jxui-form-wrapper)):focus-within {
-  border-color: var(--ui-accent-fg, #0969da);
-  outline: 2px solid var(--ui-accent-fg, #0969da);
+  border-color: var(--ui-fg-accent, #0969da);
+  outline: 2px solid var(--ui-fg-accent, #0969da);
   outline-offset: -1px;
 }
 [data-disabled] > .jxui-form-wrapper {

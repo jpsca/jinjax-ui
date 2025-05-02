@@ -22,8 +22,8 @@
   transition-property: background-color, border-color;
 }
 .jxui-checkbox-input:focus-visible {
-  border-color: var(--ui-accent-fg);
-  outline: 2px solid var(--ui-accent-fg);
+  border-color: var(--ui-fg-accent);
+  outline: 2px solid var(--ui-fg-accent);
   outline-offset: -1px;
 }
 .jxui-checkbox-input:checked::after {
@@ -45,11 +45,11 @@
   pointer-events: none;
 }
 .jxui-checkbox-input:checked::after {
-  background-color: var(--ui-accent-fg);
+  background-color: var(--ui-fg-accent);
   border-color: var(--ui-bg-canvas);
 }
 .jxui-checkbox-input:checked {
-  border-color: var(--ui-accent-fg);
+  border-color: var(--ui-fg-accent);
 }
 
 [data-disabled] > .jxui-checkbox-input {

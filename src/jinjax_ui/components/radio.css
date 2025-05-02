@@ -28,8 +28,8 @@
   transition-property: background-color, border-color;
 }
 .jxui-radio-input:focus {
-  border-color: var(--ui-accent-fg);
-  outline: 2px solid var(--ui-accent-fg);
+  border-color: var(--ui-fg-accent);
+  outline: 2px solid var(--ui-fg-accent);
   outline-offset: -1px;
 }
 .jxui-radio-input:checked::after {
@@ -51,11 +51,11 @@
   pointer-events: none;
 }
 .jxui-radio-input:checked::after {
-  background-color: var(--ui-accent-fg);
+  background-color: var(--ui-fg-accent);
   border-color: var(--ui-bg-canvas);
 }
 .jxui-radio-input:checked {
-  border-color: var(--ui-accent-fg);
+  border-color: var(--ui-fg-accent);
 }
 
 [data-disabled] > .jxui-radio-input {

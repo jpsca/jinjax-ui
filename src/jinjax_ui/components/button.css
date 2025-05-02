@@ -1,88 +1,213 @@
 /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
-button.jxui-button,
-a.jxui-button,
-a.jxui-button[href],
-.jxui-button {
-  display: inline-flex;
+.jxui-button, button.jxui-button, .jxui-button, a.jxui-button[href] {
   appearance: none;
-  position: relative;
-  align-items: center;
-  justify-content: center;
   box-sizing: border-box;
-  cursor: pointer;
-  overflow: hidden;
-  font-family: inherit;
-  min-inline-size: min-content;
-  text-decoration: none;
-  user-select: none;
-  white-space: nowrap;
-  border-radius: var(--ui-radius-lg);
-  line-height: 1;
-  transition-duration: 120ms;
-  transition-property: background-color, border-color, color, fill, outline-color;
-  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-  box-shadow: 0px 1px 4px 1px oklch(0.71 0.02 26 / 0.3);
-  outline-offset: 1px;
-  text-decoration: none !important;
-
-  color: var(--color);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  outline: 4px solid var(--outline);
-}
-
-.jxui-button:hover:not([disabled]),
-.jxui-button:focus-visible:not([disabled]),
-.jxui-button:hover:not([data-disabled]),
-.jxui-button:focus-visible:not([data-disabled]) {
-  color: var(--color-hover);
-  background: var(--bg-hover);
-  border-color: var(--border-hover);
-  text-decoration: none;
-}
-
-.jxui-button:focus-visible:not([disabled]),
-.jxui-button:focus-visible:not([data-disabled]) {
-  outline-color: var(--outline-hover);
-}
-
-.jxui-button:active:not([disabled]),
-.jxui-button:active:not([data-disabled]) {
-  color: var(--color-active);
-  background: var(--bg-active);
-  border-color: var(--border-active);
-  outline-color: var(--outline-active);;
-  text-decoration: none;
-  box-shadow:
-    inset 1px 2px 4px rgba(30, 30, 30, 0.2),
-    1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.jxui-button[disabled],
-.jxui-button[disabled]:hover,
-.jxui-button[disabled]:focus-visible,
-.jxui-button[disabled]:active,
-.jxui-button[data-disabled],
-.jxui-button[data-disabled]:hover,
-.jxui-button[data-disabled]:focus-visible,
-.jxui-button[data-disabled]:active{
-  opacity: 0.6;
-  box-shadow: none;
-}
-
-.jxui-button-label {
-  line-height: 1;
-  padding: 0;
-  margin: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.94em;
+  min-inline-size: min-content;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition-duration: 120ms;
+  transition-property: background-color, border-color, color, translate;
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+
+  font-weight: var(--btn-font-weight, 500);
+  border-radius: var(--btn-radius);
+  color: var(--btn-fg);
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  box-shadow: var(--btn-shadow);
 }
 
-.jxui-button-icon {
-  line-height: 1;
-  font-size: 1.125em;
+.jxui-button:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
+  background-color: var(--btn-bg-hover, var(--btn-bg));
+  border-color: var(--btn-border-hover, var(--btn-border));
+  box-shadow: var(--btn-shadow-hover, var(--btn-shadow));
+  text-decoration: none;
+}
+
+.jxui-button:focus-visible:not([disabled],[data-disabled]) {
+  isolation: isolate;
+  outline-color: var(--btn-bg, var(--btn-fg));
+  outline-width: 2px;
+  outline-offset: 1px;
+  outline-style: solid;
+}
+
+.jxui-button:active:not([disabled],[data-disabled]) {
+  background-color: var(--btn-bg-active, var(--btn-bg));
+  border-color: var(--btn-border-active, var(--btn-border));
+  box-shadow: var(--btn-shadow-active, var(--btn-shadow));
+  translate: 0 1px;
+  text-decoration: none;
+}
+
+.jxui-button:is(:disabled,[disabled],[data-disabled]) {
+  color: color-mix(in srgb, var(--ui-fg-default) 20%, #0000);
+  background-color: color-mix(in oklab, var(--ui-fg-default) 10%, transparent);
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: #000;
+  box-shadow: none;
+  outline: none;
+}
+@supports (color: color-mix(in lab,red,red)) {
+  .jxui-button:is(:disabled,[disabled],[data-disabled]) {
+    color: color-mix(in oklch, var(--ui-fg-default) 20%, #0000);
+    background-color: color-mix(in oklab, var(--ui-fg-default) 10%, transparent);
+  }
+}
+
+/**************** Variants ****************/
+
+.jxui-button {
+  --btn-radius: var(--ui-radius-lg);
+  --btn-fg: var(--ui-fg-default);
+  --btn-bg: var(--ui-bg-default-100);
+  --btn-border: var(--ui-border-default);
+  --btn-shadow: var(--ui-shadow-default);
+
+  --btn-bg-hover: color-mix(in srgb, var(--btn-bg), #000 4%);
+  --btn-bg-active: color-mix(in srgb, var(--btn-bg), #000 7%);
+  --btn-border-active: color-mix(in srgb, var(--btn-bg), #000 14%);
+  --btn-shadow-active: inset 1px 2px 4px rgba(30, 30, 30, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.05)
+}
+@supports (color: color-mix(in lab,red,red)) {
+  .jxui-button {
+    --btn-bg-hover: color-mix(in oklab, var(--btn-bg), #000 5%);
+    --btn-bg-active: color-mix(in oklab, var(--btn-bg), #000 7%);
+    --btn-border-active: color-mix(in oklab, var(--btn-bg), #000 14%);
+  }
+}
+
+.jxui-button[data-var="ghost"] {
+  --btn-bg: transparent;
+  --btn-border: transparent;
+  --btn-shadow: none;
+}
+
+.jxui-button[data-var="outline"] {
+  --btn-bg: transparent;
+  --btn-shadow: none;
+}
+
+.jxui-button[data-var="text"] {
+  --btn-fg: var(--ui-blue-600);
+  --btn-bg: transparent;
+  --btn-border: transparent;
+  --btn-shadow: none;
+  --btn-bg-hover: transparent;
+  --btn-bg-active: transparent;
+  --btn-border-active: transparent;
+  --btn-shadow-active: none;
+}
+.jxui-button[data-var="text"]:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+.jxui-button[data-var="text"]:active:not([disabled],[data-disabled]) {
+  text-decoration: none !important;
+}
+
+.jxui-button[data-var="primary"],
+.jxui-button[data-var="blue"] {
+  --btn-fg: white;
+  --btn-bg: var(--ui-blue-500);
+}
+
+.jxui-button[data-var="success"],
+.jxui-button[data-var="green"] {
+  --btn-bg: var(--ui-green-300);
+}
+
+.jxui-button[data-var="warning"],
+.jxui-button[data-var="yellow"] {
+  --btn-bg: var(--ui-yellow-200);
+}
+
+.jxui-button[data-var="alert"],
+.jxui-button[data-var="orange"] {
+  --btn-bg: var(--ui-orange-400);
+}
+
+.jxui-button[data-var="critical"],
+.jxui-button[data-var="red"] {
+  --btn-fg: white;
+  --btn-bg: var(--ui-red-500);
+}
+
+.jxui-button[data-var="option"],
+.jxui-button[data-var="purple"] {
+  --btn-fg: white;
+  --btn-bg: var(--ui-purple-500);
+}
+
+.jxui-button[data-var="note"],
+.jxui-button[data-var="stone"] {
+  --btn-fg: white;
+  --btn-bg: var(--ui-stone-500);
+}
+
+.jxui-button[data-var="outline-primary"],
+.jxui-button[data-var="outline-blue"] {
+  --btn-bg: var(--ui-blue-400);
+  --btn-border: var(--ui-blue-400);
+}
+
+.jxui-button[data-var="outline-success"],
+.jxui-button[data-var="outline-green"] {
+  --btn-bg: var(--ui-green-400);
+  --btn-border: var(--ui-green-400);
+}
+
+.jxui-button[data-var="outline-warning"],
+.jxui-button[data-var="outline-yellow"] {
+  --btn-bg: var(--ui-yellow-400);
+  --btn-border: var(--ui-yellow-400);
+}
+
+.jxui-button[data-var="outline-alert"],
+.jxui-button[data-var="outline-orange"] {
+  --btn-bg: var(--ui-orange-400);
+  --btn-border: var(--ui-orange-400);
+}
+
+.jxui-button[data-var="outline-critical"],
+.jxui-button[data-var="outline-red"] {
+  --btn-bg: var(--ui-red-400);
+  --btn-border: var(--ui-red-400);
+}
+
+.jxui-button[data-var="outline-option"],
+.jxui-button[data-var="outline-purple"] {
+  --btn-bg: var(--ui-purple-400);
+  --btn-border: var(--ui-purple-400);
+}
+
+.jxui-button[data-var="outline-note"],
+.jxui-button[data-var="outline-stone"] {
+  --btn-bg: var(--ui-stone-400);
+  --btn-border: var(--ui-stone-400);
+}
+
+.jxui-button[data-var^="outline-"] {
+  background-color: color-mix(in srgb, var(--btn-bg) 10%, transparent);
+  --btn-bg-hover: color-mix(in srgb, var(--btn-bg) 20%, transparent);
+  --btn-bg-active: color-mix(in srgb, var(--btn-bg) 30%, transparent);
+}
+@supports (color: color-mix(in lab,red,red)) {
+  .jxui-button[data-var^="outline-"] {
+    background-color: color-mix(in oklab, var(--btn-bg) 10%, transparent);
+    --btn-bg-hover: color-mix(in oklab, var(--btn-bg) 20%, transparent);
+    --btn-bg-active: color-mix(in oklab, var(--btn-bg) 30%, transparent);
+  }
 }
 
 /**************** Sizes ****************/
@@ -161,236 +286,19 @@ a.jxui-button[href],
   width: 100%;
 }
 
-/**************** Variants ****************/
+/**************** Content ****************/
 
-.jxui-button {
-  --color: var(--ui-neutral-950);
-  --color-hover: var(--ui-neutral-950);
-  --color-active: black;
-
-  --bg: var(--ui-neutral-100);
-  --bg-hover: var(--ui-neutral-200);
-  --bg-active: var(--ui-neutral-300);
-
-  --border: var(--ui-border-default);
-  --border-hover: var(--ui-border-default);
-  --border-active: var(--ui-neutral-500);
-
-  --outline: transparent;
-  --outline-hover: rgba(0, 94, 255, 0.1);
-  --outline-active: transparent;
+.jxui-button-label {
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.94em;
 }
 
-.jxui-button[data-var="ghost"] {
-  --bg: transparent;
-  --border: transparent;
-
-  --bg-hover: var(--ui-neutral-100);
-  --border-hover: transparent;
-
-  --border-active: var(--ui-neutral-300);
-
-  box-shadow: none;
-}
-.jxui-button[data-var="ghost"]:active:not([disabled]),
-.jxui-button[data-var="ghost"]:active:not([data-disabled]) {
-  box-shadow:
-    inset 1px 2px 4px rgba(30, 30, 30, 0.2),
-    1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.jxui-button[data-var="outline"] {
-  --bg: transparent;
-  --bg-hover: transparent;
-  box-shadow: none;
-}
-.jxui-button[data-var="outline"]:active:not([disabled]),
-.jxui-button[data-var="outline"]:active:not([data-disabled]) {
-  box-shadow:
-    inset 1px 2px 4px rgba(30, 30, 30, 0.2),
-    1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.jxui-button[data-var="text"] {
-  --color: var(--ui-blue-600);
-  --bg: transparent;
-  --border: transparent;
-
-  --color-hover: var(--ui-blue-600);
-  --bg-hover: transparent;
-  --border-hover: transparent;
-
-  --color-active: var(--ui-blue-800);
-  --bg-active: transparent;
-  --border-active: transparent;
-
-  box-shadow: none;
-}
-
-.jxui-button[data-var="text"]:hover:not([disabled]),
-.jxui-button[data-var="text"]:focus-visible:not([disabled]),
-.jxui-button[data-var="text"]:hover:not([data-disabled]),
-.jxui-button[data-var="text"]:focus-visible:not([data-disabled]) {
-  box-shadow: none;
-  text-decoration: underline !important;
-  text-underline-offset: 4px;
-}
-
-.jxui-button[data-var="text"]:active:not([disabled])
-.jxui-button[data-var="text"]:active:not([data-disabled]) {
-  box-shadow: none;
-  text-decoration: none !important;
-}
-
-.jxui-button[data-var="primary"],
-.jxui-button[data-var="blue"] {
-  --color: white;
-  --bg: var(--ui-blue-500);
-
-  --color-hover: white;
-  --bg-hover: var(--ui-blue-600);
-
-  --color-active: white;
-  --bg-active: var(--ui-blue-800);
-}
-
-.jxui-button[data-var="success"],
-.jxui-button[data-var="green"] {
-  --bg: var(--ui-green-300);
-
-  --bg-hover: var(--ui-green-400);
-
-  --bg-active: var(--ui-green-500);
-}
-
-.jxui-button[data-var="warning"],
-.jxui-button[data-var="yellow"] {
-  --bg: var(--ui-yellow-200);
-
-  --bg-hover: var(--ui-yellow-300);
-
-  --bg-active: var(--ui-yellow-400);
-}
-
-.jxui-button[data-var="alert"],
-.jxui-button[data-var="orange"] {
-  --bg: var(--ui-orange-400);
-
-  --bg-hover: var(--ui-orange-500);
-
-  --bg-active: var(--ui-orange-600);
-}
-
-.jxui-button[data-var="critical"],
-.jxui-button[data-var="red"] {
-  --color: white;
-  --bg: var(--ui-red-500);
-
-  --color-hover: white;
-  --bg-hover: var(--ui-red-600);
-
-  --color-active: white;
-  --bg-active: var(--ui-red-700);
-}
-
-.jxui-button[data-var="option"],
-.jxui-button[data-var="purple"] {
-  --color: white;
-  --bg: var(--ui-purple-500);
-
-  --color-hover: white;
-  --bg-hover: var(--ui-purple-600);
-
-  --color-active: white;
-  --bg-active: var(--ui-purple-700);
-}
-
-.jxui-button[data-var="note"],
-.jxui-button[data-var="stone"] {
-  --color: white;
-  --bg: var(--ui-stone-500);
-
-  --color-hover: white;
-  --bg-hover: var(--ui-stone-600);
-
-  --color-active: white;
-  --bg-active: var(--ui-stone-700);
-}
-
-.jxui-button[data-var="outline-primary"],
-.jxui-button[data-var="outline-blue"] {
-  --bg: var(--ui-blue-50);
-  --border: var(--ui-blue-500);
-
-  --bg-hover: var(--ui-blue-100);
-  --border-hover: var(--ui-blue-500);
-
-  --bg-active: var(--ui-blue-200);
-  --border-active: var(--ui-blue-500);
-}
-.jxui-button[data-var="outline-success"],
-.jxui-button[data-var="outline-green"] {
-  --bg: var(--ui-green-50);
-  --border: var(--ui-green-500);
-
-  --bg-hover: var(--ui-green-100);
-  --border-hover: var(--ui-green-500);
-
-  --bg-active: var(--ui-green-200);
-  --border-active: var(--ui-green-500);
-}
-.jxui-button[data-var="outline-warning"],
-.jxui-button[data-var="outline-yellow"] {
-  --bg: var(--ui-yellow-50);
-  --border: var(--ui-yellow-500);
-
-  --bg-hover: var(--ui-yellow-100);
-  --border-hover: var(--ui-yellow-500);
-
-  --bg-active: var(--ui-yellow-200);
-  --border-active: var(--ui-yellow-500);
-}
-.jxui-button[data-var="outline-alert"],
-.jxui-button[data-var="outline-orange"] {
-  --bg: var(--ui-orange-50);
-  --border: var(--ui-orange-500);
-
-  --bg-hover: var(--ui-orange-100);
-  --border-hover: var(--ui-orange-500);
-
-  --bg-active: var(--ui-orange-200);
-  --border-active: var(--ui-orange-500);
-}
-.jxui-button[data-var="outline-critical"],
-.jxui-button[data-var="outline-red"] {
-  --bg: var(--ui-red-50);
-  --border: var(--ui-red-500);
-
-  --bg-hover: var(--ui-red-100);
-  --border-hover: var(--ui-red-500);
-
-  --bg-active: var(--ui-red-200);
-  --border-active: var(--ui-red-500);
-}
-.jxui-button[data-var="outline-option"],
-.jxui-button[data-var="outline-purple"] {
-  --bg: var(--ui-purple-50);
-  --border: var(--ui-purple-500);
-
-  --bg-hover: var(--ui-purple-100);
-  --border-hover: var(--ui-purple-500);
-
-  --bg-active: var(--ui-purple-200);
-  --border-active: var(--ui-purple-500);
-}
-.jxui-button[data-var="outline-note"],
-.jxui-button[data-var="outline-stone"] {
-  --bg: var(--ui-stone-200);
-  --border: var(--ui-stone-400);
-
-  --bg-hover: var(--ui-stone-300);
-  --border-hover: var(--ui-stone-400);
-
-  --bg-active: var(--ui-stone-400);
-  --border-active: var(--ui-stone-400);
+.jxui-button-icon {
+  line-height: 1;
+  font-size: 1.125em;
 }
