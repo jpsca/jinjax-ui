@@ -92,18 +92,6 @@
   --ui-neutral-900: oklch(0.20 0.00 0);
   --ui-neutral-950: oklch(0.14 0.00 0);
 
-  --ui-stone-50: oklch(0.98 0.00 106);
-  --ui-stone-100: oklch(0.97 0.00 106);
-  --ui-stone-200: oklch(0.92 0.00 49);
-  --ui-stone-300: oklch(0.87 0.00 56);
-  --ui-stone-400: oklch(0.72 0.01 56);
-  --ui-stone-500: oklch(0.55 0.01 58);
-  --ui-stone-600: oklch(0.44 0.01 74);
-  --ui-stone-700: oklch(0.37 0.01 68);
-  --ui-stone-800: oklch(0.27 0.01 34);
-  --ui-stone-900: oklch(0.22 0.01 56);
-  --ui-stone-950: oklch(0.15 0.00 49);
-
   --ui-red-50: oklch(0.97 0.01 17);
   --ui-red-100: oklch(0.94 0.03 18);
   --ui-red-200: oklch(0.88 0.06 18);
@@ -307,7 +295,8 @@
   --ui-rose-800: oklch(0.45 0.17 14);
   --ui-rose-900: oklch(0.41 0.15 10);
   --ui-rose-950: oklch(0.27 0.10 12);
-
+}
+:root {
   --ui-font-family-mono: ui-monospace, 'Fira Code', 'Fira Mono', 'Consolas', 'Menlo', monospace;
 
   --ui-font-size-xs: 0.75rem; /* 12px */
@@ -319,20 +308,38 @@
   --ui-font-size-3xl: 2.625rem; /* 42px */
   --ui-font-size-4xl: 4rem; /* 64px */
 
-  --ui-fg-default: var(--ui-neutral-950);
+  --ui-bg-primary: var(--ui-blue-500);
+  --ui-fg-primary: var(--ui-white);
+
+  --ui-bg-accent: var(--ui-orange-500);
+  --ui-fg-accent: var(--ui-white);
+
+  --ui-bg-neutral: var(--ui-neutral-900);
+  --ui-fg-neutral: var(--ui-white);
+
+  --ui-bg-base: var(--ui-neutral-50);
+  --ui-bg-base-100: var(--ui-neutral-100);
+  --ui-bg-base-200: var(--ui-neutral-200);
+  --ui-bg-base-300: var(--ui-neutral-300);
+
+  --ui-fg-base: var(--ui-gray-950);
   --ui-fg-input: var(--ui-neutral-800);
   --ui-fg-muted: var(--ui-neutral-600);
-  --ui-fg-tooltip: var(--ui-white);
 
-  --ui-bg-default: var(--ui-neutral-50);
-  --ui-bg-default-100: var(--ui-neutral-100);
-  --ui-bg-default-200: var(--ui-neutral-200);
-  --ui-bg-default-300: var(--ui-neutral-300);
-  --ui-bg-disabled: var(--ui-neutral-50);
-  --ui-bg-canvas: var(--ui-neutral-50);
-  --ui-bg-canvas-hover: var(--ui-neutral-200);
-  --ui-bg-panel: var(--ui-neutral-200);
-  --ui-bg-tooltip: var(--ui-neutral-800);
+  --ui-bg-info: var(--ui-sky-500);
+  --ui-fg-info: var(--ui-white);
+
+  --ui-bg-success: var(--ui-green-500);
+  --ui-fg-success: var(--ui-white);
+
+  --ui-bg-warning: var(--ui-yellow-500);
+  --ui-fg-warning: var(--ui-white);
+
+  --ui-bg-critical: var(--ui-red-500);
+  --ui-fg-critical: var(--ui-white);
+
+    --ui-bg-option: var(--ui-purple-500);
+    --ui-fg-option: var(--ui-white);
 
   --ui-border-default: var(--ui-neutral-400);
   --ui-border-muted: var(--ui-neutral-300);
@@ -341,7 +348,6 @@
   --ui-outline: rgba(var(--ui-neutral-500), 0.1);
   --ui-shadow-default: 0px 1px 4px 1px ,oklch(0.71 0.02 26 / 0.3);
   --ui-shadow-inset: oklch(0.88 0.01 247.97 / 0.20);
-  --ui-fg-accent: var(--ui-blue-500);
 
   --ui-radius-sm: 2px;
   --ui-radius-base: 4px;

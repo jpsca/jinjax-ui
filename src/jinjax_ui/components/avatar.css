@@ -11,7 +11,7 @@
   font-size: var(--ui-font-size-sm);
   font-weight: bold;
   border-radius: 100%;
-  background-color: var(--ui-bg-panel);
+  background-color: var(--ui-bg-base-200);
 }
 .jxui-avatar > * {
   display: flex;

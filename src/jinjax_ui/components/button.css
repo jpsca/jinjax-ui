@@ -50,8 +50,8 @@
 }
 
 .jxui-button:is(:disabled,[disabled],[data-disabled]) {
-  color: color-mix(in srgb, var(--ui-fg-default) 20%, #0000);
-  background-color: color-mix(in oklab, var(--ui-fg-default) 10%, transparent);
+  color: color-mix(in srgb, var(--ui-fg-base) 20%, #0000);
+  background-color: color-mix(in srgb, var(--ui-fg-base) 10%, transparent);
   cursor: not-allowed;
   pointer-events: none;
   border-color: #000;
@@ -60,8 +60,8 @@
 }
 @supports (color: color-mix(in lab,red,red)) {
   .jxui-button:is(:disabled,[disabled],[data-disabled]) {
-    color: color-mix(in oklch, var(--ui-fg-default) 20%, #0000);
-    background-color: color-mix(in oklab, var(--ui-fg-default) 10%, transparent);
+    color: color-mix(in oklch, var(--ui-fg-base) 20%, #0000);
+    background-color: color-mix(in oklab, var(--ui-fg-base) 10%, transparent);
   }
 }
 
@@ -69,8 +69,8 @@
 
 .jxui-button {
   --btn-radius: var(--ui-radius-lg);
-  --btn-fg: var(--ui-fg-default);
-  --btn-bg: var(--ui-bg-default-100);
+  --btn-fg: var(--ui-fg-base);
+  --btn-bg: var(--ui-bg-base-100);
   --btn-border: var(--ui-border-default);
   --btn-shadow: var(--ui-shadow-default);
 
@@ -116,85 +116,54 @@
   text-decoration: none !important;
 }
 
-.jxui-button[data-var="primary"],
-.jxui-button[data-var="blue"] {
-  --btn-fg: white;
-  --btn-bg: var(--ui-blue-500);
+.jxui-button[data-var="primary"] {
+  --btn-fg: var(--ui-fg-primary);
+  --btn-bg: var(--ui-bg-primary);
+}
+.jxui-button[data-var="success"] {
+  --btn-fg: var(--ui-fg-success);
+  --btn-bg: var(--ui-bg-success);
+}
+.jxui-button[data-var="warning"] {
+  --btn-fg: var(--ui-fg-warning);
+  --btn-bg: var(--ui-bg-warning);
+}
+.jxui-button[data-var="critical"] {
+  --btn-fg: var(--ui-fg-critical);
+  --btn-bg: var(--ui-bg-critical);
+}
+.jxui-button[data-var="option"] {
+  --btn-fg: var(--ui-fg-option);
+  --btn-bg: var(--ui-bg-option);
+}
+.jxui-button[data-var="accent"] {
+  --btn-fg: var(--ui-fg-accent);;
+  --btn-bg: var(--ui-bg-accent);
 }
 
-.jxui-button[data-var="success"],
-.jxui-button[data-var="green"] {
-  --btn-bg: var(--ui-green-300);
+.jxui-button[data-var="outline-primary"] {
+  --btn-bg: var(--ui-bg-primary);
+  --btn-border: var(--btn-bg);
 }
-
-.jxui-button[data-var="warning"],
-.jxui-button[data-var="yellow"] {
-  --btn-bg: var(--ui-yellow-200);
+.jxui-button[data-var="outline-success"] {
+  --btn-bg: var(--ui-bg-success);
+  --btn-border: var(--btn-bg);
 }
-
-.jxui-button[data-var="alert"],
-.jxui-button[data-var="orange"] {
-  --btn-bg: var(--ui-orange-400);
+.jxui-button[data-var="outline-warning"] {
+  --btn-bg: var(--ui-bg-warning);
+  --btn-border: var(--btn-bg);
 }
-
-.jxui-button[data-var="critical"],
-.jxui-button[data-var="red"] {
-  --btn-fg: white;
-  --btn-bg: var(--ui-red-500);
+.jxui-button[data-var="outline-critical"] {
+  --btn-bg: var(--ui-bg-critical);
+  --btn-border: var(--btn-bg);
 }
-
-.jxui-button[data-var="option"],
-.jxui-button[data-var="purple"] {
-  --btn-fg: white;
-  --btn-bg: var(--ui-purple-500);
+.jxui-button[data-var="outline-option"] {
+  --btn-bg: var(--ui-bg-option);
+  --btn-border: var(--btn-bg);
 }
-
-.jxui-button[data-var="note"],
-.jxui-button[data-var="stone"] {
-  --btn-fg: white;
-  --btn-bg: var(--ui-stone-500);
-}
-
-.jxui-button[data-var="outline-primary"],
-.jxui-button[data-var="outline-blue"] {
-  --btn-bg: var(--ui-blue-400);
-  --btn-border: var(--ui-blue-400);
-}
-
-.jxui-button[data-var="outline-success"],
-.jxui-button[data-var="outline-green"] {
-  --btn-bg: var(--ui-green-400);
-  --btn-border: var(--ui-green-400);
-}
-
-.jxui-button[data-var="outline-warning"],
-.jxui-button[data-var="outline-yellow"] {
-  --btn-bg: var(--ui-yellow-400);
-  --btn-border: var(--ui-yellow-400);
-}
-
-.jxui-button[data-var="outline-alert"],
-.jxui-button[data-var="outline-orange"] {
-  --btn-bg: var(--ui-orange-400);
-  --btn-border: var(--ui-orange-400);
-}
-
-.jxui-button[data-var="outline-critical"],
-.jxui-button[data-var="outline-red"] {
-  --btn-bg: var(--ui-red-400);
-  --btn-border: var(--ui-red-400);
-}
-
-.jxui-button[data-var="outline-option"],
-.jxui-button[data-var="outline-purple"] {
-  --btn-bg: var(--ui-purple-400);
-  --btn-border: var(--ui-purple-400);
-}
-
-.jxui-button[data-var="outline-note"],
-.jxui-button[data-var="outline-stone"] {
-  --btn-bg: var(--ui-stone-400);
-  --btn-border: var(--ui-stone-400);
+.jxui-button[data-var="outline-accent"] {
+  --btn-bg: var(--ui-bg-accent);
+  --btn-border: var(--btn-bg);
 }
 
 .jxui-button[data-var^="outline-"] {

@@ -13,7 +13,7 @@
 .jxui-form-wrapper {
   font-size: var(--ui-font-size-md);
   color: var(--ui-fg-input);
-  background-color: var(--ui-bg-canvas);
+  background-color: var(--ui-bg-base);
   border: 1px solid var(--ui-border-default);
   border-radius: var(--ui-radius-base);
   outline: none;
@@ -39,12 +39,12 @@
 }
 
 .jxui-form-wrapper:where(:not([data-disabled] > .jxui-form-wrapper)):focus-within {
-  border-color: var(--ui-fg-accent, #0969da);
-  outline: 2px solid var(--ui-fg-accent, #0969da);
+  border-color: var(--ui-bg-accent, #0969da);
+  outline: 2px solid var(--ui-bg-accent, #0969da);
   outline-offset: -1px;
 }
 [data-disabled] > .jxui-form-wrapper {
-  background-color: var(--ui-bg-disabled);
+  background-color: var(--ui-bg-base-200);
   border-color: var(--ui-border-disabled);
   color: var(--ui-fg-muted);
 }

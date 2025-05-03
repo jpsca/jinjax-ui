@@ -67,16 +67,16 @@
 
 .jxui-tab {
   line-height: 1.4;
-  color: var(--ui-fg-default, #1F2328);
+  color: var(--ui-fg-base, #1F2328);
   text-decoration: none;
-  background: var(--ui-bg-panel);
+  background: var(--ui-bg-base-200);
   border: 1px solid var(--ui-border-muted);
   z-index: 1;
   transition: 80ms cubic-bezier(0.65, 0, 0.35, 1);
   transition-property: background-color, border-color, color;
 }
 .jxui-tab[data-selected] {
-  background-color: var(--ui-bg-default);
+  background-color: var(--ui-bg-base);
   border-color: var(--ui-border-default);
 }
 
@@ -85,7 +85,7 @@
   border-top-left-radius: 6px;
 }
 [data-position="top"] > .jxui-tab-list .jxui-tab[data-selected] {
-  border-bottom-color: var(--ui-bg-default);
+  border-bottom-color: var(--ui-bg-base);
 }
 
 [data-position="right"] > .jxui-tab-list .jxui-tab {
@@ -93,7 +93,7 @@
   border-bottom-right-radius: 6px;
 }
 [data-position="right"] > .jxui-tab-list .jxui-tab[data-selected] {
-  border-left-color: var(--ui-bg-default);
+  border-left-color: var(--ui-bg-base);
 }
 
 [data-position="bottom"] > .jxui-tab-list .jxui-tab {
@@ -101,7 +101,7 @@
   border-bottom-left-radius: 6px;
 }
 [data-position="bottom"] > .jxui-tab-list .jxui-tab[data-selected] {
-  border-top-color: var(--ui-bg-default);
+  border-top-color: var(--ui-bg-base);
 }
 
 [data-position="left"] > .jxui-tab-list .jxui-tab {
@@ -109,7 +109,7 @@
   border-bottom-left-radius: 6px;
 }
 [data-position="left"] > .jxui-tab-list .jxui-tab[data-selected] {
-  border-right-color: var(--ui-bg-default);
+  border-right-color: var(--ui-bg-base);
 }
 
 [data-position="top"] > .jxui-tab-list .jxui-tab,
@@ -127,4 +127,5 @@
   flex-grow: 1;
   align-self: stretch;
   border-radius: 4px;
+  background-color: var(--ui-bg-base);
 }

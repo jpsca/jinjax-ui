@@ -1,0 +1,12 @@
+.jxui-color-sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jxui-color-sample span {
+  display: block;
+  width: 23px;
+  height: 23px;
+  border-radius: 5px;
+  border: 1px solid oklch(0.92 0.00 0);
+}

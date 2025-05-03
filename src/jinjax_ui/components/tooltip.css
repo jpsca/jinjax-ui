@@ -14,14 +14,14 @@
   margin: auto;
   clip: auto;
   border-radius: 8px;
-  color: var(--ui-fg-tooltip);
-  background-color: var(--ui-bg-tooltip);
+  color: var(--ui-fg-neutral);
+  background-color: var(--ui-bg-neutral);
   padding: 4px 8px;
   font-size: var(--ui-font-size-sm);
   line-height: 1.375;
   font-weight: 500;
   text-align: center;
-  box-shadow: 0 0 var(--ui-bg-tooltip), 0 1px 2px 0 rgba(var(--ui-bg-tooltip), 0.01);
+  box-shadow: 0 0 var(--ui-bg-neutral), 0 1px 2px 0 rgba(var(--ui-bg-neutral), 0.01);
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 100ms;
@@ -64,7 +64,7 @@
   border-right-width: 6px;
   border-bottom-width: 8px;
   border-color: transparent;
-  border-bottom-color: var(--ui-bg-tooltip);
+  border-bottom-color: var(--ui-bg-neutral);
   z-index: 11;
 }
 .jxui-tooltip[data-position="top"]::after {

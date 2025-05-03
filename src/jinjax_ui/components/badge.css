@@ -1,10 +1,31 @@
 /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
 .jxui-badge {
+  --badge-color: var(--ui-bg-neutral);
+}
+.jxui-badge[data-var="info"] {
+  --badge-color: var(--ui-bg-info);
+}
+.jxui-badge[data-var="success"]  {
+  --badge-color: var(--ui-bg-success);
+}
+.jxui-badge[data-var="option"] {
+  --badge-color: var(--ui-bg-option);
+}
+.jxui-badge[data-var="warning"] {
+  --badge-color: var(--ui-bg-warning);
+}
+.jxui-badge[data-var="critical"] {
+  --badge-color: var(--ui-bg-critical);
+}
+.jxui-badge[data-var="accent"] {
+  --badge-color: var(--ui-bg-accent);
+}
+
+.jxui-badge {
+  font-size: var(--ui-font-size-xs);
+  padding: var(--4px) var(--8px);
   display: inline-flex;
   font-weight: 500;
-  color: var(--ui-neutral-600);
-  background: var(--ui-neutral-100);
-  border: 1px solid var(--ui-neutral-400);
   border-radius: var(--ui-radius-xl);
   flex-grow: 0;
   flex-shrink: 0;
@@ -12,57 +33,18 @@
   height: fit-content;
   line-height: 1;
   cursor: default;
+  color: var(--badge-color);
+  background: color-mix(in srgb, var(--badge-color) 10%, #fff);
+  border: 1px solid color-mix(in srgb, var(--badge-color) 80%, #fff);
 }
-
+@supports (color: color-mix(in lab,red,red)) {
+  .jxui-badge {
+    background: color-mix(in srgb, var(--badge-color) 10%, #fff);
+    border-color: color-mix(in srgb, var(--badge-color) 80%, #fff);
+  }
+}
 .jxui-badge[data-var="outline"] {
-  background-color: white;
-}
-.jxui-badge[data-var="info"],
-.jxui-badge[data-var="blue"] {
-  background-color: var(--ui-blue-50);
-  border-color: var(--ui-blue-300);
-  color: var(--ui-blue-600);
-}
-.jxui-badge[data-var="success"],
-.jxui-badge[data-var="green"] {
-  background-color: var(--ui-green-50);
-  border-color: var(--ui-green-300);
-  color: var(--ui-green-600);
-}
-.jxui-badge[data-var="warning"],
-.jxui-badge[data-var="yellow"] {
-  background-color: var(--ui-yellow-50);
-  border-color: var(--ui-yellow-300);
-  color: var(--ui-orange-500);
-}
-.jxui-badge[data-var="alert"],
-.jxui-badge[data-var="orange"] {
-  background-color: var(--ui-orange-50);
-  border-color: var(--ui-orange-200);
-  color: var(--ui-orange-600);
-}
-.jxui-badge[data-var="critical"],
-.jxui-badge[data-var="red"] {
-  background-color: var(--ui-red-50);
-  border-color: var(--ui-red-300);
-  color: var(--ui-red-600);
-}
-.jxui-badge[data-var="option"],
-.jxui-badge[data-var="purple"] {
-  background-color: var(--ui-purple-50);
-  border-color: var(--ui-purple-300);
-  color: var(--ui-purple-600);
-}
-.jxui-badge[data-var="note"],
-.jxui-badge[data-var="stone"] {
-  background-color: var(--ui-stone-50);
-  border-color: var(--ui-stone-400);
-  color: var(--ui-stone-500);
-}
-
-.jxui-badge {
-  font-size: var(--ui-font-size-xs);
-  padding: var(--4px) var(--8px);
+  background-color: #ffffff66;
 }
 .jxui-badge[data-size="small"] {
   font-size: var(--ui-font-size-xs);

@@ -46,7 +46,7 @@
   margin: 20px 0;
   max-width: 40rem;
   font-weight: 600;
-  color: --ui-fg-default;
+  color: --ui-fg-base;
 }
 .page-home section.hero h2 span {
   color: var(--ui-fg-muted);
