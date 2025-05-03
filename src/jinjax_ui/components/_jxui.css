@@ -68,18 +68,6 @@
   --ui-white: oklch(1 0 0);
   --ui-black: oklch(0 0 0);
 
-  --ui-gray-50: oklch(0.98 0.00 248);
-  --ui-gray-100: oklch(0.97 0.00 265);
-  --ui-gray-200: oklch(0.93 0.01 265);
-  --ui-gray-300: oklch(0.87 0.01 258);
-  --ui-gray-400: oklch(0.71 0.02 261);
-  --ui-gray-500: oklch(0.55 0.02 264);
-  --ui-gray-600: oklch(0.45 0.03 257);
-  --ui-gray-700: oklch(0.37 0.03 260);
-  --ui-gray-800: oklch(0.28 0.03 257);
-  --ui-gray-900: oklch(0.21 0.03 265);
-  --ui-gray-950: oklch(0.13 0.03 262);
-
   --ui-neutral-50: oklch(0.99 0.00 0);
   --ui-neutral-100: oklch(0.97 0.00 0);
   --ui-neutral-200: oklch(0.92 0.00 0);
@@ -91,6 +79,18 @@
   --ui-neutral-800: oklch(0.27 0.00 0);
   --ui-neutral-900: oklch(0.20 0.00 0);
   --ui-neutral-950: oklch(0.14 0.00 0);
+
+  --ui-stone-50: oklch(0.98 0.00 106);
+  --ui-stone-100: oklch(0.97 0.00 106);
+  --ui-stone-200: oklch(0.92 0.00 49);
+  --ui-stone-300: oklch(0.87 0.00 56);
+  --ui-stone-400: oklch(0.72 0.01 56);
+  --ui-stone-500: oklch(0.55 0.01 58);
+  --ui-stone-600: oklch(0.44 0.01 74);
+  --ui-stone-700: oklch(0.37 0.01 68);
+  --ui-stone-800: oklch(0.27 0.01 34);
+  --ui-stone-900: oklch(0.22 0.01 56);
+  --ui-stone-950: oklch(0.15 0.00 49);
 
   --ui-red-50: oklch(0.97 0.01 17);
   --ui-red-100: oklch(0.94 0.03 18);
@@ -322,17 +322,17 @@
   --ui-bg-base-200: var(--ui-neutral-200);
   --ui-bg-base-300: var(--ui-neutral-300);
 
-  --ui-fg-base: var(--ui-gray-950);
+  --ui-fg-base: var(--ui-neutral-950);
   --ui-fg-input: var(--ui-neutral-800);
   --ui-fg-muted: var(--ui-neutral-600);
 
   --ui-bg-info: var(--ui-sky-500);
   --ui-fg-info: var(--ui-white);
 
-  --ui-bg-success: var(--ui-green-500);
+  --ui-bg-success: var(--ui-green-600);
   --ui-fg-success: var(--ui-white);
 
-  --ui-bg-warning: var(--ui-yellow-500);
+  --ui-bg-warning: var(--ui-yellow-600);
   --ui-fg-warning: var(--ui-white);
 
   --ui-bg-critical: var(--ui-red-500);
@@ -411,4 +411,8 @@ kbd {
   border-width: 1px;
   border-color: #ffffff;
   box-shadow: 0 0 2px 0 #000;
+}
+
+.nowrap {
+  white-space: nowrap;
 }

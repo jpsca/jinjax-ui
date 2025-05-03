@@ -1,0 +1,3 @@
+.jxui-color-table td > :is(span,code) {
+  white-space: nowrap;
+}
