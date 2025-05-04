@@ -7,41 +7,54 @@
   justify-content: center;
   min-inline-size: min-content;
   cursor: pointer;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
   font-family: inherit;
   line-height: 1;
   overflow: hidden;
+  outline: none;
+  outline-offset: 2px;
   position: relative;
   user-select: none;
+  text-align: center;
   text-decoration: none !important;
   white-space: nowrap;
-  transition-duration: 120ms;
-  transition-property: background-color, border-color, color, translate;
+  touch-action: manipulation;
+  transition-duration: 200ms;
+  transition-property: color,background-color,border-color,box-shadow;
   transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  vertical-align: middle;
 
-  font-weight: var(--btn-font-weight, 500);
+  font-weight: var(--btn-font-weight, 600);
   border-radius: var(--btn-radius);
   color: var(--btn-fg);
   background-color: var(--btn-bg);
   border: 1px solid var(--btn-border);
   box-shadow: var(--btn-shadow);
+  outline-color: var(--btn-bg, var(--btn-fg));
+}
+.jxui-button > * {
+  user-select: none;
+  pointer-events: none;
 }
 
-.jxui-button:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
-  background-color: var(--btn-bg-hover, var(--btn-bg));
-  border-color: var(--btn-border-hover, var(--btn-border));
-  box-shadow: var(--btn-shadow-hover, var(--btn-shadow));
-  text-decoration: none;
+@media (hover: hover) {
+  .jxui-button:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
+    background-color: var(--btn-bg-hover, var(--btn-bg));
+    border-color: var(--btn-border-hover, var(--btn-border));
+    box-shadow: var(--btn-shadow-hover, var(--btn-shadow));
+    text-decoration: none;
+  }
 }
 
 .jxui-button:focus-visible:not([disabled],[data-disabled]) {
   isolation: isolate;
-  outline-color: var(--btn-bg, var(--btn-fg));
   outline-width: 2px;
-  outline-offset: 1px;
   outline-style: solid;
 }
 
 .jxui-button:active:not([disabled],[data-disabled]) {
+  pointer-events: none;
   background-color: var(--btn-bg-active, var(--btn-bg));
   border-color: var(--btn-border-active, var(--btn-border));
   box-shadow: var(--btn-shadow-active, var(--btn-shadow));
@@ -50,19 +63,31 @@
 }
 
 .jxui-button:is(:disabled,[disabled],[data-disabled]) {
-  color: color-mix(in srgb, var(--ui-fg-base) 20%, #0000);
-  background-color: color-mix(in srgb, var(--ui-fg-base) 10%, transparent);
+  color: color-mix(in srgb, var(--ui-fg-base) 35%, #fff);
+  border-color: var(--ui-border-disabled);
   cursor: not-allowed;
   pointer-events: none;
-  border-color: #000;
   box-shadow: none;
   outline: none;
 }
+.jxui-button[data-var]:is(:disabled,[disabled],[data-disabled]) {
+  background-color: color-mix(in srgb, var(--btn-bg) 12%, #fff);
+}
 @supports (color: color-mix(in lab,red,red)) {
   .jxui-button:is(:disabled,[disabled],[data-disabled]) {
-    color: color-mix(in oklch, var(--ui-fg-base) 20%, #0000);
-    background-color: color-mix(in oklab, var(--ui-fg-base) 10%, transparent);
+    color: color-mix(in oklab, var(--ui-fg-base) 35%, #fff);
   }
+  .jxui-button[data-var]:is(:disabled,[disabled],[data-disabled]) {
+    background-color: color-mix(in oklab, var(--btn-bg) 12%, #fff);
+  }
+}
+
+.jxui-button[aria-busy="true"] {
+  color: color-mix(in srgb, var(--ui-fg-base) 60%, #fff);
+  cursor: progress;
+  pointer-events: none;
+  box-shadow: none;
+  outline: none;
 }
 
 /**************** Variants ****************/
@@ -108,9 +133,11 @@
   --btn-border-active: transparent;
   --btn-shadow-active: none;
 }
-.jxui-button[data-var="text"]:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
-  text-decoration: underline !important;
-  text-underline-offset: 4px;
+@media (hover: hover) {
+  .jxui-button[data-var="text"]:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+  }
 }
 .jxui-button[data-var="text"]:active:not([disabled],[data-disabled]) {
   text-decoration: none !important;
