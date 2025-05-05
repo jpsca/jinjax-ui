@@ -1,7 +1,7 @@
 /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
 .jxui-button, button.jxui-button, .jxui-button, a.jxui-button[href] {
   align-items: center;
-  appearance: none;
+  appearance: button;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-flex;
@@ -282,16 +282,6 @@
 }
 
 /**************** Content ****************/
-
-.jxui-button-label {
-  line-height: 1;
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.94em;
-}
 
 .jxui-button-icon {
   line-height: 1;
