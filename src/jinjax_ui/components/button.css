@@ -1,39 +1,41 @@
 /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
 .jxui-button, button.jxui-button, .jxui-button, a.jxui-button[href] {
+  align-items: center;
   appearance: none;
   box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-inline-size: min-content;
   cursor: pointer;
-  flex-wrap: nowrap;
+  display: inline-flex;
   flex-shrink: 0;
+  flex-wrap: nowrap;
   font-family: inherit;
+  justify-content: center;
   line-height: 1;
+  min-inline-size: min-content;
   overflow: hidden;
-  outline: none;
-  outline-offset: 2px;
+  pointer-events: auto;
   position: relative;
-  user-select: none;
   text-align: center;
   text-decoration: none !important;
-  white-space: nowrap;
   touch-action: manipulation;
+  user-select: none;
   transition-duration: 200ms;
-  transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,box-shadow,outline;
   transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   vertical-align: middle;
+  white-space: nowrap;
 
   font-weight: var(--btn-font-weight, 600);
   border-radius: var(--btn-radius);
   color: var(--btn-fg);
   background-color: var(--btn-bg);
-  border: 1px solid var(--btn-border);
+  border: none;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: color-mix(in srgb, var(--btn-border) 80%, transparent);
+  outline-offset: 0;
   box-shadow: var(--btn-shadow);
-  outline-color: var(--btn-bg, var(--btn-fg));
 }
-.jxui-button > * {
+.jxui-button * {
   user-select: none;
   pointer-events: none;
 }
@@ -41,30 +43,29 @@
 @media (hover: hover) {
   .jxui-button:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
     background-color: var(--btn-bg-hover, var(--btn-bg));
-    border-color: var(--btn-border-hover, var(--btn-border));
+    outline-color: var(--btn-border-hover, var(--btn-border));
     box-shadow: var(--btn-shadow-hover, var(--btn-shadow));
     text-decoration: none;
   }
 }
 
-.jxui-button:focus-visible:not([disabled],[data-disabled]) {
-  isolation: isolate;
-  outline-width: 2px;
-  outline-style: solid;
-}
-
 .jxui-button:active:not([disabled],[data-disabled]) {
-  pointer-events: none;
   background-color: var(--btn-bg-active, var(--btn-bg));
-  border-color: var(--btn-border-active, var(--btn-border));
+  outline-color: var(--btn-border-active, var(--btn-border));
   box-shadow: var(--btn-shadow-active, var(--btn-shadow));
   translate: 0 1px;
   text-decoration: none;
 }
 
+.jxui-button:focus-visible:not([disabled],[data-disabled]) {
+  isolation: isolate;
+  outline-width: 3px;
+  outline-color: color-mix(in srgb, var(--btn-border) 50%, transparent);
+}
+
 .jxui-button:is(:disabled,[disabled],[data-disabled]) {
   color: color-mix(in srgb, var(--ui-fg-base) 35%, #fff);
-  border-color: var(--ui-border-disabled);
+  outline-color: var(--ui-border-disabled);
   cursor: not-allowed;
   pointer-events: none;
   box-shadow: none;
@@ -170,26 +171,24 @@
 
 .jxui-button[data-var="outline-primary"] {
   --btn-bg: var(--ui-bg-primary);
-  --btn-border: var(--btn-bg);
 }
 .jxui-button[data-var="outline-success"] {
   --btn-bg: var(--ui-bg-success);
-  --btn-border: var(--btn-bg);
 }
 .jxui-button[data-var="outline-warning"] {
   --btn-bg: var(--ui-bg-warning);
-  --btn-border: var(--btn-bg);
 }
 .jxui-button[data-var="outline-critical"] {
   --btn-bg: var(--ui-bg-critical);
-  --btn-border: var(--btn-bg);
 }
 .jxui-button[data-var="outline-option"] {
   --btn-bg: var(--ui-bg-option);
-  --btn-border: var(--btn-bg);
 }
 .jxui-button[data-var="outline-accent"] {
   --btn-bg: var(--ui-bg-accent);
+}
+
+.jxui-button[data-var] {
   --btn-border: var(--btn-bg);
 }
 

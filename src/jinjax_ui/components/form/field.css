@@ -17,7 +17,7 @@
   border: 1px solid var(--ui-border-default);
   border-radius: var(--ui-radius-base);
   outline: none;
-  box-shadow: inset 0 1px 0 var(--ui-shadow-inset);
+  box-shadow: var(--ui-shadow-inset);
   overflow: hidden;
   display: flex;
   padding: 0;

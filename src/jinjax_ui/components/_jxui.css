@@ -338,16 +338,16 @@
   --ui-bg-critical: var(--ui-red-500);
   --ui-fg-critical: var(--ui-white);
 
-    --ui-bg-option: var(--ui-purple-500);
-    --ui-fg-option: var(--ui-white);
+  --ui-bg-option: var(--ui-purple-500);
+  --ui-fg-option: var(--ui-white);
 
   --ui-border-default: var(--ui-neutral-400);
   --ui-border-muted: var(--ui-neutral-300);
   --ui-border-disabled: var(--ui-neutral-200);
 
   --ui-outline: rgba(var(--ui-neutral-500), 0.1);
-  --ui-shadow-default: 0px 1px 4px 1px ,oklch(0.71 0.02 26 / 0.3);
-  --ui-shadow-inset: oklch(0.88 0.01 247.97 / 0.20);
+  --ui-shadow-default: 1px 1px 2px 2px oklch(0 0 0 / 0.10);
+  --ui-shadow-inset: inset 0 1px 0 oklch(0.88 0.01 247.97 / 0.20);
 
   --ui-radius-sm: 2px;
   --ui-radius-base: 4px;
