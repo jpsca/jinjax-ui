@@ -8,30 +8,46 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
+## Usage
+
 <Example name="ex.Button" />
 
-<Example name="ex.ButtonStates" />
+## States
+
+<Example name="ex.Button.States" />
 
 ## Variants
 
-<Example name="ex.ButtonVars1" />
-<Example name="ex.ButtonVars2" />
-<Example name="ex.ButtonVars3" />
+<Example name="ex.Button.Vars1" />
+<Example name="ex.Button.Vars2" />
+<Example name="ex.Button.Vars3" />
 
 ## With icons
 
-<Example name="ex.ButtonIcons" />
-
-## Linked
-
-<Example name="ex.ButtonLinked" />
+<Example name="ex.Button.Icons" />
 
 ## Sizes
 
-<Example name="ex.ButtonSize" />
+<Example name="ex.Button.Size" />
 
 ## Shapes
 
-<Example name="ex.ButtonShapes" />
+<Example name="ex.Button.Shapes" />
+
+## Component arguments
+
+### `Button`
+
+<Arguments>
+  tag      | str  | Optional. The tag to use for the button. Default is `button` unless `href` is defined, in which case it will be `a`.
+  href     | str  | Optional. Pass this argument to have a link that looks like a button.
+  var      | str  | Optional. The variant of the button. Can be one of: `outline`, `ghost`, `text`, `primary` `success`, `warning`, `critical`, `option`, `accent`, `outline-primary`, `outline-success`, `outline-warning`, `outline-critical`, `outline-option`, or `outline-accent`.
+  size     | str  | Optional. The size of the button. Can be one of: `mini`, `small`, `medium`, `large`, or `xlarge`. Default is `medium`.
+  shape    | str  | Optional. The shape of the button. Can be one of: `circle`, or `square`.
+  block    | bool | Optional. If `True`, the button will take the full width of its parent. Default is `False`.
+  disabled | bool | Optional. If `True`, the button will be disabled. Default is `False`.
+  loading  | bool | Optional. If `True`, the button will show a loading spinner and no other icon. Default is `False`.
+  icon     | str  | Optional. The name of the [Material Symbol](https://fonts.google.com/icons) icon to show on the button.
+</Arguments>
 
 <Sources />

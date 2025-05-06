@@ -14,19 +14,34 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
-<Example name="ex.Tabs" />
+## Usage
+
+<Example name="ex.Tab" />
 
 Tabs are built using the `Tab.Group`, `Tab.List`, `Tab`, and `Tab.Panel` components. Clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
 
 
 ## Styling states
 
-| CSS selector     | Description
-| ---------------  | --------------
-| `[data-hidden]`     | Added to all `Tab.Panel` except the one that is active.
-| `[data-selected]`   | Added to the selected `Tab`.
-| `[data-disabled]`   | Added to disabled `Tab`s.
-
+<div>
+<ui:Table>
+  <thead>
+    <tr><th>CSS selector</th><th>Description</th></tr>
+  </thead>
+  <tr>
+    <td><code>[data-hidden]</code></td>
+    <td>Added to all `Tab.Panel` except the one that is active.</td>
+  </tr>
+  <tr>
+    <td><code>[data-selected]</code></td>
+    <td>Added to the selected `Tab`.</td>
+  </tr>
+  <tr>
+    <td><code>[data-disabled]</code></td>
+    <td>Added to disabled `Tab`s.</td>
+  </tr>
+</ui:Table>
+</div>
 
 ## Disabling a tab
 
@@ -45,7 +60,7 @@ If you'd rather not change the current tab until the user presses <kbd>Enter</kb
 
 Remember to add styles to the `:focus` state of the tab so is clear to the user that the tab is focused.
 
-<Example name="ex.TabsManual" />
+<Example name="ex.Tab.Manual" />
 
 The manual prop has no impact on mouse interactions — tabs will still be selected as soon as they are clicked.
 
@@ -56,27 +71,27 @@ You can choose on which side of the tab panels the `Tab.List` is rendered by set
 
 ### Top (default)
 
-<Example name="ex.TabsPositionTop" />
+<Example name="ex.Tab.PositionTop" />
 
 ### Bottom
 
-<Example name="ex.TabsPositionBottom" />
+<Example name="ex.Tab.PositionBottom" />
 
 
 ### Left
 
-<Example name="ex.TabsPositionLeft" />
+<Example name="ex.Tab.PositionLeft" />
 
 
 ### Right
 
-<Example name="ex.TabsPositionRight" />
+<Example name="ex.Tab.PositionRight" />
 
 ## Tab.List Align
 
 You can also choose if you want the tabs to aligned to the start of the list (the default), center or to the end, by setting the `align` attribute on the `Tab.List` component.
 
-<Example name="ex.TabsAlign" />
+<Example name="ex.Tab.Align" />
 
 
 ## Controlling the tabs with a `<select>`
@@ -84,54 +99,52 @@ You can also choose if you want the tabs to aligned to the start of the list (th
 In narrow screens, you might want to hide the tabs and display a `<select>` element instead. To do so, use the `Tab.Select` and `Tab.Option` components.
 A `Tab.Select` component is a wrapper for a `<select>` element, and it accepts `Tab.Option` components as children.
 
-<Example name="ex.TabsSelect" />
+<Example name="ex.Tab.Select" />
+
 
 ## Component arguments
 
-### Tab.Group
+### `Tab.Group`
 
-| Argument    | Type     | Default    | Description
-| ----------- | -------- | ---------- | --------------
-| tag         | `str`    | `"div"`    | HTML tag used for rendering the wrapper.
+<Arguments>
+  tag | str | HTML tag used for rendering the wrapper. Default is `div`.
+</Arguments>
 
-### Tab.List
+### `Tab.List`
 
-| Argument    | Type     | Default    | Description
-| ----------- | -------- | ---------- | --------------
-| position    | `str`   | `top`    | `top`, `right`, `botton`, or `left`.
-| align    | `str`   | `start`    | `start`, `center`, or `end`.
-| manual      | `bool`   | `false`    | If `true`, selecting a tab with the keyboard won't activate it, you must press <kbd>Enter</kbd> os <kbd>Space</kbd> kbds to do it.
-| tag         | `str`    | `"nav"`    | HTML tag used for rendering the wrapper.
+<Arguments>
+  position | str  | `top`, `right`, `botton`, or `left`. Default is `top`.
+  align    | str  | `start`, `center`, or `end`. Default is `start`.
+  manual   | bool | If `true`, selecting a tab with the keyboard won't activate it, you must press <kbd>Enter</kbd> os <kbd>Space</kbd> kbds to do it. Default is `false`.
+  tag      | str  | HTML tag used for rendering the wrapper. Default is `nav`.
+</Arguments>
 
+### `Tab`
 
-### Tab
+<Arguments>
+  target   | str  | **Required**. HTML id of the panel associated with this tab.
+  selected | bool | Initially selected tab. Only one tab in the `Tab.List` can be selected at the time. Default is `false`.
+  disabled | bool | If the tab can be selected. Default is `false`.
+  tag      | str  | HTML tag used for rendering the tab. Default is `button`.
+</Arguments>
 
-| Argument    | Type     | Default    | Description
-| ----------- | -------- | ---------- | --------------
-| target      | `str`    |            | Required. HTML id of the panel associated with this tab.
-| selected    | `bool`   | `false`    | Initially selected tab. Only one tab in the `Tab.List` can be selected at the time.
-| disabled    | `bool`   | `false`    | If the tab can be selected.
-| tag         | `str`    | `"button"` | HTML tag used for rendering the tab.
+### `Tab.Panel`
 
-### Tab.Panel
+<Arguments>
+  hidden | bool | Initially hidden panel. Default is `false`.
+  tag    | str  | HTML tag used for rendering the panel. Default is `div`.
+</Arguments>
 
-| Argument    | Type     | Default    | Description
-| ----------- | -------- | ---------- | --------------
-| hidden      | `bool`   | `false`    | Initially hidden panel.
-| tag         | `bool`   | `"div"`    | HTML tag used for rendering the panel.
-
-
-### Tab.Select
+### `Tab.Select`
 
 No arguments.
 
+### `Tab.Option`
 
-### Tab.Option
-
-| Argument    | Type     | Default    | Description
-| ----------- | -------- | ---------- | --------------
-| target      | `str`    |            | Required. HTML id of the panel associated with this tab.
-| disabled    | `bool`   | `false`    | Display the option but not allow to select it.
+<Arguments>
+  target   | str  | **Required**. HTML id of the panel associated with this tab.
+  disabled | bool | Display the option but not allow to select it.
+</Arguments>
 
 
 ## Events
@@ -155,12 +168,32 @@ Clicking a `Tab` will select that tab and display the corresponding `Tab.Panel`.
 
 All interactions apply when a `Tab` component is focused.
 
-| Command                                                                                           | Description
-| -------------------------------------------------------------------------------------             | -----------
-| <kbd title="arrow left">←</kbd> / <kbd title="arrow right">→</kbd> arrow, when `position` is `top` or `bottom`.                     | Selects the previous/next non-disabled tab, cycling from last to first and vice versa.
-| <kbd title="arrow up">↑</kbd> / <kbd title="arrow down">↓</kbd> arrow, when `position` is `left` or `right`. | Selects the previous/next non-disabled tab, cycling from last to first and vice versa.
-| <kbd>Enter</kbd> or <kbd>Space</kbd> when `manual` is set                                         | Activates the selected tab
-| <kbd>Home</kbd> or <kbd>PageUp</kbd>                                                              | Activates the **first** tab
-| <kbd>End</kbd> or <kbd>PageDown</kbd>                                                             | Activates the **last** tab
+<div>
+<ui:Table>
+  <thead>
+    <tr><th>Command</th><th>Description</th></tr>
+  </thead>
+  <tr>
+    <td><kbd title="arrow left">←</kbd> / <kbd title="arrow up">↑</kbd> arrow</td>
+    <td>Selects the previous non-disabled tab, cycling from first to last.</td>
+  </tr>
+  <tr>
+    <td><kbd title="arrow right">→</kbd> / <kbd title="arrow down">↓</kbd> arrow</td>
+    <td>Selects the next non-disabled tab, cycling from last to first.</td>
+  </tr>
+  <tr>
+    <td><kbd>Enter</kbd> or <kbd>Space</kbd> when `manual` is set.</td>
+    <td>Activates the selected tab.</td>
+  </tr>
+  <tr>
+    <td><kbd>Home</kbd> or <kbd>PageUp</kbd></td>
+    <td>Activates the **first** non-disabled tab.</td>
+  </tr>
+  <tr>
+    <td><kbd>End</kbd> or <kbd>PageDown</kbd></td>
+    <td>Activates the **last** non-disabled tab.</td>
+  </tr>
+</ui:Table>
+</div>
 
 <Sources />

@@ -49,18 +49,19 @@
   }
 }
 
-.jxui-button:active:not([disabled],[data-disabled]) {
+.jxui-button:focus-visible:not([disabled],[data-disabled]) {
+  isolation: isolate;
+  outline-color: color-mix(in srgb, var(--btn-border) 50%, transparent);
+  outline-width: 4px;
+}
+
+.jxui-button:is(:active,[data-active]):not([disabled],[data-disabled]) {
   background-color: var(--btn-bg-active, var(--btn-bg));
   outline-color: var(--btn-border-active, var(--btn-border));
   box-shadow: var(--btn-shadow-active, var(--btn-shadow));
   translate: 0 1px;
   text-decoration: none;
-}
-
-.jxui-button:focus-visible:not([disabled],[data-disabled]) {
-  isolation: isolate;
-  outline-width: 3px;
-  outline-color: color-mix(in srgb, var(--btn-border) 50%, transparent);
+  outline-width: 1px;
 }
 
 .jxui-button:is(:disabled,[disabled],[data-disabled]) {
@@ -113,15 +114,18 @@
   }
 }
 
+.jxui-button[data-var="outline"] {
+  --btn-bg: transparent;
+  --btn-shadow: none;
+}
+
 .jxui-button[data-var="ghost"] {
   --btn-bg: transparent;
   --btn-border: transparent;
   --btn-shadow: none;
 }
-
-.jxui-button[data-var="outline"] {
-  --btn-bg: transparent;
-  --btn-shadow: none;
+.jxui-button[data-var="ghost"]:focus-visible:not([disabled],[data-disabled]) {
+  --btn-border: var(--ui-border-default);
 }
 
 .jxui-button[data-var="text"] {
@@ -133,15 +137,23 @@
   --btn-bg-active: transparent;
   --btn-border-active: transparent;
   --btn-shadow-active: none;
+  text-underline-offset: 4px;
 }
 @media (hover: hover) {
   .jxui-button[data-var="text"]:is(:hover,:focus-visible):not([disabled],[data-disabled]) {
     text-decoration: underline !important;
-    text-underline-offset: 4px;
   }
 }
-.jxui-button[data-var="text"]:active:not([disabled],[data-disabled]) {
+.jxui-button[data-var="text"]:is(:active,[data-active]):not([disabled],[data-disabled]) {
   text-decoration: none !important;
+}
+.jxui-button[data-var="text"]:focus-visible:not([disabled],[data-disabled]) {
+  text-decoration: underline !important;
+}
+
+
+.jxui-button[data-var]:not([data-var="outline"],[data-var="ghost"],[data-var="text"]) {
+  --btn-border: var(--btn-bg);
 }
 
 .jxui-button[data-var="primary"] {
@@ -188,10 +200,6 @@
   --btn-bg: var(--ui-bg-accent);
 }
 
-.jxui-button[data-var] {
-  --btn-border: var(--btn-bg);
-}
-
 .jxui-button[data-var^="outline-"] {
   background-color: color-mix(in srgb, var(--btn-bg) 10%, transparent);
   --btn-bg-hover: color-mix(in srgb, var(--btn-bg) 20%, transparent);
@@ -234,7 +242,7 @@
   height: var(--48px);
   padding: 0 20px;
 }
-.jxui-button[data-size="big"] {
+.jxui-button[data-size="xlarge"] {
   font-size: var(--font-size, var(--ui-font-size-xl));
   gap: var(--10px);
   height: var(--64px);
@@ -243,31 +251,26 @@
 
 /**************** Shapes ****************/
 
-.jxui-button[data-shape="square"],
-.jxui-button[data-shape="circle"] {
+.jxui-button:is([data-shape="square"],[data-shape="circle"]) {
   line-height: 1;
   font-size: var(--font-size, var(--ui-font-size-lg));
   padding: 0;
   aspect-ratio: 1;
   width: var(--40px);
 }
-.jxui-button[data-shape="square"][data-size="mini"],
-.jxui-button[data-shape="circle"][data-size="mini"] {
+.jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="mini"]) {
   width: var(--28px);
   font-size: var(--font-size, var(--ui-font-size-xs));
 }
-.jxui-button[data-shape="square"][data-size="small"],
-.jxui-button[data-shape="circle"][data-size="small"] {
+.jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="small"]) {
   width: var(--32px);
   font-size: var(--font-size, var(--ui-font-size-sm));
 }
-.jxui-button[data-shape="square"][data-size="large"],
-.jxui-button[data-shape="circle"][data-size="large"] {
+.jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="large"]) {
   width: var(--48px);
   font-size: var(--font-size, var(--ui-font-size-xl));
 }
-.jxui-button[data-shape="square"][data-size="big"],
-.jxui-button[data-shape="circle"][data-size="big"] {
+.jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="xlarge"]) {
   width: var(--64px);
   font-size: var(--font-size, var(--ui-font-size-xl));
 }

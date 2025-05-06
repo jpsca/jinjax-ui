@@ -1,10 +1,14 @@
-{#def src="", fallback="" #}
+{#def src: str = "", alt: str = "", size: str = "" #}
 {#css avatar.css #}
 
+{% if size %}
+{% do attrs.set(data_size=size) %}
+{% endif %}
+
 <span {{ attrs.render(class="jxui-avatar") }}>
-  <span>{{ fallback }}</span>
+  <span>{{ alt }}</span>
   {% if src -%}
-    <img src="{{ src }}" onload="this.style.display='block'" />
+    <img src="{{ src }}" onload="this.style.display='block'" alt="{{ alt }}" />
   {%- endif %}
 </span>
 

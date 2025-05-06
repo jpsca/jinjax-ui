@@ -10,14 +10,36 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
+## Usage
+
 <Example name="ex.Checkbox" />
 
 ## Size
 
-<Example name="ex.CheckboxSize" />
+<Example name="ex.Checkbox.Size" />
 
 ## With icon
 
-<Example name="ex.CheckboxIcon" />
+<Example name="ex.Checkbox.Icon" />
+
+
+## Component arguments
+
+### `Checkbox`
+
+<Arguments>
+  label | str | **Required**. Label for the checkbox.
+  id | str | Optional. ID of the checkbox. Automatically generated if not set.
+  caption | str | Optional. Caption for the checkbox.
+  icon | str | Optional. Name of the [Material Symbol](https://fonts.google.com/icons) icon to show before the checkbox.
+  size | str | Optional. Size of the checkbox. Can be "medium" or "large".
+  block | bool | Optional. If true, the checkbox will take the full width of its parent.
+  required | bool | Optional. If true, the checkbox will be marked as required.
+  disabled | bool | Optional. If true, the checkbox will be disabled.
+  loading | bool | Optional. If true, the checkbox will show a loading spinner.
+  valid | str | Optional. Positive validation message to show below the checkbox.
+  invalid | str | Optional. Negative validation message to show below the checkbox.
+</Arguments>
+
 
 <Sources />

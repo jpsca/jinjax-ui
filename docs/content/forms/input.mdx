@@ -10,26 +10,61 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
+## Usage
+
 <Example name="ex.Input"/>
+
 
 ## Validation states
 
-<Example name="ex.InputValidation"/>
+<Example name="ex.Input.Validation"/>
+
 
 ## Caption
 
-<Example name="ex.InputCaption"/>
+<Example name="ex.Input.Caption"/>
+
 
 ## Leading / Trailing visuals
 
-<Example name="ex.InputVisuals"/>
+<Example name="ex.Input.Visuals"/>
+
 
 ## Sizes
 
-<Example name="ex.InputSize"/>
+<Example name="ex.Input.Size"/>
+
 
 ## Counters
 
-<Example name="ex.InputCounter"/>
+ If `countermin` or `countermax` are set, a counter will be shown.
+
+<Example name="ex.Input.Counter"/>
+
+
+## Component arguments
+
+### `Input`
+
+<Arguments>
+  label | str | **Required**. Label for the input.
+  id | str | Optional. ID of the input. Automatically generated if not set.
+  type | str | Optional. Type of the input. Default is "text".
+  caption | str | Optional. Caption for the input.
+  size | str | Optional. Size of the input. Can be "medium" or "large".
+  block | bool | Optional. If true, the input will take the full width of its parent.
+  required | bool | Optional. If true, the input will be marked as required.
+  disabled | bool | Optional. If true, the input will be disabled.
+  loading | bool | Optional. If true, the input will show a loading spinner.
+  valid | str | Optional. Positive validation message to show below the input.
+  invalid | str | Optional. Negative validation message to show below the input.
+  countermin | int | Optional. Minimum value for the counter.
+  countermax | int | Optional. Maximum value for the counter.
+  leading | str | Optional. Name of the [Material Symbol](https://fonts.google.com/icons) icon to show before the input.
+  leading_text | str | Optional. Text to show **instead of** the leading icon.
+  trailing | str | Optional. Name of the [Material Symbol](https://fonts.google.com/icons) icon to show after the input.
+  trailing_text | str | Optional. Text to show **instead of** the trailing icon.
+</Arguments>
+
 
 <Sources />

@@ -1,6 +1,7 @@
 /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
-.jxui-badge {
-  --badge-color: var(--ui-bg-neutral);
+.jxui-badge:not([data-var]) {
+  --badge-color: var(--ui-bg-neutral-muted);
+  --badge-border: var(--ui-border-default);
 }
 .jxui-badge[data-var="info"] {
   --badge-color: var(--ui-bg-info);
@@ -20,6 +21,10 @@
 .jxui-badge[data-var="accent"] {
   --badge-color: var(--ui-bg-accent);
 }
+.jxui-badge[data-var="outline"] {
+  --badge-color: --ui-bg-base-300;
+  --badge-border: var(--ui-border-default);
+}
 
 .jxui-badge {
   font-size: var(--ui-font-size-xs);
@@ -34,23 +39,30 @@
   line-height: 1;
   cursor: default;
   color: var(--badge-color);
-  background: color-mix(in srgb, var(--badge-color) 10%, #fff);
-  border: 1px solid color-mix(in srgb, var(--badge-color) 80%, #fff);
+  background: color-mix(in srgb, var(--badge-color) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--badge-border, var(--badge-color)) 90%, transparent);
 }
 @supports (color: color-mix(in lab,red,red)) {
   .jxui-badge {
-    background: color-mix(in srgb, var(--badge-color) 10%, #fff);
-    border-color: color-mix(in srgb, var(--badge-color) 80%, #fff);
+    background: color-mix(in srgb, var(--badge-color) 10%, transparent);
+    border-color: color-mix(in srgb, var(--badge-border, var(--badge-color)) 90%, transparent);
   }
 }
-.jxui-badge[data-var="outline"] {
-  background-color: #ffffff66;
-}
+
 .jxui-badge[data-size="small"] {
   font-size: var(--ui-font-size-xs);
   padding: var(--2px) var(--6px);
 }
+.jxui-badge[data-size="medium"] {
+  font-size: var(--ui-font-size-xs);
+  padding: var(--3px) var(--8px);
+}
 .jxui-badge[data-size="large"] {
   font-size: var(--ui-font-size-sm);
   padding: var(--4px) var(--12px);
+}
+.jxui-badge[data-size="xlarge"] {
+  font-size: var(--ui-font-size-md);
+  padding: var(--5px) var(--16px);
+  border-radius: var(--ui-radius-xxl);
 }

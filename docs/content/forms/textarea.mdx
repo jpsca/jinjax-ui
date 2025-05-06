@@ -9,18 +9,46 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
+## Usage
+
 <Example name="ex.Textarea"/>
+
 
 ## Validation states
 
-<Example name="ex.TextareaValidation"/>
+<Example name="ex.Textarea.Validation"/>
+
 
 ## Sizes
 
-<Example name="ex.TextareaSize"/>
+<Example name="ex.Textarea.Size"/>
+
 
 ## Counter
 
-<Example name="ex.TextareaCounter"/>
+If `countermin` or `countermax` are set, a counter will be shown.
+
+<Example name="ex.Textarea.Counter"/>
+
+
+## Component arguments
+
+### `Textarea`
+
+<Arguments>
+  label | str | **Required**. Label for the textarea.
+  id | str | Optional. ID of the textarea. Automatically generated if not set.
+  caption | str | Optional. Caption for the textarea.
+  size | str | Optional. Size of the textarea. Can be "medium" or "large".
+  block | bool | Optional. If true, the textarea will take the full width of its parent.
+  required | bool | Optional. If true, the textarea will be marked as required.
+  disabled | bool | Optional. If true, the textarea will be disabled.
+  loading | bool | Optional. If true, the textarea will show a loading spinner.
+  valid | str | Optional. Positive validation message to show below the textarea.
+  invalid | str | Optional. Negative validation message to show below the textarea.
+  countermin | int | Optional. Minimum value for the counter.
+  countermax | int | Optional. Maximum value for the counter.
+</Arguments>
+
 
 <Sources />

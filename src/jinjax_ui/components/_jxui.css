@@ -315,6 +315,7 @@
   --ui-fg-accent: var(--ui-white);
 
   --ui-bg-neutral: var(--ui-neutral-900);
+  --ui-bg-neutral-muted: var(--ui-neutral-700);
   --ui-fg-neutral: var(--ui-white);
 
   --ui-bg-base: var(--ui-neutral-50);
@@ -353,6 +354,7 @@
   --ui-radius-base: 4px;
   --ui-radius-lg: 8px;
   --ui-radius-xl: 12px;
+  --ui-radius-xxl: 16px;
 }
 
 *, ::before, ::after {

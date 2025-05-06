@@ -10,14 +10,38 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
+## Usage
+
 <Example name="ex.Radio" />
+
 
 ## Size
 
-<Example name="ex.RadioSize" />
+<Example name="ex.Radio.Size" />
+
 
 ## With icon
 
-<Example name="ex.RadioIcon" />
+<Example name="ex.Radio.Icon" />
+
+
+## Component arguments
+
+### `Radio`
+
+<Arguments>
+  label | str | **Required**. Label for the radio button.
+  id | str | Optional. ID of the radio button. Automatically generated if not set.
+  caption | str | Optional. Caption for the radio button.
+  icon | str | Optional. Name of the [Material Symbol](https://fonts.google.com/icons) icon to show before the radio button.
+  size | str | Optional. Size of the radio button. Can be "medium" or "large".
+  block | bool | Optional. If true, the radio button will take the full width of its parent.
+  required | bool | Optional. If true, the radio button will be marked as required.
+  disabled | bool | Optional. If true, the radio button will be disabled.
+  loading | bool | Optional. If true, the radio button will show a loading spinner.
+  valid | str | Optional. Positive validation message to show below the radio button.
+  invalid | str | Optional. Negative validation message to show below the radio button.
+</Arguments>
+
 
 <Sources />

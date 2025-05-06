@@ -1,0 +1,29 @@
+<ui:Table>
+  <thead>
+    <tr><th>Source</th><th>Relative date</th></tr>
+  </thead>
+  <tr>
+    <td><code>{%raw%}<ui:TimeAgo datetime="2024-01-01"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-01-01" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{%raw%}<ui:TimeAgo datetime="2024-06-19T18:30"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-06-19T18:30" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{%raw%}<ui:TimeAgo datetime="2024-06-20T14:00"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-06-20T14:00" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{%raw%}<ui:TimeAgo datetime="2024-06-21T14:00"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-06-21T14:00" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{%raw%}<ui:TimeAgo datetime="2024-06-30T10:00"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-06-30T10:00" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{%raw%}<ui:TimeAgo datetime="1992-10-01"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="1992-10-01" now="2024-06-20T18:30" /></td>
+  </tr>
+</ui:Table>

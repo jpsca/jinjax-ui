@@ -3,7 +3,6 @@ title: Alert
 description: Displays a callout for user attention.
 sources: [
   ["Alert", "alert/index.jinja"],
-  ["Alert.Title", "alert/title.jinja"],
   ["Alert.Description", "alert/description.jinja"],
   ["Alert.Actions", "alert/actions.jinja"],
   ["", "alert/alert.css"],
@@ -11,10 +10,35 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
+
+## Usage
+
 <Example name="ex.Alert" />
+
 
 ## Variants
 
-<Example name="ex.AlertVars" />
+<Example name="ex.Alert.Vars" />
+
+
+## Component arguments
+
+### `Alert`
+
+<Arguments>
+  title       | str  | Optional. The title of the alert. If empty, the alert will not have a title.
+  icon        | str  | Optional. The name of the icon to use for the alert, pass an empty string to remove the icon. Default is the icon for the variant.
+  var         | str  | Optional. The variant of the alert. Can be one of: `info`, `success`, `warning`, `critical`, `option`, or `accent`. Default is `info`.
+  dismissible | bool | Optional. Wheter to include a button so the user can dismiss the alert. Default is `false`.
+</Arguments>
+
+### `Alert.Description`
+
+No arguments.
+
+### `Alert.Actions`
+
+No arguments.
+
 
 <Sources />

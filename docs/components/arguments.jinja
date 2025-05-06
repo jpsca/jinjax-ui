@@ -1,0 +1,15 @@
+<ui:Table>
+  <thead>
+    <tr><th>Argument</th><th>Type</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    {% for arg in (content() or "").strip().split("\n") -%}
+      {% set argument, type, description = arg.split("|") %}
+      <tr>
+        <th><code>{{ argument.strip() }}</code></th>
+        <td><code>{{ type.strip() }}</code></td>
+        <td>{{ description.strip() }}</td>
+      </tr>
+    {%- endfor %}
+  </tbody>
+</ui:Table>

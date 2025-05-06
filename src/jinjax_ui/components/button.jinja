@@ -1,12 +1,13 @@
 {#def
-  tag=None,
-  icon=None,
-  href=None,
-  var=None,
-  size=None,
-  shape=None,
-  block=False,
-  loading=False,
+  tag: str = "",
+  href: str = "",
+  var: str = "",
+  size: str = "",
+  shape: str = "",
+  block: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  icon: str = "",
 #}
 {#css button.css #}
 
@@ -22,11 +23,11 @@
   {% do attrs.setdefault(type="button") %}
 {% endif %}
 
-{% if var %} {# "ghost", "text" #}
+{% if var %}
   {% do attrs.set(data_var=var) %}
 {% endif %}
 
-{% if size %} {# "mini", "small", "large", "big" #}
+{% if size %}
   {% do attrs.set(data_size=size) %}
 {% endif %}
 
@@ -38,7 +39,10 @@
 {% endif %}
 
 {% if loading %}
-  {% do attrs.set(aria_busy="true") %}
+  {% do attrs.set(aria_busy="true", data_disabled=True) %}
+{% endif %}
+{% if disabled %}
+  {% do attrs.set(data_disabled=True) %}
 {% endif %}
 
 {# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

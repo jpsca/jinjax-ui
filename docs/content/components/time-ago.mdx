@@ -10,16 +10,11 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 
 Ref: <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat" target="_blank">Intl.RelativeTimeFormat API</a>.
 
+## Usage
+
 *Some examples (as if the datetime was `June 20th, 2024 6:30pm`)*:
 
-| Source                                      | Relative date
-| ------------------------------------------- | --------------
-| `<ui:TimeAgo datetime="2024-01-01"/>`       | <ui:TimeAgo datetime="2024-01-01" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="2024-06-19T18:30"/>` | <ui:TimeAgo datetime="2024-06-19T18:30" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="2024-06-20T14:00"/>` | <ui:TimeAgo datetime="2024-06-20T14:00" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="2024-06-21T14:00"/>` | <ui:TimeAgo datetime="2024-06-21T14:00" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="2024-06-30T10:00"/>` | <ui:TimeAgo datetime="2024-06-30T10:00" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="1992-10-01"/>`       | <ui:TimeAgo datetime="1992-10-01" now="2024-06-20T18:30" />
+<ex.TimeAgo />
 
 
 ## How it works
@@ -38,22 +33,17 @@ Both can be a comma-separated lists of locales (e.g.: `"en-US,en-UK,en`). If non
 
 *Some examples (as if the datetime was `June 20th, 2024 6:30pm`)*:
 
-| Source                                                            | Relative date
-| ----------------------------------------------------------------- | --------------
-| `<ui:TimeAgo datetime="2024-01-01" lang="it"/>`                   | <ui:TimeAgo datetime="2024-01-01" lang="it" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="2024-06-19T18:30" lang="fr"/>`             | <ui:TimeAgo datetime="2024-06-19T18:30" lang="fr" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="2024-06-21T14:00" lang="es"/>`             | <ui:TimeAgo datetime="2024-06-21T14:00" lang="es" now="2024-06-20T18:30" />
-| `<ui:TimeAgo datetime="2024-06-20T05:00" lang="es-PE,es-ES,es"/>` | <ui:TimeAgo datetime="2024-06-20T05:00" lang="es-PE,es-ES,es" now="2024-06-20T18:30" />
+<ex.TimeAgo.Locale />
 
 
 ## Component arguments
 
-## TimeAgo
+## `TimeAgo`
 
-| Argument   | Type  | Description
-| ---------- | ----- | --------------
-| `datetime` | `str` | Required.
-| `lang`     | `str` | Optional comma-separated list of locales to use for formatting. If not defined, the attribute `lang` of the `<body>` tag will be used. If that is also not defined, or none of the locales are supported by the browser, the default browser language is used
-| `now`      | `str` | Optional ISO-formatted date to use as the "present time". Useful for testing.
+<Arguments>
+  datetime | str | Required
+  lang | str | Optional comma-separated list of locales to use for formatting. If not defined, the attribute <code>lang</code> of the <code>&lt;body&gt;</code> tag will be used. If that is also not defined, or none of the locales are supported by the browser, the default browser language is used
+  now | str | Optional ISO-formatted date to use as the 'present time'. Useful for testing.
+</Arguments>
 
 <Sources />

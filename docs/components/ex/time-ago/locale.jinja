@@ -1,0 +1,21 @@
+<ui:Table>
+  <thead>
+    <tr><th>Source</th><th>Relative date</th></tr>
+  </thead>
+  <tr>
+    <td><code>{% raw %}<ui:TimeAgo datetime="2024-01-01" lang="it"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-01-01" lang="it" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{% raw %}<ui:TimeAgo datetime="2024-06-19T18:30" lang="fr"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-06-19T18:30" lang="fr" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{% raw %}<ui:TimeAgo datetime="2024-06-21T14:00" lang="es"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-06-21T14:00" lang="es" now="2024-06-20T18:30" /></td>
+  </tr>
+  <tr>
+    <td><code>{% raw %}<ui:TimeAgo datetime="2024-06-20T05:00" lang="es-PE,es-ES,es"/>{% endraw %}</code></td>
+    <td><ui:TimeAgo datetime="2024-06-20T05:00" lang="es-PE,es-ES,es" now="2024-06-20T18:30" /></td>
+  </tr>
+</ui:Table>

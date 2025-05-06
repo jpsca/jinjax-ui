@@ -1,21 +1,20 @@
-{#def title=None, icon=None, var="info", dismissible=False #}
+{#def
+  title: str = "",
+  icon: str | None = None,
+  var: str = "info",
+  dismissible: bool = False,
+#}
 {#css alert/alert.css #}
 {#js alert/alert.js #}
 
-{% if not icon %}
+{% if icon == None %}
   {% set icon = ({
-    "critical": "error",
-    "red": "error",
     "info": "info",
-    "blue": "info",
     "success": "check_circle",
-    "green": "check_circle",
-    "option": "add_circle",
-    "purple": "add_circle",
     "warning": "warning",
-    "yellow": "warning",
-    "alert": "warning",
-    "note": "info",
+    "critical": "error",
+    "option": "add_circle",
+    "accent": "notifications_active",
   }).get(var, "info") %}
 {% endif %}
 

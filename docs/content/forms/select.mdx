@@ -10,14 +10,38 @@ sources: [
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
 
+## Usage
+
 <Example name="ex.Select" />
+
 
 ## Validation states
 
-<Example name="ex.SelectValidation" />
+<Example name="ex.Select.Validation" />
+
 
 ## Sizes
 
-<Example name="ex.SelectSize" />
+<Example name="ex.Select.Size" />
+
+
+## Component arguments
+
+### `Select`
+
+<Arguments>
+  label | str | **Required**. Label for the select.
+  id | str | Optional. ID of the select. Automatically generated if not set.
+  caption | str | Optional. Caption for the select.
+  size | str | Optional. Size of the select. Can be "medium" or "large".
+  block | bool | Optional. If true, the select will take the full width of its parent.
+  required | bool | Optional. If true, the select will be marked as required.
+  disabled | bool | Optional. If true, the select will be disabled.
+  loading | bool | Optional. If true, the select will show a loading spinner.
+  valid | str | Optional. Positive validation message to show below the select.
+  invalid | str | Optional. Negative validation message to show below the select.
+  placeholder | str | Optional. If set, an empty option will be shown first with this text.
+</Arguments>
+
 
 <Sources />

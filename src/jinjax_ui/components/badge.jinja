@@ -1,9 +1,9 @@
-{#def var=None, size=None #}
+{#def var: str = "", size: str = "" #}
 
-{% if var %}  {# *default, outline, blue, green, yellow, orange, red, purple, brown #}
+{% if var %}
 {% do attrs.set(data_var=var) %}
 {% endif %}
-{% if size %}  {# small, *medium, large #}
+{% if size %}
 {% do attrs.set(data_size=size) %}
 {% endif %}
 
