@@ -147,8 +147,8 @@
   text-align: center;
   line-height: 1;
   animation: rotate 1s linear infinite;
-  padding: 2px 0 0;
   margin-top: 2px;
+  font-size: 1em;
 }
 
 
