@@ -2,8 +2,9 @@
 title: Avatar
 description: An image element with a fallback for representing the user.
 sources: [
-  ["Avatar", "avatar.jinja"],
-  ["", "avatar.css"],
+  ["Avatar", "avatar/index.jinja"],
+  ["Avatar.Group", "avatar/group.jinja"],
+  ["", "avatar/avatar.css"],
 ]
 copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ---
@@ -12,9 +13,20 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 
 <Example name="ex.Avatar" />
 
+
 ## Sizes
 
 <Example name="ex.Avatar.Sizes" />
+
+
+## Group
+
+<Example name="ex.Avatar.Group" />
+
+### Group with counter
+
+<Example name="ex.Avatar.Counter" />
+
 
 ## Component arguments
 
@@ -25,5 +37,10 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
   alt  | str | Optional. Text to show if the image is not defined or it doesn't load.
   size | str | Optional. The size of the avatar. Can be one of: `small`, `medium`, `large`, or `xlarge`. Default is `medium`.
 </Arguments>
+
+### `Avatar.Group`
+
+No arguments.
+
 
 <Sources />
