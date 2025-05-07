@@ -22,9 +22,8 @@
   transition-property: background-color, border-color;
 }
 .jxui-checkbox-input:focus-visible {
-  border-color: var(--ui-bg-accent);
-  outline: 2px solid var(--ui-bg-accent);
-  outline-offset: -1px;
+  outline: 4px solid var(--ui-outline);
+  outline-offset: 0;
 }
 .jxui-checkbox-input:checked::after {
   content: "";

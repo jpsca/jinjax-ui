@@ -27,10 +27,9 @@
   transition-duration: 0.2s;
   transition-property: background-color, border-color;
 }
-.jxui-radio-input:focus {
-  border-color: var(--ui-bg-accent);
-  outline: 2px solid var(--ui-bg-accent);
-  outline-offset: -1px;
+.jxui-radio-input:focus-visible {
+  outline: 4px solid var(--ui-outline);
+  outline-offset: 0;
 }
 .jxui-radio-input:checked::after {
   content: "";

@@ -18,7 +18,7 @@
   text-decoration: none !important;
   touch-action: manipulation;
   user-select: none;
-  transition-duration: 200ms;
+  transition-duration: 100ms;
   transition-property: color,background-color,box-shadow,outline;
   transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   vertical-align: middle;
@@ -51,7 +51,7 @@
 
 .jxui-button:focus-visible:not([disabled],[data-disabled]) {
   isolation: isolate;
-  outline-color: color-mix(in srgb, var(--btn-border) 50%, transparent);
+  outline-color: var(--btn-outline);
   outline-width: 4px;
 }
 
@@ -100,6 +100,7 @@
   --btn-bg: var(--ui-bg-base-100);
   --btn-border: var(--ui-border-default);
   --btn-shadow: var(--ui-shadow-default);
+  --btn-outline: var(--ui-outline);
 
   --btn-bg-hover: color-mix(in srgb, var(--btn-bg), #000 4%);
   --btn-bg-active: color-mix(in srgb, var(--btn-bg), #000 7%);
@@ -154,6 +155,7 @@
 
 .jxui-button[data-var]:not([data-var="outline"],[data-var="ghost"],[data-var="text"]) {
   --btn-border: var(--btn-bg);
+  --btn-outline: color-mix(in srgb, var(--btn-border) 50%, transparent);
 }
 
 .jxui-button[data-var="primary"] {

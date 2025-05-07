@@ -29,24 +29,28 @@
   width: 100%;
   margin-bottom: 5px;
   position: relative;
-}
-
-[data-validation="invalid"] > .jxui-form-wrapper {
-  border-color: var(--ui-red-500);
-}
-[data-validation="valid"] > .jxui-form-wrapper {
-  border-color: var(--ui-green-500);
+  transition-duration: 100ms;
+  transition-property: color,background-color,box-shadow,outline;
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .jxui-form-wrapper:where(:not([data-disabled] > .jxui-form-wrapper)):focus-within {
-  border-color: var(--ui-bg-accent, #0969da);
-  outline: 2px solid var(--ui-bg-accent, #0969da);
-  outline-offset: -1px;
+  outline: 4px solid var(--ui-outline);
+  outline-offset: 0;
 }
 [data-disabled] > .jxui-form-wrapper {
   background-color: var(--ui-bg-base-200);
   border-color: var(--ui-border-disabled);
   color: var(--ui-fg-muted);
+}
+
+[data-validation="invalid"] > .jxui-form-wrapper {
+  border-color: var(--ui-red-500);
+  outline-color: color-mix(in srgb, var(--ui-red-500) 25%, transparent);
+}
+[data-validation="valid"] > .jxui-form-wrapper {
+  border-color: var(--ui-green-500);
+  outline-color: color-mix(in srgb, var(--ui-green-500) 25%, transparent);
 }
 
 [data-disabled] > .jxui-form-wrapper,

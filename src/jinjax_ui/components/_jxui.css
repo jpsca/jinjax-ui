@@ -311,7 +311,7 @@
   --ui-bg-primary: var(--ui-blue-500);
   --ui-fg-primary: var(--ui-white);
 
-  --ui-bg-accent: var(--ui-orange-500);
+  --ui-bg-accent: var(--ui-blue-500);
   --ui-fg-accent: var(--ui-white);
 
   --ui-bg-neutral: var(--ui-neutral-900);
@@ -346,7 +346,7 @@
   --ui-border-muted: var(--ui-neutral-300);
   --ui-border-disabled: var(--ui-neutral-200);
 
-  --ui-outline: rgba(var(--ui-neutral-500), 0.1);
+  --ui-outline: color-mix(in srgb, var(--ui-bg-accent) 25%, transparent);
   --ui-shadow-default: 1px 1px 2px 2px oklch(0 0 0 / 0.10);
   --ui-shadow-inset: inset 0 1px 0 oklch(0.88 0.01 247.97 / 0.20);
 
