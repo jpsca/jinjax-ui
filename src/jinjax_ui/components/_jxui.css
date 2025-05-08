@@ -322,6 +322,7 @@
   --ui-bg-base-100: var(--ui-neutral-100);
   --ui-bg-base-200: var(--ui-neutral-200);
   --ui-bg-base-300: var(--ui-neutral-300);
+  --ui-bg-base-400: var(--ui-neutral-400);
 
   --ui-fg-base: var(--ui-neutral-950);
   --ui-fg-input: var(--ui-neutral-800);

@@ -19,11 +19,21 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 <Example name="ex.Avatar.Sizes" />
 
 
-## Group
+## Square shape
+
+<Example name="ex.Avatar.Squares" />
+
+
+## With notifications
+
+<Example name="ex.Avatar.Notifications" />
+
+
+## Grouped
 
 <Example name="ex.Avatar.Group" />
 
-### Group with counter
+### Grouped with counter
 
 <Example name="ex.Avatar.Counter" />
 
@@ -33,9 +43,13 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
 ### `Avatar`
 
 <Arguments>
-  src  | str | Optional. URL of the image to use as the avatar.
-  alt  | str | Optional. Text to show if the image is not defined or it doesn't load.
-  size | str | Optional. The size of the avatar. Can be one of: `small`, `medium`, `large`, or `xlarge`. Default is `medium`.
+  src    | str  | Optional. URL of the image to use as the avatar.
+  alt    | str  | Optional. Text to show if the image is not defined or it doesn't load.
+  size   | str  | Optional. The size of the avatar. Can be one of: `small`, `medium`, `large`, or `xlarge`. Default is `medium`.
+  href   | str  |	Optional. Pass this argument to make the avatar a link.
+  square | bool | Optional. If set to `true`, the avatar will be rounded square instead of a circle. Default is `false`.
+  on     | bool | Optional. If set to `true`, the avatar will show a notification dot. Default is `false`.
+  off    | bool | Optional. If set to `true`, the avatar will show an empty notification dot. Default is `false`.
 </Arguments>
 
 ### `Avatar.Group`

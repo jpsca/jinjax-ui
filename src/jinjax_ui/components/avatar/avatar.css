@@ -1,23 +1,28 @@
 /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
-.jxui-avatar {
+.jxui-avatar, a.jxui-avatar[href] {
   position: relative;
   display: flex;
   width: var(--avatar-size);
   height: var(--avatar-size);
   flex-shrink: 0;
   flex-grow: 0;
-  overflow: hidden;
-  border: var(--avatar-border) solid var(--ui-border-muted);
+  border: var(--avatar-border) solid var(--ui-bg-base-100);
   font-size: var(--avatar-font-size, var(--ui-font-size-sm));
   font-weight: bold;
   border-radius: 100%;
   color: var( --ui-fg-base);
   background-color: var(--ui-bg-base-200);
+  user-select: none;
 }
-.jxui-avatar.counter {
-  color: var(--ui-fg-neutral);
-  background-color: var(--ui-bg-neutral-muted);
+a.jxui-avatar[href] {
+  cursor: pointer;
+  text-decoration: none !important;
 }
+a.jxui-avatar[href]:hover {
+  background-color: var(--ui-bg-base-300);
+  border-color: var(--ui-bg-base-200);
+}
+
 .jxui-avatar > * {
   display: flex;
   width: 100%;
@@ -27,42 +32,91 @@
 }
 .jxui-avatar > img {
   position: absolute;
+  border-radius: 100%;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   display: none;
-
 }
-.jxui-avatar[data-size="small"] {
+
+.jxui-avatar[data-square], .jxui-avatar[data-square] > img {
+  border-radius: var(--ui-radius-lg);
+}
+
+.jxui-avatar.counter {
+  color: var(--ui-fg-neutral);
+  background-color: var(--ui-bg-neutral-muted);
+}
+
+.jxui-avatar[data-on]:before,
+.jxui-avatar[data-off]:before {
+  content: "";
+  z-index: 1;
+  background: var(--ui-bg-base-400);
+  outline: 3px solid var(--ui-bg-base-100);
+  border-radius: 100%;
+  width: 15%;
+  height: 15%;
+  display: block;
+  position: absolute;
+  top: 4%;
+  right: 4%;
+}
+.jxui-avatar[data-on]:before {
+  background-color: var(--ui-bg-critical);
+}
+.jxui-avatar[data-square]:before {
+  top: -4%;
+  right: -4%;
+}
+
+.jxui-avatar[data-size="mini"],
+.jxui-avatar-group[data-size="mini"] {
   --avatar-font-size: var(--ui-font-size-sm);
   --avatar-size: 32px;
   --avatar-border: 1px
 }
-.jxui-avatar:not([data-size]),
-.jxui-avatar[data-size="medium"] {
+.jxui-avatar[data-size="small"],
+.jxui-avatar-group[data-size="small"] {
   --avatar-font-size: var(--ui-font-size-sm);
   --avatar-size: 48px;
-  --avatar-border: 2px
+  --avatar-border: 1px
 }
-.jxui-avatar[data-size="large"] {
+.jxui-avatar[data-size="medium"],
+.jxui-avatar:not([data-size]),
+.jxui-avatar-group[data-size="medium"],
+.jxui-avatar-group:not([data-size]) {
   --avatar-font-size: var(--ui-font-size-md);
   --avatar-size: 64px;
-  --avatar-border: 3px
+  --avatar-border: 2px
 }
-.jxui-avatar[data-size="xlarge"] {
+.jxui-avatar[data-size="large"],
+.jxui-avatar-group[data-size="large"] {
   --avatar-font-size: var(--ui-font-size-md);
   --avatar-size: 80px;
   --avatar-border: 3px
 }
+.jxui-avatar-group[data-size="large"] {
+  --avatar-border: 6px
+}
+.jxui-avatar[data-size="xlarge"],
+.jxui-avatar-group[data-size="xlarge"] {
+  --avatar-font-size: var(--ui-font-size-md);
+  --avatar-size: 120px;
+  --avatar-border: 4px
+}
+.jxui-avatar-group[data-size="xlarge"] {
+  --avatar-border: 8px
+}
 
 .jxui-avatar-group {
   display: inline-flex;
-  flex-direction: row;
+  padding: 0.5rem;
 }
 .jxui-avatar-group .jxui-avatar {
-  border-color: var(--ui-bg-base);
+  border-width: calc(2 * var(--avatar-border));
 }
-.jxui-avatar-group .jxui-avatar:not(:last-child) {
-  margin-right: calc(-0.4 * var(--avatar-size));
+.jxui-avatar-group .jxui-avatar:not(:first-child) {
+  margin-left: calc(-0.3 * var(--avatar-size));
 }
