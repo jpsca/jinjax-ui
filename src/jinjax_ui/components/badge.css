@@ -27,8 +27,6 @@
 }
 
 .jxui-badge {
-  font-size: var(--ui-font-size-xs);
-  padding: var(--4px) var(--8px);
   display: inline-flex;
   font-weight: 500;
   border-radius: var(--ui-radius-xl);
@@ -49,20 +47,27 @@
   }
 }
 
+.jxui-badge[data-size="mini"] {
+  font-size: var(--ui-font-size-xs);
+  padding: var(--2px) var(--9px);
+}
 .jxui-badge[data-size="small"] {
   font-size: var(--ui-font-size-xs);
-  padding: var(--2px) var(--6px);
+  padding: var(--3px) var(--10px);
 }
+.jxui-badge:not([data-size]),
 .jxui-badge[data-size="medium"] {
-  font-size: var(--ui-font-size-xs);
-  padding: var(--3px) var(--8px);
+  font-size: var(--ui-font-size-sm);
+  padding: var(--4px) var(--10px);
+  border-radius: var(--ui-radius-2xl);
 }
 .jxui-badge[data-size="large"] {
   font-size: var(--ui-font-size-sm);
-  padding: var(--4px) var(--12px);
+  padding: var(--5px) var(--12px);
+  border-radius: var(--ui-radius-2xl);
 }
 .jxui-badge[data-size="xlarge"] {
   font-size: var(--ui-font-size-md);
-  padding: var(--5px) var(--16px);
-  border-radius: var(--ui-radius-xxl);
+  padding: var(--5px) var(--14px);
+  border-radius: var(--ui-radius-2xl);
 }

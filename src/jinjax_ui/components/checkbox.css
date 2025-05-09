@@ -58,7 +58,7 @@
   cursor: default;
 }
 [data-size="large"] > .jxui-checkbox-input {
-  width: 1.5rem;
+  width: var(--24px);
 }
 [data-size="large"] > .jxui-checkbox-input:checked::after {
   border-width: 5px;

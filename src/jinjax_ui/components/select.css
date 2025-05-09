@@ -10,17 +10,17 @@
   min-height: var(--40px);
   background-color: inherit;
   margin: 1px 0 1px 1px;
-  padding: 0 0.5rem;
+  padding: 0 var(--8px);
 }
 .jxui-select[data-size="large"] > * > .jxui-select-select {
-  padding: 0 0.6rem;
+  padding: 0 var(--10px);
 }
 .jxui-select-icon {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
-  width: 2rem;
+  width: var(--32px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,5 +28,5 @@
   pointer-events: none;
 }
 .jxui-select-arrow {
-  font-size: 1.3rem;
+  font-size: var(--20px);
 }

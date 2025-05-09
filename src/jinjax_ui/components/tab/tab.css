@@ -114,12 +114,12 @@
 
 [data-position="top"] > .jxui-tab-list .jxui-tab,
 [data-position="bottom"] > .jxui-tab-list .jxui-tab {
-  padding: 0.8rem 1rem;
+  padding: var(--12px) var(--16px);
 }
 
 [data-position="left"] > .jxui-tab-list .jxui-tab,
 [data-position="right"] > .jxui-tab-list .jxui-tab {
-  padding: 1rem 0.8rem;
+  padding: var(--16px) var(--12px);
 }
 
 .jxui-tab-panel {

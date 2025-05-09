@@ -103,7 +103,7 @@
   container: alert / inline-size;
 }
 
-@container alert (min-width: 32rem) {
+@container alert (min-width: var(--ui-breakpoint-xs)) {
   .jxui-alert-content:not(.jxui-alert--entitled .jxui-alert-content) {
     display: flex;
     flex-wrap: nowrap;

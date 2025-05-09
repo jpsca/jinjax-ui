@@ -38,11 +38,11 @@
 }
 .jxui-table caption {
   color: var(--ui-fg-muted);
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--8px);
 }
 .jxui-table caption.bottom {
   caption-side: bottom;
-  margin: 0.5rem 0 0;
+  margin: var(--8px) 0 0;
 }
 
 .jxui-table th {

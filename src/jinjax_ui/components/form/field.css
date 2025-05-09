@@ -1,9 +1,9 @@
 /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
 .jxui-form-field {
-  width: 15rem;
+  width: var(--240px);
 }
 .jxui-form-field[data-size="large"] {
-  width: 19rem;
+  width: var(--288px);
 }
 .jxui-form-field[data-block] {
   width: 100%;

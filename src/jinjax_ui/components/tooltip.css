@@ -7,7 +7,7 @@
   pointer-events: none;
   position: absolute;
   display: block;
-  max-width: 20rem;
+  max-width: var(--304px);
   white-space: normal;
   overflow-wrap: break-word;
   width: max-content;

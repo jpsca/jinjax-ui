@@ -112,7 +112,7 @@ a.jxui-avatar[href]:hover {
 
 .jxui-avatar-group {
   display: inline-flex;
-  padding: 0.5rem;
+  padding: var(--8px);
 }
 .jxui-avatar-group .jxui-avatar {
   border-width: calc(2 * var(--avatar-border));

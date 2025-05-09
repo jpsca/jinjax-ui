@@ -3,22 +3,16 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--4px) var(--8px);
-  width: 15rem;
+  width: var(--240px);
   flex-wrap: wrap;
-}
-.jxui-radio[data-size="large"] {
-  width: 19rem;
-}
-.jxui-radio[data-block] {
-  width: 100%;
 }
 
 .jxui-radio-input {
   flex-shrink: 0;
   flex-grow: 0;
-  margin-top: 0.1rem;
+  margin-top: var(--2px);
   border-radius: 100%;
-  width: 1.2rem;
+  width: var(--20px);
   aspect-ratio: 1;
   appearance: none;
   background-color: var(--ui-bg-base);
@@ -40,7 +34,7 @@
   font-size: var(--ui-font-size-md);
   text-align: center;
   background: var(--ui-bg-base);
-  border: 0.25rem solid transparent;
+  border: var(--4px) solid transparent;
   border-radius: 100%;
   position: absolute;
   width: 100%;
@@ -64,14 +58,14 @@
   cursor: default;
 }
 [data-size="large"] > .jxui-radio-input {
-  width: 1.5rem;
+  width: var(--24px);
 }
 [data-size="large"] > .jxui-radio-input:checked::after {
-  border-width: 0.3rem
+  border-width: var(--5px)
 }
 
 .jxui-radio-icon {
   color: var(--ui-fg-muted);
-  font-size: 1.2rem;
+  font-size: var(--20px);
   line-height: 1.4;
 }
