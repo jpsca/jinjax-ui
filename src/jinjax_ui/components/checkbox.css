@@ -19,11 +19,15 @@
   border: 2px solid var(--ui-border-default);
   position: relative;
   transition-duration: 0.2s;
-  transition-property: background-color, border-color;
+  transition-property: background-color, border-color, border-radius;
 }
 .jxui-checkbox-input:focus-visible {
   outline: 4px solid var(--ui-outline);
   outline-offset: 0;
+}
+
+.jxui-checkbox-input:active {
+  border-radius: 6px;
 }
 .jxui-checkbox-input:checked::after {
   content: "";
@@ -34,13 +38,12 @@
   font-size: var(--ui-font-size-md);
   text-align: center;
   background: var(--ui-bg-base);
-  border: 4px solid transparent;
-  border-radius: 4px;
   position: absolute;
   width: 100%;
   height: 100%;
   transition-duration: 0.5s;
   transition-property: background-color;
+  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="white" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>') no-repeat center, white;
   pointer-events: none;
 }
 .jxui-checkbox-input:checked::after {
@@ -60,10 +63,6 @@
 [data-size="large"] > .jxui-checkbox-input {
   width: var(--24px);
 }
-[data-size="large"] > .jxui-checkbox-input:checked::after {
-  border-width: 5px;
-}
-
 
 .jxui-checkbox-icon {
   color: var(--ui-fg-muted);
