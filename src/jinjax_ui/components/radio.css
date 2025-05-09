@@ -25,7 +25,7 @@
   outline: 4px solid var(--ui-outline);
   outline-offset: 0;
 }
-.jxui-radio-input:checked::after {
+.jxui-radio-input::after {
   content: "";
   display: block;
   margin: 0;
@@ -34,18 +34,18 @@
   font-size: var(--ui-font-size-md);
   text-align: center;
   background: var(--ui-bg-base);
-  border: var(--4px) solid transparent;
+  box-shadow: inset 0 0 0 var(--10px) var(--ui-bg-base);
   border-radius: 100%;
   position: absolute;
   width: 100%;
   height: 100%;
-  transition-duration: 0.5s;
-  transition-property: background-color;
+  transition-duration: 200ms;
+  transition-property: all;
   pointer-events: none;
 }
 .jxui-radio-input:checked::after {
   background-color: var(--ui-bg-accent);
-  border-color: var(--ui-bg-base);
+  box-shadow: inset 0 0 0 4px var(--ui-bg-base);
 }
 .jxui-radio-input:checked {
   border-color: var(--ui-bg-accent);
@@ -59,9 +59,6 @@
 }
 [data-size="large"] > .jxui-radio-input {
   width: var(--24px);
-}
-[data-size="large"] > .jxui-radio-input:checked::after {
-  border-width: var(--5px)
 }
 
 .jxui-radio-icon {
