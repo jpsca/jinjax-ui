@@ -1,0 +1,56 @@
+{#def
+  id: str,
+  caption: str | None = None,
+  size: str | None = None,
+  block: bool = False,
+  required: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  valid: str | None = None,
+  invalid: str | None = None,
+  countermax: str | int | None = None,
+  countermin: str | int | None = None,
+#}
+{#css jxui.css, form/field.css #}
+
+{% if invalid %}
+  {% do attrs.set(data_validation="invalid", aria_invalid="true") %}
+{% elif valid %}
+  {% do attrs.set(data_validation="valid") %}
+{% endif %}
+
+{% if loading %}
+  {% do attrs.set(aria_busy="true") %}
+{% endif %}
+
+{% if countermax or countermin -%}
+  {% do attrs.set(data_controller="ui--form-counter") %}
+{% endif -%}
+{% if countermax -%}
+  {% do attrs.set(data_ui__form_counter_maxlen_value=countermax) %}
+{% endif -%}
+{% if countermin -%}
+  {% do attrs.set(data_ui__form_counter_minlen_value=countermin) %}
+{% endif -%}
+
+<div {{ attrs.render(
+  class="jxui-form-field",
+  data_size=size,
+  data_block=block,
+  data_required=required,
+  data_disabled=disabled,
+) }}>
+  {{ content }}
+  {%- if valid or invalid or caption or countermax or countermin -%}
+    <Form.Footer
+      target={{id}}
+      valid={{valid}}
+      invalid={{invalid}}
+      caption={{caption}}
+      countermax={{countermax}}
+      countermin={{countermin}}
+    />
+  {%- endif %}
+</div>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

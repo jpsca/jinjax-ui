@@ -1,0 +1,15 @@
+{#def hidden=False, tag="div" #}
+{#css jxui.css, tab/tab.css #}
+
+{% do attrs.setdefault(tabindex="0") %}
+{% if hidden %}
+  {% do attrs.set(aria_hidden=True) %}
+{% endif %}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-tab-panel",
+  role="tabpanel",
+  data_ui__tabs_target="panel",
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

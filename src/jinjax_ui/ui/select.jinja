@@ -1,0 +1,58 @@
+{#def
+  label: str = "Default label",
+  id: str | None = None,
+  caption: str | None = None,
+  size: str | None = None,
+  block: bool = False,
+  required: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  valid: str | None = None,
+  invalid: str | None = None,
+  placeholder: str | None = None,
+#}
+{#css jxui.css, select.css #}
+
+{% set id = id or get_random_id() %}
+{% set caption = caption %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+<Form.Field
+  class="jxui-select"
+  id={{id}}
+  caption={{caption}}
+  size={{size}}
+  block={{block}}
+  required={{required}}
+  disabled={{disabled}}
+  loading={{loading}}
+  valid={{valid}}
+  invalid={{invalid}}
+>
+  {% if label %}<Form.Label for={{id}}>{{ label }}</Form.Label>{% endif %}
+  <Form.Wrapper>
+    <select {{ attrs.render(
+      class="jxui-select-select",
+      id=id,
+      required=required,
+      disabled=disabled,
+    ) }}>
+    {%- if placeholder -%}
+      <option>{{ placeholder }}</option>
+    {%- endif -%}
+    {{ content() }}</select>
+
+    <span class="jxui-select-icon">
+      {% if loading -%}
+        <Form.Loading />
+      {%- else -%}
+        <Icon class="jxui-select-arrow" name="arrow_drop_down" />
+      {%- endif %}
+    </span>
+  </Form.Wrapper>
+</Form.Field>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

@@ -1,0 +1,54 @@
+{#def
+  title: str = "",
+  icon: str | None = None,
+  var: str = "info",
+  dismissible: bool = False,
+#}
+{#css jxui.css, alert/alert.css #}
+{#js stimulus.js, alert/alert.js #}
+
+{% if icon == None %}
+  {% set icon = ({
+    "info": "info",
+    "success": "check_circle",
+    "warning": "warning",
+    "critical": "error",
+    "option": "add_circle",
+    "accent": "notifications_active",
+  }).get(var, "info") %}
+{% endif %}
+
+{% do attrs.set(data_var=var) %}
+
+{% if title %}
+  {% do attrs.add_class("jxui-alert--entitled") %}
+{% endif %}
+
+{% if dismissible %}
+  {% do attrs.set(data_controller="ui--alert", data_dismissible=true) %}
+{% endif %}
+
+<section {{ attrs.render(class="jxui-alert", role="alert") }}>
+  <div class="jxui-alert-icon">
+    <Icon name={{ icon }} />
+  </div>
+  <div class="jxui-alert-content">
+    {% if title %}<h2 class="jxui-alert-title" data-outline-skip>{{ title }}</h2>{% endif %}
+    {{ content }}
+  </div>
+  {% if dismissible %}
+    <Button
+      class="jxui-alert-dismiss"
+      data-action="ui--alert#dismiss"
+      aria-label="Dismiss alert"
+      title="Dismiss alert"
+      var="ghost"
+      shape="square"
+      size="mini"
+    >
+      <Icon name="close" />
+    </Button>
+  {% endif %}
+</section>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

@@ -1,0 +1,60 @@
+{#def
+  href: str | None = None,
+  var: str | None = None,
+  size: str | None = None,
+  shape: str | None = None,
+  block: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  icon: str | None = None,
+#}
+{#css jxui.css, button.css #}
+
+{% if href %}
+  {% set tag = "a" %}
+{% else %}
+  {% set tag = "button" %}
+  {% do attrs.setdefault(type="button") %}
+{% endif %}
+
+{% if var %}
+  {% do attrs.set(data_var=var) %}
+{% endif %}
+
+{% if size %}
+  {% do attrs.set(data_size=size) %}
+{% endif %}
+
+{% if block %}
+  {% set shape = "block" %}
+{% endif %}
+{% if shape %}
+  {% do attrs.set(data_shape=shape) %}
+{% endif %}
+
+{% if loading %}
+  {% do attrs.set(aria_busy="true") %}
+  {% set disabled = true %}
+{% endif %}
+
+{% if disabled %}
+  {% if tag == "a" %}
+    {% do attrs.set(tabindex=-1, data_disabled=true) %}
+    {% set href = None %}
+  {% else %}
+    {% do attrs.set(disabled=true) %}
+  {% endif %}
+{% endif %}
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}
+
+<{{ tag }} {{ attrs.render(class="jxui-button", href=href) }}>
+  {%- if loading -%}
+    <Form.Loading />
+  {%- elif icon -%}
+    <Icon class="jxui-button-icon" name={{ icon }} />
+  {%- endif -%}
+  {{ content }}
+</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

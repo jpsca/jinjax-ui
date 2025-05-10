@@ -1,0 +1,14 @@
+{#def disabled=false, tag="div" #}
+{#css jxui.css, menu/menu.css #}
+
+{% if disabled -%}
+  {% do attrs.set(class="jxui-disabled") %}
+{%- endif %}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-menuitem jxui-menuitem-sub",
+  role="menuitem",
+  tabindex="-1",
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

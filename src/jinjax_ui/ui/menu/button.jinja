@@ -1,0 +1,17 @@
+{#def target, action=None, tag="button" #}
+{#css jxui.css, menu/menu.css #}
+
+{%- if tag == "button" -%}
+  {% do attrs.setdefault(type="button", tabindex="0") %}
+{%- endif -%}
+
+{%- if action and action in ["hide", "show", "toggle"] -%}
+  {% do attrs.set(popovertargetaction=action) %}
+{%- endif -%}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-menu-button",
+  popovertarget=target,
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

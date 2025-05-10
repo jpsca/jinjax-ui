@@ -1,0 +1,11 @@
+{#def id, close_delay=0 #}
+{#css jxui.css, dialog/dialog.css #}
+{#js stimulus.js, dialog/dialog.js #}
+
+<dialog {{ attrs.render(
+  class="jxui-dialog",
+  id=id,
+  data_close_delay=close_delay,
+) }}>{{ content }}</dialog>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

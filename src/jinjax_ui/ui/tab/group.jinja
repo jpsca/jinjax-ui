@@ -1,0 +1,19 @@
+{#def
+  manual=False,
+  position = "top",
+  align = "start",
+  tag="div",
+#}
+{#css jxui.css, tab/tab.css #}
+{#js stimulus.js, tab/tab.js #}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-tab-group",
+  aria_orientation="vertical" if position in ("left", "right") else "horizontal",
+  data_position=position,
+  data_align=align,
+  data_controller="ui--tabs",
+  data_ui__tabs_manual_value=("1" if manual else "0"),
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

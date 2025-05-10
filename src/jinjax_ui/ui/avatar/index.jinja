@@ -1,0 +1,25 @@
+{#def
+  src: str = "",
+  alt: str = "",
+  size: str = "",
+  href: str | None = None,
+  square: bool = False,
+  on: bool = False,
+  off: bool = false,
+#}
+{#css jxui.css, avatar/avatar.css #}
+
+{% set tag = "a" if href else "span" %}
+
+{% if size %}
+{% do attrs.set(data_size=size) %}
+{% endif %}
+
+<{{ tag }} {{ attrs.render(class="jxui-avatar", href=href, data_square=square, data_on=on, data_off=off) }}>
+  {% if alt %}<span>{{ alt }}</span>{% endif %}
+  {% if src -%}
+    <img src="{{ src }}" onload="this.style.display='block'" alt="{{ alt }}" />
+  {%- endif %}
+</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

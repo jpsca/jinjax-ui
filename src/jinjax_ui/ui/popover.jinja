@@ -1,0 +1,19 @@
+{#def mode="auto", anchor=None, anchor_to=None, tag="div" #}
+{#css jxui.css, popover.css #}
+{#js stimulus.js, popover.js #}
+
+{% set mode = mode if mode in ["auto", "manual"] else "auto" %}
+
+{% if anchor %}
+  {% set anchor_to = (anchor_to or "bottom").strip() %}
+  {% do attrs.set(data_anchor=anchor, data_anchor_to=anchor_to) %}
+{% endif %}
+
+{% do attrs.set(class="ui-pop") %}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-popover",
+  popover=mode,
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

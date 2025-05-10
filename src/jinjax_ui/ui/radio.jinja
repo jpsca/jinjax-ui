@@ -1,0 +1,52 @@
+{#def
+  label: str = "Default label",
+  id: str | None = None,
+  caption: str | None = None,
+  icon: str | None = None,
+  size: str | None = None,
+  block: bool = False,
+  required: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  valid: str | None = None,
+  invalid: str | None = None,
+#}
+{#css jxui.css, radio.css #}
+
+{% set id = id or get_random_id() %}
+{% set caption = caption or content() %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+<Form.Field
+  class="jxui-radio"
+  id={{id}}
+  size={{size}}
+  block={{block}}
+  required={{required}}
+  disabled={{disabled}}
+  loading={{loading}}
+  valid={{valid}}
+  invalid={{invalid}}
+>
+  <input {{ attrs.render(
+    class="jxui-radio-input",
+    type="radio",
+    id=id,
+    required=required,
+    disabled=disabled,
+  ) }} />
+  {% if icon -%}
+    <Icon class="jxui-radio-icon" name={{ icon }} />
+  {% endif -%}
+  <div>
+    <Form.Label for={{id}}>{{ label }}</Form.Label>
+    {% if caption -%}
+      <Form.Caption id={{id + "-caption"}}>{{ caption }}</Form.Caption>
+    {%- endif %}
+  </div>
+</Form.Field>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

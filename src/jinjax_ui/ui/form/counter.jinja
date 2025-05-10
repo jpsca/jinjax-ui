@@ -1,0 +1,26 @@
+{#def
+  min: str | int | None = None,
+  max: str | int | None = None,
+#}
+{#css jxui.css, form/field.css #}
+{#js stimulus.js, form/counter.js #}
+
+<div
+  class="jxui-form-counter"
+  data-ui--form-counter-target="counter"
+>
+  <data
+    class="jxui-form-counter-current"
+    data-ui--form-counter-target="count"
+  >0</data>
+  {%- if min or max %} / {% endif -%}
+  {%- if min -%}
+    <data class="jxui-form-counter-min">{{ min }}</data>
+  {%- endif -%}
+  {%- if min and max %}&#x2009;-&#x2009{% endif -%}
+  {%- if max -%}
+    <data class="jxui-form-counter-max">{{ max }}</data>
+  {%- endif -%}
+</div>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

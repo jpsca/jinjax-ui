@@ -1,0 +1,12 @@
+{#def caption: str = "", border: bool = False #}
+{#css jxui.css, table.css #}
+
+{% if border %}{% do attrs.set(class="jxui-table--bordered") %}{% endif %}
+
+<div {{ attrs.render(class="jxui-table-wrapper") }}>
+<table class="jxui-table">
+{%- if caption %}<caption class="bottom">{{ caption }}</caption>{% endif %}
+{{content}}</table>
+</div>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

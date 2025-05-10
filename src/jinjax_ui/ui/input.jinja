@@ -1,0 +1,73 @@
+{#def
+  label: str = "Default label",
+  id: str | None = None,
+  type: str = "text",
+  caption: str | None = None,
+  size: str | None = None,
+  block: bool = False,
+  required: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  valid: str | None = None,
+  invalid: str | None = None,
+  countermin: int | None = None,
+  countermax: int | None = None,
+  leading: str | None = None,
+  leading_text: str | None = None,
+  trailing: str | None = None,
+  trailing_text: str | None = None,
+#}
+{#css jxui.css, input.css #}
+
+{% set id = id or get_random_id() %}
+{% set caption = caption or content() %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+{% if countermin or countermax %}
+  {% do attrs.set(data_ui__form_counter_target="input") %}
+{% endif %}
+
+<Form.Field
+  class="jxui-input"
+  id={{id}}
+  caption={{caption}}
+  size={{size}}
+  block={{block}}
+  required={{required}}
+  disabled={{disabled}}
+  loading={{loading}}
+  valid={{valid}}
+  invalid={{invalid}}
+  countermax={{countermax}}
+  countermin={{countermin}}
+>
+  <Form.Label for={{id}}>{{ label }}</Form.Label>
+  <Form.Wrapper>
+    {%- if leading %}
+      <Icon class="jxui-input-leading" name={{ leading }} />
+    {%- elif leading_text %}
+      <span class="jxui-input-leading">{{ leading_text }}</span>
+    {%- endif -%}
+
+    <input {{ attrs.render(
+      class="jxui-input-input",
+      id=id,
+      type=type,
+      required=required,
+      disabled=disabled,
+    ) }} />
+
+    {%- if loading %}
+      <Form.Loading />
+    {%- elif trailing %}
+      <Icon class="jxui-input-trailing" name={{ trailing }} />
+    {%- elif trailing_text %}
+      <span class="jxui-input-trailing">{{ trailing_text }}</span>
+    {%- endif %}
+  </Form.Wrapper>
+</Form.Field>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

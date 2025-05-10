@@ -1,0 +1,13 @@
+{#def id, linked_to, active=False, sorted=True, tag="ul" #}
+{#css jxui.css, linked-list.css #}
+{#js stimulus.js, linked-list.js #}
+
+<{{ tag }} {{ attrs.render(
+  id=id,
+  class="jxui-linked-list",
+  data_linked_to=linked_to,
+  data_linked_active=active,
+  data_linked_sorted=sorted,
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

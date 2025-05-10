@@ -1,0 +1,10 @@
+{#def tag="nav" #}
+{#css jxui.css, tab/tab.css #}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-tab-list",
+  role="tablist",
+  tabindex="-1",
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

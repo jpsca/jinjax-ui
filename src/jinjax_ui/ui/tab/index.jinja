@@ -1,0 +1,29 @@
+{#def
+  target,
+  selected=false,
+  disabled=false,
+  tag="button",
+#}
+{#css jxui.css, tab/tab.css #}
+{#js stimulus.js, tab/tab.js #}
+
+{%- if tag == "button" -%}
+  {% do attrs.setdefault(type="button") %}
+{%- endif -%}
+
+{% if disabled %}
+  {% do attrs.set(aria_disabled=True) %}
+{% elif selected %}
+  {% do attrs.set(aria_selected=True) %}
+{% endif %}
+
+<{{ tag }} {{ attrs.render(
+  class="jxui-tab",
+  role="tab",
+  aria_controls=target,
+  tabindex="0" if selected else "-1",
+  data_ui__tabs_target="tab",
+  data_action="ui--tabs#selectTab:prevent keydown->ui--tabs#keydown",
+) }}>{{ content }}</{{ tag }}>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

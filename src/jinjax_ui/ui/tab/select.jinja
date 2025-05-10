@@ -1,0 +1,27 @@
+{#def
+  label="",
+  id=None,
+  caption=None,
+  size=None,
+  block=False,
+  placeholder=None,
+#}
+{#css jxui.css, tab/tab.css #}
+
+{% do attrs.set(
+  class="jxui-tab-select",
+  aria_hidden=True,
+  tabindex="0",
+  label=label,
+  id=id,
+  caption=caption,
+  size=size,
+  block=block,
+  placeholder=placeholder,
+  data_ui__tabs_target="select",
+  data_action="change->ui--tabs#chooseTab",
+) %}
+
+<Select __attrs={{ attrs }}>{{ content }}</Select>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

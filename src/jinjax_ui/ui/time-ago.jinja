@@ -1,0 +1,14 @@
+{#def datetime, now="" #}
+{#js stimulus.js, time-ago.js #}
+
+{% if now %}
+  {% do attrs.set(data_now=now) %}
+{% endif%}
+
+<time {{ attrs.render(
+  class="jxui-time-ago",
+  datetime=datetime,
+  data_controller="ui--time-ago"
+) }}>{{ content }}</time>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

@@ -1,0 +1,53 @@
+{#def
+  label: str = "Default label",
+  id: str | None = None,
+  caption: str | None = None,
+  size: str | None = None,
+  block: bool = False,
+  required: bool = False,
+  disabled: bool = False,
+  loading: bool = False,
+  valid: str | None = None,
+  invalid: str | None = None,
+  countermin: int | None = None,
+  countermax: int | None = None,
+#}
+{#css jxui.css, input.css #}
+
+{% set id = id or get_random_id() %}
+{% do attrs.setdefault(rows=4) %}
+
+{% if caption %}
+  {% do attrs.set(aria_describedby=id + "-caption") %}
+{% endif %}
+
+{% if countermin or countermax %}
+  {% do attrs.set(data_ui__form_counter_target="input") %}
+{% endif %}
+
+<Form.Field
+  class="jxui-textarea"
+  id={{id}}
+  caption={{caption}}
+  size={{size}}
+  block={{block}}
+  required={{required}}
+  disabled={{disabled}}
+  loading={{loading}}
+  valid={{valid}}
+  invalid={{invalid}}
+  countermax={{countermax}}
+  countermin={{countermin}}
+>
+  <Form.Label for={{id}}>{{ label }}</Form.Label>
+  <Form.Wrapper>
+    <textarea {{ attrs.render(
+      class="jxui-textarea-input",
+      id=id,
+      required=required,
+      disabled=disabled,
+    ) }}>{{ content() }}</textarea>
+  </Form.Wrapper>
+</Form.Field>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}

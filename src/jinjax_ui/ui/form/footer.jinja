@@ -1,0 +1,30 @@
+{#def
+  target: str = "",
+  valid: str | None = None,
+  invalid: str | None = None,
+  caption: str | None = None,
+  countermax: str | int | None = None,
+  countermin: str | int | None = None,
+#}
+{#css jxui.css, form/field.css #}
+
+<div class="jxui-form-footer">
+  {% if valid or invalid or caption -%}
+  <div>
+    {% if valid -%}
+      <span class="jxui-form-valid"><Icon name="check" /> {{valid}}</span>
+    {%- endif %}
+    {% if invalid -%}
+      <span class="jxui-form-invalid"><Icon name="cancel" /> {{invalid}}</span>
+    {%- endif %}
+    {% if caption -%}
+      <Form.Caption id={{target + "-caption"}}>{{caption}}</Form.Caption>
+    {%- endif %}
+  </div>
+  {%- endif %}
+  {% if countermax or countermin -%}
+    <Form.Counter min={{countermin}} max={{countermax}} />
+  {%- endif %}
+</div>
+
+{# JinjaX-UI. Copyright Juan-Pablo Scaletti. MIT License #}
