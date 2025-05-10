@@ -284,8 +284,8 @@
     --ui-font-size-lg: 1.125rem; /* 18px */
     --ui-font-size-xl: 1.3125rem; /* 21px */
     --ui-font-size-2xl: 1.5rem; /* 24px */
-    --ui-font-size-3xl: 2.625rem; /* 42px */
-    --ui-font-size-4xl: 4rem; /* 64px */
+    --ui-font-size-3xl: 2rem; /* 32px */
+    --ui-font-size-4xl: 2.5rem; /* 40px */
 
     --ui-radius-sm: 2px;
     --ui-radius-base: 4px;

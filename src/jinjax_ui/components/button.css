@@ -116,12 +116,13 @@
 }
 
 .jxui-button[data-var="outline"] {
+  --btn-fg: unset;
   --btn-bg: transparent;
   --btn-shadow: none;
 }
 
 .jxui-button[data-var="ghost"] {
-  --btn-bg: transparent;
+  --btn-bg: unset;
   --btn-border: transparent;
   --btn-shadow: none;
 }
@@ -218,13 +219,9 @@
 /**************** Sizes ****************/
 
 .jxui-button {
-  font-size: var(--font-size, var(--ui-font-size-base));
-  gap: var(--8px);
-  height: var(--40px);
   width: auto;
   flex-shrink: 0;
   flex-grow: 0;
-  padding: 0 16px;
 }
 .jxui-button[data-size="mini"] {
   font-size: var(--font-size, var(--ui-font-size-xs));
@@ -237,6 +234,13 @@
   gap: var(--6px);
   height: var(--32px);
   padding: 0 12px;
+}
+.jxui-button[data-size="medium"],
+.jxui-button:not([data-size]) {
+  font-size: var(--font-size, var(--ui-font-size-base));
+  gap: var(--8px);
+  height: var(--40px);
+  padding: 0 16px;
 }
 .jxui-button[data-size="large"] {
   font-size: var(--font-size, var(--ui-font-size-lg));
@@ -255,26 +259,29 @@
 
 .jxui-button:is([data-shape="square"],[data-shape="circle"]) {
   line-height: 1;
-  font-size: var(--font-size, var(--ui-font-size-lg));
   padding: 0;
   aspect-ratio: 1;
-  width: var(--40px);
 }
 .jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="mini"]) {
   width: var(--28px);
-  font-size: var(--font-size, var(--ui-font-size-xs));
+  font-size: var(--font-size, var(--ui-font-size-md));
 }
 .jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="small"]) {
   width: var(--32px);
-  font-size: var(--font-size, var(--ui-font-size-sm));
+  font-size: var(--font-size, var(--ui-font-size-lg));
+}
+.jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="medium"]),
+.jxui-button:is([data-shape="square"],[data-shape="circle"]):not([data-size]) {
+  width: var(--40px);
+  font-size: var(--font-size, var(--ui-font-size-xl));
 }
 .jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="large"]) {
   width: var(--48px);
-  font-size: var(--font-size, var(--ui-font-size-xl));
+  font-size: var(--font-size, var(--ui-font-size-2xl));
 }
 .jxui-button:is([data-shape="square"],[data-shape="circle"]):is([data-size="xlarge"]) {
   width: var(--64px);
-  font-size: var(--font-size, var(--ui-font-size-xl));
+  font-size: var(--font-size, var(--ui-font-size-3xl));
 }
 .jxui-button[data-shape="circle"] {
   border-radius: 100%;
