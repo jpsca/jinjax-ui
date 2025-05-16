@@ -1,4 +1,4 @@
-/* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
+  /* Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com> */
 .jxui-alert {
   --alert-color: var(--ui-bg-neutral);
 }
@@ -24,24 +24,28 @@
 .jxui-alert {
   position: relative;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 20px;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: flex-start;
-  padding: 10px;
-  background-color: color-mix(in srgb, var(--alert-color) 10%, #fff);
-  border: 1px solid var(--alert-color);
+  padding: 12px 20px;
+  background: radial-gradient(
+    ellipse at 50% 10%,
+    color-mix(in srgb, var(--alert-color) 1%, white) 25%,
+    color-mix(in srgb, var(--alert-color) 14%, white)
+  );
+  outline: 1px solid color-mix(in srgb, var(--alert-color), rgba(0,0,0,0.2) 20%);
+  color: color-mix(in srgb, var(--alert-color), black 50%);
+  box-shadow:
+    var(--ui-shadow-default),
+    inset 0 2px 0px white
+  ;
   opacity: 1;
   margin-top: 0;
   transition-duration: 0.3s;
   transition-property: opacity, margin;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
-}
-@supports (color: color-mix(in lab,red,red)) {
-  .jxui-alert {
-    background-color: color-mix(in oklch, var(--alert-color) 10%, #fff);
-  }
 }
 
 .jxui-alert.dismissed {
@@ -55,36 +59,43 @@
   line-height: 1;
 }
 .jxui-alert-icon {
-  font-size: var(--ui-font-size-xl);
-  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: var(--ui-font-size-2xl);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
 }
 .jxui-alert-dismiss {
-  --font-size: var(--ui-font-size-lg);
-  margin-top: 2px;
+  --font-size: var(--ui-font-size-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: inherit;
+}
+.jxui-alert-dismiss > button {
+  color: inherit !important;
 }
 
 .jxui-alert-content {
-  font-size: var(--ui-font-size-md);
   padding: 0 10px 0 8px;
   display: block;
   flex-grow: 1;
+  align-items: center;
 }
 
 .jxui-alert-title {
-  font-size: inherit;
-  font-weight: 600;
+  font-size: var(--ui-font-size-md);
+  font-weight: 800;
   padding: 2px 10px 0;
   margin: 0;
+  flex-wrap: nowrap;
 }
 
 .jxui-alert-description {
   padding: 0 10px;
   margin: 0;
   flex-grow: 1;
+  font-size: var(--ui-font-size-sm);
 }
 
 .jxui-alert-actions {
@@ -95,22 +106,25 @@
   flex-wrap: nowrap;
   align-self: flex-start;
   font-size: var(--ui-font-size-sm);
-  padding: 10px 0 5px;
+  padding: 10px 10px 5px;
   flex-direction: row;
 }
+/* .jxui-alert-actions button {
+  color: color-mix(in srgb, var(--alert-color), black 50%) !important;
+} */
 
 .jxui-alert{
   container: alert / inline-size;
 }
 
-@container alert (min-width: var(--ui-breakpoint-xs)) {
-  .jxui-alert-content:not(.jxui-alert--entitled .jxui-alert-content) {
+@container alert (min-width: 32rem) {
+  .jxui-alert-content:not(.jxui-alert--titled .jxui-alert-content) {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
   }
-  .jxui-alert-actions:not(.jxui-alert--entitled .jxui-alert-actions) {
+  .jxui-alert-actions:not(.jxui-alert--titled .jxui-alert-actions) {
     padding: 0;
     flex-direction: row-reverse;
   }

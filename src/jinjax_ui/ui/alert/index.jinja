@@ -21,7 +21,7 @@
 {% do attrs.set(data_var=var) %}
 
 {% if title %}
-  {% do attrs.add_class("jxui-alert--entitled") %}
+  {% do attrs.add_class("jxui-alert--titled") %}
 {% endif %}
 
 {% if dismissible %}
@@ -37,16 +37,17 @@
     {{ content }}
   </div>
   {% if dismissible %}
-    <Button
-      class="jxui-alert-dismiss"
-      data-action="ui--alert#dismiss"
-      aria-label="Dismiss alert"
-      title="Dismiss alert"
-      var="ghost"
-      shape="square"
-      size="mini"
-    >
-      <Icon name="close" />
+    <div class="jxui-alert-dismiss">
+      <Button
+        data-action="ui--alert#dismiss"
+        aria-label="Dismiss alert"
+        title="Dismiss alert"
+        var="ghost"
+        shape="square"
+        size="mini"
+      >
+        <Icon name="close" />
+      </div>
     </Button>
   {% endif %}
 </section>
