@@ -25,7 +25,15 @@ copyright: Copyright (c) Juan-Pablo Scaletti <juanpablo@jpscaletti.com>
   catalog.add_folder(jinjax_ui.components_path, prefix="ui")
   ```
 
-3. Use the UI components in your components/templates:
+3. Add the global CSS and JS files to your project:
+
+  ```html+jinja
+  <head>
+    <ui:Globals />
+    ...
+  ```
+
+4. Use the UI components in your components/templates:
 
   ```html+jinja
   <ui:Alert> ... </ui:Alert>
